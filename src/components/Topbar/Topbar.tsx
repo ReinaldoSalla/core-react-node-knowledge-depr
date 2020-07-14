@@ -11,6 +11,7 @@ import {
 } from './Topbar-styles';
 import { useSpring, config } from 'react-spring';
 import TopbarProps from './Topbar.interfaces';
+import Sidebar from '../Sidebar';
 
 // const TopbarItem: FunctionComponent = (): JSX.Element => (
 
@@ -19,10 +20,6 @@ import TopbarProps from './Topbar.interfaces';
 // const TopbarItems: FunctionComponent = (): JSX.Element => (
   
 // );
-
-const TopbarContent: FunctionComponent = (): JSX.Element => (
-  <h1>test</h1>
-);
 
 const TopbarIcon: FunctionComponent<TopbarProps> = ({
   isSidebarVisible,
@@ -35,7 +32,7 @@ const TopbarIcon: FunctionComponent<TopbarProps> = ({
   return (
     <Fragment>
       <TopbarSvg style={iconAnimation} onClick={toggleSidebar}/>
-      {/* { isSidebarVisible && <TopbarContent />} */}
+      <Sidebar isSidebarVisible={isSidebarVisible}/>
     </Fragment>
   );
 };
