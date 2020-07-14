@@ -9,7 +9,8 @@ import {
   TopbarList,
   TopbarNavigation
 } from './Topbar-styles';
-import { useSpring, animated } from 'react-spring';
+import { useSpring, config } from 'react-spring';
+import TopbarProps from './Topbar.interfaces';
 
 // const TopbarItem: FunctionComponent = (): JSX.Element => (
 
@@ -23,25 +24,33 @@ const TopbarContent: FunctionComponent = (): JSX.Element => (
   <h1>test</h1>
 );
 
-const TopbarIcon: FunctionComponent = (): JSX.Element => {
-  const [isVisible, setIsVisible] = useState<boolean>(false);
+const TopbarIcon: FunctionComponent<TopbarProps> = ({
+  isSidebarVisible,
+  toggleSidebar
+}): JSX.Element => {
   const iconAnimation = useSpring({
-    transform: isVisible ? 'rotate(180deg)' : 'rotate(0deg)' 
+    config: config.slow,
+    transform: isSidebarVisible ? 'rotate(180deg)' : 'rotate(0deg)' 
   });
-  const handleClick = () => setIsVisible(!isVisible);
   return (
     <Fragment>
-      <TopbarSvg style={iconAnimation} onClick={handleClick}/>
-      {/* { isVisible && <TopbarContent />} */}
+      <TopbarSvg style={iconAnimation} onClick={toggleSidebar}/>
+      {/* { isSidebarVisible && <TopbarContent />} */}
     </Fragment>
   );
 };
 
-const Topbar: FunctionComponent = (): JSX.Element => (
+const Topbar: FunctionComponent<TopbarProps> = ({
+  isSidebarVisible, 
+  toggleSidebar
+}): JSX.Element => (
   <TopbarNavigation>
     <TopbarList>
       <TopbarListItem>
-        <TopbarIcon />
+        <TopbarIcon 
+          isSidebarVisible={isSidebarVisible} 
+          toggleSidebar={toggleSidebar}
+        />
       </TopbarListItem>
       <TopbarListItem>b</TopbarListItem>
       <TopbarListItem>c</TopbarListItem>
