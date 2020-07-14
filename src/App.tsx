@@ -6,6 +6,7 @@ import React, {
 import { useSpring, animated, config } from 'react-spring';
 import GlobalStyle from './App-styles';
 import Topbar from './components/Topbar';
+import Sidebar from './components/Sidebar';
 
 interface TextProps {
   isSidebarVisible: boolean
@@ -41,7 +42,8 @@ const App: FunctionComponent = (): JSX.Element => {
         isSidebarVisible={isSidebarVisible} 
         toggleSidebar={toggleSidebar}
       />
-      <Text isSidebarVisible={isSidebarVisible}/>
+      <Sidebar isSidebarVisible={isSidebarVisible} />
+      <Text isSidebarVisible={isSidebarVisible} />
     </Fragment>
   );
 };

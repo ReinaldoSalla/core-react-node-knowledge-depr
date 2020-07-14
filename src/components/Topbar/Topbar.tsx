@@ -32,7 +32,7 @@ const TopbarIcon: FunctionComponent<TopbarProps> = ({
   return (
     <Fragment>
       <TopbarSvg style={iconAnimation} onClick={toggleSidebar}/>
-      <Sidebar isSidebarVisible={isSidebarVisible}/>
+      
     </Fragment>
   );
 };
@@ -41,18 +41,21 @@ const Topbar: FunctionComponent<TopbarProps> = ({
   isSidebarVisible, 
   toggleSidebar
 }): JSX.Element => (
-  <TopbarNavigation>
-    <TopbarList>
-      <TopbarListItem>
-        <TopbarIcon 
-          isSidebarVisible={isSidebarVisible} 
-          toggleSidebar={toggleSidebar}
-        />
-      </TopbarListItem>
-      <TopbarListItem>b</TopbarListItem>
-      <TopbarListItem>c</TopbarListItem>
-    </TopbarList>
-  </TopbarNavigation>    
+  <Fragment>
+    <TopbarNavigation>
+      <TopbarList>
+        <TopbarListItem>
+          <TopbarIcon 
+            isSidebarVisible={isSidebarVisible} 
+            toggleSidebar={toggleSidebar}
+          />
+        </TopbarListItem>
+        <TopbarListItem>b</TopbarListItem>
+        <TopbarListItem>c</TopbarListItem>
+      </TopbarList>
+    </TopbarNavigation>    
+    {/* <Sidebar isSidebarVisible={isSidebarVisible}/> */}
+  </Fragment>
 );
 
 export default Topbar;
