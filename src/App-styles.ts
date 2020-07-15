@@ -10,8 +10,8 @@ const GlobalStyle = createGlobalStyle`
     font-family: sans-serif;
   }
 
-  /* body::-webkit-scrollbar {
-    width: 0.25rem;
+  body::-webkit-scrollbar {
+    width: 0.5rem;
   }
 
   body::-webkit-scrollbar-track {
@@ -19,12 +19,14 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body::-webkit-scrollbar-thumb {
-    background: #6649b8;
-  } */
+    background: gray;
+  }
 
-  #root {
+  :root {
     /* height: 100%;
     width: 100%; */
+    /* scrollbar-color: rgb(210,210,210) rgb(46,54,69) !important; */
+    scrollbar-width: thin !important;
   }
 
   ul {
