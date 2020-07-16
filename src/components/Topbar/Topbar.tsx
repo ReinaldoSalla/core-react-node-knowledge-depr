@@ -8,7 +8,7 @@ import {
   TopbarList,
   TopbarNavigation
 } from './Topbar-styles';
-import { useSpring, config } from 'react-spring';
+import { animated, useSpring, config } from 'react-spring';
 import TopbarProps from './Topbar.interfaces';
 
 // const TopbarItem: FunctionComponent = (): JSX.Element => (
@@ -21,11 +21,11 @@ import TopbarProps from './Topbar.interfaces';
 
 const TopbarIcon: FunctionComponent<TopbarProps> = ({
   isSidebarVisible,
-  toggleSidebar
+  toggleSidebar,
 }): JSX.Element => {
   const iconAnimation = useSpring({
-    config: config.slow,
-    transform: isSidebarVisible ? 'rotate(180deg)' : 'rotate(0deg)' 
+    config: config.molasses,
+    to: {transform: isSidebarVisible ? 'rotate(180deg)' : 'rotate(0deg)' }
   });
   return (
     <Fragment>
@@ -52,7 +52,6 @@ const Topbar: FunctionComponent<TopbarProps> = ({
         <TopbarListItem>c</TopbarListItem>
       </TopbarList>
     </TopbarNavigation>    
-    {/* <Sidebar isSidebarVisible={isSidebarVisible}/> */}
   </Fragment>
 );
 

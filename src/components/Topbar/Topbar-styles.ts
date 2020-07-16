@@ -17,6 +17,7 @@ const TopbarListItem = styled.li`
   margin: 0.5em;
   display: flex;
   align-items: center;
+  color: white;
 `;
 
 const TopbarList = styled.ul`
@@ -24,17 +25,20 @@ const TopbarList = styled.ul`
   height: 100%;
   display: flex;
   justify-content: space-evenly;
-  border: 1px solid red;
 `;
 
 const TopbarNavigation = styled.nav`  
   margin: 0;
   padding: 0;
-  background: gray;
+  background: rgba(0, 0, 0, 0.9);
   height: 70px;
-  /* position: fixed; */
+  width: 100%;
+  position: fixed; 
+  transform: translateY(-20%);
   /* z-index: 1; */
 `;
+
+const AnimatedTopbarSvg = animated(TopbarSvg);
 
 export { 
   TopbarSvg,

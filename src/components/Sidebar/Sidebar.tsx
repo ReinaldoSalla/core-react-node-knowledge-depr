@@ -1,4 +1,5 @@
 import React, { 
+  useEffect,
   Fragment,
   FunctionComponent
  } from 'react';
@@ -13,7 +14,7 @@ import {
   SidebarContent,
   SidebarProps
 } from './Sidebar.interfaces';
-import { useSpring } from 'react-spring';
+import { useSpring, config } from 'react-spring';
 
 const sidebarContent: SidebarContent = {
   react: {
@@ -104,9 +105,17 @@ const Sidebar: FunctionComponent<SidebarProps> = ({
   isSidebarVisible
 }) => {
   const sidebarAnimation = useSpring({
-    marginLeft: isSidebarVisible ? '0px' : '-135px'
+    // marginLeft: isSidebarVisible ? '0px' : '-235px',
+    transform: isSidebarVisible ? 'translateX(0%)' : 'translateX(-100%)',
+    // opacity: isSidebarVisible ? 1 : 0
   });
+  // const { marginAnimation } = useSpring({ 
+  //   config: config.wobbly,
+  //   from: { marginAnimation: 0 },
+  //   marginAnimation: isSidebarVisible ? 0 : -235
+  // });
   return (
+    // <SidebarContainer style={{marginLeft: marginAnimation.interpolate(n => `${n}px`)}}>
     <SidebarContainer style={sidebarAnimation}>
       <SidebarItems
         title={sidebarContent.react.title}

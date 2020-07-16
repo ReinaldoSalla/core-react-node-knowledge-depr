@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
 
-const SidebarTextContainer = styled.nav`
+const SidebarTextContainer = styled.div`
   color: green;
 `;
 
@@ -9,15 +9,19 @@ const SidebarTitleContainer = styled.div`
   color: blue;
 `;
 
-const SidebarContainer = styled(animated.li)`
+const SidebarContainerTmp = styled.div`
   background: red;
   width: 200px;
   padding: 1em;
-  position: absolute;
+  position: fixed;
+  transform: translateY(70px);
 `;
+
+const SidebarContainer = animated(SidebarContainerTmp);
 
 export { 
   SidebarTextContainer,
   SidebarTitleContainer,
   SidebarContainer
 };
+
