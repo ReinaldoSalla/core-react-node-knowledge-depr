@@ -14,7 +14,6 @@ interface TextProps {
 
 const Text: FunctionComponent<TextProps> = ({ isSidebarVisible }) => {
   const textAnimation = useSpring({
-    // transform: isSidebarVisible ? 'translateX(30%)' : 'translateX(0%)'
     config: config.slow,
     marginLeft: isSidebarVisible ? '100%' : '0px'
   });

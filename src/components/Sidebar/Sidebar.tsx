@@ -1,18 +1,24 @@
 import React, { 
+  Fragment,
   FunctionComponent
  } from 'react';
 import { 
-  SidebarContainer,
-  SidebarTitle,
-  SidebarContent
+  SidebarTextContainer,
+  SidebarTitleContainer,
+  SidebarContainer
 } from './Sidebar.styles';
-import SidebarProps from './Sidebar.interfaces';
+import { 
+  SidebarItemsProps,
+  SidebarItemProps,
+  SidebarContent,
+  SidebarProps
+} from './Sidebar.interfaces';
 import { useSpring } from 'react-spring';
 
-const sidebarContents = {
+const sidebarContent: SidebarContent = {
   react: {
     title: 'React',
-    contents: [
+    items: [
       'Rendering',
       'Styling',
       'State and Props',
@@ -28,26 +34,27 @@ const sidebarContents = {
   },
   javascript: {
     title: 'Vanilla JavaScript',
-    contents: [
+    items: [
       'Data Structures',
       'Functions',
       'Conditionals and Loops',
-      'Map Filter Reduce',
+      'Map, Filter and Reduce',
+      'Iterators and Generators',
       'Closures',
       'Asyncronous Programming'
     ]
   },
   typescript: {
     title: 'Vanilla TypeScript',
-    contents: [
-      'Interfaces',
+    items: [
+      'Types and Interfaces',
       'Generics',
       'Decorators'
     ]
   },
   backend: {
     title: 'Backend',
-    contents: [
+    items: [
       'Node',
       'GraphQL',
       'MongoDB',
@@ -56,21 +63,42 @@ const sidebarContents = {
   },
   mobile: {
     title: 'Mobile',
-    contents: [
-      'React Native Crash Course',
+    items: [
+      'React Native',
+      'Sharing Code',
       'Push Notifications',
       'Camera'
     ],
   },
   projects: {
     title: 'Full Fledged Projects',
-    contents: [
+    items: [
+      'Portfolio',
       'Ecommerce',
       'News',
-      'Social Media'
+      'Social Media',
+      'Getting Hired'
     ],
   }
 };
+
+const SidebarItem: FunctionComponent<SidebarItemProps> = ({ 
+  item 
+}): JSX.Element => (
+  <SidebarTextContainer>{item}</SidebarTextContainer>
+);
+
+const SidebarItems: FunctionComponent<SidebarItemsProps> = ({ 
+  title, 
+  items 
+}): JSX.Element => (
+  <Fragment>
+    <SidebarTitleContainer>{title}</SidebarTitleContainer>
+    {items.map((item, index) => 
+      <SidebarItem key={index} item={item} />
+    )}
+  </Fragment>
+);
 
 const Sidebar: FunctionComponent<SidebarProps> = ({
   isSidebarVisible
@@ -80,10 +108,30 @@ const Sidebar: FunctionComponent<SidebarProps> = ({
   });
   return (
     <SidebarContainer style={sidebarAnimation}>
-      <SidebarTitle>{sidebarContents.javascript.title}</SidebarTitle>
-      {sidebarContents.javascript.contents.map((item, index) =>
-        <SidebarContent key={index}>{item}</SidebarContent>
-      )}
+      <SidebarItems
+        title={sidebarContent.react.title}
+        items={sidebarContent.react.items}
+      />
+      <SidebarItems
+        title={sidebarContent.javascript.title}
+        items={sidebarContent.javascript.items}
+      />
+      <SidebarItems
+        title={sidebarContent.typescript.title}
+        items={sidebarContent.typescript.items}
+      />
+      <SidebarItems 
+        title={sidebarContent.backend.title} 
+        items={sidebarContent.backend.items}
+      />
+      <SidebarItems
+        title={sidebarContent.mobile.title}
+        items={sidebarContent.mobile.items}
+      />
+      <SidebarItems
+        title={sidebarContent.projects.title}
+        items={sidebarContent.projects.items}
+      />
     </SidebarContainer>
   );
 };

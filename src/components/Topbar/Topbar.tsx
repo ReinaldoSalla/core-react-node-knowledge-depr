@@ -1,6 +1,5 @@
 import React, { 
   Fragment,
-  useState, 
   FunctionComponent 
 } from 'react';
 import {
@@ -11,7 +10,6 @@ import {
 } from './Topbar-styles';
 import { useSpring, config } from 'react-spring';
 import TopbarProps from './Topbar.interfaces';
-import Sidebar from '../Sidebar';
 
 // const TopbarItem: FunctionComponent = (): JSX.Element => (
 
