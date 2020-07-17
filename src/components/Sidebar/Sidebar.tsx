@@ -105,17 +105,18 @@ const Sidebar: FunctionComponent<SidebarProps> = ({
   isSidebarVisible
 }) => {
   const sidebarAnimation = useSpring({
-    // marginLeft: isSidebarVisible ? '0px' : '-235px',
-    transform: isSidebarVisible ? 'translateX(0%)' : 'translateX(-100%)',
-    // opacity: isSidebarVisible ? 1 : 0
+    from: { 
+      transform: 'translateX(100px)',
+      opacity: 0
+    },
+    to: async (next) => {
+      await next({ 
+        transform: isSidebarVisible ? 'translateX(0%)' : 'translateX(-220%)',
+        opacity: isSidebarVisible ? 1 : 0 
+      })
+    }
   });
-  // const { marginAnimation } = useSpring({ 
-  //   config: config.wobbly,
-  //   from: { marginAnimation: 0 },
-  //   marginAnimation: isSidebarVisible ? 0 : -235
-  // });
   return (
-    // <SidebarContainer style={{marginLeft: marginAnimation.interpolate(n => `${n}px`)}}>
     <SidebarContainer style={sidebarAnimation}>
       <SidebarItems
         title={sidebarContent.react.title}

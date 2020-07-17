@@ -3,7 +3,7 @@ import React, {
   FunctionComponent 
 } from 'react';
 import {
-  TopbarSvg, 
+  AnimatedTopbarSvg, 
   TopbarListItem,
   TopbarList,
   TopbarNavigation
@@ -24,13 +24,14 @@ const TopbarIcon: FunctionComponent<TopbarProps> = ({
   toggleSidebar,
 }): JSX.Element => {
   const iconAnimation = useSpring({
-    config: config.molasses,
-    to: {transform: isSidebarVisible ? 'rotate(180deg)' : 'rotate(0deg)' }
+    from: { transform: 'rotate(0deg)' },
+    to: async (next) => {
+      await next({ transform: isSidebarVisible ? 'rotate(180deg)' : 'rotate(0deg)' })
+    }
   });
   return (
     <Fragment>
-      <TopbarSvg style={iconAnimation} onClick={toggleSidebar}/>
-      
+      <AnimatedTopbarSvg style={iconAnimation} onClick={toggleSidebar}/>
     </Fragment>
   );
 };

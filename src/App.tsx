@@ -58,12 +58,12 @@ const App: FunctionComponent = (): JSX.Element => {
   const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>(false);
   const toggleSidebar = () => setIsSidebarVisible(!isSidebarVisible);
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      toggleSidebar()
-    }, 1500)
-    return () => clearInterval(intervalId);
-  });
+  // useEffect(() => {
+  //   const intervalId = setInterval(() => {
+  //     toggleSidebar()
+  //   }, 500)
+  //   return () => clearInterval(intervalId);
+  // });
 
   return (
     <Fragment>
