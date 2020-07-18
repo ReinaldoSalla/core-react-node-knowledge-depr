@@ -33,8 +33,9 @@ const TopbarNavigation = styled.nav`
   background: rgba(0, 0, 0, 0.9);
   height: 70px;
   width: 100%;
+  display: inline-block;
   position: fixed; 
-  transform: translateY(-20%);
+  /* transform: translateY(-20%); */
   /* z-index: 1; */
 `;
 

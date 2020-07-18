@@ -11,14 +11,6 @@ import {
 import { animated, useSpring, config } from 'react-spring';
 import TopbarProps from './Topbar.interfaces';
 
-// const TopbarItem: FunctionComponent = (): JSX.Element => (
-
-// );
-
-// const TopbarItems: FunctionComponent = (): JSX.Element => (
-  
-// );
-
 const TopbarIcon: FunctionComponent<TopbarProps> = ({
   isSidebarVisible,
   toggleSidebar,

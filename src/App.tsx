@@ -16,13 +16,15 @@ interface TextProps {
 
 const TextStyle = styled(animated.div)`
   color: purple;
-  /* position: absolute; */
-  transform: translateY(15%);
+  padding-top: 70px;
 `;
 
 const Text: FunctionComponent<TextProps> = ({ isSidebarVisible }) => {
   const textAnimation = useSpring({
-    marginLeft: isSidebarVisible ? '250px' : '10px'
+    from: { marginLeft: '10px' },
+    to: async (next) => {
+      await next({ marginLeft: isSidebarVisible ? '250px' : '10px' })
+    }
   });
   return (
     <TextStyle style={textAnimation}>
@@ -73,7 +75,7 @@ const App: FunctionComponent = (): JSX.Element => {
         toggleSidebar={toggleSidebar}
       />
       <Sidebar isSidebarVisible={isSidebarVisible} />
-      {/* <Text isSidebarVisible={isSidebarVisible} /> */}
+      <Text isSidebarVisible={isSidebarVisible} />
     </Fragment>
   );
 };
