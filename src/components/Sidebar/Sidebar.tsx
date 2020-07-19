@@ -1,5 +1,4 @@
 import React, { 
-  useEffect,
   Fragment,
   FunctionComponent
  } from 'react';
@@ -15,6 +14,7 @@ import {
   SidebarProps
 } from './Sidebar.interfaces';
 import { useSpring, config } from 'react-spring';
+import { Scrollbars } from 'react-custom-scrollbars';
 
 const sidebarContent: SidebarContent = {
   react: {
@@ -118,30 +118,32 @@ const Sidebar: FunctionComponent<SidebarProps> = ({
   });
   return (
     <SidebarContainer style={sidebarAnimation}>
-      <SidebarItems
-        title={sidebarContent.react.title}
-        items={sidebarContent.react.items}
-      />
-      <SidebarItems
-        title={sidebarContent.javascript.title}
-        items={sidebarContent.javascript.items}
-      />
-      <SidebarItems
-        title={sidebarContent.typescript.title}
-        items={sidebarContent.typescript.items}
-      />
-      <SidebarItems 
-        title={sidebarContent.backend.title} 
-        items={sidebarContent.backend.items}
-      />
-      <SidebarItems
-        title={sidebarContent.mobile.title}
-        items={sidebarContent.mobile.items}
-      />
-      <SidebarItems
-        title={sidebarContent.projects.title}
-        items={sidebarContent.projects.items}
-      />
+      {/* <Scrollbars style={{ width: '300px', height: '500px' }}> */}
+        <SidebarItems
+          title={sidebarContent.react.title}
+          items={sidebarContent.react.items}
+        />
+        <SidebarItems
+          title={sidebarContent.javascript.title}
+          items={sidebarContent.javascript.items}
+        />
+        <SidebarItems
+          title={sidebarContent.typescript.title}
+          items={sidebarContent.typescript.items}
+        />
+        <SidebarItems 
+          title={sidebarContent.backend.title} 
+          items={sidebarContent.backend.items}
+        />
+        <SidebarItems
+          title={sidebarContent.mobile.title}
+          items={sidebarContent.mobile.items}
+        />
+        <SidebarItems
+          title={sidebarContent.projects.title}
+          items={sidebarContent.projects.items}
+        />
+      {/* </Scrollbars> */}
     </SidebarContainer>
   );
 };

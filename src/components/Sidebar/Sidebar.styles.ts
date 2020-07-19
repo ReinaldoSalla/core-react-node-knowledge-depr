@@ -2,15 +2,16 @@ import styled from 'styled-components';
 import { animated } from 'react-spring';
 
 const SidebarTextContainer = styled.div`
-  color: green;
+  color: white;
 `;
 
 const SidebarTitleContainer = styled.div`
-  color: blue;
+  color: aqua;
+  font-size: 1.2em;
 `;
 
 const SidebarContainerTmp = styled.div`
-  background: red;
+  background: rgba(0, 0, 0, 0.9);
   width: 200px;
   padding: 1em;
   position: fixed;
@@ -24,4 +25,3 @@ export {
   SidebarTitleContainer,
   SidebarContainer
 };
-
