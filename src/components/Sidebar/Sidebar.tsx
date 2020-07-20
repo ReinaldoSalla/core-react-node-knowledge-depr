@@ -22,7 +22,8 @@ const sidebarContent: SidebarContent = {
     items: [
       'Rendering',
       'Styling',
-      'State and Props',
+			'State',
+			'Props',
       'Side Effects',
       'Refs',
       'Memoization',
@@ -38,17 +39,23 @@ const sidebarContent: SidebarContent = {
     items: [
       'Data Structures',
       'Functions',
-      'Conditionals and Loops',
-      'Map, Filter and Reduce',
-      'Iterators and Generators',
+			'Conditionals',
+			'Loops',
+			'Map',
+			'Filter',
+			'Reduce',
+			'Iterators',
+			'Generators',
       'Closures',
-      'Asyncronous Programming'
+			'Promises',
+			'Async Await'
     ]
   },
   typescript: {
     title: 'Vanilla TypeScript',
     items: [
-      'Types and Interfaces',
+			'Types',
+			'Interfaces',
       'Generics',
       'Decorators'
     ]
@@ -67,7 +74,7 @@ const sidebarContent: SidebarContent = {
     items: [
       'React Native',
       'Sharing Code',
-      'Push Notifications',
+      'Notifications',
       'Camera'
     ],
   },
@@ -117,33 +124,33 @@ const Sidebar: FunctionComponent<SidebarProps> = ({
     }
   });
   return (
-    <SidebarContainer style={sidebarAnimation}>
-      {/* <Scrollbars style={{ width: '300px', height: '500px' }}> */}
-        <SidebarItems
-          title={sidebarContent.react.title}
-          items={sidebarContent.react.items}
-        />
-        <SidebarItems
-          title={sidebarContent.javascript.title}
-          items={sidebarContent.javascript.items}
-        />
-        <SidebarItems
-          title={sidebarContent.typescript.title}
-          items={sidebarContent.typescript.items}
-        />
-        <SidebarItems 
-          title={sidebarContent.backend.title} 
-          items={sidebarContent.backend.items}
-        />
-        <SidebarItems
-          title={sidebarContent.mobile.title}
-          items={sidebarContent.mobile.items}
-        />
-        <SidebarItems
-          title={sidebarContent.projects.title}
-          items={sidebarContent.projects.items}
-        />
-      {/* </Scrollbars> */}
+		<SidebarContainer style={sidebarAnimation}>
+			<SidebarItems
+				title={sidebarContent.react.title}
+				items={sidebarContent.react.items}
+			/>
+			<SidebarItems
+				title={sidebarContent.javascript.title}
+				items={sidebarContent.javascript.items}
+			/>
+			<SidebarItems
+				title={sidebarContent.typescript.title}
+				items={sidebarContent.typescript.items}
+			/>
+			<SidebarItems 
+				title={sidebarContent.backend.title} 
+				items={sidebarContent.backend.items}
+			/>
+			<SidebarItems
+				title={sidebarContent.mobile.title}
+				items={sidebarContent.mobile.items}
+			/>
+			<SidebarItems
+				title={sidebarContent.projects.title}
+				items={sidebarContent.projects.items}
+			/>
+			<br />
+
     </SidebarContainer>
   );
 };
