@@ -5,7 +5,7 @@ import React, {
 import { 
   SidebarTextContainer,
   SidebarTitleContainer,
-  SidebarContainer
+  AnimatedSidebarContainer
 } from './Sidebar.styles';
 import { 
   SidebarItemsProps,
@@ -77,7 +77,16 @@ const sidebarContent: SidebarContent = {
       'Notifications',
       'Camera'
     ],
-  },
+	},
+	ai: {
+		title: "Artificial Intelligence",
+		items: [
+			'Tensorflow',
+			'Sentiment Analysis',
+			'Chatbot',
+			'Facial Recognition'
+		]
+	},
   projects: {
     title: 'Full Fledged Projects',
     items: [
@@ -98,10 +107,14 @@ const SidebarItem: FunctionComponent<SidebarItemProps> = ({
 
 const SidebarItems: FunctionComponent<SidebarItemsProps> = ({ 
   title, 
-  items 
+	items,
+	firstTitle
 }): JSX.Element => (
   <Fragment>
-    <SidebarTitleContainer>{title}</SidebarTitleContainer>
+		{firstTitle 
+			? <SidebarTitleContainer firstTitle={true}>{title}</SidebarTitleContainer>
+			: <SidebarTitleContainer>{title}</SidebarTitleContainer>
+		}
     {items.map((item, index) => 
       <SidebarItem key={index} item={item} />
     )}
@@ -124,8 +137,9 @@ const Sidebar: FunctionComponent<SidebarProps> = ({
     }
   });
   return (
-		<SidebarContainer style={sidebarAnimation}>
+		<AnimatedSidebarContainer style={sidebarAnimation}>
 			<SidebarItems
+			  firstTitle={true}
 				title={sidebarContent.react.title}
 				items={sidebarContent.react.items}
 			/>
@@ -146,12 +160,15 @@ const Sidebar: FunctionComponent<SidebarProps> = ({
 				items={sidebarContent.mobile.items}
 			/>
 			<SidebarItems
+				title={sidebarContent.ai.title}
+				items={sidebarContent.ai.items}
+			/>
+			<SidebarItems
 				title={sidebarContent.projects.title}
 				items={sidebarContent.projects.items}
 			/>
 			<br />
-
-    </SidebarContainer>
+    </AnimatedSidebarContainer>
   );
 };
 

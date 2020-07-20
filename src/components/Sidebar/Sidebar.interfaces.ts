@@ -1,6 +1,7 @@
 interface SidebarItemsProps {
   title: string;
-  items: Array<string>;
+	items: Array<string>;
+	firstTitle?: boolean;
 }
 
 interface SidebarItemProps {
@@ -12,7 +13,8 @@ interface SidebarContent {
   javascript: SidebarItemsProps;
   typescript: SidebarItemsProps;
   backend: SidebarItemsProps;
-  mobile: SidebarItemsProps;
+	mobile: SidebarItemsProps;
+	ai: SidebarItemsProps;
   projects: SidebarItemsProps;
 }
 

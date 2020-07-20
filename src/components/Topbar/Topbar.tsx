@@ -41,7 +41,7 @@ const Topbar: FunctionComponent<TopbarProps> = ({
             toggleSidebar={toggleSidebar}
           />
         </TopbarListItem>
-        <TopbarListItem>b</TopbarListItem>
+        <TopbarListItem>CompanyLogo</TopbarListItem>
         <TopbarListItem>c</TopbarListItem>
       </TopbarList>
     </TopbarNavigation>    

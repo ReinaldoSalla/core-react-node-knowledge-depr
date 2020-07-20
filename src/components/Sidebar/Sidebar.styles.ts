@@ -1,18 +1,23 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
 
+interface SidebarTitleContainerProps {
+	readonly firstTitle?: boolean;
+}
+
 const SidebarTextContainer = styled.div`
   color: white;
+	font-size: 1.1em;
 	padding: 0.2em 0 0.2em 0;
 `;
 
-const SidebarTitleContainer = styled.div`
+const SidebarTitleContainer = styled.div<SidebarTitleContainerProps>`
   color: aqua;
-  font-size: 1.2em;
-	padding: 1em 0 0.5em 0;
+  font-size: 1.3em;
+	padding: ${props => props.firstTitle ? '0 0 0.5em 0' : '1em 0 0.5em 0'}
 `;
 
-const SidebarContainerTmp = styled.div`
+const SidebarContainer = styled.div`
   background: rgba(0, 0, 0, 0.8);
   width: 200px;
 	height: 600px;
@@ -25,10 +30,10 @@ const SidebarContainerTmp = styled.div`
 	scrollbar-width: thin;
 `;
 
-const SidebarContainer = animated(SidebarContainerTmp);
+const AnimatedSidebarContainer = animated(SidebarContainer);
 
 export { 
   SidebarTextContainer,
   SidebarTitleContainer,
-  SidebarContainer
+  AnimatedSidebarContainer
 };
