@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
-
-interface SidebarTitleContainerProps {
-	readonly firstTitle?: boolean;
-}
+import { SidebarTitleContainerProps } from './Sidebar.interfaces';
 
 const SidebarTextContainer = styled.div`
   color: white;
@@ -14,11 +11,11 @@ const SidebarTextContainer = styled.div`
 const SidebarTitleContainer = styled.div<SidebarTitleContainerProps>`
   color: aqua;
   font-size: 1.3em;
-	padding: ${props => props.firstTitle ? '0 0 0.5em 0' : '1em 0 0.5em 0'}
+	padding: ${props => props.firstTitle ? '0 0 0.1em 0' : '1em 0 0.1em 0'}
 `;
 
 const SidebarContainer = styled.div`
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(14, 12, 12, 0.94);
   width: 200px;
 	height: 600px;
   padding: 1em;

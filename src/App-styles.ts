@@ -7,7 +7,9 @@ const GlobalStyle = createGlobalStyle`
     /* height: 100%;
     width: 100%; */
     background: aliceBlue;
-    /* font-family: sans-serif; */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Source Sans Pro', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',  sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   /* Chrome scrollbar */

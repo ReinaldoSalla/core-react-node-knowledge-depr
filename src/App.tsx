@@ -17,6 +17,7 @@ interface TextProps {
 const TextStyle = styled(animated.div)`
   color: purple;
   padding-top: 70px;
+  font-size: 1.1em;
 `;
 
 const Text: FunctionComponent<TextProps> = ({ isSidebarVisible }) => {

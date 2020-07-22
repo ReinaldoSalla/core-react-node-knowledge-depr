@@ -14,7 +14,6 @@ import {
   SidebarProps
 } from './Sidebar.interfaces';
 import { useSpring, config } from 'react-spring';
-import { Scrollbars } from 'react-custom-scrollbars';
 
 const sidebarContent: SidebarContent = {
   react: {
@@ -112,7 +111,7 @@ const SidebarItems: FunctionComponent<SidebarItemsProps> = ({
 }): JSX.Element => (
   <Fragment>
 		{firstTitle 
-			? <SidebarTitleContainer firstTitle={true}>{title}</SidebarTitleContainer>
+			? <SidebarTitleContainer firstTitle>{title}</SidebarTitleContainer>
 			: <SidebarTitleContainer>{title}</SidebarTitleContainer>
 		}
     {items.map((item, index) => 
@@ -167,7 +166,7 @@ const Sidebar: FunctionComponent<SidebarProps> = ({
 				title={sidebarContent.projects.title}
 				items={sidebarContent.projects.items}
 			/>
-			<br />
+			<br /> 
     </AnimatedSidebarContainer>
   );
 };

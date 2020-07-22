@@ -1,3 +1,7 @@
+interface SidebarTitleContainerProps {
+	readonly firstTitle?: boolean;
+}
+
 interface SidebarItemsProps {
   title: string;
 	items: Array<string>;
@@ -23,6 +27,7 @@ interface SidebarProps {
 }
 
 export type {
+  SidebarTitleContainerProps,
   SidebarItemsProps,
   SidebarItemProps,
   SidebarContent,
