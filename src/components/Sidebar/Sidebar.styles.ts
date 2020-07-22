@@ -15,7 +15,8 @@ const SidebarTitleContainer = styled.div<SidebarTitleContainerProps>`
 `;
 
 const SidebarContainer = styled.div`
-  background: rgba(14, 12, 12, 0.94);
+  /* background: rgba(14, 12, 12, 0.94); */
+  background: gray;
   width: 200px;
 	height: 600px;
   padding: 1em;
@@ -28,6 +29,18 @@ const SidebarContainer = styled.div`
 `;
 
 const AnimatedSidebarContainer = animated(SidebarContainer);
+
+const AnimatedSidebarTextContainer = animated(SidebarTextContainer);
+
+const AnimatedSidebarTitleContainer = animated(SidebarTitleContainer);
+
+/*
+export {
+  AnimatedSidebarContainer,
+  AnimatedSidebarTextContainer as SidebarTextContainer,
+  AnimatedSidebarTitleContainer as SidebarTitleContainer
+}
+*/
 
 export { 
   SidebarTextContainer,
