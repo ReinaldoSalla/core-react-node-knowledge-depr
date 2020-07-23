@@ -3,6 +3,7 @@ import React, {
   FunctionComponent 
 } from 'react';
 import {
+  TopbarInput,
   AnimatedTopbarSvg, 
   TopbarListItem,
   TopbarList,
@@ -10,6 +11,10 @@ import {
 } from './Topbar-styles';
 import { animated, useSpring, config } from 'react-spring';
 import TopbarProps from './Topbar.interfaces';
+
+const TopbarSearch: FunctionComponent = () => (
+  <TopbarInput placeholder='e.g. React Three Fiber' />
+);
 
 const TopbarIcon: FunctionComponent<TopbarProps> = ({
   isSidebarVisible,
@@ -42,7 +47,9 @@ const Topbar: FunctionComponent<TopbarProps> = ({
           />
         </TopbarListItem>
         <TopbarListItem>CompanyLogo</TopbarListItem>
-        <TopbarListItem>c</TopbarListItem>
+        <TopbarListItem>
+          <TopbarSearch />
+        </TopbarListItem>
       </TopbarList>
     </TopbarNavigation>    
   </Fragment>

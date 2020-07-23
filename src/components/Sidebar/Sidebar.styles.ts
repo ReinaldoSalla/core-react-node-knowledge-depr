@@ -30,18 +30,6 @@ const SidebarContainer = styled.div`
 
 const AnimatedSidebarContainer = animated(SidebarContainer);
 
-const AnimatedSidebarTextContainer = animated(SidebarTextContainer);
-
-const AnimatedSidebarTitleContainer = animated(SidebarTitleContainer);
-
-/*
-export {
-  AnimatedSidebarContainer,
-  AnimatedSidebarTextContainer as SidebarTextContainer,
-  AnimatedSidebarTitleContainer as SidebarTitleContainer
-}
-*/
-
 export { 
   SidebarTextContainer,
   SidebarTitleContainer,

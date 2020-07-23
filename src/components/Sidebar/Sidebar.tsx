@@ -180,6 +180,33 @@ const items = [
   <div>a</div>,
   <div>a</div>,
   <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
 ];
 
 const Sidebar: FunctionComponent<SidebarProps> = ({
@@ -188,67 +215,49 @@ const Sidebar: FunctionComponent<SidebarProps> = ({
   const sidebarAnimation = useSpring({
     from: { 
       transform: 'translateX(100px)',
-      opacity: 1
+      opacity: 0
     },
     to: async (next) => {
       await next({ 
-        transform: isSidebarVisible ? 'translateX(50%)' : 'translateX(100%)',
-        // opacity: isSidebarVisible ? 1 : 0 
+        transform: isSidebarVisible ? 'translateX(0%)' : 'translateX(-220%)',
+        opacity: isSidebarVisible ? 1 : 0 
       })
     }
   });
-  const trail = useTrail(items.length, {
-    config: { mass: 1, tension: 500, friction: 26 },
-    to:  {
-      transform: isSidebarVisible ? 'translateX(20%)' : 'translateX(80%)'
-    }
-  })
-  // return (
-	// 	<AnimatedSidebarContainer style={sidebarAnimation}>
-	// 		<SidebarItems
-	// 		  firstTitle={true}
-	// 			title={sidebarContent.react.title}
-	// 			items={sidebarContent.react.items}
-	// 		/>
-	// 		<SidebarItems
-	// 			title={sidebarContent.javascript.title}
-	// 			items={sidebarContent.javascript.items}
-	// 		/>
-	// 		<SidebarItems
-	// 			title={sidebarContent.typescript.title}
-	// 			items={sidebarContent.typescript.items}
-	// 		/>
-	// 		<SidebarItems 
-	// 			title={sidebarContent.backend.title} 
-	// 			items={sidebarContent.backend.items}
-	// 		/>
-	// 		<SidebarItems
-	// 			title={sidebarContent.mobile.title}
-	// 			items={sidebarContent.mobile.items}
-	// 		/>
-	// 		<SidebarItems
-	// 			title={sidebarContent.ai.title}
-	// 			items={sidebarContent.ai.items}
-	// 		/>
-	// 		<SidebarItems
-	// 			title={sidebarContent.projects.title}
-	// 			items={sidebarContent.projects.items}
-	// 		/>
-	// 		<br /> 
-  //   </AnimatedSidebarContainer>
-  // );
   return (
-    <AnimatedSidebarContainer style={sidebarAnimation}>
-      {trail.map((animation, index) =>
-        <animated.div
-          key={index}
-          style={animation}
-        >
-          {items[index]}
-        </animated.div>
-      )}
+		<AnimatedSidebarContainer style={sidebarAnimation}>
+			<SidebarItems
+			  firstTitle={true}
+				title={sidebarContent.react.title}
+				items={sidebarContent.react.items}
+			/>
+			<SidebarItems
+				title={sidebarContent.javascript.title}
+				items={sidebarContent.javascript.items}
+			/>
+			<SidebarItems
+				title={sidebarContent.typescript.title}
+				items={sidebarContent.typescript.items}
+			/>
+			<SidebarItems 
+				title={sidebarContent.backend.title} 
+				items={sidebarContent.backend.items}
+			/>
+			<SidebarItems
+				title={sidebarContent.mobile.title}
+				items={sidebarContent.mobile.items}
+			/>
+			<SidebarItems
+				title={sidebarContent.ai.title}
+				items={sidebarContent.ai.items}
+			/>
+			<SidebarItems
+				title={sidebarContent.projects.title}
+				items={sidebarContent.projects.items}
+			/>
+			<br /> 
     </AnimatedSidebarContainer>
-  )
+  );
 };
 
 export default Sidebar;

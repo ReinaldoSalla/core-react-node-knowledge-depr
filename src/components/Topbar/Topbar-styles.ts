@@ -2,6 +2,18 @@ import styled from 'styled-components';
 import { BsLayoutTextSidebar } from 'react-icons/bs';
 import { animated } from 'react-spring';
 
+const TopbarInput = styled.input`
+  width: 300px;
+  border-radius: 20px;
+  padding: 10px;
+  height: 25px;
+  min-width: 70px;
+  background-color: rgba(235, 235, 235, 1);
+  border: 10px;
+  margin: 0px 25px 0px 25px;
+  border: 1px solid blue;
+`
+
 const TopbarSvg = styled(BsLayoutTextSidebar)`
   color: white;
   font-size: 2.5em;
@@ -13,11 +25,14 @@ const TopbarSvg = styled(BsLayoutTextSidebar)`
 `;
 
 const TopbarListItem = styled.li`
+  width: 300px;
+  min-width: 70px;
   padding: 0.5em;
   margin: 0.5em;
   display: flex;
   align-items: center;
   color: white;
+  /* border: 1px red solid; */
 `;
 
 const TopbarList = styled.ul`
@@ -35,13 +50,12 @@ const TopbarNavigation = styled.nav`
   width: 100%;
   display: inline-block;
   position: fixed; 
-  /* transform: translateY(-20%); */
-  /* z-index: 1; */
 `;
 
 const AnimatedTopbarSvg = animated(TopbarSvg);
 
 export { 
+  TopbarInput,
   AnimatedTopbarSvg,
   TopbarListItem,
   TopbarList,
