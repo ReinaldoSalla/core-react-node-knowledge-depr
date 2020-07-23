@@ -6,8 +6,8 @@ import React, {
 } from 'react';
 import { useSpring, animated, config } from 'react-spring';
 import GlobalStyle from './App-styles';
-import Topbar from './components/Topbar';
-import Sidebar from './components/Sidebar';
+import Topbar from '../Topbar';
+import Sidebar from '../Sidebar';
 import styled from 'styled-components';
 
 interface TextProps {
