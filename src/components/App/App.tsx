@@ -5,7 +5,7 @@ import React, {
   FunctionComponent 
 } from 'react';
 import { useSpring, animated, config } from 'react-spring';
-import GlobalStyle from './App-styles';
+import GlobalStyle from './App.styles';
 import Topbar from '../Topbar';
 import Sidebar from '../Sidebar';
 import styled from 'styled-components';
@@ -76,7 +76,7 @@ const App: FunctionComponent = (): JSX.Element => {
         toggleSidebar={toggleSidebar}
       />
       <Sidebar isSidebarVisible={isSidebarVisible} />
-      <Text isSidebarVisible={isSidebarVisible} />
+      {/* <Text isSidebarVisible={isSidebarVisible} /> */}
     </Fragment>
   );	
 };

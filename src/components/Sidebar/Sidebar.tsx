@@ -162,6 +162,24 @@ const items = [
   <div>a</div>,
   <div>a</div>,
   <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
+  <div>a</div>,
 ];
 
 const Sidebar: FunctionComponent<SidebarProps> = ({
@@ -170,30 +188,19 @@ const Sidebar: FunctionComponent<SidebarProps> = ({
   const sidebarAnimation = useSpring({
     from: { 
       transform: 'translateX(100px)',
-      opacity: 0
+      opacity: 1
     },
     to: async (next) => {
       await next({ 
-        transform: isSidebarVisible ? 'translateX(0%)' : 'translateX(-220%)',
-        opacity: isSidebarVisible ? 1 : 0 
+        transform: isSidebarVisible ? 'translateX(50%)' : 'translateX(100%)',
+        // opacity: isSidebarVisible ? 1 : 0 
       })
     }
   });
-  // const trail = useTrail(items.length, {
-  //   // config: { duration: 2000 },
-  //   from: {
-  //     transform: 'translateX(100px)',
-  //     opacity: 0.5
-  //   },
-  //   to: async (next) => {
-  //     await next({
-  //       transform: isSidebarVisible ? 'translateX(0%)' : 'translateX(-220%)'
-  //     })
-  //   }
-  // })
   const trail = useTrail(items.length, {
+    config: { mass: 1, tension: 500, friction: 26 },
     to:  {
-        transform: isSidebarVisible ? 'translateX(0%)' : 'translateX(-220%)'
+      transform: isSidebarVisible ? 'translateX(20%)' : 'translateX(80%)'
     }
   })
   // return (
