@@ -18,19 +18,18 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body::-webkit-scrollbar-track {
-    background: #1e1e24;
+    background: white;
   }
 
   body::-webkit-scrollbar-thumb {
-    background: gray;
+    background: rgba(200, 200, 200, 1);
   }
 
   :root {
     /* height: 100%;
     width: 100%; */
     /* Firefox scrollbar */
-    scrollbar-width: thin !important;
-    /* scrollbar-color: rgb(210,210,210) rgb(46,54,69) !important; */
+    scrollbar-width: thin;
   }
 
   ul {

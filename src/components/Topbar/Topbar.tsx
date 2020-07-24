@@ -3,11 +3,11 @@ import React, {
   FunctionComponent 
 } from 'react';
 import {
+  TopbarContainer,
+  TopbarAnimatedSvg,
   TopbarInput,
-  AnimatedTopbarSvg, 
-  TopbarListItem,
-  TopbarList,
-  TopbarNavigation
+  TopbarLogo,
+  TopbarProfile
 } from './Topbar-styles';
 import { animated, useSpring, config } from 'react-spring';
 import TopbarProps from './Topbar.interfaces';
@@ -28,7 +28,7 @@ const TopbarIcon: FunctionComponent<TopbarProps> = ({
   });
   return (
     <Fragment>
-      <AnimatedTopbarSvg style={iconAnimation} onClick={toggleSidebar}/>
+      <TopbarAnimatedSvg style={iconAnimation} onClick={toggleSidebar}/>
     </Fragment>
   );
 };
@@ -38,7 +38,7 @@ const Topbar: FunctionComponent<TopbarProps> = ({
   toggleSidebar
 }): JSX.Element => (
   <Fragment>
-    <TopbarNavigation>
+    {/* <TopbarNavigation>
       <TopbarList>
         <TopbarListItem>
           <TopbarIcon 
@@ -51,7 +51,18 @@ const Topbar: FunctionComponent<TopbarProps> = ({
           <TopbarSearch />
         </TopbarListItem>
       </TopbarList>
-    </TopbarNavigation>    
+    </TopbarNavigation>     */}
+    <TopbarContainer>
+      <TopbarIcon
+        isSidebarVisible={isSidebarVisible}
+        toggleSidebar={toggleSidebar}
+      />
+      <TopbarLogo>
+        CompanyLogo
+      </TopbarLogo>
+      <TopbarSearch />
+      <TopbarProfile />
+    </TopbarContainer>
   </Fragment>
 );
 

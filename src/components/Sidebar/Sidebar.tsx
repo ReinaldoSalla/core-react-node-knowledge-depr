@@ -5,7 +5,8 @@ import React, {
 import { 
   SidebarTextContainer,
   SidebarTitleContainer,
-  AnimatedSidebarContainer
+  AnimatedSidebarContainer,
+  SidebarScrollbar
 } from './Sidebar.styles';
 import { 
   SidebarItemsProps,
@@ -14,8 +15,39 @@ import {
   SidebarProps
 } from './Sidebar.interfaces';
 import { useSpring, useTrail, animated, config } from 'react-spring';
+import { Scrollbars } from 'react-custom-scrollbars';
+import useHeight from '../../utils/useHeight';
+import { inspect } from '../.././utils/inspect';
 
 const sidebarContent: SidebarContent = {
+  javascript: {
+    title: 'JavaScript',
+    items: [
+      'Data Structures',
+      'Functions',
+			'Conditionals',
+			'Loops',
+			'Map',
+			'Filter',
+      'Reduce',
+      'Try Catch',
+      'Closures',
+			'Iterators',
+			'Generators',
+      'Callbacks',
+			'Promises',
+			'Async Await'
+    ]
+  },
+  typescript: {
+    title: 'TypeScript',
+    items: [
+			'Types',
+			'Interfaces',
+      'Generics',
+      'Decorators'
+    ]
+  },
   react: {
     title: 'React',
     items: [
@@ -24,6 +56,7 @@ const sidebarContent: SidebarContent = {
 			'State',
 			'Props',
       'Side Effects',
+      'Context',
       'Refs',
       'Memoization',
       'Routing',
@@ -31,32 +64,6 @@ const sidebarContent: SidebarContent = {
       'Animation',
       'Graphics',
       'Videos',
-    ]
-  },
-  javascript: {
-    title: 'Vanilla JavaScript',
-    items: [
-      'Data Structures',
-      'Functions',
-			'Conditionals',
-			'Loops',
-			'Map',
-			'Filter',
-			'Reduce',
-			'Iterators',
-			'Generators',
-      'Closures',
-			'Promises',
-			'Async Await'
-    ]
-  },
-  typescript: {
-    title: 'Vanilla TypeScript',
-    items: [
-			'Types',
-			'Interfaces',
-      'Generics',
-      'Decorators'
     ]
   },
   backend: {
@@ -98,6 +105,13 @@ const sidebarContent: SidebarContent = {
   }
 };
 
+const useSidebarHeight = (): string => {
+  const height = useHeight();
+  const topbarHeight = 70;
+  const offset = 110;
+  return `${height - topbarHeight - offset}px`;
+};
+
 const SidebarItem: FunctionComponent<SidebarItemProps> = ({ 
   item 
 }): JSX.Element => (
@@ -120,95 +134,6 @@ const SidebarItems: FunctionComponent<SidebarItemsProps> = ({
   </Fragment>
 );
 
-// const items = [
-//   <SidebarItems
-//     firstTitle={true}
-//     title={sidebarContent.react.title}
-//     items={sidebarContent.react.items}
-//   />,
-//   <SidebarItems
-//     title={sidebarContent.javascript.title}
-//     items={sidebarContent.javascript.items}
-//   />,
-//   <SidebarItems
-//     title={sidebarContent.typescript.title}
-//     items={sidebarContent.typescript.items}
-//   />,
-//   <SidebarItems 
-//     title={sidebarContent.backend.title} 
-//     items={sidebarContent.backend.items}
-//   />,
-//   <SidebarItems
-//     title={sidebarContent.mobile.title}
-//     items={sidebarContent.mobile.items}
-//   />,
-//   <SidebarItems
-//     title={sidebarContent.ai.title}
-//     items={sidebarContent.ai.items}
-//   />,
-//   <SidebarItems
-//     title={sidebarContent.projects.title}
-//     items={sidebarContent.projects.items}
-//   />
-// ];
-
-const items = [
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-  <div>a</div>,
-];
-
 const Sidebar: FunctionComponent<SidebarProps> = ({
   isSidebarVisible
 }) => {
@@ -225,37 +150,42 @@ const Sidebar: FunctionComponent<SidebarProps> = ({
     }
   });
   return (
-		<AnimatedSidebarContainer style={sidebarAnimation}>
-			<SidebarItems
-			  firstTitle={true}
-				title={sidebarContent.react.title}
-				items={sidebarContent.react.items}
-			/>
-			<SidebarItems
-				title={sidebarContent.javascript.title}
-				items={sidebarContent.javascript.items}
-			/>
-			<SidebarItems
-				title={sidebarContent.typescript.title}
-				items={sidebarContent.typescript.items}
-			/>
-			<SidebarItems 
-				title={sidebarContent.backend.title} 
-				items={sidebarContent.backend.items}
-			/>
-			<SidebarItems
-				title={sidebarContent.mobile.title}
-				items={sidebarContent.mobile.items}
-			/>
-			<SidebarItems
-				title={sidebarContent.ai.title}
-				items={sidebarContent.ai.items}
-			/>
-			<SidebarItems
-				title={sidebarContent.projects.title}
-				items={sidebarContent.projects.items}
-			/>
-			<br /> 
+    <AnimatedSidebarContainer height={useSidebarHeight()} style={sidebarAnimation}>
+      {/* <Scrollbars style={{ height: 700, width: 250, color: 'blue' }}> */}
+        {/* <SidebarScrollbar> */}
+        {/* {height} */}
+        <SidebarItems
+          firstTitle={true}
+          title={sidebarContent.javascript.title}
+          items={sidebarContent.javascript.items}
+        />
+        <SidebarItems
+          title={sidebarContent.typescript.title}
+          items={sidebarContent.typescript.items}
+        />
+        <SidebarItems
+          title={sidebarContent.react.title}
+          items={sidebarContent.react.items}
+        />
+        <SidebarItems 
+          title={sidebarContent.backend.title} 
+          items={sidebarContent.backend.items}
+        />
+        <SidebarItems
+          title={sidebarContent.mobile.title}
+          items={sidebarContent.mobile.items}
+        />
+        <SidebarItems
+          title={sidebarContent.ai.title}
+          items={sidebarContent.ai.items}
+        />
+        <SidebarItems
+          title={sidebarContent.projects.title}
+          items={sidebarContent.projects.items}
+        />
+        <br /> 
+        {/* </SidebarScrollbar> */}
+    {/* </Scrollbars> */}
     </AnimatedSidebarContainer>
   );
 };

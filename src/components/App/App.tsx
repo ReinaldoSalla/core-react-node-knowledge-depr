@@ -58,7 +58,7 @@ const Text: FunctionComponent<TextProps> = ({ isSidebarVisible }) => {
 };
 
 const App: FunctionComponent = (): JSX.Element => {
-	const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>(false);
+	const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>(true);
   const toggleSidebar = () => setIsSidebarVisible(!isSidebarVisible);
 	
 		// useEffect(() => {
@@ -76,7 +76,7 @@ const App: FunctionComponent = (): JSX.Element => {
         toggleSidebar={toggleSidebar}
       />
       <Sidebar isSidebarVisible={isSidebarVisible} />
-      {/* <Text isSidebarVisible={isSidebarVisible} /> */}
+      <Text isSidebarVisible={isSidebarVisible} />
     </Fragment>
   );	
 };

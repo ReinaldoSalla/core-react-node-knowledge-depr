@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
 import { SidebarTitleContainerProps } from './Sidebar.interfaces';
+import { Scrollbars } from 'react-custom-scrollbars';
 
 const SidebarTextContainer = styled.div`
   color: white;
@@ -14,11 +15,16 @@ const SidebarTitleContainer = styled.div<SidebarTitleContainerProps>`
 	padding: ${props => props.firstTitle ? '0 0 0.1em 0' : '1em 0 0.1em 0'}
 `;
 
-const SidebarContainer = styled.div`
+interface SidebarContainerProps {
+  height?: number;
+}
+
+const SidebarContainer = styled.div<SidebarContainerProps>`
   /* background: rgba(14, 12, 12, 0.94); */
-  background: gray;
+  background: #2d2a2a;
   width: 200px;
-	height: 600px;
+	height: ${props => props.height};
+  /* height: 600px; */
   padding: 1em;
   position: fixed;
   top: 70px;
@@ -28,10 +34,17 @@ const SidebarContainer = styled.div`
 	scrollbar-width: thin;
 `;
 
+const SidebarScrollbar = styled(Scrollbars)`
+  /* height: 600; */
+  /* width: 400; */
+  background-color: 'red';
+`;
+
 const AnimatedSidebarContainer = animated(SidebarContainer);
 
 export { 
   SidebarTextContainer,
   SidebarTitleContainer,
-  AnimatedSidebarContainer
+  AnimatedSidebarContainer,
+  SidebarScrollbar
 };
