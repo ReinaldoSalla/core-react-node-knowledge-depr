@@ -1,3 +1,17 @@
+interface SidebarContent {
+  react: SidebarItemsProps;
+  javascript: SidebarItemsProps;
+  typescript: SidebarItemsProps;
+  backend: SidebarItemsProps;
+	mobile: SidebarItemsProps;
+	ai: SidebarItemsProps;
+  projects: SidebarItemsProps;
+}
+
+interface SidebarContainerProps {
+  readonly height: number;
+}
+
 interface SidebarTitleContainerProps {
 	readonly firstTitle?: boolean;
 }
@@ -12,21 +26,13 @@ interface SidebarItemProps {
   item: string;
 }
 
-interface SidebarContent {
-  react: SidebarItemsProps;
-  javascript: SidebarItemsProps;
-  typescript: SidebarItemsProps;
-  backend: SidebarItemsProps;
-	mobile: SidebarItemsProps;
-	ai: SidebarItemsProps;
-  projects: SidebarItemsProps;
+interface SidebarProps {
+  isSidebarVisible: boolean;
 }
 
-interface SidebarProps {
-  isSidebarVisible: boolean
-}
 
 export type {
+	SidebarContainerProps,
   SidebarTitleContainerProps,
   SidebarItemsProps,
   SidebarItemProps,

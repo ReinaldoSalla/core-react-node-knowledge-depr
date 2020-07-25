@@ -26,10 +26,10 @@ const GlobalStyle = createGlobalStyle`
   }
 
   :root {
-    /* height: 100%;
-    width: 100%; */
     /* Firefox scrollbar (>= 64) */
     scrollbar-width: thin;
+    /* height: 100%;
+    width: 100%; */
   }
 
   ul {

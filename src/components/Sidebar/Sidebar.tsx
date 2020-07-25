@@ -1,12 +1,12 @@
 import React, { 
   Fragment,
-  FunctionComponent
+	FunctionComponent,
+	useState
  } from 'react';
 import { 
   SidebarTextContainer,
   SidebarTitleContainer,
   AnimatedSidebarContainer,
-  SidebarScrollbar
 } from './Sidebar.styles';
 import { 
   SidebarItemsProps,
@@ -105,11 +105,16 @@ const sidebarContent: SidebarContent = {
   }
 };
 
-const useSidebarHeight = (): string => {
-  const height = useHeight();
-  const topbarHeight = 70;
-  const offset = 110;
-  return `${height - topbarHeight - offset}px`;
+const useSidebarHeight = ( 
+	sidebarOffset: number, 
+	sidebarScrollbarOffset: number
+): Array<string> => {
+	const height = useHeight();
+	const topbarHeight = 70;
+	return [
+		`${height - topbarHeight - sidebarOffset}px`,
+		`${height - topbarHeight - sidebarScrollbarOffset}px`
+	];
 };
 
 const SidebarItem: FunctionComponent<SidebarItemProps> = ({ 
@@ -137,6 +142,8 @@ const SidebarItems: FunctionComponent<SidebarItemsProps> = ({
 const Sidebar: FunctionComponent<SidebarProps> = ({
   isSidebarVisible
 }) => {
+	const [isHovering, setIsHovering] = useState(false);
+	const [sidebarHeight, sidebarScrollbarHeight] = useSidebarHeight(110, 30);
   const sidebarAnimation = useSpring({
     from: { 
       transform: 'translateX(100px)',
@@ -148,46 +155,62 @@ const Sidebar: FunctionComponent<SidebarProps> = ({
         opacity: isSidebarVisible ? 1 : 0 
       })
     }
-  });
+	});
+
+	const handleMouseEnter = () => setIsHovering(true);
+
+	const handleMouseLeave = () => setIsHovering(false);
+
+	const renderThumbVertical = ({ style }) => (
+		<div style={{ 
+			...style, 
+			backgroundColor: '#dfcece', 
+			opacity: isHovering ? 1 : 0,
+			borderRadius: '20px'
+		}}	/>
+	);
+
   return (
-    <AnimatedSidebarContainer height={useSidebarHeight()} style={sidebarAnimation}>
-      {/* <Scrollbars style={{ height: 700, width: 250, color: 'blue' }}> */}
-        {/* <SidebarScrollbar> */}
-        {/* {height} */}
-        <SidebarItems
-          firstTitle={true}
-          title={sidebarContent.javascript.title}
-          items={sidebarContent.javascript.items}
-        />
-        <SidebarItems
-          title={sidebarContent.typescript.title}
-          items={sidebarContent.typescript.items}
-        />
-        <SidebarItems
-          title={sidebarContent.react.title}
-          items={sidebarContent.react.items}
-        />
-        <SidebarItems 
-          title={sidebarContent.backend.title} 
-          items={sidebarContent.backend.items}
-        />
-        <SidebarItems
-          title={sidebarContent.mobile.title}
-          items={sidebarContent.mobile.items}
-        />
-        <SidebarItems
-          title={sidebarContent.ai.title}
-          items={sidebarContent.ai.items}
-        />
-        <SidebarItems
-          title={sidebarContent.projects.title}
-          items={sidebarContent.projects.items}
-        />
-        <br /> 
-        {/* </SidebarScrollbar> */}
-    {/* </Scrollbars> */}
-    </AnimatedSidebarContainer>
+		<AnimatedSidebarContainer height={sidebarHeight} style={sidebarAnimation}> 
+			<Scrollbars 
+				style={{ height: sidebarScrollbarHeight, width: '217px' }} 
+				renderThumbVertical={renderThumbVertical}
+				onMouseEnter={handleMouseEnter}
+				onMouseLeave={handleMouseLeave}
+			> 
+				<SidebarItems
+					firstTitle={true}
+					title={sidebarContent.javascript.title}
+					items={sidebarContent.javascript.items}
+				/>
+				<SidebarItems
+					title={sidebarContent.typescript.title}
+					items={sidebarContent.typescript.items}
+					/>
+				<SidebarItems
+					title={sidebarContent.react.title}
+					items={sidebarContent.react.items}
+					/>
+				<SidebarItems 
+					title={sidebarContent.backend.title} 
+					items={sidebarContent.backend.items}
+					/>
+				<SidebarItems
+					title={sidebarContent.mobile.title}
+					items={sidebarContent.mobile.items}
+					/>
+				<SidebarItems
+					title={sidebarContent.ai.title}
+					items={sidebarContent.ai.items}
+					/>
+				<SidebarItems
+					title={sidebarContent.projects.title}
+					items={sidebarContent.projects.items}
+				/>
+		</Scrollbars>
+	</AnimatedSidebarContainer>
   );
 };
 
 export default Sidebar;
+
