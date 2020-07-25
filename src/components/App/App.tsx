@@ -14,10 +14,11 @@ todo
 import React, {
   useCallback,
   useEffect,
-  Fragment,
-  useReducer
+	useReducer,
+	useRef,
+  Fragment
 } from 'react';
-import { useTransition, animated, useSpring, config } from 'react-spring';
+import { useTransition, animated, useSpring } from 'react-spring';
 import './App.css';
 import js1 from '../../assets/js1.png';
 import js2 from '../../assets/js2.jpg';
@@ -25,7 +26,7 @@ import js3 from '../../assets/js3.png';
 import js4 from '../../assets/js4.jpg';
 import js5 from '../../assets/js5.jpg';
 
-const duration = 1e10;
+const duration = 1500;
 
 const customConfig = { 
   heavy: { mass: 5, tension: 50, friction: 26, clamp: true }
@@ -43,10 +44,24 @@ const couroselItems = couroselImgs.map(item =>
   ({ style }) => <CouroselItem style={style} img={item} />
 );
 
+const incrementTime = (state) => {
+	// const ref = useRef(null);
+	// console.log(ref.current);
+	// ref.current = state.time;
+	console.log(state);
+	return {
+		...state,
+		time: state.time + 1
+	};
+};
+
 const moveToNextItem = (state) => {
   let newIndex = state.index + 1;
   if (newIndex === 5) newIndex = 0;
-  return { index: newIndex };
+  return { 
+		...state,
+		index: newIndex 
+	};
 };
 
 const moveToFirstItem = () => ({ index: 0 });
@@ -61,59 +76,71 @@ const moveToFifthItem = () => ({ index: 4 });
 
 const reducer = (state, action) => {
   switch (action.type) {
+		case 'INCREMENT_TIME':
+			return incrementTime(state);
     case 'MOVE_TO_NEXT_ITEM':
       return moveToNextItem(state);
-    case 'MOVE_TO_FIRST_ITEM':
-      return moveToFirstItem();
-    case 'MOVE_TO_SECOND_ITEM':
-      return moveToSecondItem();
-    case 'MOVE_TO_THIRD_ITEM':
-      return moveToThirdItem();
-    case 'MOVE_TO_FORTH_ITEM':
-      return moveToForthItem();
-    case 'MOVE_TO_FIFTH_ITEM':
-      return moveToFifthItem();
+    // case 'MOVE_TO_FIRST_ITEM':
+    //   return moveToFirstItem();
+    // case 'MOVE_TO_SECOND_ITEM':
+    //   return moveToSecondItem();
+    // case 'MOVE_TO_THIRD_ITEM':
+    //   return moveToThirdItem();
+    // case 'MOVE_TO_FORTH_ITEM':
+    //   return moveToForthItem();
+    // case 'MOVE_TO_FIFTH_ITEM':
+    //   return moveToFifthItem();
     default:
       throw new ReferenceError(`Action type ${action.type} is not declared`);
   };
 };
 
 const App = () => {
-  const [state, dispatch] = useReducer(reducer, { index: 0 });
+  const [state, dispatch] = useReducer(reducer, { 
+		index: 0,
+		time: 0
+ });
+
+ const incrementTime = useCallback(() => {
+	 dispatch({ type: 'INCREMENT_TIME' })
+ }, []);
 
   const handleNextItem = useCallback(() => (
     dispatch({ type: 'MOVE_TO_NEXT_ITEM' })
   ), []);
 
-  const handleFirstItem = useCallback(() => (
-    dispatch({ type: 'MOVE_TO_FIRST_ITEM' })
-  ), []);
+  // const handleFirstItem = useCallback(() => (
+  //   dispatch({ type: 'MOVE_TO_FIRST_ITEM' })
+  // ), []);
 
-  const handleSecondItem = useCallback(() => (
-    dispatch({ type: 'MOVE_TO_SECOND_ITEM' })
-  ), []);
+  // const handleSecondItem = useCallback(() => (
+  //   dispatch({ type: 'MOVE_TO_SECOND_ITEM' })
+  // ), []);
 
-  const handleThirdItem = useCallback(() => (
-    dispatch({ type: 'MOVE_TO_THIRD_ITEM' })
-  ), []);
+  // const handleThirdItem = useCallback(() => (
+  //   dispatch({ type: 'MOVE_TO_THIRD_ITEM' })
+  // ), []);
 
-  const handleForthItem = useCallback(() => (
-    dispatch({ type: 'MOVE_TO_FORTH_ITEM' })
-  ), []);
+  // const handleForthItem = useCallback(() => (
+  //   dispatch({ type: 'MOVE_TO_FORTH_ITEM' })
+  // ), []);
 
-  const handleFifthItem = useCallback(() => (
-    dispatch({ type: 'MOVE_TO_FIFTH_ITEM' })
-  ), []);
+  // const handleFifthItem = useCallback(() => (
+  //   dispatch({ type: 'MOVE_TO_FIFTH_ITEM' })
+  // ), []);
   
   useEffect(() => {
     const intervalId = setInterval(() => {
-      handleNextItem();
+      incrementTime();
     }, duration);
     return () => clearInterval(intervalId);
-  }, [handleNextItem]);
+	}, [incrementTime]);
+	
+	useEffect(() => {
+
+	})
 
   const transitions = useTransition(state.index, p => p, {
-    // config: { mass: 1, tension: 170, friction: 26, precision: 0.001 }, // default
     config: customConfig.heavy,
     initial: { opacity: 1, transform: 'translate3d(0%, 0, 0)', },
     from: { opacity: 1, transform: 'translate3d(-100%,0,0)', },
@@ -166,31 +193,31 @@ const App = () => {
         <div className='courosel-inputs'>
           <animated.div 
             className='courosel-input' 
-            onClick={handleFirstItem}
+            // onClick={handleFirstItem}
           >
             <animated.div style={firstInputAnimation} className='first-input-filling' />
           </animated.div>
           <animated.div 
             className='courosel-input' 
-            onClick={handleSecondItem} 
+            // onClick={handleSecondItem} 
           >
             <animated.div style={secondInputAnimation} className='second-input-filling' />
           </animated.div>
           <animated.div 
             className='courosel-input' 
-            onClick={handleThirdItem} 
+            // onClick={handleThirdItem} 
           >
             <animated.div style={thirdInputAnimation} className='third-input-filling' />
           </animated.div>
           <animated.div 
             className='courosel-input' 
-            onClick={handleForthItem} 
+            // onClick={handleForthItem} 
           >
             <animated.div style={forthInputAnimation} className='forth-input-filling'/>
           </animated.div>
           <animated.div 
             className='courosel-input' 
-            onClick={handleFifthItem} 
+            // onClick={handleFifthItem} 
           >
             <animated.div style={fifthInputAnimation} className='fifth-input-filling'/>
           </animated.div>
