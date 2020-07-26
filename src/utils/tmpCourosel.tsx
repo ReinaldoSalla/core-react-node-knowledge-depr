@@ -1,23 +1,17 @@
 /*
-todo map
+todo
 1-click the last one https://stackoverflow.com/questions/53895676/how-to-use-lodash-to-throttle-multiple-buttons-with-1-throttle
 // solution with styled components without throttle
   1-separate index from timer, zero the timer when the user clicks on index, also pass a props pointer-events: none when the animation in running, but see if it can mantain the mouse cursor: pointer
 	2-create complex state management, where the reducer-action checks the timer before changing the index, essentially separate the timer and the index and do complicated things with both 
 	3-why 0px and not 0% or just 0
+
 using history is a better solution then using timers, because with timers i have to keep guessing how long the animation took,
+
 4-user goes to another page and comes back seens to thigger the courosel
 5-relashion between timer and inputs, because now it seens one breaks the other, maybe use lodash's throttle
 5-sometimes, during the transformX the img locks a little, it's a little but it's visible, maybe try other configs, or use ease-3e
 5-reducing the size of the buttons with flexbox insted of hardcoding media queies
-links
-https://github.com/react-spring/react-spring/issues/522
-*/
-
-/*
-todo filter
-complete clash between click and timer
-https://github.com/react-spring/react-spring/pull/809 Prevent new items from entering until old items have finished leaving
 */
 
 import React, {
@@ -60,7 +54,7 @@ const disableOffset = (state) => ({
 })
 
 const moveToNextItem = (state) => {
-	let newIndex = state.isTimerEnabled
+	let newIndex = state.isTimerEnabled && !state.isOffsetEnabled
 		? state.index + 1
 		: state.index;
 	if (newIndex === 5) newIndex = 0;
@@ -72,40 +66,45 @@ const moveToNextItem = (state) => {
 };
 
 const moveToFirstItem = (state) => {
+	const newIndex = !state.isOffsetEnabled ? 0 : state.index;
 	return {
-		index: 0,
+		index: newIndex,
 		isTimerEnabled: false,
 		isOffsetEnabled: true,
 	}
 };
 
 const moveToSecondItem = (state) => {
+	const newIndex = !state.isOffsetEnabled ? 1 : state.index;
 	return {
-		index: 1,
+		index: newIndex,
 		isTimerEnabled: false,
 		isOffsetEnabled: true,
 	}
 };
 
 const moveToThirdItem = (state) => {
+	const newIndex = !state.isOffsetEnabled ? 2 : state.index;
 	return {
-		index: 2,
+		index: newIndex,
 		isTimerEnabled: false,
 		isOffsetEnabled: true,
 	}
 };
 
 const moveToForthItem = (state) => {
+	const newIndex = !state.isOffsetEnabled ? 3 : state.index;
 	return {
-		index: 3,
+		index: newIndex,
 		isTimerEnabled: false,
 		isOffsetEnabled: true,
 	}
 };
 
 const moveToFifthItem = (state) => {
+	const newIndex = !state.isOffsetEnabled ? 4 : state.index;
 	return {
-		index: 4,
+		index: newIndex,
 		isTimerEnabled: false,
 		isOffsetEnabled: true,
 	}
@@ -166,6 +165,15 @@ const App = () => {
   const handleFifthItem = useCallback(() => (
     dispatch({ type: 'MOVE_TO_FIFTH_ITEM' })
 	), []);
+	
+	useEffect(() => {
+		if (state.isOffsetEnabled) {
+			const intervalId = setTimeout(() => {
+				handleOffset();
+			}, OFFSET);
+			return () => clearInterval(intervalId);
+		}
+	});
 
   useEffect(() => {
     const intervalId = setInterval(() => {

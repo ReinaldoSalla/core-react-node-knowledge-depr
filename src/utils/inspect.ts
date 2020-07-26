@@ -91,4 +91,12 @@ const inspectError = (err: ArbitraryObject): void => {
   console.log('\n'.repeat(5));
 }
 
-export { inspect, inspectError };
+const inspectBreakpoint = (
+	reference: string | null = null
+): void => {
+	console.log('\n'.repeat(5));
+	console.log(`reached ${reference ? reference : ''}`);
+	console.log('\n'.repeat(5));
+}
+
+export { inspect, inspectError, inspectBreakpoint };
