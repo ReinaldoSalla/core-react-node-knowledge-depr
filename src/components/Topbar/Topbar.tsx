@@ -38,20 +38,6 @@ const Topbar: FunctionComponent<TopbarProps> = ({
   toggleSidebar
 }): JSX.Element => (
   <Fragment>
-    {/* <TopbarNavigation>
-      <TopbarList>
-        <TopbarListItem>
-          <TopbarIcon 
-            isSidebarVisible={isSidebarVisible} 
-            toggleSidebar={toggleSidebar}
-          />
-        </TopbarListItem>
-        <TopbarListItem>CompanyLogo</TopbarListItem>
-        <TopbarListItem>
-          <TopbarSearch />
-        </TopbarListItem>
-      </TopbarList>
-    </TopbarNavigation>     */}
     <TopbarContainer>
       <TopbarIcon
         isSidebarVisible={isSidebarVisible}

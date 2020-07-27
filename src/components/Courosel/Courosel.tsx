@@ -1,6 +1,5 @@
 /*
-todo chore
-convert css to styled-components
+todo
 Prevent new items from entering until old items have finished leaving https://github.com/react-spring/react-spring/pull/809 
 use a react-spring config instead of duration + d3-ease
 create a count state variable for every 100ms, so that the timer can reset when the user clicks in some label or leaves the page
@@ -16,8 +15,16 @@ import React, {
 	useReducer,
   Fragment
 } from 'react';
-import { useTransition, animated, useSpring } from 'react-spring';
-import './Courosel.css';
+import {
+  CouroselWrapperContainer,
+  CouroselContainer,
+  CouroselItemContainer,
+  CouroselImg,
+  CouroselInputsContainer,
+  CouroselInputContainer,
+  CouroselInnerInputContainer
+} from './Courosel.styles';
+import { useTransition, useSpring } from 'react-spring';
 import js1 from '../../assets/js1.png';
 import js2 from '../../assets/js2.jpg';
 import js3 from '../../assets/js3.png';
@@ -34,9 +41,9 @@ const customConfig = {
 };
 
 const CouroselItem = ({ style, img }) => (
-  <animated.div className='courosel-item' style={style}>
-    <img className='courosel-img' src={img} alt='' />
-  </animated.div>
+  <CouroselItemContainer className='courosel-item' style={style}>
+    <CouroselImg className='courosel-img' src={img} alt='' />
+  </CouroselItemContainer>
 );
 
 const couroselImgs = [js1, js2, js3, js4, js5];
@@ -190,48 +197,31 @@ const App = () => {
 
   return (
     <Fragment>
-      <div className='courosel-container'>
-        <div className="courosel">
+      <CouroselWrapperContainer>
+        <CouroselContainer>
           {transitions.map(({ item, props, key }) => {
             const Page = couroselItems[item]
             return <Page key={key} style={props} />
           })}
-        </div>
-      </div>
-      <div className='courosel-inputs-container'>
-        <div className='courosel-inputs'>
-          <animated.div 
-            className='courosel-input' 
-            onClick={handleFirstItem}
-          >
-            <animated.div style={firstInputAnimation} className='first-input-filling' />
-          </animated.div>
-          <animated.div 
-            className='courosel-input' 
-            onClick={handleSecondItem} 
-          >
-            <animated.div style={secondInputAnimation} className='second-input-filling' />
-          </animated.div>
-          <animated.div 
-            className='courosel-input' 
-            onClick={handleThirdItem} 
-          >
-            <animated.div style={thirdInputAnimation} className='third-input-filling' />
-          </animated.div>
-          <animated.div 
-            className='courosel-input' 
-            onClick={handleForthItem} 
-          >
-            <animated.div style={forthInputAnimation} className='forth-input-filling'/>
-          </animated.div>
-          <animated.div 
-            className='courosel-input' 
-            onClick={handleFifthItem} 
-          >
-            <animated.div style={fifthInputAnimation} className='fifth-input-filling'/>
-          </animated.div>
-        </div>
-      </div> 
+        </CouroselContainer>
+      </CouroselWrapperContainer>
+      <CouroselInputsContainer className='courosel-inputs'>
+        <CouroselInputContainer onClick={handleFirstItem}>
+          <CouroselInnerInputContainer style={firstInputAnimation} />
+        </CouroselInputContainer>
+        <CouroselInputContainer onClick={handleSecondItem}>
+          <CouroselInnerInputContainer style={secondInputAnimation} />
+        </CouroselInputContainer>
+        <CouroselInputContainer onClick={handleThirdItem}>
+          <CouroselInnerInputContainer style={thirdInputAnimation} />
+        </CouroselInputContainer>
+        <CouroselInputContainer onClick={handleForthItem}>
+          <CouroselInnerInputContainer style={forthInputAnimation} />
+        </CouroselInputContainer>
+        <CouroselInputContainer onClick={handleFifthItem}>
+          <CouroselInnerInputContainer style={fifthInputAnimation} />
+        </CouroselInputContainer>
+      </CouroselInputsContainer>
     </Fragment>
   )
 }

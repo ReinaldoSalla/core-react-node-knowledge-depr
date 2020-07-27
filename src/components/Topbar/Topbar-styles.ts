@@ -12,6 +12,7 @@ const TopbarContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  z-index: 3;
 `;
 
 const TopbarSvg = styled(BsLayoutTextSidebar)`
