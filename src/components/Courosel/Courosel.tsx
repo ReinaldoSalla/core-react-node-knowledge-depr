@@ -1,10 +1,9 @@
 /*
-todo
+todo chore
 convert css to styled-components
-the transition has a leak effect sometimes
-customConfig.heavy has a bad effect, 
-customConfig.heavy does't look right if the user clicks in some label before the transition has finished https://github.com/react-spring/react-spring/pull/809 Prevent new items from entering until old items have finished leaving
-create a count state variable, so that the timer can reset when the user clicks in some label or leaves the page
+Prevent new items from entering until old items have finished leaving https://github.com/react-spring/react-spring/pull/809 
+use a react-spring config instead of duration + d3-ease
+create a count state variable for every 100ms, so that the timer can reset when the user clicks in some label or leaves the page
 render how long it takes for the next transition
 being able to swipe in diferent directions for mobile 
 use three.js / react-three-fiber to improve the courosel
@@ -25,7 +24,6 @@ import js3 from '../../assets/js3.png';
 import js4 from '../../assets/js4.jpg';
 import js5 from '../../assets/js5.jpg';
 import * as easings from 'd3-ease';
-import { inspect } from '../../utils/inspect';
 import useDocumentVisibility from '../../utils/useDocumentVisibility';
 
 const DURATION: number = 1e4;
@@ -55,7 +53,6 @@ const moveToNextItem = (state) => {
 	return {
 		index: newIndex,
 		isTimerEnabled: true,
-		isOffsetEnabled: true,
 	};
 };
 
@@ -63,7 +60,6 @@ const moveToFirstItem = () => {
 	return {
 		index: 0,
 		isTimerEnabled: false,
-		isOffsetEnabled: true,
 	}
 };
 
@@ -71,7 +67,6 @@ const moveToSecondItem = () => {
 	return {
 		index: 1,
 		isTimerEnabled: false,
-		isOffsetEnabled: true,
 	}
 };
 
@@ -79,7 +74,6 @@ const moveToThirdItem = () => {
 	return {
 		index: 2,
 		isTimerEnabled: false,
-		isOffsetEnabled: true,
 	}
 };
 
@@ -87,7 +81,6 @@ const moveToForthItem = () => {
 	return {
 		index: 3,
 		isTimerEnabled: false,
-		isOffsetEnabled: true,
 	}
 };
 
@@ -95,7 +88,6 @@ const moveToFifthItem = () => {
 	return {
 		index: 4,
 		isTimerEnabled: false,
-		isOffsetEnabled: true,
 	}
 };
 
@@ -118,13 +110,10 @@ const reducer = (state, action) => {
   };
 };
 
-let nCalls = 0;
-
 const App = () => {
   const [state, dispatch] = useReducer(reducer, { 
 		index: 0,
 		isTimerEnabled: true,
-		isOffsetEnabled: false,
   });
   const isDocumentVisible: boolean = useDocumentVisibility();
 
@@ -163,10 +152,10 @@ const App = () => {
 	
   const transitions = useTransition(state.index, null, {
     config: customConfig.easing,
-    initial: { opacity: 1, transform: 'translate3d(0%, 0, 0)', },
-    from: { opacity: 1, transform: 'translate3d(-100%,0,0)', },
-    enter: { opacity: 1, transform: 'translate3d(0%,0,0)',  },
-    leave: { opacity: 0, transform: 'translate3d(0,0,0)' },
+    initial: { opacity: 1 },
+    from: { opacity: 0, },
+    enter: { opacity: 1, },
+    leave: { opacity: 0, },
   });
 
   const firstInputAnimation = useSpring({
