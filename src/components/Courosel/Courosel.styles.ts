@@ -6,7 +6,6 @@ const height = '600px';
 
 const CouroselContainer = styled.div`
   transform: translateY(16%);
-  width: 100%;
   height: ${height};
   display: flex;
   align-items: center;

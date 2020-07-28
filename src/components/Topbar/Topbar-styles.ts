@@ -17,7 +17,8 @@ const TopbarContainer = styled.div`
 
 const TopbarSvg = styled(BsLayoutTextSidebar)`
   color: white;
-  font-size: 2.5em;
+  min-width: 2.5em;
+  min-height: 2.5em;
   transition: color 1000ms;
   margin: ${defaultMargin};
 
@@ -40,7 +41,7 @@ const TopbarInput = styled.input`
   width: 300px;
   border-radius: 20px;
   padding: 10px;
-  min-width: 70px;
+  min-width: 10px;
   background-color: rgba(235, 235, 235, 1);
   border: 10px;
   border: 1px solid blue;
@@ -49,8 +50,8 @@ const TopbarInput = styled.input`
 
 const TopbarProfile = styled.span`
   background: white;
-  height: 2.5em;
-  width: 2.5em;
+  min-height: 2.5em;
+  min-width: 2.5em;
   border: 1px solid red;
   border-radius: 50%;
   margin: ${defaultMargin};
