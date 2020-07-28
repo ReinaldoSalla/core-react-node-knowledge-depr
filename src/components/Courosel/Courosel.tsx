@@ -16,7 +16,6 @@ import React, {
   Fragment
 } from 'react';
 import {
-  CouroselWrapperContainer,
   CouroselContainer,
   CouroselItemContainer,
   CouroselImg,
@@ -33,7 +32,7 @@ import js5 from '../../assets/js5.jpg';
 import * as easings from 'd3-ease';
 import useDocumentVisibility from '../../utils/useDocumentVisibility';
 
-const DURATION: number = 1e4;
+const DURATION: number = 1e10;
 
 const customConfig = { 
   heavy: { mass: 5, tension: 50, friction: 26, clamp: true },
@@ -197,14 +196,12 @@ const App = () => {
 
   return (
     <Fragment>
-      <CouroselWrapperContainer>
-        <CouroselContainer>
-          {transitions.map(({ item, props, key }) => {
-            const Page = couroselItems[item]
-            return <Page key={key} style={props} />
-          })}
-        </CouroselContainer>
-      </CouroselWrapperContainer>
+      <CouroselContainer>
+        {transitions.map(({ item, props, key }) => {
+          const Page = couroselItems[item]
+          return <Page key={key} style={props} />
+        })}
+      </CouroselContainer>
       <CouroselInputsContainer className='courosel-inputs'>
         <CouroselInputContainer onClick={handleFirstItem}>
           <CouroselInnerInputContainer style={firstInputAnimation} />

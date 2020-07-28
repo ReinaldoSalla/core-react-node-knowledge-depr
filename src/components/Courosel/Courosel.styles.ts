@@ -1,35 +1,34 @@
 import styled from 'styled-components';
 import { animated } from  'react-spring';
 
-const CouroselWrapperContainer = styled.div`
-  display: flex;
-  justify-content: center;
-`;
+const height = '600px';
+
 
 const CouroselContainer = styled.div`
-  margin: 10px 50px 10px 50px;
-  transform: translateY(20%);
-  width: 90%;
-  height: 400px;
+  transform: translateY(16%);
+  width: 100%;
+  height: ${height};
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  /* border: 1px solid red; */
 `;
 
 const CouroselItemContainer = styled(animated.div)`
-  width: 100%;
-  height: 400px;
-  font-size: 100px;
+  width: 95%;
+  height: ${height};
   display: flex;
+  font-size: 100px;
   align-items: center;
   justify-content: center;
   position: absolute;
+  /* border: 1px solid green; */
 `;
 
 const CouroselImg = styled.img`
   width: 100%;
-  height: 400px;
+  height: ${height};
   z-index: 1;
 `;
 
@@ -37,7 +36,9 @@ const CouroselInputsContainer = styled.div`
   z-index: 2;
   display: flex;
   justify-content: space-evenly;
-  transform: translateY(10%);
+  transform: translateY(50%);
+  margin: 0px 2.6% 0 2.6%;
+  /* border: 1px solid purple; */
 `;
 
 const CouroselInputContainer = styled(animated.div)`
@@ -45,7 +46,7 @@ const CouroselInputContainer = styled(animated.div)`
   border-radius: 5px;
   height: 15px;
   width: 50px;
-  margin: 15px;
+  margin: 10px;
 
   &:hover {
     cursor: pointer;
@@ -58,7 +59,6 @@ const CouroselInnerInputContainer = styled(animated.div)`
 `;
 
 export {
-  CouroselWrapperContainer,
   CouroselContainer,
   CouroselItemContainer,
   CouroselImg,
@@ -66,4 +66,7 @@ export {
   CouroselInputContainer,
   CouroselInnerInputContainer
 };
+
+
+
 
