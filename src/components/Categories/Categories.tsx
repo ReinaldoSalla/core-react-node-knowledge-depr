@@ -5,19 +5,15 @@ import {
   CategoriesItemTitleContainer,
   CategoriesItemTitleName,
   CategoriesItemTitleDescription,
-  CategoriesImgContentsContainer,
-  CategoriesImg,
   CategoriesItemContentsContainer,
   CategoriesItemContentsItem
 } from './Categories.styles';
-import img from '../../assets/react.png';
 // import contents from '../../data/contents';
 
 const topics = [
   {
     title: 'JavaScript',
     description: 'Curated tutorials from basic to advanced',
-    src: img,
     contents: [
       'Data Structures',
       'Functions',
@@ -38,7 +34,6 @@ const topics = [
   {
     title: 'TypeScript',
     description: 'Fundamentals for extending JavaScript',
-    src: img,
     contents: [
 			'Types',
 			'Interfaces',
@@ -49,7 +44,6 @@ const topics = [
   {
     title: 'React',
     description: 'Concepts from the popular facebook library',
-    src: img,
     contents: [
       'Rendering',
       'Styling',
@@ -69,7 +63,6 @@ const topics = [
   {
     title: 'Backend',
     description: 'Extending applications with Node.js and GraphQL',
-    src: img,
     contents: [
       'Node',
       'GraphQL',
@@ -80,7 +73,6 @@ const topics = [
   {
     title: 'Mobile',
     description: 'Creating native apps with React Native',
-    src: img,
     contents: [
       'React Native',
       'Sharing Code',
@@ -91,7 +83,6 @@ const topics = [
 	{
     title: "Artificial Intelligence",
     description: 'Tackling the big trend in AI today - Deep Learning',
-    src: img,
 		contents: [
 			'Tensorflow',
 			'Sentiment Analysis',
@@ -114,16 +105,13 @@ const Categories = () => {
               {topic.description}
             </CategoriesItemTitleDescription>
           </CategoriesItemTitleContainer>
-          <CategoriesImgContentsContainer>
-            <CategoriesItemContentsContainer>
-              {topic.contents.map((content, index) => 
-                <CategoriesItemContentsItem key={index}>
-                  {content}
-                </CategoriesItemContentsItem>
-              )}
-            </CategoriesItemContentsContainer>
-            <CategoriesImg src={topic.src} alt='' />
-          </CategoriesImgContentsContainer>
+          <CategoriesItemContentsContainer>
+            {topic.contents.map((content, index) => 
+              <CategoriesItemContentsItem key={index}>
+                {content}
+              </CategoriesItemContentsItem>
+            )}
+          </CategoriesItemContentsContainer>
         </CategoriesItemContainer>
       )}
     </CategoriesContainer>
