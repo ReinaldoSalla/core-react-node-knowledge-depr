@@ -1,13 +1,3 @@
-interface SidebarContent {
-  react: SidebarItemsProps;
-  javascript: SidebarItemsProps;
-  typescript: SidebarItemsProps;
-  backend: SidebarItemsProps;
-	mobile: SidebarItemsProps;
-	ai: SidebarItemsProps;
-  projects: SidebarItemsProps;
-}
-
 interface SidebarContainerProps {
   readonly height: number;
 }
@@ -36,6 +26,5 @@ export type {
   SidebarTitleContainerProps,
   SidebarItemsProps,
   SidebarItemProps,
-  SidebarContent,
   SidebarProps
 }

@@ -11,99 +11,13 @@ import {
 import { 
   SidebarItemsProps,
   SidebarItemProps,
-  SidebarContent,
   SidebarProps
 } from './Sidebar.interfaces';
-import { useSpring, useTrail, animated, config } from 'react-spring';
+import { useSpring } from 'react-spring';
 import { Scrollbars } from 'react-custom-scrollbars';
 import useHeight from '../../utils/useHeight';
-import { inspect } from '../.././utils/inspect';
+import contents from '../../data/contents';
 
-const sidebarContent: SidebarContent = {
-  javascript: {
-    title: 'JavaScript',
-    items: [
-      'Data Structures',
-      'Functions',
-			'Conditionals',
-			'Loops',
-			'Map',
-			'Filter',
-      'Reduce',
-      'Try Catch',
-      'Closures',
-			'Iterators',
-			'Generators',
-      'Callbacks',
-			'Promises',
-			'Async Await'
-    ]
-  },
-  typescript: {
-    title: 'TypeScript',
-    items: [
-			'Types',
-			'Interfaces',
-      'Generics',
-      'Decorators'
-    ]
-  },
-  react: {
-    title: 'React',
-    items: [
-      'Rendering',
-      'Styling',
-			'State',
-			'Props',
-      'Side Effects',
-      'Context',
-      'Refs',
-      'Memoization',
-      'Routing',
-      'Plots',
-      'Animation',
-      'Graphics',
-      'Videos',
-    ]
-  },
-  backend: {
-    title: 'Backend',
-    items: [
-      'Node',
-      'GraphQL',
-      'MongoDB',
-      'Auth'
-    ]
-  },
-  mobile: {
-    title: 'Mobile',
-    items: [
-      'React Native',
-      'Sharing Code',
-      'Notifications',
-      'Camera'
-    ],
-	},
-	ai: {
-		title: "Artificial Intelligence",
-		items: [
-			'Tensorflow',
-			'Sentiment Analysis',
-			'Chatbot',
-			'Facial Recognition'
-		]
-	},
-  projects: {
-    title: 'Full Fledged Projects',
-    items: [
-      'Portfolio',
-      'Ecommerce',
-      'News',
-      'Social Media',
-      'Getting Hired'
-    ],
-  }
-};
 
 const useSidebarHeight = ( 
 	sidebarOffset: number, 
@@ -147,12 +61,12 @@ const Sidebar: FunctionComponent<SidebarProps> = ({
   const sidebarAnimation = useSpring({
     from: { 
       transform: 'translateX(100px)',
-      opacity: 0
+      opacity: 0,
     },
     to: async (next) => {
       await next({ 
         transform: isSidebarVisible ? 'translateX(0%)' : 'translateX(-220%)',
-        opacity: isSidebarVisible ? 1 : 0 
+        opacity: isSidebarVisible ? 1 : 0,
       })
     }
 	});
@@ -180,32 +94,32 @@ const Sidebar: FunctionComponent<SidebarProps> = ({
 			> 
 				<SidebarItems
 					firstTitle={true}
-					title={sidebarContent.javascript.title}
-					items={sidebarContent.javascript.items}
+					title={contents.javascript.title}
+					items={contents.javascript.items}
 				/>
 				<SidebarItems
-					title={sidebarContent.typescript.title}
-					items={sidebarContent.typescript.items}
+					title={contents.typescript.title}
+					items={contents.typescript.items}
 					/>
 				<SidebarItems
-					title={sidebarContent.react.title}
-					items={sidebarContent.react.items}
+					title={contents.react.title}
+					items={contents.react.items}
 					/>
 				<SidebarItems 
-					title={sidebarContent.backend.title} 
-					items={sidebarContent.backend.items}
+					title={contents.backend.title} 
+					items={contents.backend.items}
 					/>
 				<SidebarItems
-					title={sidebarContent.mobile.title}
-					items={sidebarContent.mobile.items}
+					title={contents.mobile.title}
+					items={contents.mobile.items}
 					/>
 				<SidebarItems
-					title={sidebarContent.ai.title}
-					items={sidebarContent.ai.items}
+					title={contents.ai.title}
+					items={contents.ai.items}
 					/>
 				<SidebarItems
-					title={sidebarContent.projects.title}
-					items={sidebarContent.projects.items}
+					title={contents.projects.title}
+					items={contents.projects.items}
 				/>
 		</Scrollbars>
 	</AnimatedSidebarContainer>

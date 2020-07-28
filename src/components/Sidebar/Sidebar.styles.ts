@@ -27,6 +27,7 @@ const SidebarContainer = styled.div<SidebarContainerProps>`
   top: 70px;
 	padding-bottom: 100px;
 	margin-bottom: 100px;
+  z-index: 4;
 `;
 
 

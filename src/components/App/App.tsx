@@ -4,12 +4,13 @@ import React, {
   Fragment, 
   FunctionComponent 
 } from 'react';
-import { useSpring, animated, config } from 'react-spring';
-import GlobalStyle from './App.styles';
+import { useSpring, animated } from 'react-spring';
+import styled from 'styled-components';
 import Topbar from '../Topbar';
 import Sidebar from '../Sidebar';
 import Courosel from '../Courosel';
-import styled from 'styled-components';
+import Categories from '../Categories';
+import GlobalStyle from './App.styles';
 
 interface TextProps {
   isSidebarVisible: boolean
@@ -78,7 +79,7 @@ const App: FunctionComponent = (): JSX.Element => {
       />
       <Sidebar isSidebarVisible={isSidebarVisible} />
       <Courosel  />
-      <Text isSidebarVisible={isSidebarVisible} />
+      <Categories />
     </Fragment>
   );	
 };
