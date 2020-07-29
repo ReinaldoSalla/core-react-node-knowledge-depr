@@ -38,8 +38,8 @@ const CategoriesItemContentsContainer = styled.div`
   /* padding: 0.5em; */
   /* margin: 0.25em; */
   display: flex;
-  flex-wrap: wrap;
-  /* flex-direction: column; */
+  /* flex-wrap: wrap; */
+  flex-direction: column;
   justify-content: center;
   /* border: 1px solid orange; */
 `;
@@ -47,10 +47,15 @@ const CategoriesItemContentsContainer = styled.div`
 const CategoriesItemContentsItem = styled.span`
   padding: 0.5em;
   margin: 0.5em;
+  /* width: 100px; */
+  /* width: 1200px; */
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* flex: 10em; */
+  font-size: 1.25em;
   border: 1px solid black;
-  width: 100px;
-  text-align: center;
-  flex: 10em;
 `;
 
 export {
