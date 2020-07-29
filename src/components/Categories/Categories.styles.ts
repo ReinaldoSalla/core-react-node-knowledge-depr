@@ -10,21 +10,15 @@ const CategoriesContainer = styled.div`
 
 const CategoriesItemContainer = styled.div`
   padding: 0.5em;
-  margin: 0.5em;
+  margin: 3em 0.5em 3em 0.5em;
   border: 1px solid blue;
-`;
-
-const CategoriesItemTitleContainer = styled.div`
-  padding: 0.5em;
-  margin: 0.5em;
-  display: flex; 
+  display: flex;
   flex-direction: column;
-  /* border: 1px solid aquamarine; */
 `;
 
 const CategoriesItemTitleName = styled.span`
   /* padding: 0.25em; */
-  margin: 0.25em;
+  /* margin: 0.25em; */
   font-weight: 700;
   font-size: ${titleSize};
   text-align: center;
@@ -41,10 +35,11 @@ const CategoriesItemTitleDescription = styled.span`
 `;
 
 const CategoriesItemContentsContainer = styled.div`
-  padding: 0.5em;
-  margin: 0.5em;
+  /* padding: 0.5em; */
+  /* margin: 0.25em; */
   display: flex;
   flex-wrap: wrap;
+  /* flex-direction: column; */
   justify-content: center;
   /* border: 1px solid orange; */
 `;
@@ -61,7 +56,6 @@ const CategoriesItemContentsItem = styled.span`
 export {
   CategoriesContainer,
   CategoriesItemContainer,
-  CategoriesItemTitleContainer,
   CategoriesItemTitleName,
   CategoriesItemTitleDescription,
   CategoriesItemContentsContainer,

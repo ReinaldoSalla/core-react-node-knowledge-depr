@@ -2,7 +2,6 @@ import React from 'react';
 import {
   CategoriesContainer,
   CategoriesItemContainer,
-  CategoriesItemTitleContainer,
   CategoriesItemTitleName,
   CategoriesItemTitleDescription,
   CategoriesItemContentsContainer,
@@ -97,14 +96,12 @@ const Categories = () => {
     <CategoriesContainer>
       {topics.map((topic, index) => 
         <CategoriesItemContainer>
-          <CategoriesItemTitleContainer key={index}>
             <CategoriesItemTitleName>
               {topic.title}
             </CategoriesItemTitleName>
             <CategoriesItemTitleDescription>
               {topic.description}
             </CategoriesItemTitleDescription>
-          </CategoriesItemTitleContainer>
           <CategoriesItemContentsContainer>
             {topic.contents.map((content, index) => 
               <CategoriesItemContentsItem key={index}>
