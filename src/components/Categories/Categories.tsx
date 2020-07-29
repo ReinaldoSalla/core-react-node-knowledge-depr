@@ -2,6 +2,10 @@ import React from 'react';
 import {
   CategoriesContainer,
   CategoriesItemContainer,
+  CategoriesTitleSvgContainer,
+  CategoriesJavaScriptSvg,
+  CategoriesJavaScriptTmpSvg,
+  CategoriesTypeScriptSvg,
   CategoriesItemTitleName,
   CategoriesItemTitleDescription,
   CategoriesItemContentsContainer,
@@ -10,10 +14,12 @@ import {
   CategoriesContentsDescription
 } from './Categories.styles';
 // import contents from '../../data/contents';
+import { IoLogoJavascript } from 'react-icons/io';
 
 const topics = [
   {
     title: 'JavaScript',
+    icon: <CategoriesJavaScriptSvg/>,
     description: 'Curated tutorials from basic to advanced',
     contents: [
       { title: 'Data Structures', description: 'Understanting JavaScript data types, such as booleans, strings, numbers, nulls, arrays and objects'},
@@ -33,6 +39,7 @@ const topics = [
   },
   {
     title: 'TypeScript',
+    icon: <CategoriesTypeScriptSvg />,
     description: 'Fundamentals for extending JavaScript',
     contents: [
 			{ title: 'Types', description: 'Statically type check JavaScript code' },
@@ -43,6 +50,7 @@ const topics = [
   },
   {
     title: 'React',
+    icon: <CategoriesJavaScriptSvg />,
     description: 'Concepts from React, focusing on function components and React Hooks',
     contents: [
       { title: 'Rendering', description: 'Rendering on the browser with JXS' },
@@ -62,6 +70,7 @@ const topics = [
   },
   {
     title: 'Backend',
+    icon: <CategoriesJavaScriptSvg />,
     description: 'Extending applications with Node.js and GraphQL',
     contents: [
       { title: 'Node.js', description: 'Executing server side JavaScript and integrating with the frontend'},
@@ -72,7 +81,8 @@ const topics = [
   },
   {
     title: 'Mobile',
-    description: 'Creating native apps with React Native',
+    icon: <CategoriesJavaScriptSvg />,
+    description: 'Creating native apps for Android and IOS',
     contents: [
       { title: 'React Native', description: 'React Native crash course' },
       { title: 'Sharing Code', description: 'Sharing code between React and React Native' },
@@ -82,6 +92,7 @@ const topics = [
 	},
 	{
     title: "Artificial Intelligence",
+    icon: <CategoriesJavaScriptSvg />,
     description: 'Tackling the big trend in AI today - Deep Learning',
 		contents: [
 			{ title: 'Tensorflow.js', description: 'Dynamic data computation for deep learning' },
@@ -97,6 +108,9 @@ const Categories = () => {
     <CategoriesContainer>
       {topics.map((topic, index) => 
         <CategoriesItemContainer key={index}>
+            <CategoriesTitleSvgContainer>
+              {topic.icon}
+            </CategoriesTitleSvgContainer>
             <CategoriesItemTitleName>
               {topic.title}
             </CategoriesItemTitleName>

@@ -1,7 +1,25 @@
 import styled from 'styled-components';
 import { IoLogoJavascript } from 'react-icons/io';
+import { GiShieldEchoes } from 'react-icons/gi';
 
 const titleSize = '2em';
+
+const icon = `
+  padding: 0.5em;
+  margin-top: 1em;
+  height: 2em;
+  width: 2em;
+  border-radius: 50%;
+  border: 1px solid black;
+`;
+
+const tmpIcon = `
+  padding: 0.5em;
+  margin-top: 1em;
+  font-size: 1.5em;
+  border-radius: 25%;
+  border: 1px solid black;
+`;
 
 const CategoriesContainer = styled.div`
   padding: 0.5em;
@@ -17,10 +35,25 @@ const CategoriesItemContainer = styled.div`
   flex-direction: column;
 `;
 
+const CategoriesTitleSvgContainer = styled.div`
+  /* margin: 0;
+  padding: 0; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid black; */
+`; 
+
+const CategoriesJavaScriptSvg = styled(IoLogoJavascript)`${icon}`;
+
+const CategoriesTypeScriptSvg = styled(GiShieldEchoes)`${icon}`;
+
+const CategoriesJavaScriptTmpSvg = styled.span`${tmpIcon}`;
+
 const CategoriesItemTitleName = styled.span`
   /* padding: 0.25em; */
   /* margin: 0.25em; */
-  margin-top: 1em;
+  margin-top: 0.5em;
   font-weight: 700;
   font-size: ${titleSize};
   text-align: center;
@@ -66,7 +99,7 @@ const CategoriesItemContentsItem = styled.div`
 const CategoriesContentsTitle = styled.span`
   /* padding: 0.25em;
   margin: 0.25em; */
-  margin-top: 1em;
+  margin-top: 0.5em;
   margin-bottom: 1em;
   font-size: 1.5em;
   text-align: center;
@@ -85,6 +118,10 @@ const CategoriesContentsDescription = styled.span`
 export {
   CategoriesContainer,
   CategoriesItemContainer,
+  CategoriesTitleSvgContainer,
+  CategoriesJavaScriptSvg,
+  CategoriesJavaScriptTmpSvg,
+  CategoriesTypeScriptSvg,
   CategoriesItemTitleName,
   CategoriesItemTitleDescription,
   CategoriesItemContentsContainer,
