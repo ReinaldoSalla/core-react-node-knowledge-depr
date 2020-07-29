@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { IoLogoJavascript } from 'react-icons/io';
 
 const titleSize = '2em';
 
@@ -19,6 +20,7 @@ const CategoriesItemContainer = styled.div`
 const CategoriesItemTitleName = styled.span`
   /* padding: 0.25em; */
   /* margin: 0.25em; */
+  margin-top: 1em;
   font-weight: 700;
   font-size: ${titleSize};
   text-align: center;
@@ -27,7 +29,7 @@ const CategoriesItemTitleName = styled.span`
 
 const CategoriesItemTitleDescription = styled.span`
   /* padding: 0.25rem; */
-  margin: 0.25em;
+  margin: 1em;
   font-weight: 700;
   font-size: 1.5em;
   text-align: center;
@@ -41,21 +43,43 @@ const CategoriesItemContentsContainer = styled.div`
   /* flex-wrap: wrap; */
   flex-direction: column;
   justify-content: center;
+  /* align-items: center; */
   /* border: 1px solid orange; */
 `;
 
-const CategoriesItemContentsItem = styled.span`
+const CategoriesItemContentsItem = styled.div`
   padding: 0.5em;
   margin: 0.5em;
-  /* width: 100px; */
-  /* width: 1200px; */
-  height: 80px;
+  /* max-width: 1000px; */
+  /* height: 200px; */
+  min-height: 150px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   /* flex: 10em; */
-  font-size: 1.25em;
+  /* font-size: 1.25em; */
+  /* background: yellow; */
   border: 1px solid black;
+`;
+
+const CategoriesContentsTitle = styled.span`
+  /* padding: 0.25em;
+  margin: 0.25em; */
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-size: 1.5em;
+  text-align: center;
+  /* border: 1px solid black; */
+`;
+
+const CategoriesContentsDescription = styled.span`
+  /* padding: 0.25em;
+  margin: 0.25em; */
+  font-size: 1.25em;
+  text-align: center;
+  margin-bottom: 1em;
+  /* border: 1px solid black; */
 `;
 
 export {
@@ -64,5 +88,7 @@ export {
   CategoriesItemTitleName,
   CategoriesItemTitleDescription,
   CategoriesItemContentsContainer,
-  CategoriesItemContentsItem
+  CategoriesItemContentsItem,
+  CategoriesContentsTitle,
+  CategoriesContentsDescription
 };
