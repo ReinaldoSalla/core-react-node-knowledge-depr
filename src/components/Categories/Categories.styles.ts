@@ -151,10 +151,12 @@ const CategoriesItemContainer = styled.div`
 `;
 
 const CategoriesIconContainer = styled.div`
-  margin: 0.5em;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0.5em;
+  height: 3.5em;
+  width: 3.5em;
   /* background: orange; */
   /* color: green; */
   border: 1px solid black;
@@ -195,45 +197,35 @@ const CategoriesDescriptionText = styled.span`
 const CategoriesContentsContainer = styled.div`
   /* margin: 0.5em;
   padding: 0.5em;
-  border: 1px solid black; */
+  border: 1px solid black;
+  min-width: 300px; */
 `;
 
 const CategoriesContentItemContainer = styled.div`
-  margin: 0.5em;
-  padding: 0.5em;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 600px;
+  margin: 0.5em;
+  padding: 0.5em;
+  width: 700px;
   border: 1px solid black;
 `;
 
 const CategoriesContentTitleText = styled.span`
-  /* flex: auto; */
   /* margin: 0.5em; */
   /* padding: 0.5em; */
   font-size: 1.5em;
   text-align: center;
-
-  /* Does't work */
-  /* min-width: 600px;*/ 
-
-  /* Works */
-  min-width: 600px; 
-
-
-  /* border: 1px solid black; */
+  border: 1px solid black;
 `;  
 
 const CategoriesContentDescriptionText = styled.span`
-  /* flex: auto; */
   /* margin: 0.5em; */
   /* padding: 0.5em; */
   font-size: 1.25em;
   text-align: center;
-  max-width: 600px;
-  /* border: 1px solid black; */
+  border: 1px solid black;
 `;
 
 export {

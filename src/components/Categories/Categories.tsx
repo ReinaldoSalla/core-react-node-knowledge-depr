@@ -172,9 +172,6 @@ const contents = [
 
 const Categories = () => {
   return (
-    // <CategoriesIconContainer>
-    //   <CategoriesShieldEchoesIcon />
-    // </CategoriesIconContainer>
     <CategoriesContainer>
       <CategoriesItemContainer>
         <CategoriesIconContainer>
@@ -187,7 +184,7 @@ const Categories = () => {
           Concepts from React, focusing on function components and React Hooks
         </CategoriesDescriptionText>
         {contents.map((content, index) => 
-          <CategoriesContentItemContainer>
+          <CategoriesContentItemContainer key={index}>
             <CategoriesContentTitleText>
               {content.title}
             </CategoriesContentTitleText>
@@ -202,4 +199,3 @@ const Categories = () => {
 }
 
 export default Categories;
-
