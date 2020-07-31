@@ -135,32 +135,31 @@ import { IoLogoJavascript } from 'react-icons/io';
 import { GiShieldEchoes } from 'react-icons/gi';
 
 const CategoriesContainer = styled.div`
+  margin: 100px 0 100px 0;
   padding: 0.5em;
-  margin: 100px 50px 100px 50px;
-  border: 1px solid black;
 `;
 
 const CategoriesItemContainer = styled.div`
+  margin: 0 1em 0 1em;
+  border: 1px solid black;
+`;
+
+const CategoriesHeaderContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0.5em;
-  margin: 0.5em;
   justify-content: center;
-  border: 1px solid black;
 `;
 
 const CategoriesIconContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0.5em;
+  margin: 1.25em 0 0.5em 0;
   height: 3.5em;
   width: 3.5em;
-  /* background: orange; */
-  /* color: green; */
-  border: 1px solid black;
   border-radius: 50%;
+  border: 1px solid black;
 `;
 
 const CategoriesBaseIcon = `
@@ -178,7 +177,7 @@ const CategoriesShieldEchoesIcon = styled(GiShieldEchoes)`
 `;
 
 const CategoriesTitleText = styled.span`
-  /* padding: 0.5em; */
+  margin: 0 1em 0.5em 1em;
   margin-bottom: 0.5em;
   font-size: 2em;
   font-weight: 700;
@@ -187,18 +186,11 @@ const CategoriesTitleText = styled.span`
 `;
 
 const CategoriesDescriptionText = styled.span`
-  margin-bottom: 0.5em;
+  margin: 0 1em 1em 1em;
   font-size: 1.5em;
   font-weight: 700;
   text-align: center;
   /* border: 1px solid black; */
-`;
-
-const CategoriesContentsContainer = styled.div`
-  /* margin: 0.5em;
-  padding: 0.5em;
-  border: 1px solid black;
-  min-width: 300px; */
 `;
 
 const CategoriesContentItemContainer = styled.div`
@@ -206,37 +198,37 @@ const CategoriesContentItemContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 0.5em;
+  margin: 0.5em 2em 2em 2em;
   padding: 0.5em;
-  width: 700px;
   border: 1px solid black;
+  border-radius: 20px;
 `;
 
 const CategoriesContentTitleText = styled.span`
-  /* margin: 0.5em; */
+  margin: 0.5em 0.25em 0.5em 0.25em;
   /* padding: 0.5em; */
   font-size: 1.5em;
   text-align: center;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 `;  
 
 const CategoriesContentDescriptionText = styled.span`
-  /* margin: 0.5em; */
+  margin: 0.5em 0.25em 0.5em 0.25em;
   /* padding: 0.5em; */
   font-size: 1.25em;
   text-align: center;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 `;
 
 export {
   CategoriesContainer,
   CategoriesItemContainer,
+  CategoriesHeaderContainer,
   CategoriesIconContainer,
   CategoriesJavaScriptIcon,
   CategoriesShieldEchoesIcon,
   CategoriesTitleText,
   CategoriesDescriptionText,
-  CategoriesContentsContainer,
   CategoriesContentItemContainer,
   CategoriesContentTitleText,
   CategoriesContentDescriptionText

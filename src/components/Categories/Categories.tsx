@@ -141,12 +141,12 @@ import React, { Fragment } from 'react';
 import {
   CategoriesContainer,
   CategoriesItemContainer,
+  CategoriesHeaderContainer,
   CategoriesIconContainer,
   CategoriesJavaScriptIcon,
   CategoriesShieldEchoesIcon,
   CategoriesTitleText,
   CategoriesDescriptionText,
-  CategoriesContentsContainer,
   CategoriesContentItemContainer,
   CategoriesContentTitleText,
   CategoriesContentDescriptionText
@@ -174,6 +174,7 @@ const Categories = () => {
   return (
     <CategoriesContainer>
       <CategoriesItemContainer>
+        <CategoriesHeaderContainer>
         <CategoriesIconContainer>
           <CategoriesShieldEchoesIcon />
         </CategoriesIconContainer>
@@ -183,6 +184,7 @@ const Categories = () => {
         <CategoriesDescriptionText>
           Concepts from React, focusing on function components and React Hooks
         </CategoriesDescriptionText>
+        </CategoriesHeaderContainer>
         {contents.map((content, index) => 
           <CategoriesContentItemContainer key={index}>
             <CategoriesContentTitleText>

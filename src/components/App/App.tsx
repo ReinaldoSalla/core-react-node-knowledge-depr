@@ -72,13 +72,13 @@ const App: FunctionComponent = (): JSX.Element => {
 
   return (
     <Fragment>
-      {/* <GlobalStyle />
+      <GlobalStyle />
       <Topbar 
         isSidebarVisible={isSidebarVisible} 
         toggleSidebar={toggleSidebar}
       />
       <Sidebar isSidebarVisible={isSidebarVisible} />
-      <Courosel  /> */}
+      <Courosel  />
       <Categories />
     </Fragment>
   );	
