@@ -61,22 +61,32 @@ const CategoriesDescriptionText = styled.span`
   /* border: 1px solid black; */
 `;
 
-const CategoriesContentContainer = styled.div`
+const CategoriesContentsContainer = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin: 0.5em 5em 2em 5em;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  /* border: 1px solid black; */
+`;
+
+const CategoriesContentContainer = styled.div`
+  /* display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center; */
+  margin: 0.5em 2em 2em 2em;
   padding: 0.5em;
   border: 1px solid black;
   border-radius: 20px;
   transition: transform 500ms;
-  transform: scale(0.9);
+  transform: scale(1);
+  width: 300px;
+  height: 200px;
 
   &:hover {
-    transform: scale(1);
+    transform: scale(1.1);
     cursor: pointer;
-    /* filter: brightness(2); */
+    filter: brightness(2);
   }
 
   @media (max-width: 800px) {
@@ -84,26 +94,29 @@ const CategoriesContentContainer = styled.div`
   }
 `;
 
-const CategoriesContentTitleText = styled.span`
+const CategoriesContentTitleText = styled.div`
   margin: 2em 0.25em 1em 0.25em;
+  height: 40px;
   font-size: 1.5em;
   text-align: center;
   /* border: 1px solid black; */
 
-  @media (max-width: 800px) {
+  /* @media (max-width: 800px) {
     margin: 0.5em 0.25em 0.5em 0.25em;
-  }
+  } */
 `;  
 
-const CategoriesContentDescriptionText = styled.span`
-  margin: 1em 0.25em 2em 0.25em;
+const CategoriesContentDescriptionText = styled.div`
+  /* margin: 1em 0.25em 2em 0.25em; */
   font-size: 1.25em;
+
   text-align: center;
   /* border: 1px solid black; */
+  /* white-space: pre-line;; */
 
-  @media (max-width: 800px) {
+  /* @media (max-width: 800px) {
     margin: 0.5em 0.25em 0.5em 0.25em;
-  }
+  } */
 `;
 
 export {
@@ -115,6 +128,7 @@ export {
   CategoriesShieldEchoesIcon,
   CategoriesTitleText,
   CategoriesDescriptionText,
+  CategoriesContentsContainer,
   CategoriesContentContainer,
   CategoriesContentTitleText,
   CategoriesContentDescriptionText

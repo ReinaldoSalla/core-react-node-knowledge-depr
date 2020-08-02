@@ -1,3 +1,5 @@
+//modify the justify-content only for last row of flexbox
+
 import React, { Fragment } from 'react';
 import {
   CategoriesContainer,
@@ -5,6 +7,7 @@ import {
   CategoriesHeaderContainer,
   CategoriesTitleText,
   CategoriesDescriptionText,
+  CategoriesContentsContainer,
   CategoriesContentContainer,
   CategoriesContentTitleText,
   CategoriesContentDescriptionText
@@ -30,9 +33,11 @@ const topics = {
 			{ title: 'Map', description: 'Processing/Mutating each element of an array according to a certain pattern' },
 			{ title: 'Filter', description: 'Removing elements of an array according to a certain pattern'},
       { title: 'Reduce', description: 'Processing/Mutating each element of an array and generating an accumulator'},
+      { title: 'Iterators', description: 'Dealing with sequences in the core language'},
+      { title: 'Generators', description: 'Producing sequential items in steps and gaining performance' },
       { title: 'Try Catch', description: 'Dealing with erros and exceptions in JavaScript' },
       { title: 'Closures', description: 'Holding the environment' },
-      { title: 'Generators', description: 'Producing sequential items in steps and gaining performance' },
+      { title: 'Proxy Pattern', description: 'Intercepting an object'},
       { title: 'Callbacks', description: 'Understanding one of the most fundamental concept from asyncronous programming in JavaScript' },
 			{ title: 'Promises', description: 'Making async calls and avoiding callback hell'},
 			{ title: 'Async Await', description: 'Syntatic sugar for Generator plus Promises'}
@@ -45,7 +50,9 @@ const topics = {
 			{ title: 'Types', description: 'Statically type check JavaScript code' },
 			{ title: 'Interfaces', description: 'Creating a blueprint for data consisting of key-value pairs' },
       { title: 'Generics', description: 'Allowing the usage of multiple types' },
-      { title: 'Decorators', description: 'Injecting extra functionality and metadata' }
+      { title: 'Decorators', description: 'Injecting extra functionality and metadata' },
+      { title: 'Modules', description: 'Idiomatic import and export' },
+      { title: 'Declaration files', description: 'Declaring types in external files'}
     ]
   },
   react: {
@@ -60,11 +67,13 @@ const topics = {
       { title: 'Context', description: 'Creating global variables and methods' },
       { title: 'Refs', description: 'An escape hatch from react state management' },
       { title: 'Memoization', description: 'Improving performance by memoizing data and methods' },
+      { title: 'Lazy Loading', description: 'Loading only what\'s necessary'},
       { title: 'Routing', description: 'Creating Single Page Apps with react-router' },
       { title: 'Plots', description: 'Creating plots in react with ???' },
-      { title: 'Animation', description: 'Controlling animations with react-spring' },
+      { title: 'Animations', description: 'Controlling animations with react-spring' },
       { title: 'Graphics', description: 'Usage of 3D graphics with three.js and react-three-fiber' },
       { title: 'Videos', description: 'Manipulating videos in react with ???' },
+      { title: 'Gatsby', description: 'Framework based on React'}
     ]
   },
   mobile: {
@@ -72,9 +81,11 @@ const topics = {
     description: 'Creating native apps for Android and IOS',
     contents: [
       { title: 'React Native', description: 'React Native crash course' },
-      { title: 'Sharing Code', description: 'Sharing code between React and React Native' },
-      { title: 'Push Notifications', description: 'Interate with the user even when the app is hybernating' },
-      { title: 'Camera', description: 'Controlling IOS and Android cameras' }
+      { title: 'Sharing Styles', description: 'Sharing styling code between React and React Native' },
+      { title: 'Sharing Animations', description: 'Sharing animations between React and React Native' },
+      { title: 'Push Notifications', description: 'Interating with the user even when the app is hybernating' },
+      { title: 'Microfone', description: 'Controlling the smarthphone built-in microfone'},
+      { title: 'Camera', description: 'Controlling the smartphone built-in camera' }
     ],
 	},
   backend: {
@@ -84,17 +95,21 @@ const topics = {
       { title: 'Node.js', description: 'Executing server side JavaScript and integrating with the frontend'},
       { title: 'GraphQL', description: 'Modeling backend APIs with GraphQL and integrating with the frontend' },
       { title: 'MongoDB', description: 'Persisting unstructured data using a Non-Relational Database' },
-      { title: 'Auth', description: 'Authenticating users with passport.js' }
+      { title: 'Authentication for the web', description: 'Authenticating users on the web with passport.js' },
+      { title: 'Authetication for mobile', description: 'Authenticating users in mobile apps'},
+      { title: 'Scheduling', description: 'Scheduling activities throught the backend'}
     ]
   },
 	ai: {
     title: "Artificial Intelligence",
     description: 'Tackling the big trend in AI today - Deep Learning',
 		contents: [
-			{ title: 'Tensorflow.js', description: 'Dynamic data computation for deep learning' },
+      { title: 'Tensorflow.js', description: 'Dynamic data computation for deep learning' },
+      { title: 'Machine translation', description: 'Translation with xxx'},
+      { title: 'Forecasting', description: 'Predicting the future with xxx'},
 			{ title: 'Sentiment Analysis', description: 'Getting the meaning and the emotion from text sentences' },
 			{ title: 'Chatbot', description: 'Using the ??? API' },
-			{ title: 'Facial Recognition', description: 'Using the ??? API' }
+      { title: 'Facial Recognition', description: 'Using the ??? API' },
 		]
 	}
 };
@@ -113,11 +128,11 @@ const CategoriesContent = ({ content }) => (
 const CategoriesContents = ({
   contents
 }) => (
-  <Fragment>
+  <CategoriesContentsContainer>
     {contents.map((content, index) => 
       <CategoriesContent key={index} content={content} /> 
     )}
-  </Fragment>
+  </CategoriesContentsContainer>
 )
 
 const CategoriesItem = ({
