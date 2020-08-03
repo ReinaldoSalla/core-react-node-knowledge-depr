@@ -1,5 +1,3 @@
-//modify the justify-content only for last row of flexbox
-
 import React, { Fragment } from 'react';
 import {
   CategoriesContainer,
@@ -26,7 +24,7 @@ const topics = {
     title: 'JavaScript',
     description: 'Curated tutorials from basic to advanced',
     contents: [
-      { title: 'Data Structures', description: 'Understanting JavaScript data types, such as booleans, strings, numbers, nulls, arrays and objects'},
+      { title: 'Data Structures', description: 'Understanting JavaScript data types and basic data processing'},
       { title: 'Functions', description: 'Learning how to use function declarations, function expressions and arrow functions'},
 			{ title: 'Conditionals', description: 'Usings if-else, switch and the ternary operator'},
 			{ title: 'Loops', description: 'Iterating over sequences by repetition or by traversing an iterable' },
@@ -38,7 +36,7 @@ const topics = {
       { title: 'Try Catch', description: 'Dealing with erros and exceptions in JavaScript' },
       { title: 'Closures', description: 'Holding the environment' },
       { title: 'Proxy Pattern', description: 'Intercepting an object'},
-      { title: 'Callbacks', description: 'Understanding one of the most fundamental concept from asyncronous programming in JavaScript' },
+      { title: 'Callbacks', description: 'Fundamental concept from asyncronous programming in JavaScript' },
 			{ title: 'Promises', description: 'Making async calls and avoiding callback hell'},
 			{ title: 'Async Await', description: 'Syntatic sugar for Generator plus Promises'}
     ]
@@ -51,8 +49,6 @@ const topics = {
 			{ title: 'Interfaces', description: 'Creating a blueprint for data consisting of key-value pairs' },
       { title: 'Generics', description: 'Allowing the usage of multiple types' },
       { title: 'Decorators', description: 'Injecting extra functionality and metadata' },
-      { title: 'Modules', description: 'Idiomatic import and export' },
-      { title: 'Declaration files', description: 'Declaring types in external files'}
     ]
   },
   react: {
@@ -199,3 +195,122 @@ const Categories = () => {
 }
 
 export default Categories;
+
+// import React from 'react';
+// import {
+//   CategoriesContainer,
+//   CategoriesItemContainer,
+//   CategoriesItemTitleName,
+//   CategoriesItemTitleDescription,
+//   CategoriesItemContentsContainer,
+//   CategoriesItemContentsItem
+// } from './Categories.styles';
+// // import contents from '../../data/contents';
+
+// const topics = [
+//   {
+//     title: 'JavaScript',
+//     description: 'Curated tutorials from basic to advanced',
+//     contents: [
+//       'Data Structures',
+//       'Functions',
+// 			'Conditionals',
+// 			'Loops',
+// 			'Map',
+// 			'Filter',
+//       'Reduce',
+//       'Try Catch',
+//       'Closures',
+// 			'Iterators',
+//       'Generators',
+//       'Callbacks',
+// 			'Promises',
+// 			'Async Await'
+//     ]
+//   },
+//   {
+//     title: 'TypeScript',
+//     description: 'Fundamentals for extending JavaScript',
+//     contents: [
+// 			'Types',
+// 			'Interfaces',
+//       'Generics',
+//       'Decorators'
+//     ]
+//   },
+//   {
+//     title: 'React',
+//     description: 'Concepts from the popular facebook library',
+//     contents: [
+//       'Rendering',
+//       'Styling',
+// 			'State',
+// 			'Props',
+//       'Side Effects',
+//       'Context',
+//       'Refs',
+//       'Memoization',
+//       'Routing',
+//       'Plots',
+//       'Animation',
+//       'Graphics',
+//       'Videos',
+//     ]
+//   },
+//   {
+//     title: 'Backend',
+//     description: 'Extending applications with Node.js and GraphQL',
+//     contents: [
+//       'Node',
+//       'GraphQL',
+//       'MongoDB',
+//       'Auth'
+//     ]
+//   },
+//   {
+//     title: 'Mobile',
+//     description: 'Creating native apps with React Native',
+//     contents: [
+//       'React Native',
+//       'Sharing Code',
+//       'Notifications',
+//       'Camera'
+//     ],
+// 	},
+// 	{
+//     title: "Artificial Intelligence",
+//     description: 'Tackling the big trend in AI today - Deep Learning',
+// 		contents: [
+// 			'Tensorflow',
+// 			'Sentiment Analysis',
+// 			'Chatbot',
+// 			'Facial Recognition'
+// 		]
+// 	},
+// ];
+
+// const Categories = () => {
+//   return (
+//     <CategoriesContainer>
+//       {topics.map((topic, index) => 
+//         <CategoriesItemContainer>
+//             <CategoriesItemTitleName>
+//               {topic.title}
+//             </CategoriesItemTitleName>
+//             <CategoriesItemTitleDescription>
+//               {topic.description}
+//             </CategoriesItemTitleDescription>
+//           <CategoriesItemContentsContainer>
+//             {topic.contents.map((content, index) => 
+//               <CategoriesItemContentsItem key={index}>
+//                 {content}
+//               </CategoriesItemContentsItem>
+//             )}
+//           </CategoriesItemContentsContainer>
+//         </CategoriesItemContainer>
+//       )}
+//     </CategoriesContainer>
+//   )
+// };
+
+// export default Categories;

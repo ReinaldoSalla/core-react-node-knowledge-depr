@@ -10,6 +10,7 @@ import Topbar from '../Topbar';
 import Sidebar from '../Sidebar';
 import Courosel from '../Courosel';
 import Categories from '../Categories';
+import Footer from '../Footer';
 import GlobalStyle from './App.styles';
 
 interface TextProps {
@@ -80,6 +81,7 @@ const App: FunctionComponent = (): JSX.Element => {
       <Sidebar isSidebarVisible={isSidebarVisible} />
       <Courosel  />
       <Categories />
+      <Footer />
     </Fragment>
   );	
 };
