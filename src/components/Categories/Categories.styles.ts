@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const CategoriesContainer = styled.div`
-  margin: 100px 0 0.5em 0;
+  margin: 100px 0 0 0;
   padding: 0.5em;
 `;
 
@@ -50,12 +50,12 @@ const CategoriesContentContainer = styled.div`
   border: 1px solid black;
   border-radius: 20px;
   transition: transform 500ms;
-  transform: scale(1);
+  transform: scale(0.9);
   height: 200px;
   flex: 300px;
 
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     cursor: pointer;
     filter: brightness(2);
   }

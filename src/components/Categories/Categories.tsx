@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import {
   CategoriesContainer,
   CategoriesItemContainer,
@@ -119,7 +119,7 @@ const CategoriesContent = ({ content }) => (
       {content.description}
     </CategoriesContentDescriptionText>
   </CategoriesContentContainer>
-)
+);
 
 const CategoriesContents = ({
   contents
@@ -129,7 +129,7 @@ const CategoriesContents = ({
       <CategoriesContent key={index} content={content} /> 
     )}
   </CategoriesContentsContainer>
-)
+);
 
 const CategoriesItem = ({
   Icon,
@@ -149,7 +149,7 @@ const CategoriesItem = ({
 		</CategoriesHeaderContainer>
     <CategoriesContents contents={contents} />
 	</CategoriesItemContainer>
-)
+);
 
 const Categories = () => {
   return (
@@ -180,7 +180,7 @@ const Categories = () => {
       />
       <CategoriesItem 
         Icon={BackendRoundedIcon}
-        title={topics.backend.description}
+        title={topics.backend.title}
         description={topics.backend.description}
         contents={topics.backend.contents}
       />
@@ -192,125 +192,6 @@ const Categories = () => {
       />
     </CategoriesContainer>
   );
-}
+};
 
 export default Categories;
-
-// import React from 'react';
-// import {
-//   CategoriesContainer,
-//   CategoriesItemContainer,
-//   CategoriesItemTitleName,
-//   CategoriesItemTitleDescription,
-//   CategoriesItemContentsContainer,
-//   CategoriesItemContentsItem
-// } from './Categories.styles';
-// // import contents from '../../data/contents';
-
-// const topics = [
-//   {
-//     title: 'JavaScript',
-//     description: 'Curated tutorials from basic to advanced',
-//     contents: [
-//       'Data Structures',
-//       'Functions',
-// 			'Conditionals',
-// 			'Loops',
-// 			'Map',
-// 			'Filter',
-//       'Reduce',
-//       'Try Catch',
-//       'Closures',
-// 			'Iterators',
-//       'Generators',
-//       'Callbacks',
-// 			'Promises',
-// 			'Async Await'
-//     ]
-//   },
-//   {
-//     title: 'TypeScript',
-//     description: 'Fundamentals for extending JavaScript',
-//     contents: [
-// 			'Types',
-// 			'Interfaces',
-//       'Generics',
-//       'Decorators'
-//     ]
-//   },
-//   {
-//     title: 'React',
-//     description: 'Concepts from the popular facebook library',
-//     contents: [
-//       'Rendering',
-//       'Styling',
-// 			'State',
-// 			'Props',
-//       'Side Effects',
-//       'Context',
-//       'Refs',
-//       'Memoization',
-//       'Routing',
-//       'Plots',
-//       'Animation',
-//       'Graphics',
-//       'Videos',
-//     ]
-//   },
-//   {
-//     title: 'Backend',
-//     description: 'Extending applications with Node.js and GraphQL',
-//     contents: [
-//       'Node',
-//       'GraphQL',
-//       'MongoDB',
-//       'Auth'
-//     ]
-//   },
-//   {
-//     title: 'Mobile',
-//     description: 'Creating native apps with React Native',
-//     contents: [
-//       'React Native',
-//       'Sharing Code',
-//       'Notifications',
-//       'Camera'
-//     ],
-// 	},
-// 	{
-//     title: "Artificial Intelligence",
-//     description: 'Tackling the big trend in AI today - Deep Learning',
-// 		contents: [
-// 			'Tensorflow',
-// 			'Sentiment Analysis',
-// 			'Chatbot',
-// 			'Facial Recognition'
-// 		]
-// 	},
-// ];
-
-// const Categories = () => {
-//   return (
-//     <CategoriesContainer>
-//       {topics.map((topic, index) => 
-//         <CategoriesItemContainer>
-//             <CategoriesItemTitleName>
-//               {topic.title}
-//             </CategoriesItemTitleName>
-//             <CategoriesItemTitleDescription>
-//               {topic.description}
-//             </CategoriesItemTitleDescription>
-//           <CategoriesItemContentsContainer>
-//             {topic.contents.map((content, index) => 
-//               <CategoriesItemContentsItem key={index}>
-//                 {content}
-//               </CategoriesItemContentsItem>
-//             )}
-//           </CategoriesItemContentsContainer>
-//         </CategoriesItemContainer>
-//       )}
-//     </CategoriesContainer>
-//   )
-// };
-
-// export default Categories;
