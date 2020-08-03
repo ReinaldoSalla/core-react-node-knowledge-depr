@@ -5,19 +5,24 @@ import {
   FaReact,
   FaRobot
 } from 'react-icons/fa';
-import { BsServer } from 'react-icons/bs';
+import { BsServer, BsLayoutTextSidebar } from 'react-icons/bs';
 import { GiSmartphone } from 'react-icons/gi'; 
-import { CustomIconProps } from './RoundedIcon.interfaces';
+import { 
+  CustomIconProps, 
+  IconContainerProps 
+} from './RoundedIcon.interfaces';
+import { animated } from 'react-spring';
 
-const IconContainer = styled.div`
+const IconContainer = styled.div<IconContainerProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 1.25em 0 0.5em 0;
-  height: 3.5em;
-  width: 3.5em;
   border-radius: 50%;
-  border: 1px solid black;
+  margin: ${props => props.margin};
+  height: ${props => props.height};
+  width: ${props => props.width};
+  border: ${props => props.border};
+  color: ${props => props.color};
 `;
 
 const BaseIcon = `
@@ -25,6 +30,10 @@ const BaseIcon = `
   height: 2.5em;
   width: 2.5em;
 `;
+
+const SidebarIcon = styled(BsLayoutTextSidebar)`${BaseIcon}`;
+
+const AnimatedSidebarIcon = animated(SidebarIcon);
 
 const JavaScriptIcon = styled(IoLogoJavascript)`${BaseIcon}`;
 
@@ -37,16 +46,16 @@ const MobileIcon = styled(GiSmartphone)`${BaseIcon}`;
 const ShieldEchoesIcon = styled(GiShieldEchoes)<CustomIconProps>`
   ${BaseIcon}
   transform: translate(
-    ${props => props.offsetX}, 
-    ${props => props.offsetY}
+    ${props => props.offsetX ? props.offsetX : '0'}, 
+    ${props => props.offsetY ? props.offsetY : '0'}
   )
 `;
 
 const AiIcon = styled(FaRobot)<CustomIconProps>`
   ${BaseIcon}
   transform: translate(
-    ${props => props.offsetX}, 
-    ${props => props.offsetY}
+    ${props => props.offsetX ? props.offsetX : '0'}, 
+    ${props => props.offsetY ? props.offsetY : '0'}
   )
 `;
 
@@ -57,6 +66,7 @@ export {
   ReactIcon,
   BackendIcon,
   MobileIcon,
-  AiIcon
+  AiIcon,
+  AnimatedSidebarIcon
 };
 

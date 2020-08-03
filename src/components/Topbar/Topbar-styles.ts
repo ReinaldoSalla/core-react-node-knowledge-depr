@@ -6,7 +6,7 @@ const defaultMargin = `0px 25px 0px 25px`
 
 const TopbarContainer = styled.div`
   background: black;
-  height: 70px;
+  height: 80px;
   width: 100%;
   position: fixed;
   display: flex;

@@ -1,18 +1,45 @@
 import React from 'react';
 import {
+  AnimatedSidebarIcon,
 	IconContainer,
 	JavaScriptIcon,
   ShieldEchoesIcon,
   ReactIcon,
   BackendIcon,
   MobileIcon,
-  AiIcon
+  AiIcon,
 } from './RoundedIcon.styles';
 
-const BaseRoundedIcon = ({ Icon }) => (
-  <IconContainer>
-    <Icon />
+const BaseRoundedIcon = ({ 
+    Icon,
+    margin='1.25em 0 0.5em 0',
+    height='3.5em',
+    width='3.5m',
+    border='1px solid black',
+    color='black',
+    offsetX='0%', 
+    offsetY='0%' 
+}) => (
+  <IconContainer
+    margin={margin}
+    height={height}
+    width={width}
+    border={border}
+    color={color}
+  >
+    <Icon offsetX={offsetX} offsetY={offsetY} />
   </IconContainer>
+);
+
+const AnimatedSidebarRoundedIcon = () => (
+  <BaseRoundedIcon 
+    Icon={AnimatedSidebarIcon}
+    margin='0'
+    height='3em'
+    width='3em'
+    border='1px solid white'
+    color='white'
+  />
 );
 
 const JavaScriptRoundedIcon = () => (
@@ -20,9 +47,7 @@ const JavaScriptRoundedIcon = () => (
 );
 
 const ShieldEchoesRoundedIcon = () => (
-  <IconContainer>
-    <ShieldEchoesIcon offsetX={"2%"} offsetY={"5%"}/>
-  </IconContainer>
+  <BaseRoundedIcon Icon={ShieldEchoesIcon} offsetX='2%' offsetY='5%' />
 );
 
 const ReactRoundedIcon = () => (
@@ -38,12 +63,11 @@ const MobileRoundedIcon = () => (
 );
 
 const AiRoundedIcon = () => (
-  <IconContainer>
-    <AiIcon offsetX={"0%"} offsetY={"-1%"}/>
-  </IconContainer>
+  <BaseRoundedIcon Icon={AiIcon} offsetY='-1%' />
 );
 
 export {
+  AnimatedSidebarRoundedIcon,
   JavaScriptRoundedIcon,
   ShieldEchoesRoundedIcon,
   ReactRoundedIcon,

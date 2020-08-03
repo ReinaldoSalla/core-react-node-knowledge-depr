@@ -1,4 +1,5 @@
 import {
+  AnimatedSidebarRoundedIcon,
   JavaScriptRoundedIcon,
   ShieldEchoesRoundedIcon,
   ReactRoundedIcon,
@@ -8,6 +9,7 @@ import {
 } from './RoundedIcon';
 
 export {
+  AnimatedSidebarRoundedIcon,
   JavaScriptRoundedIcon,
   ShieldEchoesRoundedIcon,
   ReactRoundedIcon,

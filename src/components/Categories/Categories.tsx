@@ -18,6 +18,8 @@ import {
   MobileRoundedIcon,
   AiRoundedIcon
 } from '../RoundedIcon';
+import styled from 'styled-components';
+import { IoLogoJavascript } from 'react-icons/io';
 
 const topics = {
   javascript: {
