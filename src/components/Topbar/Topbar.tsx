@@ -5,33 +5,12 @@ import React, {
 import {
   TopbarContainer,
   TopbarSidebarAnimatedIcon,
-  TopbarInput,
   TopbarLogo,
-  TopbarProfile,
   TopbarSearchIcon,
   TopbarProfileIcon
 } from './Topbar-styles';
 import { useSpring } from 'react-spring';
 import TopbarProps from './Topbar.interfaces';
-import {
-  AnimatedSidebarRoundedIcon
-} from '../RoundedIcon';
-
-const TopbarSearch: FunctionComponent = () => (
-  <TopbarInput placeholder='e.g. React Three Fiber' />
-);
-
-interface TestWrapperProps {
-  onClick: () => void;
-  style: any;
-}
-
-const TestWrapper: FunctionComponent<TestWrapperProps> = ({ 
-  onClick,
-  style
-}) => (
-  <TopbarSidebarAnimatedIcon onClick={onClick} style={style} />
-);
 
 const TopbarIcon: FunctionComponent<TopbarProps> = ({
   isSidebarVisible,
@@ -45,8 +24,6 @@ const TopbarIcon: FunctionComponent<TopbarProps> = ({
   });
   return (
       <TopbarSidebarAnimatedIcon style={iconAnimation} onClick={toggleSidebar}/> 
-      // <TestWrapper onClick={toggleSidebar} style={iconAnimation}/>
-      // <AnimatedSidebarRoundedIcon onClick={() => console.log('a')}/>
   );
 };
 

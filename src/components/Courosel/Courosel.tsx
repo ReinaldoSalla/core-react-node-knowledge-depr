@@ -5,7 +5,7 @@ use a react-spring config instead of duration + d3-ease
 create a count state variable for every 100ms, so that the timer can reset when the user clicks in some label or leaves the page
 render how long it takes for the next transition
 being able to swipe in diferent directions for mobile 
-use three.js / react-three-fiber to improve the courosel
+use three.js / react-three-fiber to improve the courosel https://codepen.io/zadvorsky/pen/PNXbGo?editors=1010
 use typescript on useReducer and useEffect
 */
 
@@ -45,11 +45,21 @@ const CouroselItem = ({ style, img }) => (
   </CouroselItemContainer>
 );
 
-const couroselImgs = [js1, js2, js3, js4, js5];
+// const couroselImgs = [js1, js2, js3, js4, js5];
 
-const couroselItems = couroselImgs.map(item =>
-  ({ style }) => <CouroselItem style={style} img={item} />
-);
+// const couroselItems = couroselImgs.map(item =>
+//   ({ style }) => <CouroselItem style={style} img={item} />
+// );
+
+
+
+const couroselItems = [
+  ({ style }) => <CouroselItem style={style} img={js1} />,
+  ({ style }) => <CouroselItem style={style} img={js1} />,
+  ({ style }) => <CouroselItem style={style} img={js1} />,
+  ({ style }) => <CouroselItem style={style} img={js1} />,
+  ({ style }) => <CouroselItem style={style} img={js1} />,
+];
 
 const moveToNextItem = (state) => {
 	let newIndex = state.isTimerEnabled
@@ -158,9 +168,9 @@ const App = () => {
 	
   const transitions = useTransition(state.index, null, {
     config: customConfig.easing,
-    // initial: { opacity: 1 },
+    initial: { opacity: 1 },
     from: { opacity: 0, },
-    enter: { opacity: 0.9 },
+    enter: { opacity: 1 },
     leave: { opacity: 0, },
   });
 
