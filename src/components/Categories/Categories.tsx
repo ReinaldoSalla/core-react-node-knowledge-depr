@@ -137,9 +137,10 @@ const CategoriesItem = ({
   Icon,
   title,
   description,
-  contents
+  contents,
+  lastItem=false
 }) => (
-	<CategoriesItemContainer>
+	<CategoriesItemContainer lastItem={lastItem}>
 		<CategoriesHeaderContainer>
 			<Icon />
       <CategoriesTitleText> 
@@ -191,6 +192,7 @@ const Categories = () => {
         title={topics.ai.title}
         description={topics.ai.description}
         contents={topics.ai.contents}
+        lastItem={true}
       />
     </CategoriesContainer>
   );

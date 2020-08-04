@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const FooterLineContainer = styled.div`
-  margin: 0px 1em 0.5em 1em;
+  margin: 0px 1.5em 0.5em 1.5em;
   border-top: 1px solid rgb(136, 126, 126);
 `;
 

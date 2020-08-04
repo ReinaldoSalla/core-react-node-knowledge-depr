@@ -24,7 +24,7 @@ import {
   CouroselInnerInputContainer
 } from './Courosel.styles';
 import { useTransition, useSpring } from 'react-spring';
-import js1 from '../../assets/js1.png';
+import js1 from '../../assets/javascript.png';
 import js2 from '../../assets/js2.jpg';
 import js3 from '../../assets/js3.png';
 import js4 from '../../assets/js4.jpg';
@@ -158,9 +158,9 @@ const App = () => {
 	
   const transitions = useTransition(state.index, null, {
     config: customConfig.easing,
-    initial: { opacity: 1 },
+    // initial: { opacity: 1 },
     from: { opacity: 0, },
-    enter: { opacity: 1, },
+    enter: { opacity: 0.9 },
     leave: { opacity: 0, },
   });
 

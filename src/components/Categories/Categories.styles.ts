@@ -1,12 +1,16 @@
 import styled from 'styled-components';
 
 const CategoriesContainer = styled.div`
-  margin: 100px 0 0 0;
+  margin: 80px 0 0 0;
   padding: 0.5em;
 `;
 
-const CategoriesItemContainer = styled.div`
-  margin: 0 1em 3em 1em;
+interface CategoriesItemContainerProps {
+  lastItem?: boolean;
+}
+
+const CategoriesItemContainer = styled.div<CategoriesItemContainerProps>`
+  margin: ${props => props.lastItem ? '0 1em 1.5em 1em' : '0 1em 3em 1em' };
   border: 1px solid black;
 `;
 
