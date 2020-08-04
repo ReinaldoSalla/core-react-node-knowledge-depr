@@ -1,11 +1,14 @@
 import styled from 'styled-components';
 import { BsLayoutTextSidebar } from 'react-icons/bs';
+import { RiSearchEyeLine } from 'react-icons/ri';
 import { animated } from 'react-spring';
+import { FaUserSecret } from 'react-icons/fa';
+import { AiOutlineSearch, AiOutlineUser } from 'react-icons/ai';
 
 const defaultMargin = `0px 25px 0px 25px`
 
 const TopbarContainer = styled.div`
-  background: black;
+  background: #282121;
   height: 80px;
   width: 100%;
   position: fixed;
@@ -15,36 +18,46 @@ const TopbarContainer = styled.div`
   z-index: 3;
 `;
 
-const TopbarSvg = styled(BsLayoutTextSidebar)`
+const BaseTopbarIcon = `
   color: white;
   min-width: 2.5em;
   min-height: 2.5em;
   transition: color 1000ms;
-  margin: ${defaultMargin};
 
   &:hover {
     color: aqua;
   }
 `;
 
-const TopbarAnimatedSvg = animated(TopbarSvg);
+const TopbarSidebarIcon = styled(BsLayoutTextSidebar)`
+  ${BaseTopbarIcon}
+`;
+
+const TopbarSidebarAnimatedIcon = animated(TopbarSidebarIcon);
+
+const TopbarSearchIcon = styled(RiSearchEyeLine)`
+  ${BaseTopbarIcon}
+`;
+
+const TopbarProfileIcon = styled(FaUserSecret)`
+  ${BaseTopbarIcon}
+`;
 
 const TopbarLogo = styled.span`
+  padding: 0.5em;
+  font-size: 20px;
   color: white;
   border: 1px solid white;
   border-radius: 2em;
-  padding: 0.5em;
-  margin: ${defaultMargin};
 `;
 
 const TopbarInput = styled.input`
-  width: 300px;
+  width: 120px;
   border-radius: 20px;
   padding: 10px;
   min-width: 10px;
-  background-color: rgba(235, 235, 235, 1);
+  background-color: #e3dcdc;
   border: 10px;
-  border: 1px solid blue;
   margin: ${defaultMargin};
 `;
 
@@ -52,15 +65,16 @@ const TopbarProfile = styled.span`
   background: white;
   min-height: 2.5em;
   min-width: 2.5em;
-  border: 1px solid red;
   border-radius: 50%;
   margin: ${defaultMargin};
 `;
 
 export { 
   TopbarContainer,
-  TopbarAnimatedSvg,
+  TopbarSidebarAnimatedIcon,
   TopbarInput,
   TopbarLogo,
-  TopbarProfile
+  TopbarProfile,
+  TopbarSearchIcon,
+  TopbarProfileIcon
 };

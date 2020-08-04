@@ -4,10 +4,12 @@ import React, {
 } from 'react';
 import {
   TopbarContainer,
-  TopbarAnimatedSvg,
+  TopbarSidebarAnimatedIcon,
   TopbarInput,
   TopbarLogo,
-  TopbarProfile
+  TopbarProfile,
+  TopbarSearchIcon,
+  TopbarProfileIcon
 } from './Topbar-styles';
 import { useSpring } from 'react-spring';
 import TopbarProps from './Topbar.interfaces';
@@ -28,7 +30,7 @@ const TestWrapper: FunctionComponent<TestWrapperProps> = ({
   onClick,
   style
 }) => (
-  <TopbarAnimatedSvg onClick={onClick} style={style} />
+  <TopbarSidebarAnimatedIcon onClick={onClick} style={style} />
 );
 
 const TopbarIcon: FunctionComponent<TopbarProps> = ({
@@ -42,7 +44,7 @@ const TopbarIcon: FunctionComponent<TopbarProps> = ({
     }
   });
   return (
-      <TopbarAnimatedSvg style={iconAnimation} onClick={toggleSidebar}/> 
+      <TopbarSidebarAnimatedIcon style={iconAnimation} onClick={toggleSidebar}/> 
       // <TestWrapper onClick={toggleSidebar} style={iconAnimation}/>
       // <AnimatedSidebarRoundedIcon onClick={() => console.log('a')}/>
   );
@@ -58,10 +60,10 @@ const Topbar: FunctionComponent<TopbarProps> = ({
       toggleSidebar={toggleSidebar}
     />
     <TopbarLogo>
-      CompanyLogo
+      JSE
     </TopbarLogo>
-    <TopbarSearch />
-    <TopbarProfile />
+    <TopbarSearchIcon />
+    <TopbarProfileIcon />
   </TopbarContainer>
 );
 
