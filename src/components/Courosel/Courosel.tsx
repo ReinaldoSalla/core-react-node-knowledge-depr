@@ -29,6 +29,8 @@ import js1 from '../../assets/javascript.png';
 import js2 from '../../assets/js2.jpg';
 import js3 from '../../assets/js3.png';import js4 from '../../assets/js4.jpg';
 import js5 from '../../assets/js5.jpg';
+import galaxy from '../../assets/galaxy.jpg';
+import matrix from '../../assets/matrix.jpg';
 import * as easings from 'd3-ease';
 import useDocumentVisibility from '../../utils/useDocumentVisibility';
 import styled from 'styled-components';
@@ -62,20 +64,27 @@ const customConfig = {
 // ];
 
 const FirstCouroselItemContainer = styled.div`
+  /*background-size mantain the same size as the width changes */
+  position: fixed;
   width: 100%;
   height: 600px;
   font-size: 100px;
   position: absolute;
-  background: #2b1b1b;
+  /* background: #2b1b1b; */
+  background-image: url(${galaxy});
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
 const FirstCouroselItemTitle = styled.div`
-  margin: 3rem 0 0 0;
+  margin: 2rem 0 0 0;
   color: white;
   font-size: 2rem;
+  font-weight: 700;
   text-align: center;
 `;
 
@@ -87,32 +96,22 @@ const FirstCouroselItemFirstSubtitleText = styled.div`
   margin: 2rem 0 0 0;
   color: white;
   font-size: 1.5rem;
+  font-weight: 700;
 `;
 
 const FirstCouroselItemFirstContentText = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   margin: 1rem 1rem 0 1rem;
   padding: 0.5rem;
   color: white;
   font-size: 1.5rem;
   border: 1px solid white;
-  border-radius: 20px;
   width: 8rem;
-  text-align: center;
-`;
-
-const FirstCouroselItemIconContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  height: 4rem;
-  width: 4rem;
-  border: 1px solid white;
-  color: white;
-`;
-
-const FirstCouroselItemIcon = styled(IoLogoJavascript)`
-  margin: 10px;
+  font-weight: 700;
+  border-radius: 20px;
 `;
  
 const FirstCouroselItem = () => (
@@ -120,32 +119,39 @@ const FirstCouroselItem = () => (
     <FirstCouroselItemTitle>
       JavaScript Guides
     </FirstCouroselItemTitle>
+
     <FirstCouroselItemFirstSubtitleText>
       Data Processing
     </FirstCouroselItemFirstSubtitleText>
     <FirstCouroselItemFirstContainer>
-      <FirstCouroselItemFirstContentText>
-        Data Structures
-      </FirstCouroselItemFirstContentText>
       <FirstCouroselItemFirstContentText>
         Functions
       </FirstCouroselItemFirstContentText>
     </FirstCouroselItemFirstContainer>
 
     <FirstCouroselItemFirstSubtitleText>
-      Asyncrounous
+      Fundamentals
     </FirstCouroselItemFirstSubtitleText>
     <FirstCouroselItemFirstContainer>
       <FirstCouroselItemFirstContentText>
-        Promises
+        Closures
       </FirstCouroselItemFirstContentText>
+    </FirstCouroselItemFirstContainer>
+
+    <FirstCouroselItemFirstSubtitleText>
+      Asyncronous
+    </FirstCouroselItemFirstSubtitleText>
+    <FirstCouroselItemFirstContainer>
+
       <FirstCouroselItemFirstContentText>
         Async Await
       </FirstCouroselItemFirstContentText>
     </FirstCouroselItemFirstContainer>
 
+
   </FirstCouroselItemContainer>
-)
+);
+
 
 const moveToNextItem = (state) => {
 	let newIndex = state.isTimerEnabled
@@ -254,7 +260,7 @@ const App = () => {
 	
   const transitions = useTransition(state.index, null, {
     config: customConfig.easing,
-    initial: { opacity: 1 },
+    // initial: { opacity: 1 },
     from: { opacity: 0, },
     enter: { opacity: 1 },
     leave: { opacity: 0, },
