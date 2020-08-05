@@ -1,5 +1,6 @@
 /*
 todo
+create the actual content https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiJydadg4TrAhUUIbkGHZPeA-YQFjAAegQIBRAB&url=https%3A%2F%2Fwww.pexels.com%2Fsearch%2Fwebsite%2520background%2F&usg=AOvVaw08xwJ2TViw6zoqosJyED2m
 Prevent new items from entering until old items have finished leaving https://github.com/react-spring/react-spring/pull/809 
 use a react-spring config instead of duration + d3-ease
 create a count state variable for every 100ms, so that the timer can reset when the user clicks in some label or leaves the page
@@ -26,11 +27,12 @@ import {
 import { useTransition, useSpring } from 'react-spring';
 import js1 from '../../assets/javascript.png';
 import js2 from '../../assets/js2.jpg';
-import js3 from '../../assets/js3.png';
-import js4 from '../../assets/js4.jpg';
+import js3 from '../../assets/js3.png';import js4 from '../../assets/js4.jpg';
 import js5 from '../../assets/js5.jpg';
 import * as easings from 'd3-ease';
 import useDocumentVisibility from '../../utils/useDocumentVisibility';
+import styled from 'styled-components';
+import { IoLogoJavascript } from 'react-icons/io';
 
 const DURATION: number = 1e10;
 
@@ -39,11 +41,11 @@ const customConfig = {
   easing: { duration: 1500, easing: easings.easeCubic }
 };
 
-const CouroselItem = ({ style, img }) => (
-  <CouroselItemContainer className='courosel-item' style={style}>
-    <CouroselImg className='courosel-img' src={img} alt='' />
-  </CouroselItemContainer>
-);
+// const CouroselItem = ({ style, img }) => (
+//   <CouroselItemContainer className='courosel-item' style={style}>
+//     <CouroselImg className='courosel-img' src={img} alt='' />
+//   </CouroselItemContainer>
+// );
 
 // const couroselImgs = [js1, js2, js3, js4, js5];
 
@@ -51,15 +53,99 @@ const CouroselItem = ({ style, img }) => (
 //   ({ style }) => <CouroselItem style={style} img={item} />
 // );
 
+// const couroselItems = [
+//   ({ style }) => <CouroselItem style={style} img={js1} />,
+//   ({ style }) => <CouroselItem style={style} img={js1} />,
+//   ({ style }) => <CouroselItem style={style} img={js1} />,
+//   ({ style }) => <CouroselItem style={style} img={js1} />,
+//   ({ style }) => <CouroselItem style={style} img={js1} />,
+// ];
 
+const FirstCouroselItemContainer = styled.div`
+  width: 100%;
+  height: 600px;
+  font-size: 100px;
+  position: absolute;
+  background: #2b1b1b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
-const couroselItems = [
-  ({ style }) => <CouroselItem style={style} img={js1} />,
-  ({ style }) => <CouroselItem style={style} img={js1} />,
-  ({ style }) => <CouroselItem style={style} img={js1} />,
-  ({ style }) => <CouroselItem style={style} img={js1} />,
-  ({ style }) => <CouroselItem style={style} img={js1} />,
-];
+const FirstCouroselItemTitle = styled.div`
+  margin: 3rem 0 0 0;
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+`;
+
+const FirstCouroselItemFirstContainer = styled.div`
+  display: flex;
+`;
+
+const FirstCouroselItemFirstSubtitleText = styled.div`
+  margin: 2rem 0 0 0;
+  color: white;
+  font-size: 1.5rem;
+`;
+
+const FirstCouroselItemFirstContentText = styled.div`
+  margin: 1rem 1rem 0 1rem;
+  padding: 0.5rem;
+  color: white;
+  font-size: 1.5rem;
+  border: 1px solid white;
+  border-radius: 20px;
+  width: 8rem;
+  text-align: center;
+`;
+
+const FirstCouroselItemIconContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  height: 4rem;
+  width: 4rem;
+  border: 1px solid white;
+  color: white;
+`;
+
+const FirstCouroselItemIcon = styled(IoLogoJavascript)`
+  margin: 10px;
+`;
+ 
+const FirstCouroselItem = () => (
+  <FirstCouroselItemContainer>
+    <FirstCouroselItemTitle>
+      JavaScript Guides
+    </FirstCouroselItemTitle>
+    <FirstCouroselItemFirstSubtitleText>
+      Data Processing
+    </FirstCouroselItemFirstSubtitleText>
+    <FirstCouroselItemFirstContainer>
+      <FirstCouroselItemFirstContentText>
+        Data Structures
+      </FirstCouroselItemFirstContentText>
+      <FirstCouroselItemFirstContentText>
+        Functions
+      </FirstCouroselItemFirstContentText>
+    </FirstCouroselItemFirstContainer>
+
+    <FirstCouroselItemFirstSubtitleText>
+      Asyncrounous
+    </FirstCouroselItemFirstSubtitleText>
+    <FirstCouroselItemFirstContainer>
+      <FirstCouroselItemFirstContentText>
+        Promises
+      </FirstCouroselItemFirstContentText>
+      <FirstCouroselItemFirstContentText>
+        Async Await
+      </FirstCouroselItemFirstContentText>
+    </FirstCouroselItemFirstContainer>
+
+  </FirstCouroselItemContainer>
+)
 
 const moveToNextItem = (state) => {
 	let newIndex = state.isTimerEnabled
@@ -207,10 +293,11 @@ const App = () => {
   return (
     <Fragment>
       <CouroselContainer>
-        {transitions.map(({ item, props, key }) => {
+        {/* {transitions.map(({ item, props, key }) => {
           const Page = couroselItems[item]
           return <Page key={key} style={props} />
-        })}
+        })} */}
+        <FirstCouroselItem />
       </CouroselContainer>
       <CouroselInputsContainer className='courosel-inputs'>
         <CouroselInputContainer onClick={handleFirstItem}>
