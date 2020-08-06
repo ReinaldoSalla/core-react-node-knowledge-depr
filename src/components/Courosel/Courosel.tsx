@@ -25,12 +25,13 @@ import {
   CouroselInnerInputContainer
 } from './Courosel.styles';
 import { useTransition, useSpring } from 'react-spring';
-import js1 from '../../assets/javascript.png';
-import js2 from '../../assets/js2.jpg';
-import js3 from '../../assets/js3.png';import js4 from '../../assets/js4.jpg';
-import js5 from '../../assets/js5.jpg';
+// import js1 from '../../assets/javascript.png';
+// import js2 from '../../assets/js2.jpg';
+// import js3 from '../../assets/js3.png';
+// import js4 from '../../assets/js4.jpg';
+// import js5 from '../../assets/js5.jpg';
 import galaxy from '../../assets/galaxy.jpg';
-import matrix from '../../assets/matrix.jpg';
+// import matrix from '../../assets/matrix.jpg';
 import * as easings from 'd3-ease';
 import useDocumentVisibility from '../../utils/useDocumentVisibility';
 import styled from 'styled-components';
@@ -64,13 +65,12 @@ const customConfig = {
 // ];
 
 const FirstCouroselItemContainer = styled.div`
-  /*background-size mantain the same size as the width changes */
   position: fixed;
   width: 100%;
   height: 600px;
   font-size: 100px;
   position: absolute;
-  /* background: #2b1b1b; */
+  background: #2b1b1b;
   background-image: url(${galaxy});
   background-size: 100% 100%;
   background-repeat: no-repeat;

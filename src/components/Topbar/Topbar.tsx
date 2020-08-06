@@ -1,13 +1,19 @@
+// https://stackoverflow.com/questions/56636280/how-to-style-react-icons
+// https://stackoverflow.com/questions/62895878/styled-components-and-react-icons-iconcontext-provider-component
+
 import React, { 
   Fragment,
   FunctionComponent 
 } from 'react';
 import {
   TopbarContainer,
+  TopbarItemContainer,
   TopbarSidebarAnimatedIcon,
   TopbarLogo,
   TopbarSearchIcon,
-  TopbarProfileIcon
+  TopbarProfileIcon,
+  TopbarText,
+  TestIcon
 } from './Topbar-styles';
 import { useSpring } from 'react-spring';
 import TopbarProps from './Topbar.interfaces';
@@ -23,7 +29,10 @@ const TopbarIcon: FunctionComponent<TopbarProps> = ({
     }
   });
   return (
-      <TopbarSidebarAnimatedIcon style={iconAnimation} onClick={toggleSidebar}/> 
+      <TopbarItemContainer>
+        <TopbarSidebarAnimatedIcon style={iconAnimation} onClick={toggleSidebar}/> 
+        <TopbarText> Contents</TopbarText>
+      </TopbarItemContainer>
   );
 };
 
@@ -36,11 +45,19 @@ const Topbar: FunctionComponent<TopbarProps> = ({
       isSidebarVisible={isSidebarVisible}
       toggleSidebar={toggleSidebar}
     />
-    <TopbarLogo>
-      JSE
-    </TopbarLogo>
-    <TopbarSearchIcon />
-    <TopbarProfileIcon />
+    <TopbarItemContainer>
+      {/* <TopbarLogo> JSE </TopbarLogo> */}
+      <TestIcon />
+      <TopbarText> ABcdefgh</TopbarText>
+    </TopbarItemContainer>
+    <TopbarItemContainer>
+      <TopbarSearchIcon />
+      <TopbarText> Search</TopbarText>
+    </TopbarItemContainer>
+    <TopbarItemContainer>
+      <TopbarProfileIcon />
+      <TopbarText> Profile </TopbarText>
+    </TopbarItemContainer>
   </TopbarContainer>
 );
 

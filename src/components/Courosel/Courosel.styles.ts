@@ -4,7 +4,6 @@ import { animated } from  'react-spring';
 const height = '600px';
 
 const CouroselContainer = styled.div`
-  padding-top: 10px;
   margin: 0 1.5em 0 1.5em;
   transform: translateY(16%);
   height: ${height};
