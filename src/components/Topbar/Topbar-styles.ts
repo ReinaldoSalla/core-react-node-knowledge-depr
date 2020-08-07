@@ -9,7 +9,8 @@ import { IoLogoJavascript } from 'react-icons/io';
 const defaultMargin = `0px 25px 0px 25px`
 
 const TopbarContainer = styled.div`
-  background: #282121;
+  /* background: #282121; */
+  background: transparent;
   height: 80px;
   width: 100%;
   position: fixed;

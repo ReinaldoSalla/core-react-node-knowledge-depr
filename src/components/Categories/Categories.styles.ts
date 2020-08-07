@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const CategoriesContainer = styled.div`
-  margin: 80px 0 0 0;
+  margin: 0 0 0 0;
   padding: 0.5em;
 `;
 

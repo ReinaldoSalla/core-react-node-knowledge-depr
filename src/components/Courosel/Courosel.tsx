@@ -18,24 +18,21 @@ import React, {
 } from 'react';
 import {
   CouroselContainer,
+  CouroselBackground,
+  FirstCouroselTitle,
+  FirstCouroselSubtitle,
+  FirstCouroselContent,
   CouroselItemContainer,
   CouroselImg,
+  CouroselContentContainer,
   CouroselInputsContainer,
   CouroselInputContainer,
-  CouroselInnerInputContainer
+  CouroselInnerInputContainer,
 } from './Courosel.styles';
 import { useTransition, useSpring } from 'react-spring';
-// import js1 from '../../assets/javascript.png';
-// import js2 from '../../assets/js2.jpg';
-// import js3 from '../../assets/js3.png';
-// import js4 from '../../assets/js4.jpg';
-// import js5 from '../../assets/js5.jpg';
-import galaxy from '../../assets/galaxy.jpg';
-// import matrix from '../../assets/matrix.jpg';
 import * as easings from 'd3-ease';
 import useDocumentVisibility from '../../utils/useDocumentVisibility';
-import styled from 'styled-components';
-import { IoLogoJavascript } from 'react-icons/io';
+import useHeight from '../../utils/useHeight';
 
 const DURATION: number = 1e10;
 
@@ -63,95 +60,6 @@ const customConfig = {
 //   ({ style }) => <CouroselItem style={style} img={js1} />,
 //   ({ style }) => <CouroselItem style={style} img={js1} />,
 // ];
-
-const FirstCouroselItemContainer = styled.div`
-  position: fixed;
-  width: 100%;
-  height: 600px;
-  font-size: 100px;
-  position: absolute;
-  background: #2b1b1b;
-  background-image: url(${galaxy});
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const FirstCouroselItemTitle = styled.div`
-  margin: 2rem 0 0 0;
-  color: white;
-  font-size: 2rem;
-  font-weight: 700;
-  text-align: center;
-`;
-
-const FirstCouroselItemFirstContainer = styled.div`
-  display: flex;
-`;
-
-const FirstCouroselItemFirstSubtitleText = styled.div`
-  margin: 2rem 0 0 0;
-  color: white;
-  font-size: 1.5rem;
-  font-weight: 700;
-`;
-
-const FirstCouroselItemFirstContentText = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin: 1rem 1rem 0 1rem;
-  padding: 0.5rem;
-  color: white;
-  font-size: 1.5rem;
-  border: 1px solid white;
-  width: 8rem;
-  font-weight: 700;
-  border-radius: 20px;
-`;
- 
-const FirstCouroselItem = () => (
-  <FirstCouroselItemContainer>
-    <FirstCouroselItemTitle>
-      JavaScript Guides
-    </FirstCouroselItemTitle>
-
-    <FirstCouroselItemFirstSubtitleText>
-      Data Processing
-    </FirstCouroselItemFirstSubtitleText>
-    <FirstCouroselItemFirstContainer>
-      <FirstCouroselItemFirstContentText>
-        Functions
-      </FirstCouroselItemFirstContentText>
-    </FirstCouroselItemFirstContainer>
-
-    <FirstCouroselItemFirstSubtitleText>
-      Fundamentals
-    </FirstCouroselItemFirstSubtitleText>
-    <FirstCouroselItemFirstContainer>
-      <FirstCouroselItemFirstContentText>
-        Closures
-      </FirstCouroselItemFirstContentText>
-    </FirstCouroselItemFirstContainer>
-
-    <FirstCouroselItemFirstSubtitleText>
-      Asyncronous
-    </FirstCouroselItemFirstSubtitleText>
-    <FirstCouroselItemFirstContainer>
-
-      <FirstCouroselItemFirstContentText>
-        Async Await
-      </FirstCouroselItemFirstContentText>
-    </FirstCouroselItemFirstContainer>
-
-
-  </FirstCouroselItemContainer>
-);
-
 
 const moveToNextItem = (state) => {
 	let newIndex = state.isTimerEnabled
@@ -224,6 +132,7 @@ const App = () => {
 		isTimerEnabled: true,
   });
   const isDocumentVisible: boolean = useDocumentVisibility();
+  const height = useHeight();  
 
   const handleNextItem = useCallback(() => (
     dispatch({ type: 'MOVE_TO_NEXT_ITEM' })
@@ -298,33 +207,59 @@ const App = () => {
 
   return (
     <Fragment>
-      <CouroselContainer>
+      {/* <div style={{ color: 'red' }}> {height} </div> */}
+      <CouroselContainer height={`${height}px`}>
         {/* {transitions.map(({ item, props, key }) => {
           const Page = couroselItems[item]
           return <Page key={key} style={props} />
         })} */}
-        <FirstCouroselItem />
+      <CouroselBackground height={`${height}px`}>
+        <CouroselContentContainer>
+          <FirstCouroselTitle>
+            JavaScript Guides
+          </FirstCouroselTitle>
+          <FirstCouroselSubtitle>
+            Data Processing
+          </FirstCouroselSubtitle>
+            <FirstCouroselContent>
+              Functions
+            </FirstCouroselContent>
+          <FirstCouroselSubtitle>
+            Fundamentals
+          </FirstCouroselSubtitle>
+            <FirstCouroselContent>
+              Closures
+            </FirstCouroselContent>
+          <FirstCouroselSubtitle>
+            Asyncronous
+          </FirstCouroselSubtitle>
+          <FirstCouroselContent>
+            Async Await
+          </FirstCouroselContent>
+        </CouroselContentContainer>
+        <CouroselInputsContainer>
+          <CouroselInputContainer onClick={handleFirstItem}>
+            <CouroselInnerInputContainer style={firstInputAnimation} />
+          </CouroselInputContainer>
+          <CouroselInputContainer onClick={handleSecondItem}>
+            <CouroselInnerInputContainer style={secondInputAnimation} />
+          </CouroselInputContainer>
+          <CouroselInputContainer onClick={handleThirdItem}>
+            <CouroselInnerInputContainer style={thirdInputAnimation} />
+          </CouroselInputContainer>
+          <CouroselInputContainer onClick={handleForthItem}>
+            <CouroselInnerInputContainer style={forthInputAnimation} />
+          </CouroselInputContainer>
+          <CouroselInputContainer onClick={handleFifthItem}>
+            <CouroselInnerInputContainer style={fifthInputAnimation} />
+          </CouroselInputContainer>
+        </CouroselInputsContainer>
+        {/* <CouroselTimerContainer /> */}
+      </CouroselBackground>
       </CouroselContainer>
-      <CouroselInputsContainer className='courosel-inputs'>
-        <CouroselInputContainer onClick={handleFirstItem}>
-          <CouroselInnerInputContainer style={firstInputAnimation} />
-        </CouroselInputContainer>
-        <CouroselInputContainer onClick={handleSecondItem}>
-          <CouroselInnerInputContainer style={secondInputAnimation} />
-        </CouroselInputContainer>
-        <CouroselInputContainer onClick={handleThirdItem}>
-          <CouroselInnerInputContainer style={thirdInputAnimation} />
-        </CouroselInputContainer>
-        <CouroselInputContainer onClick={handleForthItem}>
-          <CouroselInnerInputContainer style={forthInputAnimation} />
-        </CouroselInputContainer>
-        <CouroselInputContainer onClick={handleFifthItem}>
-          <CouroselInnerInputContainer style={fifthInputAnimation} />
-        </CouroselInputContainer>
-      </CouroselInputsContainer>
     </Fragment>
-  )
-}
+  );
+};
 
 export default App;
 
