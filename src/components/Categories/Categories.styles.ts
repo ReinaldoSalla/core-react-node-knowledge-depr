@@ -12,6 +12,7 @@ interface CategoriesItemContainerProps {
 const CategoriesItemContainer = styled.div<CategoriesItemContainerProps>`
   margin: ${props => props.lastItem ? '0 1em 1.5em 1em' : '0 1em 3em 1em' };
   border: 1px solid black;
+  background: aliceBlue;
 `;
 
 const CategoriesHeaderContainer = styled.div`
@@ -27,6 +28,7 @@ const CategoriesTitleText = styled.span`
   font-size: 2em;
   font-weight: 700;
   text-align: center;
+  color: black;
 `;
 
 const CategoriesDescriptionText = styled.span`
@@ -34,6 +36,7 @@ const CategoriesDescriptionText = styled.span`
   font-size: 1.5em;
   font-weight: 700;
   text-align: center;
+  color: black;
 `;
 
 const CategoriesContentsContainer = styled.div`
@@ -49,19 +52,20 @@ const CategoriesContentsContainer = styled.div`
 `;
 
 const CategoriesContentContainer = styled.div`
+  flex: 300px;
   margin: 0.5em 2em 2em 2em;
   padding: 0.5em;
-  border: 1px solid black;
   border-radius: 20px;
   transition: transform 500ms;
   transform: scale(0.9);
   height: 200px;
-  flex: 300px;
+  border: 1px solid black;
+  background: aliceblue;
 
   &:hover {
     transform: scale(1.05);
     cursor: pointer;
-    filter: brightness(2);
+    /* filter: brightness(1.5); */
   }
 
   @media (max-width: 600px) {
@@ -74,12 +78,14 @@ const CategoriesContentTitleText = styled.div`
   height: 40px;
   font-size: 1.5em;
   text-align: center;
+  color: black;
 `;  
 
 const CategoriesContentDescriptionText = styled.div`
   margin: 0 0.25em 1.5em 0.25em;
   font-size: 1.25em;
   text-align: center;
+  color: black;
 `;
 
 export {
