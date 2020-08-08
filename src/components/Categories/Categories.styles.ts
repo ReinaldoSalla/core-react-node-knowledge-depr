@@ -10,8 +10,9 @@ interface CategoriesItemContainerProps {
 }
 
 const CategoriesItemContainer = styled.div<CategoriesItemContainerProps>`
-  margin: ${props => props.lastItem ? '0 1em 1.5em 1em' : '0 1em 3em 1em' };
-  border: 1px solid black;
+  margin: ${props => props.lastItem ? '0 1.5em 1.5em 1.5em' : '0 1.5em 3em 1.5em' };
+  /* margin: 0 6em 0 6em; */
+  border-top: 1px solid black;
   background: aliceBlue;
 `;
 
@@ -40,10 +41,10 @@ const CategoriesDescriptionText = styled.span`
 `;
 
 const CategoriesContentsContainer = styled.div`
-  margin: 0 3em 0 3em;
+  margin: 0 2em 0 2em;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
   flex-wrap: wrap;
 
   @media (max-width: 600px) {
