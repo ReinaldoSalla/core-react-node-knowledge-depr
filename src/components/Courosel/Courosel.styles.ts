@@ -12,6 +12,7 @@ const CouroselContainer = styled.div<CouroselContainerProps>`
   /* margin: 0 1.5em 0 1.5em; */
   /* transform: translateY(16%); */
   height: ${props => props.height};
+  padding-top: 80px;
   /* display: flex; */
   /* align-items: center; */
   /* justify-content: center; */

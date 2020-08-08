@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 const CategoriesContainer = styled.div`
-  margin: 0 0 0 0;
-  padding: 0.5em;
+  margin: 50px 0 0 0;
+  /* padding: 0.5em; */
 `;
 
 interface CategoriesItemContainerProps {
@@ -60,7 +60,7 @@ const CategoriesContentContainer = styled.div`
   transform: scale(0.9);
   height: 200px;
   border: 1px solid black;
-  background: aliceblue;
+  background: #f7fbff;
 
   &:hover {
     transform: scale(1.05);
@@ -78,14 +78,16 @@ const CategoriesContentTitleText = styled.div`
   height: 40px;
   font-size: 1.5em;
   text-align: center;
-  color: black;
+  /* color: #898989; */
+  /* font-weight: 500; */
 `;  
 
 const CategoriesContentDescriptionText = styled.div`
   margin: 0 0.25em 1.5em 0.25em;
   font-size: 1.25em;
   text-align: center;
-  color: black;
+  /* color: #898989; */
+  /* font-weight: 500; */
 `;
 
 export {

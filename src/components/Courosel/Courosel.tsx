@@ -208,33 +208,21 @@ const App = () => {
   return (
     <Fragment>
       {/* <div style={{ color: 'red' }}> {height} </div> */}
-      <CouroselContainer height={`${height}px`}>
+      <CouroselContainer height={`${height-80-100}px`}>
         {/* {transitions.map(({ item, props, key }) => {
           const Page = couroselItems[item]
           return <Page key={key} style={props} />
         })} */}
-      <CouroselBackground height={`${height}px`}>
+      <CouroselBackground height={`${height-80-100}px`}>
         <CouroselContentContainer>
           <FirstCouroselTitle>
             JavaScript Guides
           </FirstCouroselTitle>
           <FirstCouroselSubtitle>
-            Data Processing
-          </FirstCouroselSubtitle>
-            <FirstCouroselContent>
-              Functions
-            </FirstCouroselContent>
-          <FirstCouroselSubtitle>
-            Fundamentals
-          </FirstCouroselSubtitle>
-            <FirstCouroselContent>
-              Closures
-            </FirstCouroselContent>
-          <FirstCouroselSubtitle>
-            Asyncronous
+            From data processing to asyncrounous programming
           </FirstCouroselSubtitle>
           <FirstCouroselContent>
-            Async Await
+            Check JS tutorials
           </FirstCouroselContent>
         </CouroselContentContainer>
         <CouroselInputsContainer>
@@ -262,4 +250,3 @@ const App = () => {
 };
 
 export default App;
-
