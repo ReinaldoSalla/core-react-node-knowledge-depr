@@ -13,7 +13,7 @@ const CategoriesItemContainer = styled.div<CategoriesItemContainerProps>`
   margin: ${props => props.lastItem ? '0 1.5em 1.5em 1.5em' : '0 1.5em 3em 1.5em' };
   /* margin: 0 6em 0 6em; */
   border-top: 1px solid black;
-  background: aliceBlue;
+  background: aliceblue;
 `;
 
 const CategoriesHeaderContainer = styled.div`
@@ -61,7 +61,7 @@ const CategoriesContentContainer = styled.div`
   transform: scale(0.9);
   height: 200px;
   border: 1px solid black;
-  background: #f7fbff;
+  background: #ff000008;
 
   &:hover {
     transform: scale(1.05);

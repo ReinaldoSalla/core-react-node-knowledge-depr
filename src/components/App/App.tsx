@@ -12,6 +12,7 @@ import Courosel from '../Courosel';
 import Categories from '../Categories';
 import Footer from '../Footer';
 import GlobalStyle from './App.styles';
+import ContentPageTester from '../ContentPageTester';
 
 interface TextProps {
   isSidebarVisible: boolean
@@ -82,6 +83,7 @@ const App: FunctionComponent = (): JSX.Element => {
       <Courosel  />
       <Categories />
       <Footer />
+      {/* <ContentPageTester /> */}
     </Fragment>
   );	
 };
