@@ -208,12 +208,12 @@ const App = () => {
   return (
     <Fragment>
       {/* <div style={{ color: 'red' }}> {height} </div> */}
-      <CouroselContainer height={`${height-80-100}px`}>
+      <CouroselContainer height={`${height-80}px`}>
         {/* {transitions.map(({ item, props, key }) => {
           const Page = couroselItems[item]
           return <Page key={key} style={props} />
         })} */}
-      <CouroselBackground height={`${height-80-100}px`}>
+      <CouroselBackground height={`${height-80-80}px`}>
         <CouroselContentContainer>
           <FirstCouroselTitle>
             JavaScript Guides

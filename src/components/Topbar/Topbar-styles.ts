@@ -9,8 +9,9 @@ import { IoLogoJavascript } from 'react-icons/io';
 const defaultMargin = `0px 25px 0px 25px`
 
 const TopbarContainer = styled.div`
-  background: #1a1818;
+  /* background: #1a1818; */
   /* background: transparent; */
+  background: black;
   height: 80px;
   width: 100%;
   position: fixed;
@@ -26,7 +27,14 @@ const TopbarItemContainer = styled.div`
   align-items: center;
   justify-content: center;
   height: 80px;
-  /* border: 1px solid red; */
+  width: 400px;
+  /* border-right: 1px solid white; */ /* if it's in the top position dont't render the right lines, only render if the user is not in the top*/
+  transition: background 500ms;
+
+  &:hover {
+    background: red;
+    cursor: pointer;
+  }
 `;
 
 const BaseTopbarIcon = `
@@ -36,9 +44,9 @@ const BaseTopbarIcon = `
   transition: color 1000ms;  
   // border: 1px solid white;
 
-  &:hover {
-    color: aqua;
-  }
+  // &:hover {
+  //   color: aqua;
+  // }
 `;
 
 const TopbarSidebarIcon = styled(BsLayoutTextSidebar)`

@@ -18,6 +18,7 @@ const CouroselContainer = styled.div<CouroselContainerProps>`
   /* justify-content: center; */
   /* overflow: hidden; */
   /* border: 1px solid red; */
+  background: black;
 `;
 
 /******************************************** */

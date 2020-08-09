@@ -29,8 +29,8 @@ const TopbarIcon: FunctionComponent<TopbarProps> = ({
     }
   });
   return (
-      <TopbarItemContainer>
-        <TopbarSidebarAnimatedIcon style={iconAnimation} onClick={toggleSidebar}/> 
+      <TopbarItemContainer onClick={toggleSidebar}>
+        <TopbarSidebarAnimatedIcon style={iconAnimation} /> 
         <TopbarText> Contents</TopbarText>
       </TopbarItemContainer>
   );
