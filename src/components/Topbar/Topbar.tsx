@@ -1,6 +1,3 @@
-// https://stackoverflow.com/questions/56636280/how-to-style-react-icons
-// https://stackoverflow.com/questions/62895878/styled-components-and-react-icons-iconcontext-provider-component
-
 import React, { 
   Fragment,
   FunctionComponent 
