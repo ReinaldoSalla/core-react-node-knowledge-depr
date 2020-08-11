@@ -28,15 +28,14 @@ const App: FunctionComponent = (): JSX.Element => {
   return (
     <Fragment>
       <GlobalStyle />
-      {/* <Topbar 
+      <Topbar 
         isSidebarVisible={isSidebarVisible} 
         toggleSidebar={toggleSidebar}
       />
       <Sidebar isSidebarVisible={isSidebarVisible} />
       <Courosel  />
       <Categories />
-      <Footer /> */}
-      <IconTester />
+      <Footer />
     </Fragment>
   );	
 };
