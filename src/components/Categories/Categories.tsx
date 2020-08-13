@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import {
   CategoriesContainer,
   CategoriesItemContainer,
@@ -20,27 +20,34 @@ import {
 } from '../RoundedIcon';
 import styled from 'styled-components';
 import { IoLogoJavascript } from 'react-icons/io';
+import {
+  Switch,
+  Route,
+  Link,
+  useLocation,
+  useRouteMatch
+} from 'react-router-dom';
 
 const topics = {
   javascript: {
     title: 'JavaScript',
     description: 'Curated tutorials from basic to advanced',
     contents: [
-      { title: 'Data Structures', description: 'Understanting JavaScript data types and basic data processing'},
-      { title: 'Functions', description: 'Learning how to use function declarations, function expressions and arrow functions'},
-			{ title: 'Conditionals', description: 'Usings if-else, switch and the ternary operator'},
-			{ title: 'Loops', description: 'Iterating over sequences by repetition or by traversing an iterable' },
-			{ title: 'Map', description: 'Processing/Mutating each element of an array according to a certain pattern' },
-			{ title: 'Filter', description: 'Removing elements of an array according to a certain pattern'},
-      { title: 'Reduce', description: 'Processing/Mutating each element of an array and generating an accumulator'},
-      { title: 'Iterators', description: 'Dealing with sequences in the core language'},
-      { title: 'Generators', description: 'Producing sequential items in steps and gaining performance' },
-      { title: 'Try Catch', description: 'Dealing with erros and exceptions in JavaScript' },
-      { title: 'Closures', description: 'Holding the environment' },
-      { title: 'Proxy Pattern', description: 'Intercepting an object'},
-      { title: 'Callbacks', description: 'Fundamental concept from asyncronous programming in JavaScript' },
-			{ title: 'Promises', description: 'Making async calls and avoiding callback hell'},
-			{ title: 'Async Await', description: 'Syntatic sugar for Generator plus Promises'}
+      { title: 'Data Structures', description: 'Understanting JavaScript data types and basic data processing', path: 'data-structures'},
+      { title: 'Functions', description: 'Learning how to use function declarations, function expressions and arrow functions', path: 'functions'},
+			{ title: 'Conditionals', description: 'Usings if-else, switch and the ternary operator', path: 'conditionals'},
+			{ title: 'Loops', description: 'Iterating over sequences by repetition or by traversing an iterable', path: 'loops' },
+			// { title: 'Map', description: 'Processing/Mutating each element of an array according to a certain pattern' },
+			// { title: 'Filter', description: 'Removing elements of an array according to a certain pattern'},
+      // { title: 'Reduce', description: 'Processing/Mutating each element of an array and generating an accumulator'},
+      // { title: 'Iterators', description: 'Dealing with sequences in the core language'},
+      // { title: 'Generators', description: 'Producing sequential items in steps and gaining performance' },
+      // { title: 'Try Catch', description: 'Dealing with erros and exceptions in JavaScript' },
+      // { title: 'Closures', description: 'Holding the environment' },
+      // { title: 'Proxy Pattern', description: 'Intercepting an object'},
+      // { title: 'Callbacks', description: 'Fundamental concept from asyncronous programming in JavaScript' },
+			// { title: 'Promises', description: 'Making async calls and avoiding callback hell'},
+			// { title: 'Async Await', description: 'Syntatic sugar for Generator plus Promises'}
     ]
   },
   typescript: {
@@ -114,13 +121,15 @@ const topics = {
 
 const CategoriesContent = ({ content }) => (
   <CategoriesContentContainer>
-    <CategoriesContentTitleText>
-      {content.title}
-    </CategoriesContentTitleText>
-    <CategoriesContentDescriptionText>
-      {content.description}
-    </CategoriesContentDescriptionText>
-  </CategoriesContentContainer>
+      <Link to={content.path}>
+      <CategoriesContentTitleText>
+        {content.title}
+      </CategoriesContentTitleText>
+      <CategoriesContentDescriptionText>
+        {content.description}
+      </CategoriesContentDescriptionText>
+  </Link>
+    </CategoriesContentContainer>
 );
 
 const CategoriesContents = ({
@@ -156,45 +165,47 @@ const CategoriesItem = ({
 
 const Categories = () => {
   return (
-    <CategoriesContainer>
-      <CategoriesItem  
-        Icon={JavaScriptRoundedIcon}
-        title={topics.javascript.title}
-        description={topics.javascript.description}
-        contents={topics.javascript.contents}
-      />
-      <CategoriesItem  
-        Icon={ShieldEchoesRoundedIcon}
-        title={topics.typescript.title}
-        description={topics.typescript.description}
-        contents={topics.typescript.contents}
-      />
-      <CategoriesItem
-        Icon={ReactRoundedIcon}
-        title={topics.react.title}
-        description={topics.react.description}
-        contents={topics.react.contents}
-      />
-      <CategoriesItem 
-        Icon={MobileRoundedIcon}
-        title={topics.mobile.title}
-        description={topics.mobile.description}
-        contents={topics.mobile.contents}
-      />
-      <CategoriesItem 
-        Icon={BackendRoundedIcon}
-        title={topics.backend.title}
-        description={topics.backend.description}
-        contents={topics.backend.contents}
-      />
-      <CategoriesItem 
-        Icon={AiRoundedIcon}
-        title={topics.ai.title}
-        description={topics.ai.description}
-        contents={topics.ai.contents}
-        lastItem={true}
-      />
-    </CategoriesContainer>
+    <Fragment>
+      <CategoriesContainer>
+        <CategoriesItem  
+          Icon={JavaScriptRoundedIcon}
+          title={topics.javascript.title}
+          description={topics.javascript.description}
+          contents={topics.javascript.contents}
+        />
+        {/* <CategoriesItem  
+          Icon={ShieldEchoesRoundedIcon}
+          title={topics.typescript.title}
+          description={topics.typescript.description}
+          contents={topics.typescript.contents}
+        />
+        <CategoriesItem
+          Icon={ReactRoundedIcon}
+          title={topics.react.title}
+          description={topics.react.description}
+          contents={topics.react.contents}
+        />
+        <CategoriesItem 
+          Icon={MobileRoundedIcon}
+          title={topics.mobile.title}
+          description={topics.mobile.description}
+          contents={topics.mobile.contents}
+        />
+        <CategoriesItem 
+          Icon={BackendRoundedIcon}
+          title={topics.backend.title}
+          description={topics.backend.description}
+          contents={topics.backend.contents}
+        />
+        <CategoriesItem 
+          Icon={AiRoundedIcon}
+          title={topics.ai.title}
+          description={topics.ai.description}
+          contents={topics.ai.contents}
+          lastItem={true}
+        /> */}
+      </CategoriesContainer>
+    </Fragment>
   );
 };
 
