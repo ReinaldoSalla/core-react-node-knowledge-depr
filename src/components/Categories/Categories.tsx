@@ -205,9 +205,6 @@ const Categories = () => {
           lastItem={true}
         /> */}
       </CategoriesContainer>
-      <Route path={routes.dataStructures.path} exact>
-        <h1>tset</h1> <h1>tset</h1> <h1>tset</h1> <h1>tset</h1> <h1>tset</h1> <h1>tset</h1> <h1>tset</h1>
-      </Route>
     </Fragment>
   );
 };

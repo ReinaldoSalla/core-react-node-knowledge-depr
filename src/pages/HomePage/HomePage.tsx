@@ -10,7 +10,7 @@ const HomePage = () => (
       <Courosel />
       <Categories />
     </Route>
-    <Route path={routes.dataStructures.path}>
+    {/* <Route path={routes.dataStructures.path}>
       <routes.dataStructures.page />
     </Route>
     <Route path={routes.functions.path}>
@@ -21,7 +21,7 @@ const HomePage = () => (
     </Route> 
     <Route path={routes.loops.path}>
       <routes.loops.page />
-    </Route>
+    </Route> */}
   </>
 );
 
