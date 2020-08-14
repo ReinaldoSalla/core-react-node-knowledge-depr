@@ -81,17 +81,17 @@ const App: FunctionComponent = (): JSX.Element => {
       />
       <Sidebar isSidebarVisible={isSidebarVisible} />
       {routes.map((route: any, index) => 
-          <Route 
-            key={index}
-            path={route.path}
-            render={props => 
-              <route.component 
-                {...props} 
-                routes={route.routes} 
-              />
-            }
-          />
-        )}   
+        <Route 
+          key={index}
+          path={route.path}
+          render={props => 
+            <route.component 
+              {...props} 
+              routes={route.routes} 
+            />
+          }
+        />
+      )}   
     </BrowserRouter>
   );	
 };

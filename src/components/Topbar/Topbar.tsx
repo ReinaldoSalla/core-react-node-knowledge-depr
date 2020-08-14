@@ -5,15 +5,16 @@ import React, {
 import {
   TopbarContainer,
   TopbarItemContainer,
+  TopbarLink,
   TopbarSidebarAnimatedIcon,
-  TopbarLogo,
   TopbarSearchIcon,
   TopbarProfileIcon,
   TopbarText,
   TestIcon
-} from './Topbar-styles';
+} from './Topbar.styles';
 import { useSpring } from 'react-spring';
 import TopbarProps from './Topbar.interfaces';
+import { Link } from 'react-router-dom';
 
 const TopbarIcon: FunctionComponent<TopbarProps> = ({
   isSidebarVisible,
@@ -26,10 +27,10 @@ const TopbarIcon: FunctionComponent<TopbarProps> = ({
     }
   });
   return (
-      <TopbarItemContainer onClick={toggleSidebar}>
-        <TopbarSidebarAnimatedIcon style={iconAnimation} /> 
-        <TopbarText> Contents</TopbarText>
-      </TopbarItemContainer>
+    <TopbarItemContainer onClick={toggleSidebar}>
+      <TopbarSidebarAnimatedIcon style={iconAnimation} /> 
+      <TopbarText> Contents</TopbarText>
+    </TopbarItemContainer>
   );
 };
 
@@ -42,11 +43,10 @@ const Topbar: FunctionComponent<TopbarProps> = ({
       isSidebarVisible={isSidebarVisible}
       toggleSidebar={toggleSidebar}
     />
-    <TopbarItemContainer>
-      {/* <TopbarLogo> JSE </TopbarLogo> */}
+    <TopbarLink to='/'>
       <TestIcon />
       <TopbarText> ABcdefgh</TopbarText>
-    </TopbarItemContainer>
+    </TopbarLink>
     <TopbarItemContainer>
       <TopbarSearchIcon />
       <TopbarText> Search</TopbarText>

@@ -9,7 +9,7 @@ const BaseLayout = ({ isSidebarVisible, toggleSidebar }) => (
       isSidebarVisible={isSidebarVisible}
       toggleSidebar={toggleSidebar}
     />
-    <Sidebar isSidebarVisible={isSidebarVisible} />
+    <Sidebar isSidebarVisible={isSidebarVisible} />                    
     <Footer />
   </Fragment>
 );

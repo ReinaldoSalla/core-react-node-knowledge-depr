@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 import { BsLayoutTextSidebar } from 'react-icons/bs';
 import { RiSearchEyeLine } from 'react-icons/ri';
@@ -5,6 +6,7 @@ import { animated } from 'react-spring';
 import { FaUserSecret, FaUserAlt } from 'react-icons/fa';
 import { AiOutlineSearch, AiOutlineUser } from 'react-icons/ai';
 import { IoLogoJavascript } from 'react-icons/io';
+import { Link } from 'react-router-dom';
 
 const defaultMargin = `0px 25px 0px 25px`
 
@@ -36,6 +38,23 @@ const TopbarItemContainer = styled.div`
     cursor: pointer;
   }
 `;
+
+const TopbarLink = styled(Link)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  width: 400px;
+  /* border-right: 1px solid white; */ /* if it's in the top position dont't render the right lines, only render if the user is not in the top*/
+  transition: background 500ms;
+
+  &:hover {
+    background: red;
+    cursor: pointer;
+  }
+`;
+
 
 const BaseTopbarIcon = `
   color: white;
@@ -80,6 +99,7 @@ const TopbarText = styled.span`
 export { 
   TopbarContainer,
   TopbarItemContainer,
+  TopbarLink,
   TopbarSidebarAnimatedIcon,
   TopbarLogo,
   TopbarSearchIcon,
