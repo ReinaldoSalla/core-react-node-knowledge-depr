@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const CategoriesContainer = styled.div`
   margin: 50px 0 0 0;
@@ -74,6 +75,30 @@ const CategoriesContentContainer = styled.div`
   }
 `;
 
+const CategoriesContentLink = styled(Link)`
+  flex: 300px;
+  margin: 0.5em 2em 2em 2em;
+  padding: 0.5em;
+  border-radius: 20px;
+  transition: transform 500ms;
+  transform: scale(0.9);
+  height: 200px;
+  border: 1px solid black;
+  background: #ff000008;
+
+  &:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+    /* filter: brightness(1.5); */
+  }
+
+  @media (max-width: 600px) {
+    height: auto;
+  }
+`
+
+
+
 const CategoriesContentTitleText = styled.div`
   margin: 1.5em 0.25em 1em 0.25em;
   height: 40px;
@@ -99,6 +124,7 @@ export {
   CategoriesDescriptionText,
   CategoriesContentsContainer,
   CategoriesContentContainer,
+  CategoriesContentLink,
   CategoriesContentTitleText,
   CategoriesContentDescriptionText
 };

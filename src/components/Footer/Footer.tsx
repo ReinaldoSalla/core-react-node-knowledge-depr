@@ -17,9 +17,9 @@ const Footer = () => (
   <Fragment>
     <FooterLineContainer />
     <FooterContentContainer>
-      <FooterContentLink> Legal </FooterContentLink>
-      <FooterContentLink> Philosophy </FooterContentLink>
-      <FooterContentLink> Contact </FooterContentLink>
+      <FooterContentLink to='/legal'> Legal </FooterContentLink>
+      <FooterContentLink to='/philosophy'> Philosophy </FooterContentLink>
+      <FooterContentLink to='/contact'> Contact </FooterContentLink>
       <FooterYear> 
         Copyright © {new Date().getFullYear()} abcde fghij 
       </FooterYear>

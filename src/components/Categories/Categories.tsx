@@ -7,6 +7,7 @@ import {
   CategoriesDescriptionText,
   CategoriesContentsContainer,
   CategoriesContentContainer,
+  CategoriesContentLink,
   CategoriesContentTitleText,
   CategoriesContentDescriptionText
 } from './Categories.styles';
@@ -34,10 +35,10 @@ const topics = {
     title: 'JavaScript',
     description: 'Curated tutorials from basic to advanced',
     contents: [
-      { title: 'Data Structures', description: 'Understanting JavaScript data types and basic data processing', path: '/javascript/data-structures'},
-      { title: 'Functions', description: 'Learning how to use function declarations, function expressions and arrow functions', path: '/javascript/functions'},
-			{ title: 'Conditionals', description: 'Usings if-else, switch and the ternary operator', path: '/javascript/conditionals'},
-			{ title: 'Loops', description: 'Iterating over sequences by repetition or by traversing an iterable', path: '/javascript/loops' },
+      { title: 'Data Structures', description: 'Understanting JavaScript data types and basic data processing', path: '/data-structures'},
+      { title: 'Functions', description: 'Learning how to use function declarations, function expressions and arrow functions', path: '/functions'},
+			{ title: 'Conditionals', description: 'Usings if-else, switch and the ternary operator', path: '/conditionals'},
+			{ title: 'Loops', description: 'Iterating over sequences by repetition or by traversing an iterable', path: '/loops' },
 			// { title: 'Map', description: 'Processing/Mutating each element of an array according to a certain pattern' },
 			// { title: 'Filter', description: 'Removing elements of an array according to a certain pattern'},
       // { title: 'Reduce', description: 'Processing/Mutating each element of an array and generating an accumulator'},
@@ -121,16 +122,14 @@ const topics = {
 };
 
 const CategoriesContent = ({ content }) => (
-  <CategoriesContentContainer>
-    <Link to={content.path}>
-      <CategoriesContentTitleText>
-        {content.title}
-      </CategoriesContentTitleText>
-      <CategoriesContentDescriptionText>
-        {content.description}
-      </CategoriesContentDescriptionText>
-    </Link>
-  </CategoriesContentContainer>
+  <CategoriesContentLink to={content.path}>
+    <CategoriesContentTitleText>
+      {content.title}
+    </CategoriesContentTitleText>
+    <CategoriesContentDescriptionText>
+      {content.description}
+    </CategoriesContentDescriptionText>
+  </CategoriesContentLink>
 );
 
 const CategoriesContents = ({
@@ -140,11 +139,6 @@ const CategoriesContents = ({
     {contents.map((content, index) => 
       <CategoriesContent key={index} content={content} /> 
     )}
-  {/* <Switch>
-    <Route path='/javascript/data-structures'>
-      <h1>tset</h1>
-    </Route>
-  </Switch> */}
   </CategoriesContentsContainer>
 );
 
@@ -211,6 +205,9 @@ const Categories = () => {
           lastItem={true}
         /> */}
       </CategoriesContainer>
+      <Route path={routes.dataStructures.path} exact>
+        <h1>tset</h1> <h1>tset</h1> <h1>tset</h1> <h1>tset</h1> <h1>tset</h1> <h1>tset</h1> <h1>tset</h1>
+      </Route>
     </Fragment>
   );
 };

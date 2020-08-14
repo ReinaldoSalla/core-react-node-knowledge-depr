@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const FooterLineContainer = styled.div`
   margin: 0px 1.5em 0.5em 1.5em;
@@ -13,7 +14,7 @@ const FooterContentContainer = styled.div`
   justify-content: space-between;
 `;
 
-const FooterContentLink = styled.a`
+const FooterContentLink = styled(Link)`
   margin: 0.5em;
   font-size: 20px;
 
