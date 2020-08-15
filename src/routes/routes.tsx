@@ -25,11 +25,11 @@ const routes = [
     component: BaseFooterPage
   },
   {
-    path: 'philosophy',
+    path: '/philosophy',
     component: BaseFooterPage
   },
   {
-    path: 'contact',
+    path: '/contact',
     component: BaseFooterPage
   },
   {

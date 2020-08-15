@@ -24,11 +24,10 @@ import {
 } from 'react-router-dom';
 
 const transitionProps: any = {
-  trail: 1000,
-  config: { duration: 500 },
-  from: { opacity: 0, },
-  enter: { opacity: 1,  },
-  leave: { opacity: 0,  },   
+  trail: 500,
+  from: { opacity: 0, transform: 'scale3d(0.5, 0.5, 0.5)', position: 'absolute' },
+  enter: { opacity: 1, transform: 'scale3d(1, 1, 1)' },
+  leave: { opacity: 0, transform: 'scale3d(0.5, 0.5, 0.5)' },   
 }
 
 const Home: any = () => {
@@ -74,7 +73,6 @@ const BaseLayout = () => {
       <Route path='/'>
         <Home />
       </Route>
-      <Footer />
     </Fragment>
   )
 };
