@@ -24,11 +24,28 @@ import {
 } from 'react-router-dom';
 
 const transitionProps: any = {
-  trail: 500,
+  trail: 250,
   from: { opacity: 0, transform: 'scale3d(0.5, 0.5, 0.5)', position: 'absolute' },
   enter: { opacity: 1, transform: 'scale3d(1, 1, 1)' },
-  leave: { opacity: 0, transform: 'scale3d(0.5, 0.5, 0.5)' },   
-}
+  leave: { opacity: 0, transform: 'scale3d(1.5, 1.5, 1.5)' },   
+};
+
+const homeToContent: any = {
+  trail: 250,
+  from: {
+    opacity: 0,
+    transform: 'scale3d(0.5, 0.5, 0.5)',
+    position: 'absolute'
+  },
+  enter: {
+    opacity: 1,
+    transform: 'scale3d(1, 1, 1)',
+  },
+  leave: {
+    opacity: 0,
+    transform: 'translateX(20%)'
+  }
+};
 
 const Home: any = () => {
   const { path } = useRouteMatch();
@@ -37,8 +54,10 @@ const Home: any = () => {
   const transitions = useTransition(
     location, 
     location => location.pathname, 
-    { ...transitionProps, order: ['leave', 'enter', 'update'] }        
+    { ...homeToContent, order: ['leave', 'enter', 'update'] }        
   );
+
+  console.log(location.pathname);
 
   return transitions.map(({ item: pathname, props, key }) => (
     <animated.div key={key} style={props}>
