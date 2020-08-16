@@ -39,7 +39,6 @@ const toContent: any = {
     opacity: 1,
     transform: 'translateX(0%) scale3d(1, 1, 1)',
   },
-  onDestroyed: () => window.scroll({ top: 0, left: 0, behavior: 'smooth' })
 };
 
 const toHome: any = {
@@ -67,6 +66,7 @@ const BlockingWrapper = styled.div`
 
 const AnimatedBlockingWrapper = animated(BlockingWrapper);
 
+// with animation
 const Home: any = () => {
   const location = useLocation();
   const animationProps = location.pathname === '/' 
@@ -101,6 +101,24 @@ const Home: any = () => {
     </AnimatedBlockingWrapper>
   ))
 };
+
+// without animation
+// const Home: any = () => (
+//   <Fragment>
+//     {routes.map((route: any, index) => 
+//       <Route 
+//         key={index}
+//         path={route.path}
+//         render={props => 
+//           <route.component 
+//             {...props} 
+//             routes={route.routes} 
+//           />
+//         }
+//       />
+//     )}            
+//   </Fragment>
+// );
 
 const BaseLayout = () => {
 	const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>(false);

@@ -164,13 +164,22 @@ const CategoriesItem = ({
 );
 
 const Divs = () => {
-  // bunch of divs to be placed on top of Categories to test routing animation height proble
-  return null;
+  // a bunch of divs 
+  return (
+    <Fragment>
+      {Array(100).fill(0).map((_, index) =>
+        <div key={index}>
+          content #{index + 1}
+        </div>
+      )}
+    </Fragment>
+  );
 };
 
 const Categories = () => {
   return (
     <Fragment>
+      <Divs />
       <CategoriesContainer>
         <CategoriesItem  
           Icon={JavaScriptRoundedIcon}
