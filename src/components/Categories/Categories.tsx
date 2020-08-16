@@ -163,6 +163,11 @@ const CategoriesItem = ({
 	</CategoriesItemContainer>
 );
 
+const Divs = () => {
+  // bunch of divs to be placed on top of Categories to test routing animation height proble
+  return null;
+};
+
 const Categories = () => {
   return (
     <Fragment>

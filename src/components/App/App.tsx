@@ -4,7 +4,7 @@ import React, {
   Fragment, 
   FunctionComponent 
 } from 'react';
-import { useSpring, useTransition, animated } from 'react-spring';
+import { useSpring, useTransition, animated, config } from 'react-spring';
 import styled from 'styled-components';
 import Topbar from '../Topbar';
 import Sidebar from '../Sidebar';
@@ -23,44 +23,67 @@ import {
   useLocation
 } from 'react-router-dom';
 
-const transitionProps: any = {
-  trail: 250,
-  from: { opacity: 0, transform: 'scale3d(0.5, 0.5, 0.5)', position: 'absolute' },
-  enter: { opacity: 1, transform: 'scale3d(1, 1, 1)' },
-  leave: { opacity: 0, transform: 'scale3d(1.5, 1.5, 1.5)' },   
-};
-
-const homeToContent: any = {
-  trail: 250,
+const toContent: any = {
+  config: { tension: 120, friction: 26 },
+  trail: 500,
+  leave: {
+    opacity: 0,
+    transform: 'translateX(20%) scale3d(1, 1, 1)',
+  },
   from: {
     opacity: 0,
-    transform: 'scale3d(0.5, 0.5, 0.5)',
-    position: 'absolute'
+    transform: 'translateX(0%) scale3d(0.5, 0.5, 0.5)',
+    position: 'absolute',
   },
   enter: {
     opacity: 1,
-    transform: 'scale3d(1, 1, 1)',
+    transform: 'translateX(0%) scale3d(1, 1, 1)',
   },
-  leave: {
-    opacity: 0,
-    transform: 'translateX(20%)'
-  }
+  onDestroyed: () => window.scroll({ top: 0, left: 0, behavior: 'smooth' })
 };
 
+const toHome: any = {
+  config: { tension: 120, friction: 26 },
+  trail: 500,
+  leave: {
+    opacity: 0,
+    transform: 'translateX(0%) scale3d(0.5, 0.5, 0.5)',
+  },
+  from: {
+    opacity: 0,
+    transform: 'translateX(-20%) scale3d(1, 1, 1)',
+    position: 'absolute',
+  },
+  enter: {
+    opacity: 1,
+    transform: 'translateX(0%) scale3d(1, 1, 1)',
+  },
+  onDestroyed: () => window.scroll({ top: 0, left: 0, behavior: 'smooth' })
+};
+
+const BlockingWrapper = styled.div`
+  overflow-x: hidden;
+`;
+
+const AnimatedBlockingWrapper = animated(BlockingWrapper);
+
 const Home: any = () => {
-  const { path } = useRouteMatch();
   const location = useLocation();
+  const animationProps = location.pathname === '/' 
+    ? toContent 
+    : toHome;
   
   const transitions = useTransition(
     location, 
     location => location.pathname, 
-    { ...homeToContent, order: ['leave', 'enter', 'update'] }        
+    { 
+      ...animationProps,
+      order: ['leave', 'enter', 'update'] 
+    }        
   );
 
-  console.log(location.pathname);
-
   return transitions.map(({ item: pathname, props, key }) => (
-    <animated.div key={key} style={props}>
+    <AnimatedBlockingWrapper key={key} style={props}>
       <Switch location={pathname}>
         {routes.map((route: any, index) => 
           <Route 
@@ -75,7 +98,7 @@ const Home: any = () => {
           />
         )}        
       </Switch>
-    </animated.div>
+    </AnimatedBlockingWrapper>
   ))
 };
 

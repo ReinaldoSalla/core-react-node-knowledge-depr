@@ -6,6 +6,8 @@ const TextWrapper = styled.div`
   font-size: 1.1em;
   color: white;
   background: black;
+  padding-top: 80px;
+  border: 1px solid red;
 `;
 
 const ContentPageTester = () => (
