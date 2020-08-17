@@ -21,6 +21,18 @@ const routes = [
     component: BaseContentPage
   },
   {
+    path: '/map',
+    component: BaseContentPage
+  },
+  {
+    path: '/filter',
+    component: BaseContentPage
+  },
+  {
+    path: '/reduce',
+    component: BaseContentPage
+  },
+  {
     path: '/legal',
     component: BaseFooterPage
   },
@@ -36,41 +48,6 @@ const routes = [
     path: '/',
     component: HomePage
   }
-]
-
-// const routes = {
-//   home: {
-//     path: '/',
-//     page: HomePage
-//   },
-//   dataStructures: {
-//     path: '/data-structures',
-//     page: BaseContentPage
-//   },
-//   functions: {
-//     path: '/functions',
-//     page: BaseContentPage
-//   },
-//   conditionals: {
-//     path: '/conditionals',
-//     page: BaseContentPage
-//   },
-//   loops: {
-//     path: '/loops',
-//     page: BaseContentPage
-//   },
-//   legal: {
-//     path: '/legal',
-//     page: BaseFooterPage
-//   },
-//   philosophy: {
-//     path: '/philosophy',
-//     page: BaseFooterPage
-//   },
-//   contact: {
-//     path: '/contact',
-//     page: BaseFooterPage
-//   }
-// }
+];
 
 export default routes;

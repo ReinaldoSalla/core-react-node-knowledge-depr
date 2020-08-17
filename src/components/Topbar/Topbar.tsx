@@ -14,9 +14,10 @@ import {
 } from './Topbar.styles';
 import { useSpring } from 'react-spring';
 import TopbarProps from './Topbar.interfaces';
-import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import Icon from '../Icon';
 
-const TopbarIcon: FunctionComponent<TopbarProps> = ({
+const TopbarSidebar: FunctionComponent<TopbarProps> = ({
   isSidebarVisible,
   toggleSidebar,
 }): JSX.Element => {
@@ -29,24 +30,37 @@ const TopbarIcon: FunctionComponent<TopbarProps> = ({
   return (
     <TopbarItemContainer onClick={toggleSidebar}>
       <TopbarSidebarAnimatedIcon style={iconAnimation} /> 
-      <TopbarText> Contents</TopbarText>
+      {/* <Icon /> */}
+      <TopbarText> Contents </TopbarText>
     </TopbarItemContainer>
   );
 };
+
+const TopbarHome: FunctionComponent = () => {
+  const { pathname } = useLocation();
+  const onClick = () => {
+    pathname === '/'
+      ? window.scroll({ top: 0, left: 0, behavior: 'smooth' })
+      : window.scrollTo(0, 0);
+  };
+  return (
+    <TopbarLink to='/' onClick={onClick}>
+      <TestIcon />
+      <TopbarText> ABcdefgh</TopbarText>
+    </TopbarLink>
+  )
+}
 
 const Topbar: FunctionComponent<TopbarProps> = ({
   isSidebarVisible, 
   toggleSidebar
 }): JSX.Element => (
   <TopbarContainer>
-    <TopbarIcon
+    <TopbarSidebar
       isSidebarVisible={isSidebarVisible}
       toggleSidebar={toggleSidebar}
     />
-    <TopbarLink to='/'>
-      <TestIcon />
-      <TopbarText> ABcdefgh</TopbarText>
-    </TopbarLink>
+    <TopbarHome />
     <TopbarItemContainer>
       <TopbarSearchIcon />
       <TopbarText> Search</TopbarText>

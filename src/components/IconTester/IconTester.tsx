@@ -1,74 +1,71 @@
 /*
 Conclusions
-1 - don't create a border-radius. Instead, create a wrapper around
+1 - don't create a border-radius. Instead, create a wrapper around the icon
 2 - style straight into styled components, no need to use the provider
 */
 
-import React from 'react';
-import { IconContext } from 'react-icons';
-import { BsLayoutTextSidebar } from 'react-icons/bs';
-import { IoLogoJavascript } from 'react-icons/io';
-import { FaUserSecret } from 'react-icons/fa';
-import { GiShieldEchoes } from 'react-icons/gi';
-import { ReactComponent as ArrowSvg } from '../../assets/icons/arrow.svg';
-import { ReactComponent as BellSvg } from '../../assets/icons/bell.svg';
+import React, { Fragment } from 'react';
 import { ReactComponent as SidebarTmpSvg } from '../../assets/icons/sidebar.svg';
 import styled from 'styled-components';
 
-const Wrapper = styled.div`
-  height: 500px;
+interface WrapperProps {
+  height: string;
+  width: string
+  border: boolean;
+}
+
+const Wrapper = styled.div<WrapperProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
+  padding: 1rem;
+  height: ${props => props.height};
+  width: ${props => props.width};
+  border: ${props => props.border ? '1px solid black' : 'none'};
+  border-radius: 50%;
 `;
 
-const BaseIcon = `
-  // padding: 1rem;
-  height: 64px;
-  width: 64px;
-  // border: 1px solid black;
-  // border-radius: 50%;
+interface SvgProps {
+  height: string;
+  width: string;
+}
+
+const Svg = styled.div<SvgProps>`
+  height: ${props => props.height};
+  width: ${props => props.width};
 `;
 
-const SidebarIcon = styled(BsLayoutTextSidebar)`${BaseIcon}`;
+const IconTester = ({
+  wrapperHeight='1rem',
+  wrapperWidth='1rem',
+  svgHeight='1rem',
+  svgWidth='1rem',
+  border=false
+}) => {
+  return (
+    <Wrapper height={wrapperHeight} width={wrapperWidth} border={border}>
+      <Svg as={SidebarTmpSvg} height={svgHeight} width={svgWidth}/>
+    </Wrapper>
+  );
+};
 
-const SidebarAlternateIcon = styled(BsLayoutTextSidebar)`
-  ${BaseIcon}
-  height: 50px;
-  width: 50px;
-`;
+const App = () => (
+  <Fragment>
+    <IconTester 
+      border={true}
+      wrapperHeight='3rem'
+      wrapperWidth='3rem'
+      svgHeight='3rem'
+      svgWidth='3rem'
+    />
+    <IconTester 
+      border={true} 
+      wrapperHeight='3rem' 
+      wrapperWidth='3rem' 
+      svgHeight='2rem'
+      svgWidth='2rem'
+    />
+  </Fragment>
+);
 
-const SidebarTmpIcon = styled(SidebarTmpSvg)`${BaseIcon}`;
-
-const JavaScriptIcon = styled(IoLogoJavascript)`${BaseIcon}`;
-
-const ArrowIcon = styled(ArrowSvg)`${BaseIcon}`;
-
-const BellIcon = styled(BellSvg)`${BaseIcon}`;
-
-const ProfileIcon = styled(FaUserSecret)`${BaseIcon}`;
-
-const ShieldIcon = styled(GiShieldEchoes)`${BaseIcon}`;
-
-const IconTester = () => (
-  <Wrapper>
-    {/* <JavaScriptIcon /> */}
-    {/* <IconContext.Provider
-      value={{
-        color: 'blue', size: '50px'
-      }}
-    >
-      <BsLayoutTextSidebar />
-    </IconContext.Provider> */}
-    <SidebarAlternateIcon />
-    {/* <SidebarTmpIcon />
-    <SidebarIcon />
-    <ProfileIcon />
-    <ShieldIcon />
-    <ArrowIcon />
-    <BellIcon /> */}
-  </Wrapper>
-)
-
-export default IconTester;
+export default App;

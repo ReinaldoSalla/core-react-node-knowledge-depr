@@ -13,6 +13,7 @@ const defaultMargin = `0px 25px 0px 25px`
 const TopbarContainer = styled.div`
   /* background: #1a1818; */
   /* background: transparent; */
+  top: 0px;
   background: black;
   height: 80px;
   width: 100%;

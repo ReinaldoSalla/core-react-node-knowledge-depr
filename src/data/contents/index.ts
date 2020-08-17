@@ -1,4 +1,3 @@
-import contents from './contens';
+import contents from './contents';
 
 export default contents;
-
