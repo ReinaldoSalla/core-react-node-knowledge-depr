@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import img from '../../assets/imgs/heavy4.1.jpg';
 
 const contentTextColor = 'white';//'#e8d7d7';
-const contentBackgroundColor = "#3e2e2e"//'#2b3534';
+const contentBackgroundColor = "#3e2e2e";//'#2b3534';
 
 const CategoriesContainer = styled.div`
   margin: 50px 0 0 0;
@@ -49,8 +49,9 @@ const CategoriesContentsContainer = styled.div`
   margin: 0 2em 0 2em;
   display: flex;
   align-items: center;
-  /* justify-content: space-evenly; */
+  justify-content: center;
   flex-wrap: wrap;
+  /* flex-direction: column; */
 
   @media (max-width: 600px) {
     margin: 0;
@@ -58,21 +59,21 @@ const CategoriesContentsContainer = styled.div`
 `;
 
 const CategoriesContentLink = styled(Link)`
-  flex: 300px;
+  /* flex: 300px; */
   margin: 0 2em 2em 2em;
   padding: 0.5em;
   border-radius: 20px;
-  transition: transform 500ms;
+  transition: transform 500ms, filter 500ms;
   transform: scale(0.9);
-  height: 200px;
+  height: 250px;
+  width: 1200px;
   border: 1px solid black;
-  /* background: ${contentBackgroundColor}; */
   background: url(${img});
 
   &:hover {
     transform: scale(1.05);
     cursor: pointer;
-    /* filter: brightness(1.5); */
+    filter: brightness(1.5);
   }
 
   @media (max-width: 600px) {
