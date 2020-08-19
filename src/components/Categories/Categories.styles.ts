@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import img from '../../assets/imgs/heavy4.1.jpg';
+
+const contentTextColor = 'white';//'#e8d7d7';
+const contentBackgroundColor = "#3e2e2e"//'#2b3534';
 
 const CategoriesContainer = styled.div`
   margin: 50px 0 0 0;
@@ -62,7 +66,8 @@ const CategoriesContentLink = styled(Link)`
   transform: scale(0.9);
   height: 200px;
   border: 1px solid black;
-  background: #ff000008;
+  /* background: ${contentBackgroundColor}; */
+  background: url(${img});
 
   &:hover {
     transform: scale(1.05);
@@ -73,16 +78,14 @@ const CategoriesContentLink = styled(Link)`
   @media (max-width: 600px) {
     height: auto;
   }
-`
-
-
+`;
 
 const CategoriesContentTitleText = styled.div`
   margin: 1.5em 0.25em 1em 0.25em;
   height: 40px;
   font-size: 1.5em;
   text-align: center;
-  /* color: #898989; */
+  color: ${contentTextColor};
   /* font-weight: 500; */
 `;  
 
@@ -90,7 +93,7 @@ const CategoriesContentDescriptionText = styled.div`
   margin: 0 0.25em 1.5em 0.25em;
   font-size: 1.25em;
   text-align: center;
-  /* color: #898989; */
+  color: ${contentTextColor};
   /* font-weight: 500; */
 `;
 
