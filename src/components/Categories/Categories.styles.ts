@@ -1,13 +1,11 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import img from '../../assets/imgs/heavy4.1.jpg';
+import img from '../../assets/imgs/heavy4.2.jpg';
 
-const contentTextColor = 'white';//'#e8d7d7';
-const contentBackgroundColor = "#3e2e2e";//'#2b3534';
+const contentTextColor = 'white';
 
 const CategoriesContainer = styled.div`
   margin: 50px 0 0 0;
-  /* padding: 0.5em; */
 `;
 
 interface CategoriesItemContainerProps {
@@ -16,7 +14,6 @@ interface CategoriesItemContainerProps {
 
 const CategoriesItemContainer = styled.div<CategoriesItemContainerProps>`
   margin: ${props => props.lastItem ? '0 1.5em 1.5em 1.5em' : '0 1.5em 3em 1.5em' };
-  /* margin: 0 6em 0 6em; */
   border-top: 1px solid black;
   background: aliceblue;
 `;
@@ -69,6 +66,9 @@ const CategoriesContentLink = styled(Link)`
   width: 1200px;
   border: 1px solid black;
   background: url(${img});
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
 
   &:hover {
     transform: scale(1.05);
