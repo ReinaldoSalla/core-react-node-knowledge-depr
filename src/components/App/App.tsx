@@ -12,7 +12,6 @@ import Courosel from '../Courosel';
 import Categories from '../Categories';
 import Footer from '../Footer';
 import GlobalStyle from './App.styles';
-import IconTester from '../IconTester';
 import routes from '../../routes';
 import { 
   BrowserRouter, 
@@ -22,6 +21,11 @@ import {
   useRouteMatch,
   useLocation
 } from 'react-router-dom';
+import Icon from '../Icon';
+import { ReactComponent as SidebarSvg } from '../../assets/icons/sidebar.svg';
+import { ReactComponent as JavaScriptSvg } from '../../assets/icons/javascript.svg';
+import { ReactComponent as SearchSvg } from '../../assets/icons/search.svg';
+import { ReactComponent as ProfileSvg } from '../../assets/icons/profile.svg';
 
 const BaseLayout = () => {
 	const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>(false);
@@ -46,7 +50,6 @@ const BaseLayout = () => {
         />
       )}    
       <Footer /> 
-      {/* <IconTester /> */}
     </Fragment>
   )
 };

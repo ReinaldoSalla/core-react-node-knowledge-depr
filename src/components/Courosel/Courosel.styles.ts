@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { animated } from  'react-spring';
-import galaxy from '../../assets/galaxy.jpg';
+//import galaxy from '../../assets/galaxy.jpg';
+import img from '../../assets/imgs/heavy4.1.jpg';
 import {
   CouroselContainerProps,
   FirstCouroselContainerProps
@@ -28,8 +29,8 @@ const CouroselBackground = styled.div<FirstCouroselContainerProps>`
   height: ${props => props.height};
   font-size: 100px;
   position: absolute;
-  background: #2b1b1b;
-  background-image: url(${galaxy});
+  /* background: #05386B; */
+  background-image: url(${img});
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center center;

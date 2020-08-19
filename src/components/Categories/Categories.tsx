@@ -6,30 +6,18 @@ import {
   CategoriesTitleText,
   CategoriesDescriptionText,
   CategoriesContentsContainer,
-  CategoriesContentContainer,
   CategoriesContentLink,
   CategoriesContentTitleText,
   CategoriesContentDescriptionText
 } from './Categories.styles';
-import {
-  JavaScriptRoundedIcon,
-  ShieldEchoesRoundedIcon,
-  ReactRoundedIcon,
-  BackendRoundedIcon,
-  MobileRoundedIcon,
-  AiRoundedIcon
-} from '../RoundedIcon';
-import styled from 'styled-components';
-import { IoLogoJavascript } from 'react-icons/io';
-import {
-  Switch,
-  Route,
-  Link,
-  useLocation,
-  useRouteMatch
-} from 'react-router-dom';
-import routes from '../../routes';
 import topics from '../../data/topics';
+import Icon from '../Icon';
+import { ReactComponent as JavaScriptSvg } from '../../assets/icons/javascript.svg';
+import { ReactComponent as ShieldsSvg } from '../../assets/icons/shields.svg';
+import { ReactComponent as ReactSvg } from '../../assets/icons/react.svg';
+import { ReactComponent as ServerSvg } from '../../assets/icons/server.svg';
+import { ReactComponent as SmartphoneSvg } from '../../assets/icons/smartphone.svg';
+import { ReactComponent as RobotSvg } from '../../assets/icons/robot.svg';
 
 const CategoriesContent = ({ content }) => (
   <CategoriesContentLink to={content.path}>
@@ -53,7 +41,7 @@ const CategoriesContents = ({
 );
 
 const CategoriesItem = ({
-  Icon,
+  svg,
   title,
   description,
   contents,
@@ -61,7 +49,7 @@ const CategoriesItem = ({
 }) => (
 	<CategoriesItemContainer lastItem={lastItem}>
 		<CategoriesHeaderContainer>
-			<Icon />
+      <Icon svg={svg} margin='1rem 0 0.5rem 0' />
       <CategoriesTitleText> 
         {title} 
       </CategoriesTitleText>
@@ -78,37 +66,37 @@ const Categories = () => {
     <Fragment>
       <CategoriesContainer>
         <CategoriesItem  
-          Icon={JavaScriptRoundedIcon}
+          svg={JavaScriptSvg}
           title={topics.javascript.title}
           description={topics.javascript.description}
           contents={topics.javascript.contents}
         />
         <CategoriesItem  
-          Icon={ShieldEchoesRoundedIcon}
+          svg={ShieldsSvg}
           title={topics.typescript.title}
           description={topics.typescript.description}
           contents={topics.typescript.contents}
         />
         <CategoriesItem
-          Icon={ReactRoundedIcon}
+          svg={ReactSvg}
           title={topics.react.title}
           description={topics.react.description}
           contents={topics.react.contents}
         />
         <CategoriesItem 
-          Icon={MobileRoundedIcon}
+          svg={SmartphoneSvg}
           title={topics.mobile.title}
           description={topics.mobile.description}
           contents={topics.mobile.contents}
         />
         <CategoriesItem 
-          Icon={BackendRoundedIcon}
+          svg={ServerSvg}
           title={topics.backend.title}
           description={topics.backend.description}
           contents={topics.backend.contents}
         />
         <CategoriesItem 
-          Icon={AiRoundedIcon}
+          svg={RobotSvg}
           title={topics.ai.title}
           description={topics.ai.description}
           contents={topics.ai.contents}

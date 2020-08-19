@@ -9,6 +9,7 @@ being able to swipe in diferent directions for mobile
 use three.js / react-three-fiber to improve the courosel https://codepen.io/zadvorsky/pen/PNXbGo?editors=1010
 use typescript on useReducer and useEffect
 */
+//best linear gradients for background
 
 import React, {
   useCallback,

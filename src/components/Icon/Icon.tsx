@@ -1,17 +1,26 @@
 import React from 'react';
-import { ReactComponent as SidebarTmpSvg } from '../../assets/icons/sidebar.svg';
 import { Wrapper, Svg } from './Icon.styles';
 
 const Icon = ({
-  wrapperHeight='1rem',
-  wrapperWidth='1rem',
-  svgHeight='1rem',
-  svgWidth='1rem',
-  border=false
+  svg,
+  style={},
+  width='2.5rem',
+  height='2.5rem',
+  padding='0.625rem',
+  margin='0',
+  border='1px solid black',
+  color='black'
 }) => {
   return (
-    <Wrapper height={wrapperHeight} width={wrapperWidth} border={border}>
-      <Svg as={SidebarTmpSvg} height={svgHeight} width={svgWidth}/>
+    <Wrapper 
+      style={style}
+      width={width} 
+      height={height}
+      padding={padding}
+      margin={margin} 
+      border={border}
+    >
+      <Svg as={svg} width={width} height={height} color={color}/>
     </Wrapper>
   );
 };

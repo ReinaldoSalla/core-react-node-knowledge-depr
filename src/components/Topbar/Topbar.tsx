@@ -6,15 +6,16 @@ import {
   TopbarContainer,
   TopbarItemContainer,
   TopbarLink,
-  TopbarSidebarAnimatedIcon,
-  TopbarSearchIcon,
-  TopbarProfileIcon,
   TopbarText,
-  TestIcon
+  TopbarFillerWrapper
 } from './Topbar.styles';
 import { useSpring } from 'react-spring';
 import TopbarProps from './Topbar.interfaces';
 import { useLocation } from 'react-router-dom';
+import { ReactComponent as SidebarSvg } from '../../assets/icons/sidebar.svg';
+import { ReactComponent as JavaScriptSvg } from '../../assets/icons/javascript.svg';
+import { ReactComponent as SearchSvg } from '../../assets/icons/search.svg';
+import { ReactComponent as ProfileSvg } from '../../assets/icons/profile.svg';
 import Icon from '../Icon';
 
 const TopbarSidebar: FunctionComponent<TopbarProps> = ({
@@ -28,9 +29,18 @@ const TopbarSidebar: FunctionComponent<TopbarProps> = ({
     }
   });
   return (
-    <TopbarItemContainer onClick={toggleSidebar}>
-      <TopbarSidebarAnimatedIcon style={iconAnimation} /> 
-      {/* <Icon /> */}
+    <TopbarItemContainer onClick={toggleSidebar}>                      
+      <TopbarFillerWrapper>
+        <Icon 
+          style={iconAnimation}
+          svg={SidebarSvg} 
+          color='white' 
+          width='2rem'
+          height='2rem' 
+          padding='0'
+          border='none'
+        />      
+      </TopbarFillerWrapper>
       <TopbarText> Contents </TopbarText>
     </TopbarItemContainer>
   );
@@ -45,8 +55,15 @@ const TopbarHome: FunctionComponent = () => {
   };
   return (
     <TopbarLink to='/' onClick={onClick}>
-      <TestIcon />
-      <TopbarText> ABcdefgh</TopbarText>
+      <Icon 
+        svg={JavaScriptSvg} 
+        color='white'
+        width='2.5rem' 
+        height='2.5rem' 
+        padding='0'
+        border='none'
+      />
+      <TopbarText> JavaScript </TopbarText>
     </TopbarLink>
   )
 }
@@ -62,11 +79,27 @@ const Topbar: FunctionComponent<TopbarProps> = ({
     />
     <TopbarHome />
     <TopbarItemContainer>
-      <TopbarSearchIcon />
+      <Icon 
+        svg={SearchSvg} 
+        color='white' 
+        width='2.5rem'
+        height='2.5rem'
+        padding='0'
+        border='none'
+      />
       <TopbarText> Search</TopbarText>
     </TopbarItemContainer>
     <TopbarItemContainer>
-      <TopbarProfileIcon />
+      <TopbarFillerWrapper>
+        <Icon 
+          svg={ProfileSvg} 
+          color='white'
+          width='2rem'
+          height='2rem'
+          padding='0'
+          border='none'
+        />
+      </TopbarFillerWrapper>
       <TopbarText> Profile </TopbarText>
     </TopbarItemContainer>
   </TopbarContainer>
