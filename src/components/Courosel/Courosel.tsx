@@ -19,7 +19,6 @@ import React, {
 } from 'react';
 import {
   CouroselContainer,
-  CouroselBackground,
   FirstCouroselTitle,
   FirstCouroselSubtitle,
   FirstCouroselContent,
@@ -208,12 +207,11 @@ const App = () => {
   return (
     <Fragment>
       {/* <div style={{ color: 'red' }}> {height} </div> */}
-      <CouroselContainer height={`${height-80}px`}>
+      <CouroselContainer height={`${height}px`}>
         {/* {transitions.map(({ item, props, key }) => {
           const Page = couroselItems[item]
           return <Page key={key} style={props} />
         })} */}
-      <CouroselBackground height={`${height-80-80}px`}>
         <CouroselContentContainer>
           <FirstCouroselTitle>
             JavaScript Guides
@@ -243,7 +241,6 @@ const App = () => {
           </CouroselInputContainer>
         </CouroselInputsContainer>
         {/* <CouroselTimerContainer /> */}
-      </CouroselBackground>
       </CouroselContainer>
     </Fragment>
   );

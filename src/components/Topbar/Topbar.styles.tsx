@@ -2,10 +2,9 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const TopbarContainer = styled.div`
-  /* background: #1a1818; */
-  /* background: transparent; */
+  background: transparent;
+  /* background: black; */
   top: 0px;
-  background: black;
   height: 80px;
   width: 100%;
   position: fixed;

@@ -17,8 +17,6 @@ import { ReactComponent as JavaScriptSvg } from '../../assets/icons/javascript.s
 import { ReactComponent as ShieldsSvg } from '../../assets/icons/shields.svg';
 import { ReactComponent as ReactSvg } from '../../assets/icons/react.svg';
 import { ReactComponent as ServerSvg } from '../../assets/icons/server.svg';
-import { ReactComponent as SmartphoneSvg } from '../../assets/icons/smartphone.svg';
-import { ReactComponent as RobotSvg } from '../../assets/icons/robot.svg';
 
 const t = 'const f = async () => {}';
 

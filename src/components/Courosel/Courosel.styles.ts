@@ -10,26 +10,8 @@ import {
 const height = '800px';
 
 const CouroselContainer = styled.div<CouroselContainerProps>`
-  /* margin: 0 1.5em 0 1.5em; */
-  /* transform: translateY(16%); */
   height: ${props => props.height};
-  padding-top: 80px;
-  /* display: flex; */
-  /* align-items: center; */
-  /* justify-content: center; */
-  /* overflow: hidden; */
-  /* border: 1px solid red; */
-  background: black;
-`;
-
-/******************************************** */
-
-const CouroselBackground = styled.div<FirstCouroselContainerProps>`
   width: 100%;
-  height: ${props => props.height};
-  font-size: 100px;
-  position: absolute;
-  /* background: #05386B; */
   background-image: url(${img});
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -43,19 +25,20 @@ const CouroselContentContainer = styled.div`
 `;
 
 const FirstCouroselTitle = styled.div`
-  margin: 8rem 0 0 0;
+  margin: 12rem 0 0 0;
   color: white;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 700;
   text-align: center;
 `;
 
 
 const FirstCouroselSubtitle = styled.div`
-  margin: 2rem 0 0 0;
+  margin: 4rem 0 0 0;
   color: white;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 700;
+  text-align: center;
 `;
 
 const FirstCouroselContent = styled.div`
@@ -63,12 +46,12 @@ const FirstCouroselContent = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin: 1rem 1rem 0 1rem;
+  margin: 4rem 1rem 0 1rem;
   padding: 0.5rem;
   color: white;
-  font-size: 1.5rem;
+  font-size: 2rem;
   border: 1px solid white;
-  width: 8rem;
+  width: 15rem;
   font-weight: 700;
   border-radius: 20px;
 `;
@@ -97,9 +80,9 @@ const CouroselInputsContainer = styled.div`
   display: flex;
   justify-content: space-between;
   /* transform: translateY(-200%); */
-  margin: 5rem;
+  margin: 8rem 5rem 0 5rem;
   padding-bottom: 2rem;
-  border-bottom: 2px solid white;
+  border-bottom: 3px solid white;
 `;
 
 const CouroselInputContainer = styled(animated.div)`
@@ -121,7 +104,6 @@ const CouroselInnerInputContainer = styled(animated.div)`
 
 export {
   CouroselContainer,
-  CouroselBackground,
   FirstCouroselTitle,
   FirstCouroselSubtitle,
   FirstCouroselContent,
