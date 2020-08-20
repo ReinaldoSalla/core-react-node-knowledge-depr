@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { animated } from  'react-spring';
 //import galaxy from '../../assets/galaxy.jpg';
-import img from '../../assets/imgs/heavy4.1.jpg';
+import img from '../../assets/imgs/courosel/final/courosel1.jpg';
 import {
   CouroselContainerProps,
   FirstCouroselContainerProps

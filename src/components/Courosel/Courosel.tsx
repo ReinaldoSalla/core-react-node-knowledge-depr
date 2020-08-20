@@ -34,12 +34,6 @@ import { useTransition, useSpring } from 'react-spring';
 import * as easings from 'd3-ease';
 import useDocumentVisibility from '../../utils/useDocumentVisibility';
 import useHeight from '../../utils/useHeight';
-import img1 from '../../assets/imgs/heavy1.jpg';
-import img2 from '../../assets/imgs/heavy2.jpg';
-import img3 from '../../assets/imgs/heavy3.jpg';
-import img4 from '../../assets/imgs/heavy4.jpg';
-import img5 from '../../assets/imgs/heavy5.jpg';
-
 const DURATION: number = 1e10;
 
 const customConfig = { 
@@ -47,17 +41,17 @@ const customConfig = {
   easing: { duration: 1500, easing: easings.easeCubic }
 };
 
-const CouroselItem = ({ style, img }) => (
-  <CouroselItemContainer className='courosel-item' style={style}>
-    <CouroselImg className='courosel-img' src={img} alt='' />
-  </CouroselItemContainer>
-);
+// const CouroselItem = ({ style, img }) => (
+//   <CouroselItemContainer className='courosel-item' style={style}>
+//     <CouroselImg className='courosel-img' src={img} alt='' />
+//   </CouroselItemContainer>
+// );
 
-const couroselImgs = [img1, img2, img3, img4, img5];
+// const couroselImgs = [img1, img2, img3, img4, img5];
 
-const couroselItems = couroselImgs.map(item =>
-  ({ style }) => <CouroselItem style={style} img={item} />
-);
+// const couroselItems = couroselImgs.map(item =>
+//   ({ style }) => <CouroselItem style={style} img={item} />
+// );
 
 // const couroselItems = [
 //   ({ style }) => <CouroselItem style={style} img={js1} />,

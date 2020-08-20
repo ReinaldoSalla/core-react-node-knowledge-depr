@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import img from '../../assets/imgs/heavy4.2.jpg';
+import img from '../../assets/imgs/boxes/final/box1.jpg';
 
 const contentTextColor = 'white';
 
