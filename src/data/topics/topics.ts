@@ -51,18 +51,6 @@ const topics = {
       { title: 'Gatsby', description: 'Framework based on React', path: '/gatsby' }
     ]
   },
-  mobile: {
-    title: 'Mobile',
-    description: 'Creating native apps for Android and IOS',
-    contents: [
-      { title: 'React Native', description: 'React Native crash course', path: '/react-native' },
-      { title: 'Sharing Styles', description: 'Sharing styling code between React and React Native', path: '/sharing-styles' },
-      { title: 'Sharing Animations', description: 'Sharing animations between React and React Native', path: '/sharing-animations' },
-      { title: 'Push Notifications', description: 'Interating with the user even when the app is hybernating', path: '/push-notifications' },
-      { title: 'Microfone', description: 'Controlling the smarthphone built-in microfone', path: '/microfone'},
-      { title: 'Camera', description: 'Controlling the smartphone built-in camera', path: '/camera' }
-    ],
-	},
   backend: {
     title: 'Backend',
     description: 'Extending applications with Node.js and GraphQL',
@@ -75,18 +63,30 @@ const topics = {
       { title: 'Scheduling', description: 'Scheduling activities throught the backend', path: '/scheduling' }
     ]
   },
-	ai: {
-    title: "Artificial Intelligence",
-    description: 'Tackling the big trend in AI today - Deep Learning',
-		contents: [
-      { title: 'Tensorflow.js', description: 'Dynamic data computation for deep learning', path: '/tensorflow' },
-      { title: 'Machine translation', description: 'Translation with xxx', path: '/machine-learning'},
-      { title: 'Forecasting', description: 'Predicting the future with xxx', path: '/forecasting'},
-			{ title: 'Sentiment Analysis', description: 'Getting the meaning and the emotion from text sentences', path: '/sentiment-analysis' },
-			{ title: 'Chatbot', description: 'Using the ??? API', path: '/chatbot' },
-      { title: 'Facial Recognition', description: 'Using the ??? API', path: '/facial-recognition' },
-		]
-	}
+  // mobile: {
+  //   title: 'Mobile',
+  //   description: 'Creating native apps for Android and IOS',
+  //   contents: [
+  //     { title: 'React Native', description: 'React Native crash course', path: '/react-native' },
+  //     { title: 'Sharing Styles', description: 'Sharing styling code between React and React Native', path: '/sharing-styles' },
+  //     { title: 'Sharing Animations', description: 'Sharing animations between React and React Native', path: '/sharing-animations' },
+  //     { title: 'Push Notifications', description: 'Interating with the user even when the app is hybernating', path: '/push-notifications' },
+  //     { title: 'Microfone', description: 'Controlling the smarthphone built-in microfone', path: '/microfone'},
+  //     { title: 'Camera', description: 'Controlling the smartphone built-in camera', path: '/camera' }
+  //   ],
+  // },
+	// ai: {
+  //   title: "Artificial Intelligence",
+  //   description: 'Tackling the big trend in AI today - Deep Learning',
+	// 	contents: [
+  //     { title: 'Tensorflow.js', description: 'Dynamic data computation for deep learning', path: '/tensorflow' },
+  //     { title: 'Machine translation', description: 'Translation with xxx', path: '/machine-learning'},
+  //     { title: 'Forecasting', description: 'Predicting the future with xxx', path: '/forecasting'},
+	// 		{ title: 'Sentiment Analysis', description: 'Getting the meaning and the emotion from text sentences', path: '/sentiment-analysis' },
+	// 		{ title: 'Chatbot', description: 'Using the ??? API', path: '/chatbot' },
+  //     { title: 'Facial Recognition', description: 'Using the ??? API', path: '/facial-recognition' },
+	// 	]
+	// }
 };
 
 export default topics

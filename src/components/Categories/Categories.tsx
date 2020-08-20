@@ -8,7 +8,8 @@ import {
   CategoriesContentsContainer,
   CategoriesContentLink,
   CategoriesContentTitleText,
-  CategoriesContentDescriptionText
+  CategoriesContentDescriptionText,
+  CategoriesContentSnippet
 } from './Categories.styles';
 import topics from '../../data/topics';
 import Icon from '../Icon';
@@ -19,6 +20,8 @@ import { ReactComponent as ServerSvg } from '../../assets/icons/server.svg';
 import { ReactComponent as SmartphoneSvg } from '../../assets/icons/smartphone.svg';
 import { ReactComponent as RobotSvg } from '../../assets/icons/robot.svg';
 
+const t = 'const f = async () => {}';
+
 const CategoriesContent = ({ content }) => (
   <CategoriesContentLink to={content.path}>
     <CategoriesContentTitleText>
@@ -27,6 +30,9 @@ const CategoriesContent = ({ content }) => (
     <CategoriesContentDescriptionText>
       {content.description}
     </CategoriesContentDescriptionText>
+    <CategoriesContentSnippet>
+      {t}
+    </CategoriesContentSnippet>
   </CategoriesContentLink>
 );
 
@@ -84,23 +90,10 @@ const Categories = () => {
           contents={topics.react.contents}
         />
         <CategoriesItem 
-          svg={SmartphoneSvg}
-          title={topics.mobile.title}
-          description={topics.mobile.description}
-          contents={topics.mobile.contents}
-        />
-        <CategoriesItem 
           svg={ServerSvg}
           title={topics.backend.title}
           description={topics.backend.description}
           contents={topics.backend.contents}
-        />
-        <CategoriesItem 
-          svg={RobotSvg}
-          title={topics.ai.title}
-          description={topics.ai.description}
-          contents={topics.ai.contents}
-          lastItem={true}
         />
       </CategoriesContainer>
     </Fragment>
