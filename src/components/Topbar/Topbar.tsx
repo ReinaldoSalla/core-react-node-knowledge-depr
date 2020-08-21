@@ -1,5 +1,6 @@
 import React, { 
   useEffect,
+  useState,
   Fragment,
   FunctionComponent 
 } from 'react';
@@ -67,15 +68,40 @@ const TopbarHome: FunctionComponent = () => {
       <TopbarText> JavaScript </TopbarText>
     </TopbarLink>
   )
-}
+};
 
 const Topbar: FunctionComponent<TopbarProps> = ({
   isSidebarVisible, 
   toggleSidebar
 }): JSX.Element => {
+  const { pathname } = useLocation();
+  const [isInExtremeTop, setIsInExtremeTop] = useState<boolean>(pathname === '/');
+  const [isInGeneralTop, setIsInGeneralTop] = useState<boolean>(pathname === '/');
+
+  const onScroll = () => {
+    setIsInExtremeTop(window.pageYOffset <= 50 && pathname === '/');
+    setIsInGeneralTop(window.pageYOffset <= 200 && pathname === '/');
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', onScroll);
+    return () => window.addEventListener('scroll', onScroll);
+  });
+
+  const animationTop = useSpring({
+    config: { mass: 10, tension: 170, friction: 26, clamp: true },
+    background: isInExtremeTop ? 'rgba(0, 0, 0, 0)' : 'black'
+  });
+
+  const animationNotTop = useSpring({
+    config: { duration: 1 },
+    background: 'black'
+  });
+
+  const animation = isInGeneralTop ? animationTop : animationNotTop;
 
   return (
-    <TopbarContainer>
+    <TopbarContainer style={animation}>
       <TopbarSidebar
         isSidebarVisible={isSidebarVisible}
         toggleSidebar={toggleSidebar}

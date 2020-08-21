@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import { animated } from 'react-spring';
 import { Link } from 'react-router-dom';
 
-const TopbarContainer = styled.div`
-  background: transparent;
+const TopbarContainer = styled(animated.div)`
+  /* background: transparent; */
   /* background: black; */
   top: 0px;
   height: 80px;

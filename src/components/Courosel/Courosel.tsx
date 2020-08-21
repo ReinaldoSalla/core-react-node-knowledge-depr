@@ -177,31 +177,31 @@ const App = () => {
 
   const firstInputAnimation = useSpring({
     config: customConfig.easing,
-    background: state.index === 0 ? 'white' : 'rgba(0, 0, 0, 0.1)',
+    background: state.index === 0 ? 'white' : 'rgba(0, 0, 0, 0)',
     width: state.index === 0 ? '100%' : '0%'
   });
 
   const secondInputAnimation = useSpring({ 
     config: customConfig.easing,
-    background: state.index === 1 ? 'white' : 'rgba(0, 0, 0, 0.1)',
+    background: state.index === 1 ? 'white' : 'rgba(0, 0, 0, 0)',
     width: state.index === 1 ? '100%' : '0%'
   });
 
   const thirdInputAnimation = useSpring({
     config: customConfig.easing,
-    background: state.index === 2 ? 'white' : 'rgba(0, 0, 0, 0.1)',
+    background: state.index === 2 ? 'white' : 'rgba(0, 0, 0, 0)',
     width: state.index === 2 ? '100%' : '0%'
   });
 
   const forthInputAnimation = useSpring({
     config: customConfig.easing,
-    background: state.index === 3 ? 'white' : 'rgba(0, 0, 0, 0.1)',
+    background: state.index === 3 ? 'white' : 'rgba(0, 0, 0, 0)',
     width: state.index === 3 ? '100%' : '0%'
   });
 
   const fifthInputAnimation = useSpring({
     config: customConfig.easing,
-    background: state.index === 4 ? 'white' : 'rgba(0, 0, 0, 0.1)',
+    background: state.index === 4 ? 'white' : 'rgba(0, 0, 0, 0)',
     width: state.index === 4 ? '100%' : '0%'
   });
 
