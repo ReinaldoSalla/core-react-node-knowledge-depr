@@ -10,6 +10,10 @@ import {
 const height = '800px';
 
 const CouroselContainer = styled.div<CouroselContainerProps>`
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly; */
   height: ${props => props.height};
   width: 100%;
   background-image: url(${img});
@@ -18,14 +22,22 @@ const CouroselContainer = styled.div<CouroselContainerProps>`
   background-position: center center;
 `;
 
-const CouroselContentContainer = styled.div`
+interface CouroselContentContainerProps {
+  height: string;
+}
+
+const CouroselContentContainer = styled.div<CouroselContentContainerProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
+  padding-top: 80px;
+  height: ${props => props.height};
+  /* border: 10px solid blue; */
 `;
 
 const FirstCouroselTitle = styled.div`
-  margin: 12rem 0 0 0;
+  /* margin: 12rem 0 0 0; */
   color: white;
   font-size: 2.5rem;
   font-weight: 700;
@@ -34,7 +46,7 @@ const FirstCouroselTitle = styled.div`
 
 
 const FirstCouroselSubtitle = styled.div`
-  margin: 4rem 0 0 0;
+  /* margin: 4rem 0 0 0; */
   color: white;
   font-size: 2rem;
   font-weight: 700;
@@ -46,14 +58,50 @@ const FirstCouroselContent = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin: 4rem 1rem 0 1rem;
-  padding: 0.5rem;
+  /* margin: 4rem 1rem 0 1rem; */
+  /* padding: 0.5rem; */
   color: white;
   font-size: 2rem;
   border: 1px solid white;
   width: 15rem;
   font-weight: 700;
   border-radius: 20px;
+`;
+
+const CouroselInputsWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 20px;
+  /* border: 5px solid blue; */
+`;
+
+const CouroselInputsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 2rem;
+  margin: 0 2rem 0 2rem;
+  width: 1200px;
+  z-index: 2;
+  border-bottom: 3px solid white;
+  /* border: 1px solid white; */
+`;
+
+const CouroselInputContainer = styled(animated.div)`
+  /* margin: 0 2rem 0 2rem; */
+  height: 20px;
+  min-width: 70px;
+  border-radius: 5px;
+  border: 2px solid white;
+
+  &:hover {
+    cursor: pointer;
+    background-color: white;
+  }
+`;
+
+const CouroselInnerInputContainer = styled(animated.div)`
+  height: 100%;
 `;
 
 /******************************* */
@@ -75,32 +123,7 @@ const CouroselImg = styled.img`
   z-index: 1;
 `;
 
-const CouroselInputsContainer = styled.div`
-  z-index: 2;
-  display: flex;
-  justify-content: space-between;
-  /* transform: translateY(-200%); */
-  margin: 8rem 5rem 0 5rem;
-  padding-bottom: 2rem;
-  border-bottom: 3px solid white;
-`;
-
-const CouroselInputContainer = styled(animated.div)`
-  border: 2px solid white;
-  border-radius: 5px;
-  height: 15px;
-  width: 50px;
-  margin: 10px;
-
-  &:hover {
-    cursor: pointer;
-    background-color: white
-  }
-`;
-
-const CouroselInnerInputContainer = styled(animated.div)`
-  height: 100%;
-`;
+/********************************************************** */
 
 export {
   CouroselContainer,
@@ -110,6 +133,7 @@ export {
   CouroselContentContainer,
   CouroselItemContainer,
   CouroselImg,
+  CouroselInputsWrapper,
   CouroselInputsContainer,
   CouroselInputContainer,
   CouroselInnerInputContainer,

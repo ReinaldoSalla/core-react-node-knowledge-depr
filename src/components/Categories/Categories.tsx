@@ -18,7 +18,7 @@ import { ReactComponent as ShieldsSvg } from '../../assets/icons/shields.svg';
 import { ReactComponent as ReactSvg } from '../../assets/icons/react.svg';
 import { ReactComponent as ServerSvg } from '../../assets/icons/server.svg';
 
-const t = 'const f = async () => {}';
+const t = 'const f = async () => { return 0 }';
 
 const CategoriesContent = ({ content }) => (
   <CategoriesContentLink to={content.path}>

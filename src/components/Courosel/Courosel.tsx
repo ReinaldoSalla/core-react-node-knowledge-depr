@@ -25,6 +25,7 @@ import {
   CouroselItemContainer,
   CouroselImg,
   CouroselContentContainer,
+  CouroselInputsWrapper,
   CouroselInputsContainer,
   CouroselInputContainer,
   CouroselInnerInputContainer,
@@ -212,7 +213,7 @@ const App = () => {
           const Page = couroselItems[item]
           return <Page key={key} style={props} />
         })} */}
-        <CouroselContentContainer>
+        <CouroselContentContainer height={`${height-80-100}px`}>
           <FirstCouroselTitle>
             JavaScript Guides
           </FirstCouroselTitle>
@@ -223,24 +224,25 @@ const App = () => {
             Check JS tutorials
           </FirstCouroselContent>
         </CouroselContentContainer>
-        <CouroselInputsContainer>
-          <CouroselInputContainer onClick={handleFirstItem}>
-            <CouroselInnerInputContainer style={firstInputAnimation} />
-          </CouroselInputContainer>
-          <CouroselInputContainer onClick={handleSecondItem}>
-            <CouroselInnerInputContainer style={secondInputAnimation} />
-          </CouroselInputContainer>
-          <CouroselInputContainer onClick={handleThirdItem}>
-            <CouroselInnerInputContainer style={thirdInputAnimation} />
-          </CouroselInputContainer>
-          <CouroselInputContainer onClick={handleForthItem}>
-            <CouroselInnerInputContainer style={forthInputAnimation} />
-          </CouroselInputContainer>
-          <CouroselInputContainer onClick={handleFifthItem}>
-            <CouroselInnerInputContainer style={fifthInputAnimation} />
-          </CouroselInputContainer>
-        </CouroselInputsContainer>
-        {/* <CouroselTimerContainer /> */}
+        <CouroselInputsWrapper>
+          <CouroselInputsContainer>
+            <CouroselInputContainer onClick={handleFirstItem}>
+              <CouroselInnerInputContainer style={firstInputAnimation} />
+            </CouroselInputContainer>
+            <CouroselInputContainer onClick={handleSecondItem}>
+              <CouroselInnerInputContainer style={secondInputAnimation} />
+            </CouroselInputContainer>
+            <CouroselInputContainer onClick={handleThirdItem}>
+              <CouroselInnerInputContainer style={thirdInputAnimation} />
+            </CouroselInputContainer>
+            <CouroselInputContainer onClick={handleForthItem}>
+              <CouroselInnerInputContainer style={forthInputAnimation} />
+            </CouroselInputContainer>
+            <CouroselInputContainer onClick={handleFifthItem}>
+              <CouroselInnerInputContainer style={fifthInputAnimation} />
+            </CouroselInputContainer>
+          </CouroselInputsContainer>
+        </CouroselInputsWrapper>
       </CouroselContainer>
     </Fragment>
   );

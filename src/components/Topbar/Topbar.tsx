@@ -1,4 +1,5 @@
 import React, { 
+  useEffect,
   Fragment,
   FunctionComponent 
 } from 'react';
@@ -71,38 +72,41 @@ const TopbarHome: FunctionComponent = () => {
 const Topbar: FunctionComponent<TopbarProps> = ({
   isSidebarVisible, 
   toggleSidebar
-}): JSX.Element => (
-  <TopbarContainer>
-    <TopbarSidebar
-      isSidebarVisible={isSidebarVisible}
-      toggleSidebar={toggleSidebar}
-    />
-    <TopbarHome />
-    <TopbarItemContainer>
-      <Icon 
-        svg={SearchSvg} 
-        color='white' 
-        width='2.5rem'
-        height='2.5rem'
-        padding='0'
-        border='none'
+}): JSX.Element => {
+
+  return (
+    <TopbarContainer>
+      <TopbarSidebar
+        isSidebarVisible={isSidebarVisible}
+        toggleSidebar={toggleSidebar}
       />
-      <TopbarText> Search</TopbarText>
-    </TopbarItemContainer>
-    <TopbarItemContainer>
-      <TopbarFillerWrapper>
+      <TopbarHome />
+      <TopbarItemContainer>
         <Icon 
-          svg={ProfileSvg} 
-          color='white'
-          width='2rem'
-          height='2rem'
+          svg={SearchSvg} 
+          color='white' 
+          width='2.5rem'
+          height='2.5rem'
           padding='0'
           border='none'
         />
-      </TopbarFillerWrapper>
-      <TopbarText> Profile </TopbarText>
-    </TopbarItemContainer>
-  </TopbarContainer>
-);
+        <TopbarText> Search</TopbarText>
+      </TopbarItemContainer>
+      <TopbarItemContainer>
+        <TopbarFillerWrapper>
+          <Icon 
+            svg={ProfileSvg} 
+            color='white'
+            width='2rem'
+            height='2rem'
+            padding='0'
+            border='none'
+          />
+        </TopbarFillerWrapper>
+        <TopbarText> Profile </TopbarText>
+      </TopbarItemContainer>
+    </TopbarContainer>
+  );
+};
 
 export default Topbar;
