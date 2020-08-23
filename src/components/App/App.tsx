@@ -14,6 +14,7 @@ import {
   Route, 
   useLocation
 } from 'react-router-dom';
+import Video from '../Video';
 
 const BaseLayout = () => {
 	const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>(false);

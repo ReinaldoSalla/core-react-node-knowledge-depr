@@ -12,7 +12,6 @@ const VideoBackground = styled.video`
     width: auto;
     height: 100%;
   }
-
 `;
 
 export default VideoBackground;
