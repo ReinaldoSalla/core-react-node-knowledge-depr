@@ -34,6 +34,9 @@ import { useTransition, useSpring } from 'react-spring';
 import * as easings from 'd3-ease';
 import useDocumentVisibility from '../../utils/useDocumentVisibility';
 import useHeight from '../../utils/useHeight';
+import Icon from '../Icon';
+import {ReactComponent as JavaScriptSvg} from '../../assets/icons/javascript.svg';
+
 const DURATION: number = 1e10;
 
 const customConfig = { 

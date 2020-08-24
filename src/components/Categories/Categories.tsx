@@ -56,8 +56,8 @@ const CategoriesItem = ({
       <Icon 
         svg={svg}
         margin='1rem 0 0.5rem 0' 
-        color='white'
-        border='1px solid white'
+        color='black'
+        border='1px solid black'
       />
       <CategoriesTitleText> 
         {title} 

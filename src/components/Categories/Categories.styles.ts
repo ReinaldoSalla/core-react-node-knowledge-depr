@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import img from '../../assets/imgs/boxes/final/box1.jpg';
 
-const textColor = 'white';
+const textColor = 'black';
 
 const CategoriesContainer = styled.div`
   margin: 50px 0 0 0;
@@ -15,7 +15,7 @@ interface CategoriesItemContainerProps {
 
 const CategoriesItemContainer = styled.div<CategoriesItemContainerProps>`
   margin: ${props => props.lastItem ? '0 1.5em 1.5em 1.5em' : '0 1.5em 3em 1.5em' };
-  border-top: 1px solid white;
+  border-top: 1px solid black;
 `;
 
 const CategoriesHeaderContainer = styled.div`
@@ -89,7 +89,7 @@ const CategoriesContentTitleText = styled.div`
   height: 40px;
   font-size: 1.75em;
   text-align: center;
-  color: ${textColor};
+  color: white;
   font-weight: 500;
 `;  
 
@@ -97,7 +97,7 @@ const CategoriesContentDescriptionText = styled.div`
   /* margin: 0 0.25em 1.5em 0.25em; */
   font-size: 1.5em;
   text-align: center;
-  color: ${textColor};
+  color: white;
   font-weight: 500;
 `;
 
