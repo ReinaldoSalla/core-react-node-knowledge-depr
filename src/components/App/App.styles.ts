@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Source Sans Pro', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',  sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* overflow: hidden; */
   }
 
   /* Chrome scrollbar */
@@ -27,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
 
   :root {
     /* Firefox scrollbar (>= 64) */
-    scrollbar-width: thin;
+    /* scrollbar-width: thin; */
     /* height: 100%;
     width: 100%; */
   }

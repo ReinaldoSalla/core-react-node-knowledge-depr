@@ -22,15 +22,14 @@ import {
   FirstCouroselTitle,
   FirstCouroselSubtitle,
   FirstCouroselContent,
-  CouroselItemContainer,
-  CouroselImg,
+  CouroselContentWrapper,
   CouroselContentContainer,
   CouroselInputsWrapper,
   CouroselInputsContainer,
   CouroselInputContainer,
   CouroselInnerInputContainer,
 } from './Courosel.styles';
-import { useTransition, useSpring } from 'react-spring';
+import { useTransition, useSpring, animated } from 'react-spring';
 import * as easings from 'd3-ease';
 import useDocumentVisibility from '../../utils/useDocumentVisibility';
 import useHeight from '../../utils/useHeight';
@@ -64,11 +63,40 @@ const customConfig = {
 //   ({ style }) => <CouroselItem style={style} img={js1} />,
 // ];
 
+const CouroselItem = ({ style, title, subtitle, button }) => {
+  const height = useHeight();
+  return (
+    <CouroselContentWrapper>
+      <CouroselContentContainer 
+        style={style} 
+        height={`${height-80-100}px`}
+      >
+        <FirstCouroselTitle>
+          {title}
+        </FirstCouroselTitle>
+        <FirstCouroselSubtitle>
+          {subtitle}
+        </FirstCouroselSubtitle>
+        <FirstCouroselContent>
+          {button}
+        </FirstCouroselContent>
+      </CouroselContentContainer>
+    </CouroselContentWrapper>
+  );
+};
+
+const couroselItems = [
+  ({ style }) => <CouroselItem style={style} title='JavaScript Guides' subtitle='From data processing to asyncronous programming' button='Check JS tutorial' />,
+  ({ style }) => <CouroselItem style={style} title='JavaScript Guides' subtitle='From data processing to asyncronous programming' button='Check JS tutorial' />,
+  ({ style }) => <CouroselItem style={style} title='JavaScript Guides' subtitle='From data processing to asyncronous programming' button='Check JS tutorial' />,
+  ({ style }) => <CouroselItem style={style} title='JavaScript Guides' subtitle='From data processing to asyncronous programming' button='Check JS tutorial' />,
+];
+
 const moveToNextItem = (state) => {
 	let newIndex = state.isTimerEnabled
 		? state.index + 1
 		: state.index;
-	if (newIndex === 5) newIndex = 0;
+	if (newIndex === couroselItems.length + 1) newIndex = 0;
 	return {
 		index: newIndex,
 		isTimerEnabled: true,
@@ -103,13 +131,6 @@ const moveToForthItem = () => {
 	}
 };
 
-const moveToFifthItem = () => {
-	return {
-		index: 4,
-		isTimerEnabled: false,
-	}
-};
-
 const reducer = (state, action) => {
   switch (action.type) {
     case 'MOVE_TO_NEXT_ITEM':
@@ -122,11 +143,26 @@ const reducer = (state, action) => {
       return moveToThirdItem();
     case 'MOVE_TO_FORTH_ITEM':
       return moveToForthItem();
-    case 'MOVE_TO_FIFTH_ITEM':
-      return moveToFifthItem();
     default:
       throw new ReferenceError(`Action type ${action.type} is not declared`);
   };
+};
+
+const transitionProps: any = {
+  config: customConfig.heavy,
+  trail: 1000,
+  from: {
+    opacity: 0,
+    transform: 'scale(0.5)',
+  },
+  enter: {
+    opacity: 1,
+    transform: 'scale(1)',
+  },
+  leave: {
+    opacity: 0,
+    transform: 'scale(1.5)'
+  }
 };
 
 const App = () => {
@@ -157,10 +193,6 @@ const App = () => {
     dispatch({ type: 'MOVE_TO_FORTH_ITEM' })
   ), []);
 
-  const handleFifthItem = useCallback(() => (
-    dispatch({ type: 'MOVE_TO_FIFTH_ITEM' })
-  ), []);
-
   useEffect(() => {
     if (isDocumentVisible) {
       const intervalId = setInterval(() => {
@@ -170,13 +202,29 @@ const App = () => {
     }
 	});
 	
-  const transitions = useTransition(state.index, null, {
-    config: customConfig.easing,
-    // initial: { opacity: 1 },
-    from: { opacity: 0, },
-    enter: { opacity: 1 },
-    leave: { opacity: 0, },
+
+  const transition = useTransition(state.index, null, { 
+    ...transitionProps, 
+    order: ['leave', 'enter', 'update'] 
   });
+
+  // const transition = useTransition(state.index, null, {
+  //   config: customConfig.easing,
+  //   trail: 250,
+  //   from: {
+  //     opacity: 0,
+  //     transform: 'translateX(-20%)',
+  //     position: 'absolute'
+  //   },
+  //   enter: {
+  //     opacity: 1,
+  //     transform: 'translateX(0%)',
+  //   },
+  //   leave: {
+  //     opacity: 0,
+  //     transform: 'translateX(20%)'
+  //   }
+  // });
 
   const firstInputAnimation = useSpring({
     config: customConfig.easing,
@@ -202,31 +250,13 @@ const App = () => {
     width: state.index === 3 ? '100%' : '0%'
   });
 
-  const fifthInputAnimation = useSpring({
-    config: customConfig.easing,
-    background: state.index === 4 ? 'white' : 'rgba(0, 0, 0, 0)',
-    width: state.index === 4 ? '100%' : '0%'
-  });
-
   return (
     <Fragment>
-      {/* <div style={{ color: 'red' }}> {height} </div> */}
       <CouroselContainer height={`${height}px`}>
-        {/* {transitions.map(({ item, props, key }) => {
+        {transition.map(({ item, props, key }) => {
           const Page = couroselItems[item]
           return <Page key={key} style={props} />
-        })} */}
-        <CouroselContentContainer height={`${height-80-100}px`}>
-          <FirstCouroselTitle>
-            JavaScript Guides
-          </FirstCouroselTitle>
-          <FirstCouroselSubtitle>
-            From data processing to asyncrounous programming
-          </FirstCouroselSubtitle>
-          <FirstCouroselContent>
-            Check JS tutorials
-          </FirstCouroselContent>
-        </CouroselContentContainer>
+        })}
         <CouroselInputsWrapper>
           <CouroselInputsContainer>
             <CouroselInputContainer onClick={handleFirstItem}>
@@ -240,9 +270,6 @@ const App = () => {
             </CouroselInputContainer>
             <CouroselInputContainer onClick={handleForthItem}>
               <CouroselInnerInputContainer style={forthInputAnimation} />
-            </CouroselInputContainer>
-            <CouroselInputContainer onClick={handleFifthItem}>
-              <CouroselInnerInputContainer style={fifthInputAnimation} />
             </CouroselInputContainer>
           </CouroselInputsContainer>
         </CouroselInputsWrapper>

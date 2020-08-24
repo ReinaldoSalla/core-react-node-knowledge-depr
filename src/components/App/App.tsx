@@ -21,10 +21,10 @@ const BaseLayout = () => {
   const { pathname } = useLocation();
   return (
     <Fragment>
-      {pathname === '/'
+      {/* {pathname === '/'
         ? <Topbar isSidebarVisible={isSidebarVisible} toggleSidebar={toggleSidebar} />
         : <SimpleTopbar isSidebarVisible={isSidebarVisible} toggleSidebar={toggleSidebar} />
-      }
+      } */}
       <Sidebar isSidebarVisible={isSidebarVisible} />
       {routes.map((route: any, index) => 
         <Route 

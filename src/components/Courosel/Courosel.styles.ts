@@ -5,8 +5,6 @@ import {
   FirstCouroselContainerProps
 } from './Courosel.interfaces';
 
-const height = '800px';
-
 const CouroselContainer = styled.div<CouroselContainerProps>`
   height: ${props => props.height};
   width: 100%;
@@ -15,17 +13,25 @@ const CouroselContainer = styled.div<CouroselContainerProps>`
   background-position: center center;
 `;
 
+const CouroselContentWrapper = styled.div`
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+`;
+
 interface CouroselContentContainerProps {
   height: string;
 }
 
-const CouroselContentContainer = styled.div<CouroselContentContainerProps>`
+const CouroselContentContainer = styled(animated.div)<CouroselContentContainerProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
   padding-top: 80px;
   height: ${props => props.height};
+  overflow: hidden;
   /* border: 10px solid blue; */
 `;
 
@@ -70,13 +76,15 @@ const CouroselInputsWrapper = styled.div`
 `;
 
 const CouroselInputsContainer = styled.div`
+  /* position: relative; */
+  /* bottom: 0; */
   display: flex;
   justify-content: space-between;
   padding-bottom: 2rem;
   margin: 0 2rem 0 2rem;
   width: 1200px;
-  border-bottom: 3px solid white;
-  /* border: 1px solid white; */
+  /* border-bottom: 3px solid white; */
+  border: 1px solid white;
 `;
 
 const CouroselInputContainer = styled(animated.div)`
@@ -96,35 +104,13 @@ const CouroselInnerInputContainer = styled(animated.div)`
   height: 100%;
 `;
 
-/******************************* */
-
-const CouroselItemContainer = styled(animated.div)`
-  width: 100%;
-  height: ${height};
-  display: flex;
-  font-size: 100px;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  /* border: 1px solid green; */
-`;
-
-const CouroselImg = styled.img`
-  width: 100%;
-  height: ${height};
-  z-index: 1;
-`;
-
-/********************************************************** */
-
 export {
   CouroselContainer,
   FirstCouroselTitle,
   FirstCouroselSubtitle,
   FirstCouroselContent,
   CouroselContentContainer,
-  CouroselItemContainer,
-  CouroselImg,
+  CouroselContentWrapper,
   CouroselInputsWrapper,
   CouroselInputsContainer,
   CouroselInputContainer,
