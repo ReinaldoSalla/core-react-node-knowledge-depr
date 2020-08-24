@@ -5,6 +5,7 @@ const VideoBackground = styled.video`
   width: 100%;
   height: 100%;
   object-fit: fill;
+  z-index: -1;
 `;
 
 export default VideoBackground;

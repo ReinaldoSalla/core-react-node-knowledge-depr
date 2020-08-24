@@ -2,10 +2,11 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import img from '../../assets/imgs/boxes/final/box1.jpg';
 
-const contentTextColor = 'white';
+const textColor = 'white';
 
 const CategoriesContainer = styled.div`
   margin: 50px 0 0 0;
+  z-index: 2;
 `;
 
 interface CategoriesItemContainerProps {
@@ -14,8 +15,7 @@ interface CategoriesItemContainerProps {
 
 const CategoriesItemContainer = styled.div<CategoriesItemContainerProps>`
   margin: ${props => props.lastItem ? '0 1.5em 1.5em 1.5em' : '0 1.5em 3em 1.5em' };
-  border-top: 1px solid black;
-  background: aliceblue;
+  border-top: 1px solid white;
 `;
 
 const CategoriesHeaderContainer = styled.div`
@@ -31,7 +31,7 @@ const CategoriesTitleText = styled.span`
   font-size: 2em;
   font-weight: 700;
   text-align: center;
-  color: black;
+  color: ${textColor};
 `;
 
 const CategoriesDescriptionText = styled.span`
@@ -39,7 +39,7 @@ const CategoriesDescriptionText = styled.span`
   font-size: 1.5em;
   font-weight: 700;
   text-align: center;
-  color: black;
+  color: ${textColor};
 `;
 
 const CategoriesContentsContainer = styled.div`
@@ -89,7 +89,7 @@ const CategoriesContentTitleText = styled.div`
   height: 40px;
   font-size: 1.75em;
   text-align: center;
-  color: ${contentTextColor};
+  color: ${textColor};
   font-weight: 500;
 `;  
 
@@ -97,7 +97,7 @@ const CategoriesContentDescriptionText = styled.div`
   /* margin: 0 0.25em 1.5em 0.25em; */
   font-size: 1.5em;
   text-align: center;
-  color: ${contentTextColor};
+  color: ${textColor};
   font-weight: 500;
 `;
 

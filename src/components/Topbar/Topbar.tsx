@@ -6,6 +6,7 @@ import React, {
 } from 'react';
 import {
   TopbarContainer,
+  TopbarInnerWrapper,
   TopbarItemContainer,
   TopbarLink,
   TopbarText,
@@ -48,19 +49,16 @@ const TopbarSidebar: FunctionComponent<TopbarProps> = ({
   );
 };
 
-interface TopbarHomeProps {
-  onClickHome: () => void;
-}
 
-const TopbarHome: FunctionComponent<TopbarHomeProps> = (props) => {
+const TopbarHome: FunctionComponent = () => {
   const { pathname } = useLocation();
-  // const onClick = () => {
-  //   pathname === '/'
-  //     ? window.scroll({ top: 0, left: 0, behavior: 'smooth' })
-  //     : window.scrollTo(0, 0);
-  // };
+  const onClick = () => {
+    pathname === '/'
+      ? window.scroll({ top: 0, left: 0, behavior: 'smooth' })
+      : window.scrollTo(0, 0);
+  };
   return (
-    <TopbarLink to='/' onClick={props.onClickHome}>
+    <TopbarLink to='/' onClick={onClick}>
       <Icon 
         svg={JavaScriptSvg} 
         color='white'
@@ -78,13 +76,10 @@ const Topbar: FunctionComponent<TopbarProps> = ({
   isSidebarVisible, 
   toggleSidebar
 }): JSX.Element => {
-  const { pathname } = useLocation();
-  const [isInExtremeTop, setIsInExtremeTop] = useState<boolean>(window.pageYOffset <= 50);
-  const [isInGeneralTop, setIsInGeneralTop] = useState<boolean>(window.pageYOffset <= 200);
+  const [isInTop, setIsInTop] = useState<boolean>(window.pageYOffset <= 50);
 
   const onScroll = () => {
-    setIsInExtremeTop(window.pageYOffset <= 50);
-    setIsInGeneralTop(window.pageYOffset <= 200);
+    setIsInTop(window.pageYOffset <= 50);
   };
 
   // scroll
@@ -95,37 +90,20 @@ const Topbar: FunctionComponent<TopbarProps> = ({
 
   // back button
   useEffect(() => {
-    setIsInExtremeTop(window.pageYOffset <= 50);
-    setIsInGeneralTop(window.pageYOffset <= 200);
+    setIsInTop(window.pageYOffset <= 50);
   }, []);
 
-  const onClickHome = () => {
-    setIsInExtremeTop(true);
-    setIsInGeneralTop(true);
-    pathname === '/'
-      ? window.scroll({ top: 0, left: 0, behavior: 'smooth' })
-      : window.scrollTo(0, 0);
-  };
-
-  const animationTop = useSpring({
-    config: { mass: 10, tension: 170, friction: 26, clamp: true },
-    background: isInExtremeTop ? 'rgba(0, 0, 0, 0)' : 'black'
+  const animation = useSpring({
+    height: isInTop ? '0px' : '80px'
   });
-
-  const animationNotTop = useSpring({
-    config: { duration: 1 },
-    background: 'black'
-  });
-
-  const animation = isInGeneralTop ? animationTop : animationNotTop;
 
   return (
-    <TopbarContainer style={animation}>
+    <TopbarContainer>
       <TopbarSidebar
         isSidebarVisible={isSidebarVisible}
         toggleSidebar={toggleSidebar}
       />
-      <TopbarHome onClickHome={onClickHome}/>
+      <TopbarHome />
       <TopbarItemContainer>
         <Icon 
           svg={SearchSvg} 
@@ -135,7 +113,7 @@ const Topbar: FunctionComponent<TopbarProps> = ({
           padding='0'
           border='none'
         />
-        <TopbarText> Search</TopbarText>
+        <TopbarText> Search </TopbarText>
       </TopbarItemContainer>
       <TopbarItemContainer>
         <TopbarFillerWrapper>
@@ -150,6 +128,7 @@ const Topbar: FunctionComponent<TopbarProps> = ({
         </TopbarFillerWrapper>
         <TopbarText> Profile </TopbarText>
       </TopbarItemContainer>
+      <TopbarInnerWrapper style={animation}/>      
     </TopbarContainer>
   );
 };

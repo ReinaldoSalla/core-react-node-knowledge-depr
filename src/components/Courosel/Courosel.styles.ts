@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 import { animated } from  'react-spring';
-//import galaxy from '../../assets/galaxy.jpg';
-import img from '../../assets/imgs/courosel/final/courosel1.jpg';
 import {
   CouroselContainerProps,
   FirstCouroselContainerProps
@@ -10,13 +8,8 @@ import {
 const height = '800px';
 
 const CouroselContainer = styled.div<CouroselContainerProps>`
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly; */
   height: ${props => props.height};
   width: 100%;
-  background-image: url(${img});
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center center;
@@ -82,7 +75,6 @@ const CouroselInputsContainer = styled.div`
   padding-bottom: 2rem;
   margin: 0 2rem 0 2rem;
   width: 1200px;
-  z-index: 2;
   border-bottom: 3px solid white;
   /* border: 1px solid white; */
 `;

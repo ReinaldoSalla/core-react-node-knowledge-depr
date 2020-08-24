@@ -53,7 +53,12 @@ const CategoriesItem = ({
 }) => (
 	<CategoriesItemContainer lastItem={lastItem}>
 		<CategoriesHeaderContainer>
-      <Icon svg={svg} margin='1rem 0 0.5rem 0' />
+      <Icon 
+        svg={svg}
+        margin='1rem 0 0.5rem 0' 
+        color='white'
+        border='1px solid white'
+      />
       <CategoriesTitleText> 
         {title} 
       </CategoriesTitleText>
