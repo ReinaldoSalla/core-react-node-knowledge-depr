@@ -30,7 +30,38 @@ const customConfig = {
   input: { duration: 2000 }
 };
 
-const CouroselItem = ({ style, title, subtitle, button }) => {
+const titleGenerator = (name: string): string => (
+  `${name} Guides`
+);
+  
+const boxGenerator = (name: string): string => (
+  `Check ${name} tutorials`
+);
+    
+const texts = [
+  {
+    title: titleGenerator('JavaScript'),
+    subtitle: 'From data processing to asyncronous programming',
+    box: boxGenerator('JS')
+  },
+  {
+    title: titleGenerator('TypeScript'),
+    subtitle: 'Covering types, interfaces, generics and decorators',
+    box: boxGenerator('TS')
+  },
+  {
+    title: titleGenerator('React'),
+    subtitle: 'Concepts from the core library and from third party libraries',
+    box: boxGenerator('React')
+  },
+  {
+    title: titleGenerator('Backend'),
+    subtitle: 'GraphQL for specification, MongoDB for persistence and JWT for authentication',
+    box: boxGenerator('Backend')
+  }
+];
+
+const CouroselItem = ({ style, title, subtitle, box }) => {
   const height = useHeight();
   return (
     <CouroselContentWrapper>
@@ -45,19 +76,23 @@ const CouroselItem = ({ style, title, subtitle, button }) => {
           {subtitle}
         </FirstCouroselSubtitle>
         <FirstCouroselContent>
-          {button}
+          {box}
         </FirstCouroselContent>
       </CouroselContentContainer>
     </CouroselContentWrapper>
   );
 };
 
-const couroselItems = [
-  ({ style }) => <CouroselItem style={style} title='JavaScript Guides' subtitle='From data processing to asyncronous programming' button='Check JS tutorial' />,
-  ({ style }) => <CouroselItem style={style} title='TypeScript Guides' subtitle='Covering types, interfaces, generics and decorators' button='Check TS tutorial' />,
-  ({ style }) => <CouroselItem style={style} title='React Guides' subtitle='From data processing to asyncronous programming' button='Check JS tutorial' />,
-  ({ style }) => <CouroselItem style={style} title='GraphQL Guides' subtitle='From data processing to asyncronous programming' button='Check JS tutorial' />,
-];
+const couroselItems = texts.map(({ title, subtitle, box }) =>
+  ({ style }) => (
+    <CouroselItem 
+      style={style} 
+      title={title}
+      subtitle={subtitle} 
+      box={box} 
+    />
+  )
+);
 
 const moveToNextItem = (state) => {
   let newIndex = state.index + 1;
@@ -130,6 +165,17 @@ const transitionProps: any = {
   }
 };
 
+const getSpringProps = (
+  currentIndex: number, 
+  targetIndex: number
+): any => ({
+  config: customConfig.input,
+  background: currentIndex === targetIndex 
+    ? 'white' 
+    : 'rgba(0, 0, 0, 0)',
+  width: currentIndex === targetIndex ? '100%' : '0%'
+})
+
 const App = () => {
   const [state, dispatch] = useReducer(reducer, { 
 		index: 0,
@@ -172,29 +218,13 @@ const App = () => {
     order: ['leave', 'enter', 'update'] 
   });
 
-  const firstInputAnimation = useSpring({
-    config: customConfig.input,
-    background: state.index === 0 ? 'white' : 'rgba(0, 0, 0, 0)',
-    width: state.index === 0 ? '100%' : '0%'
-  });
+  const firstInputAnimation = useSpring(getSpringProps(state.index, 0));
 
-  const secondInputAnimation = useSpring({ 
-    config: customConfig.input,
-    background: state.index === 1 ? 'white' : 'rgba(0, 0, 0, 0)',
-    width: state.index === 1 ? '100%' : '0%'
-  });
+  const secondInputAnimation = useSpring(getSpringProps(state.index, 1));
 
-  const thirdInputAnimation = useSpring({
-    config: customConfig.input,
-    background: state.index === 2 ? 'white' : 'rgba(0, 0, 0, 0)',
-    width: state.index === 2 ? '100%' : '0%'
-  });
+  const thirdInputAnimation = useSpring(getSpringProps(state.index, 2));
 
-  const forthInputAnimation = useSpring({
-    config: customConfig.input,
-    background: state.index === 3 ? 'white' : 'rgba(0, 0, 0, 0)',
-    width: state.index === 3 ? '100%' : '0%'
-  });
+  const forthInputAnimation = useSpring(getSpringProps(state.index, 3));
 
   const { width, opacity }: any = useSpring({
     config: { duration: DURATION + 100 },

@@ -1,7 +1,7 @@
 const topics = {
   javascript: {
     title: 'JavaScript',
-    description: 'Curated tutorials from basic to advanced',
+    description: 'Curated tutorials, emphasizing on ES6+ features',
     contents: [
       { title: 'Data Structures', description: 'Understanting JavaScript data types and basic data processing', path: '/data-structures'},
       { title: 'Functions', description: 'Learning how to use function declarations, function expressions and arrow functions', path: '/functions'},
