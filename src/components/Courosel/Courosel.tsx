@@ -1,21 +1,7 @@
-/*
-todo
-create the actual content https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiJydadg4TrAhUUIbkGHZPeA-YQFjAAegQIBRAB&url=https%3A%2F%2Fwww.pexels.com%2Fsearch%2Fwebsite%2520background%2F&usg=AOvVaw08xwJ2TViw6zoqosJyED2m
-Prevent new items from entering until old items have finished leaving https://github.com/react-spring/react-spring/pull/809 
-use a react-spring config instead of duration + d3-ease
-create a count state variable for every 100ms, so that the timer can reset when the user clicks in some label or leaves the page
-render how long it takes for the next transition
-being able to swipe in diferent directions for mobile 
-use three.js / react-three-fiber to improve the courosel https://codepen.io/zadvorsky/pen/PNXbGo?editors=1010
-use typescript on useReducer and useEffect
-*/
-//best linear gradients for background
-
 import React, {
   useCallback,
   useEffect,
   useReducer,
-  useState,
   Fragment
 } from 'react';
 import {
@@ -33,39 +19,16 @@ import {
   CouroselTimerRow,
   CouroselTimer
 } from './Courosel.styles';
-import { useTransition, useSpring, animated } from 'react-spring';
-import * as easings from 'd3-ease';
+import { useTransition, useSpring } from 'react-spring';
 import useDocumentVisibility from '../../utils/useDocumentVisibility';
 import useHeight from '../../utils/useHeight';
-import Icon from '../Icon';
-import {ReactComponent as JavaScriptSvg} from '../../assets/icons/javascript.svg';
 
-const DURATION: number = 5000;
+const DURATION: number = 8000;
 
 const customConfig = { 
-  heavy: { mass: 5, tension: 50, friction: 26, clamp: true },
-  easing: { duration: 1500, easing: easings.easeCubic }
+  text: { mass: 5, tension: 50, friction: 26, clamp: true },
+  input: { duration: 2000 }
 };
-
-// const CouroselItem = ({ style, img }) => (
-//   <CouroselItemContainer className='courosel-item' style={style}>
-//     <CouroselImg className='courosel-img' src={img} alt='' />
-//   </CouroselItemContainer>
-// );
-
-// const couroselImgs = [img1, img2, img3, img4, img5];
-
-// const couroselItems = couroselImgs.map(item =>
-//   ({ style }) => <CouroselItem style={style} img={item} />
-// );
-
-// const couroselItems = [
-//   ({ style }) => <CouroselItem style={style} img={js1} />,
-//   ({ style }) => <CouroselItem style={style} img={js1} />,
-//   ({ style }) => <CouroselItem style={style} img={js1} />,
-//   ({ style }) => <CouroselItem style={style} img={js1} />,
-//   ({ style }) => <CouroselItem style={style} img={js1} />,
-// ];
 
 const CouroselItem = ({ style, title, subtitle, button }) => {
   const height = useHeight();
@@ -93,13 +56,11 @@ const couroselItems = [
   ({ style }) => <CouroselItem style={style} title='JavaScript Guides' subtitle='From data processing to asyncronous programming' button='Check JS tutorial' />,
   ({ style }) => <CouroselItem style={style} title='TypeScript Guides' subtitle='Covering types, interfaces, generics and decorators' button='Check TS tutorial' />,
   ({ style }) => <CouroselItem style={style} title='React Guides' subtitle='From data processing to asyncronous programming' button='Check JS tutorial' />,
-  ({ style }) => <CouroselItem style={style} title='Node/GraphQL Guides' subtitle='From data processing to asyncronous programming' button='Check JS tutorial' />,
+  ({ style }) => <CouroselItem style={style} title='GraphQL Guides' subtitle='From data processing to asyncronous programming' button='Check JS tutorial' />,
 ];
 
 const moveToNextItem = (state) => {
-	let newIndex = state.isTimerEnabled
-		? state.index + 1
-		: state.index;
+  let newIndex = state.index + 1;
 	if (newIndex === couroselItems.length) newIndex = 0;
 	return {
 		index: newIndex,
@@ -153,7 +114,7 @@ const reducer = (state, action) => {
 };
 
 const transitionProps: any = {
-  config: customConfig.heavy,
+  config: customConfig.text,
   trail: 1000,
   from: {
     opacity: 0,
@@ -212,34 +173,34 @@ const App = () => {
   });
 
   const firstInputAnimation = useSpring({
-    config: customConfig.easing,
+    config: customConfig.input,
     background: state.index === 0 ? 'white' : 'rgba(0, 0, 0, 0)',
     width: state.index === 0 ? '100%' : '0%'
   });
 
   const secondInputAnimation = useSpring({ 
-    config: customConfig.easing,
+    config: customConfig.input,
     background: state.index === 1 ? 'white' : 'rgba(0, 0, 0, 0)',
     width: state.index === 1 ? '100%' : '0%'
   });
 
   const thirdInputAnimation = useSpring({
-    config: customConfig.easing,
+    config: customConfig.input,
     background: state.index === 2 ? 'white' : 'rgba(0, 0, 0, 0)',
     width: state.index === 2 ? '100%' : '0%'
   });
 
   const forthInputAnimation = useSpring({
-    config: customConfig.easing,
+    config: customConfig.input,
     background: state.index === 3 ? 'white' : 'rgba(0, 0, 0, 0)',
     width: state.index === 3 ? '100%' : '0%'
   });
 
-  const timerAnimation = useSpring({
+  const { width, opacity }: any = useSpring({
     config: { duration: DURATION + 100 },
-    from: { width: '0%', opacity: 0 },
-    to: { width: '95%', opacity: 1 },
-    reset: true,
+    from: { width: 0, opacity: 0 },
+    to: { width: 95, opacity: 1 },
+    reset: true
   });
 
   return (
@@ -266,7 +227,16 @@ const App = () => {
               </CouroselInputContainer>
             </CouroselInputsRow>
             <CouroselTimerRow>
-              <CouroselTimer style={timerAnimation}/>
+              <CouroselTimer
+                style={{
+                  width: width.interpolate(width => 
+                    width < 20 ? 0 : `${width}%`
+                  ),
+                  opacity: opacity.interpolate(opacity => 
+                    opacity < 0.3 ? 0 : opacity - 0.3
+                  )
+                }}
+              />
             </CouroselTimerRow>
           </CouroselInputsContainer>
         </CouroselInputsWrapper>
