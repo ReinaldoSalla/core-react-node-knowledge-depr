@@ -67,18 +67,20 @@ const FirstCouroselContent = styled.div`
   border-radius: 20px;
 `;
 
-const CouroselInputsWrapper = styled.div`
+interface CouroselInputsWrapperProps {
+  paddingTop: string;
+}
+
+const CouroselInputsWrapper = styled.div<CouroselInputsWrapperProps>`
   display: flex;
   justify-content: center;
   position: relative;
+  padding-top: ${props => props.paddingTop};
 `;
 
-interface CouroselInputsContainerProps {
-  margin: string;
-}
 
-const CouroselInputsContainer = styled.div<CouroselInputsContainerProps>`
-  margin:  ${props => props.margin};
+const CouroselInputsContainer = styled.div`
+  margin: 0 2rem;
   width: 1200px;
   display: flex;
   justify-content: space-between;

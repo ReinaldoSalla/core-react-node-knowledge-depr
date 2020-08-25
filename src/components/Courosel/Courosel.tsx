@@ -238,8 +238,8 @@ const App = () => {
           const Page = couroselItems[item]
           return <Page key={key} style={props} />
         })}
-        <CouroselInputsWrapper>
-          <CouroselInputsContainer margin={`${height-80-10}px 2rem 0 2rem`}>
+        <CouroselInputsWrapper paddingTop={`${height-80-10}px`}>
+          <CouroselInputsContainer>
             <CouroselInputContainer onClick={handleFirstItem}>
               <CouroselInnerInputContainer style={firstInputAnimation} />
             </CouroselInputContainer>
