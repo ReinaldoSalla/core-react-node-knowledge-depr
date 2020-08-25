@@ -202,29 +202,10 @@ const App = () => {
     }
 	});
 	
-
   const transition = useTransition(state.index, null, { 
     ...transitionProps, 
     order: ['leave', 'enter', 'update'] 
   });
-
-  // const transition = useTransition(state.index, null, {
-  //   config: customConfig.easing,
-  //   trail: 250,
-  //   from: {
-  //     opacity: 0,
-  //     transform: 'translateX(-20%)',
-  //     position: 'absolute'
-  //   },
-  //   enter: {
-  //     opacity: 1,
-  //     transform: 'translateX(0%)',
-  //   },
-  //   leave: {
-  //     opacity: 0,
-  //     transform: 'translateX(20%)'
-  //   }
-  // });
 
   const firstInputAnimation = useSpring({
     config: customConfig.easing,
@@ -258,7 +239,7 @@ const App = () => {
           return <Page key={key} style={props} />
         })}
         <CouroselInputsWrapper>
-          <CouroselInputsContainer>
+          <CouroselInputsContainer margin={`${height-80-10}px 2rem 0 2rem`}>
             <CouroselInputContainer onClick={handleFirstItem}>
               <CouroselInnerInputContainer style={firstInputAnimation} />
             </CouroselInputContainer>

@@ -71,20 +71,20 @@ const CouroselInputsWrapper = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
-  top: 20px;
-  /* border: 5px solid blue; */
 `;
 
-const CouroselInputsContainer = styled.div`
-  /* position: relative; */
-  /* bottom: 0; */
+interface CouroselInputsContainerProps {
+  margin: string;
+}
+
+const CouroselInputsContainer = styled.div<CouroselInputsContainerProps>`
+  margin:  ${props => props.margin};
+  width: 1200px;
   display: flex;
   justify-content: space-between;
   padding-bottom: 2rem;
-  margin: 0 2rem 0 2rem;
-  width: 1200px;
-  /* border-bottom: 3px solid white; */
-  border: 1px solid white;
+  border-bottom: 3px solid white;
+  /* border: 1px solid white; */
 `;
 
 const CouroselInputContainer = styled(animated.div)`
