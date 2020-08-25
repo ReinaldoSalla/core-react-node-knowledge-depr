@@ -26,8 +26,10 @@ import {
   CouroselContentContainer,
   CouroselInputsWrapper,
   CouroselInputsContainer,
+  CouroselInputsRow,
   CouroselInputContainer,
   CouroselInnerInputContainer,
+  CouroselTimer
 } from './Courosel.styles';
 import { useTransition, useSpring, animated } from 'react-spring';
 import * as easings from 'd3-ease';
@@ -240,18 +242,21 @@ const App = () => {
         })}
         <CouroselInputsWrapper paddingTop={`${height-80-10}px`}>
           <CouroselInputsContainer>
-            <CouroselInputContainer onClick={handleFirstItem}>
-              <CouroselInnerInputContainer style={firstInputAnimation} />
-            </CouroselInputContainer>
-            <CouroselInputContainer onClick={handleSecondItem}>
-              <CouroselInnerInputContainer style={secondInputAnimation} />
-            </CouroselInputContainer>
-            <CouroselInputContainer onClick={handleThirdItem}>
-              <CouroselInnerInputContainer style={thirdInputAnimation} />
-            </CouroselInputContainer>
-            <CouroselInputContainer onClick={handleForthItem}>
-              <CouroselInnerInputContainer style={forthInputAnimation} />
-            </CouroselInputContainer>
+            <CouroselInputsRow>
+              <CouroselInputContainer onClick={handleFirstItem}>
+                <CouroselInnerInputContainer style={firstInputAnimation} />
+              </CouroselInputContainer>
+              <CouroselInputContainer onClick={handleSecondItem}>
+                <CouroselInnerInputContainer style={secondInputAnimation} />
+              </CouroselInputContainer>
+              <CouroselInputContainer onClick={handleThirdItem}>
+                <CouroselInnerInputContainer style={thirdInputAnimation} />
+              </CouroselInputContainer>
+              <CouroselInputContainer onClick={handleForthItem}>
+                <CouroselInnerInputContainer style={forthInputAnimation} />
+              </CouroselInputContainer>
+            </CouroselInputsRow>
+            <CouroselTimer />
           </CouroselInputsContainer>
         </CouroselInputsWrapper>
       </CouroselContainer>
