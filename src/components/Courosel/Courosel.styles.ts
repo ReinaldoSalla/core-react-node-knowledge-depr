@@ -78,20 +78,17 @@ const CouroselInputsWrapper = styled.div<CouroselInputsWrapperProps>`
   padding-top: ${props => props.paddingTop};
 `;
 
-const CouroselInputsRow = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-
 const CouroselInputsContainer = styled.div`
   margin: 0 2rem;
   width: 1200px;
   display: flex;
   flex-direction: column;
+  /* border: 1px solid red; */
+`;
+
+const CouroselInputsRow = styled.div`
+  display: flex;
   justify-content: space-between;
-  /* padding-bottom: 2rem; */
-  /* border-bottom: 3px solid white; */
-  /* border: 1px solid white; */
 `;
 
 const CouroselInputContainer = styled(animated.div)`
@@ -111,7 +108,13 @@ const CouroselInnerInputContainer = styled(animated.div)`
   height: 100%;
 `;
 
-const CouroselTimer = styled.div`
+const CouroselTimerRow = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const CouroselTimer = styled(animated.div)`
   padding: 16px;
   border-bottom: 3px solid white;
   width: auto;
@@ -129,5 +132,6 @@ export {
   CouroselInputsContainer,
   CouroselInputContainer,
   CouroselInnerInputContainer,
+  CouroselTimerRow,
   CouroselTimer
 };

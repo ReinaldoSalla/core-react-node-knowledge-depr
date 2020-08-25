@@ -14,7 +14,8 @@ use typescript on useReducer and useEffect
 import React, {
   useCallback,
   useEffect,
-	useReducer,
+  useReducer,
+  useState,
   Fragment
 } from 'react';
 import {
@@ -29,6 +30,7 @@ import {
   CouroselInputsRow,
   CouroselInputContainer,
   CouroselInnerInputContainer,
+  CouroselTimerRow,
   CouroselTimer
 } from './Courosel.styles';
 import { useTransition, useSpring, animated } from 'react-spring';
@@ -38,7 +40,7 @@ import useHeight from '../../utils/useHeight';
 import Icon from '../Icon';
 import {ReactComponent as JavaScriptSvg} from '../../assets/icons/javascript.svg';
 
-const DURATION: number = 1e10;
+const DURATION: number = 5000;
 
 const customConfig = { 
   heavy: { mass: 5, tension: 50, friction: 26, clamp: true },
@@ -89,16 +91,16 @@ const CouroselItem = ({ style, title, subtitle, button }) => {
 
 const couroselItems = [
   ({ style }) => <CouroselItem style={style} title='JavaScript Guides' subtitle='From data processing to asyncronous programming' button='Check JS tutorial' />,
-  ({ style }) => <CouroselItem style={style} title='JavaScript Guides' subtitle='From data processing to asyncronous programming' button='Check JS tutorial' />,
-  ({ style }) => <CouroselItem style={style} title='JavaScript Guides' subtitle='From data processing to asyncronous programming' button='Check JS tutorial' />,
-  ({ style }) => <CouroselItem style={style} title='JavaScript Guides' subtitle='From data processing to asyncronous programming' button='Check JS tutorial' />,
+  ({ style }) => <CouroselItem style={style} title='TypeScript Guides' subtitle='Covering types, interfaces, generics and decorators' button='Check TS tutorial' />,
+  ({ style }) => <CouroselItem style={style} title='React Guides' subtitle='From data processing to asyncronous programming' button='Check JS tutorial' />,
+  ({ style }) => <CouroselItem style={style} title='Node/GraphQL Guides' subtitle='From data processing to asyncronous programming' button='Check JS tutorial' />,
 ];
 
 const moveToNextItem = (state) => {
 	let newIndex = state.isTimerEnabled
 		? state.index + 1
 		: state.index;
-	if (newIndex === couroselItems.length + 1) newIndex = 0;
+	if (newIndex === couroselItems.length) newIndex = 0;
 	return {
 		index: newIndex,
 		isTimerEnabled: true,
@@ -155,7 +157,7 @@ const transitionProps: any = {
   trail: 1000,
   from: {
     opacity: 0,
-    transform: 'scale(0.5)',
+    transform: 'scale(0.1)',
   },
   enter: {
     opacity: 1,
@@ -163,7 +165,7 @@ const transitionProps: any = {
   },
   leave: {
     opacity: 0,
-    transform: 'scale(1.5)'
+    transform: 'scale(2)'
   }
 };
 
@@ -202,7 +204,7 @@ const App = () => {
       }, DURATION);
       return () => clearInterval(intervalId);
     }
-	});
+  });
 	
   const transition = useTransition(state.index, null, { 
     ...transitionProps, 
@@ -233,6 +235,13 @@ const App = () => {
     width: state.index === 3 ? '100%' : '0%'
   });
 
+  const timerAnimation = useSpring({
+    config: { duration: DURATION + 100 },
+    from: { width: '0%', opacity: 0 },
+    to: { width: '95%', opacity: 1 },
+    reset: true,
+  });
+
   return (
     <Fragment>
       <CouroselContainer height={`${height}px`}>
@@ -256,7 +265,9 @@ const App = () => {
                 <CouroselInnerInputContainer style={forthInputAnimation} />
               </CouroselInputContainer>
             </CouroselInputsRow>
-            <CouroselTimer />
+            <CouroselTimerRow>
+              <CouroselTimer style={timerAnimation}/>
+            </CouroselTimerRow>
           </CouroselInputsContainer>
         </CouroselInputsWrapper>
       </CouroselContainer>
