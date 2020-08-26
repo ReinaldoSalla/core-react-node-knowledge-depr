@@ -32,11 +32,9 @@ const CouroselContentContainer = styled(animated.div)<CouroselContentContainerPr
   padding-top: 80px;
   height: ${props => props.height};
   overflow: hidden;
-  /* border: 10px solid blue; */
 `;
 
 const FirstCouroselTitle = styled.div`
-  /* margin: 12rem 0 0 0; */
   color: white;
   font-size: 2.5rem;
   font-weight: 700;
@@ -45,7 +43,6 @@ const FirstCouroselTitle = styled.div`
 
 
 const FirstCouroselSubtitle = styled.div`
-  /* margin: 4rem 0 0 0; */
   color: white;
   font-size: 2rem;
   font-weight: 700;
@@ -57,8 +54,6 @@ const FirstCouroselContent = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  /* margin: 4rem 1rem 0 1rem; */
-  /* padding: 0.5rem; */
   color: white;
   font-size: 2rem;
   border: 1px solid white;
@@ -83,7 +78,6 @@ const CouroselInputsContainer = styled.div`
   width: 1200px;
   display: flex;
   flex-direction: column;
-  /* border: 1px solid red; */
 `;
 
 const CouroselInputsRow = styled.div`
@@ -91,22 +85,29 @@ const CouroselInputsRow = styled.div`
   justify-content: space-between;
 `;
 
-const CouroselInputContainer = styled(animated.div)`
-  /* margin: 0 2rem 0 2rem; */
-  height: 20px;
-  min-width: 70px;
+const CouroselInput = styled.div`
+  height: 30px;
+  min-width: 100px;
   border-radius: 5px;
   border: 2px solid white;
+  transition: transform 500ms;
 
   &:hover {
     cursor: pointer;
-    background-color: white;
+    transform: scale(1.2);
   }
 `;
-
-const CouroselInnerInputContainer = styled(animated.div)`
+  
+const CouroselInnerInput = styled(animated.div)`
   height: 100%;
 `;
+
+const CouroselInputText = styled(animated.span)`
+  position: absolute;
+  font-size: 20px;
+  width: 100px;
+  text-align: center;
+`
 
 const CouroselTimerRow = styled.div`
   display: flex;
@@ -115,7 +116,7 @@ const CouroselTimerRow = styled.div`
 `;
 
 const CouroselTimer = styled(animated.div)`
-  padding: 16px;
+  padding: 14px;
   border-bottom: 3px solid white;
   width: auto;
 `;
@@ -130,8 +131,9 @@ export {
   CouroselInputsWrapper,
   CouroselInputsRow,
   CouroselInputsContainer,
-  CouroselInputContainer,
-  CouroselInnerInputContainer,
+  CouroselInput,
+  CouroselInputText,
+  CouroselInnerInput,
   CouroselTimerRow,
   CouroselTimer
 };

@@ -28,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
 
   :root {
     /* Firefox scrollbar (>= 64) */
-    /* scrollbar-width: thin; */
+    scrollbar-width: thin;
     /* height: 100%;
     width: 100%; */
   }

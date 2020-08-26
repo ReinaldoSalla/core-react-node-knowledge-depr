@@ -14,8 +14,9 @@ import {
   CouroselInputsWrapper,
   CouroselInputsContainer,
   CouroselInputsRow,
-  CouroselInputContainer,
-  CouroselInnerInputContainer,
+  CouroselInput,
+  CouroselInputText,
+  CouroselInnerInput,
   CouroselTimerRow,
   CouroselTimer
 } from './Courosel.styles';
@@ -26,7 +27,7 @@ import useHeight from '../../utils/useHeight';
 const DURATION: number = 8000;
 
 const customConfig = { 
-  text: { mass: 5, tension: 50, friction: 26, clamp: true },
+  content: { mass: 5, tension: 50, friction: 26, clamp: true },
   input: { duration: 2000 }
 };
 
@@ -149,7 +150,7 @@ const reducer = (state, action) => {
 };
 
 const transitionProps: any = {
-  config: customConfig.text,
+  config: customConfig.content,
   trail: 1000,
   from: {
     opacity: 0,
@@ -165,7 +166,15 @@ const transitionProps: any = {
   }
 };
 
-const getSpringProps = (
+const getTextProps = (
+  currentIndex: number,
+  targetIndex: number
+): any => ({
+  config: customConfig.input,
+  color: currentIndex === targetIndex ? 'black' : 'white'
+});
+
+const getInnerProps = (
   currentIndex: number, 
   targetIndex: number
 ): any => ({
@@ -173,8 +182,8 @@ const getSpringProps = (
   background: currentIndex === targetIndex 
     ? 'white' 
     : 'rgba(0, 0, 0, 0)',
-  width: currentIndex === targetIndex ? '100%' : '0%'
-})
+  width: currentIndex === targetIndex ? '100%' : '0%',
+});
 
 const App = () => {
   const [state, dispatch] = useReducer(reducer, { 
@@ -218,13 +227,21 @@ const App = () => {
     order: ['leave', 'enter', 'update'] 
   });
 
-  const firstInputAnimation = useSpring(getSpringProps(state.index, 0));
+  const firstTextAnimation = useSpring(getTextProps(state.index, 0));
 
-  const secondInputAnimation = useSpring(getSpringProps(state.index, 1));
+  const secondTextAnimation = useSpring(getTextProps(state.index, 1));
 
-  const thirdInputAnimation = useSpring(getSpringProps(state.index, 2));
+  const thirdTextAnimation = useSpring(getTextProps(state.index, 2));
 
-  const forthInputAnimation = useSpring(getSpringProps(state.index, 3));
+  const forthTextAnimation = useSpring(getTextProps(state.index, 3));
+
+  const firstInnerAnimation = useSpring(getInnerProps(state.index, 0));
+
+  const secondInnerAnimation = useSpring(getInnerProps(state.index, 1));
+
+  const thirdInnerAnimation = useSpring(getInnerProps(state.index, 2));
+
+  const forthInnerAnimation = useSpring(getInnerProps(state.index, 3));
 
   const { width, opacity }: any = useSpring({
     config: { duration: DURATION + 100 },
@@ -243,18 +260,30 @@ const App = () => {
         <CouroselInputsWrapper paddingTop={`${height-80-10}px`}>
           <CouroselInputsContainer>
             <CouroselInputsRow>
-              <CouroselInputContainer onClick={handleFirstItem}>
-                <CouroselInnerInputContainer style={firstInputAnimation} />
-              </CouroselInputContainer>
-              <CouroselInputContainer onClick={handleSecondItem}>
-                <CouroselInnerInputContainer style={secondInputAnimation} />
-              </CouroselInputContainer>
-              <CouroselInputContainer onClick={handleThirdItem}>
-                <CouroselInnerInputContainer style={thirdInputAnimation} />
-              </CouroselInputContainer>
-              <CouroselInputContainer onClick={handleForthItem}>
-                <CouroselInnerInputContainer style={forthInputAnimation} />
-              </CouroselInputContainer>
+                <CouroselInput onClick={handleFirstItem}>
+                  <CouroselInputText style={firstTextAnimation}>
+                    JavaScript
+                  </CouroselInputText>
+                  <CouroselInnerInput style={firstInnerAnimation} />
+                </CouroselInput>
+                <CouroselInput onClick={handleSecondItem}>
+                  <CouroselInputText style={secondTextAnimation}>
+                    TypeScript
+                  </CouroselInputText>
+                  <CouroselInnerInput style={secondInnerAnimation} />
+                </CouroselInput>
+                <CouroselInput onClick={handleThirdItem}>
+                  <CouroselInputText style={thirdTextAnimation}>
+                    React
+                  </CouroselInputText>
+                  <CouroselInnerInput style={thirdInnerAnimation} />
+                </CouroselInput>
+                <CouroselInput onClick={handleForthItem}>
+                  <CouroselInputText style={forthTextAnimation}>
+                    Backend
+                  </CouroselInputText>
+                  <CouroselInnerInput style={forthInnerAnimation} />
+                </CouroselInput>
             </CouroselInputsRow>
             <CouroselTimerRow>
               <CouroselTimer
