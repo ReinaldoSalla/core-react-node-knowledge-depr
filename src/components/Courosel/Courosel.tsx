@@ -292,7 +292,7 @@ const App = () => {
                     width < 20 ? 0 : `${width}%`
                   ),
                   opacity: opacity.interpolate(opacity => 
-                    opacity < 0.3 ? 0 : opacity - 0.3
+                    opacity < 0.2 ? 0 : opacity - 0.2
                   )
                 }}
               />
