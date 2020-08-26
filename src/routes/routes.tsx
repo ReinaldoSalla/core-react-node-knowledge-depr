@@ -1,6 +1,6 @@
-import HomePage from '../pages/HomePage';
-import BaseContentPage from '../pages/BaseContentPage';
-import BaseFooterPage from '../pages/BaseFooterPage';
+import HomePage from '../pages/Home';
+import BaseContentPage from '../pages/BaseContent';
+import BaseFooterPage from '../pages/BaseFooter';
 
 const routes = [
   {

@@ -1,12 +1,17 @@
+/*
+Universal component rendered throughout the whole app.
+*/
+
 import React, { useState, Fragment } from 'react';
-import { Route, useLocation } from 'react-router';
+import { useLocation } from 'react-router';
+import RouteParser from '../../routes/RouteParser';
 import Topbar from '../../components/Topbar';
 import SimpleTopbar from '../../components/SimpleTopbar';
 import Sidebar from '../../components/Sidebar';
 import Footer from '../../components/Footer';
 import routes from '../../routes';
 
-const BaseLayout = () => {
+const Universal = () => {
 	const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>(false);
   const toggleSidebar = () => setIsSidebarVisible(!isSidebarVisible);
   const { pathname } = useLocation();
@@ -18,21 +23,12 @@ const BaseLayout = () => {
       }
       <Sidebar isSidebarVisible={isSidebarVisible} />
       {routes.map((route: any, index) => 
-        <Route 
-          key={index}
-          path={route.path}
-          render={props => 
-            <route.component 
-              {...props} 
-              routes={route.routes} 
-            />
-          }
-        />
+        <RouteParser key={index} {...route} />
       )}    
       <Footer /> 
     </Fragment>
   )
 };
 
-export default BaseLayout;
+export default Universal;
 
