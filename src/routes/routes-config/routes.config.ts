@@ -1,8 +1,8 @@
-import HomePage from '../pages/Home';
-import BaseContentPage from '../pages/BaseContent';
-import BaseFooterPage from '../pages/BaseFooter';
+import HomePage from '../../pages/HomePage';
+import BaseContentPage from '../../pages/BaseContentPage';
+import BaseFooterPage from '../../pages/BaseFooterPage';
 
-const routes = [
+const routesConfig = [
   {
     path: '/data-structures',
     component: BaseContentPage
@@ -49,4 +49,4 @@ const routes = [
   }
 ];
 
-export default routes;
+export default routesConfig;

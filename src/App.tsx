@@ -1,12 +1,12 @@
 import React from 'react';
 import GlobalStyle from './App.styles';
-import Universal from './pages/Universal';
+import UniversalPage from './pages/UniversalPage';
 import { BrowserRouter } from 'react-router-dom';
 
 const App = () => (
   <BrowserRouter>
     <GlobalStyle />
-    <Universal />
+    <UniversalPage />
   </BrowserRouter>
 );
 

@@ -9,7 +9,7 @@ import Topbar from '../../components/Topbar';
 import SimpleTopbar from '../../components/SimpleTopbar';
 import Sidebar from '../../components/Sidebar';
 import Footer from '../../components/Footer';
-import routes from '../../routes';
+import routesConfig from '../../routes/routes-config';
 
 const Universal = () => {
 	const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>(false);
@@ -22,7 +22,7 @@ const Universal = () => {
         : <SimpleTopbar isSidebarVisible={isSidebarVisible} toggleSidebar={toggleSidebar} />
       }
       <Sidebar isSidebarVisible={isSidebarVisible} />
-      {routes.map((route: any, index) => 
+      {routesConfig.map((route: any, index) => 
         <RouteParser key={index} {...route} />
       )}    
       <Footer /> 
