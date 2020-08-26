@@ -16,7 +16,7 @@ import {
   CouroselInputsRow,
   CouroselInput,
   CouroselInputText,
-  CouroselInnerInput,
+  CouroselInputInner,
   CouroselTimerRow,
   CouroselTimer
 } from './Courosel.styles';
@@ -260,30 +260,30 @@ const App = () => {
         <CouroselInputsWrapper paddingTop={`${height-80-10}px`}>
           <CouroselInputsContainer>
             <CouroselInputsRow>
-                <CouroselInput onClick={handleFirstItem}>
-                  <CouroselInputText style={firstTextAnimation}>
-                    JavaScript
-                  </CouroselInputText>
-                  <CouroselInnerInput style={firstInnerAnimation} />
-                </CouroselInput>
-                <CouroselInput onClick={handleSecondItem}>
-                  <CouroselInputText style={secondTextAnimation}>
-                    TypeScript
-                  </CouroselInputText>
-                  <CouroselInnerInput style={secondInnerAnimation} />
-                </CouroselInput>
-                <CouroselInput onClick={handleThirdItem}>
-                  <CouroselInputText style={thirdTextAnimation}>
-                    React
-                  </CouroselInputText>
-                  <CouroselInnerInput style={thirdInnerAnimation} />
-                </CouroselInput>
-                <CouroselInput onClick={handleForthItem}>
-                  <CouroselInputText style={forthTextAnimation}>
-                    Backend
-                  </CouroselInputText>
-                  <CouroselInnerInput style={forthInnerAnimation} />
-                </CouroselInput>
+              <CouroselInput onClick={handleFirstItem}>
+                <CouroselInputText style={firstTextAnimation}>
+                  JavaScript
+                </CouroselInputText>
+                <CouroselInputInner style={firstInnerAnimation} />
+              </CouroselInput>
+              <CouroselInput onClick={handleSecondItem}>
+                <CouroselInputText style={secondTextAnimation}>
+                  TypeScript
+                </CouroselInputText>
+                <CouroselInputInner style={secondInnerAnimation} />
+              </CouroselInput>
+              <CouroselInput onClick={handleThirdItem}>
+                <CouroselInputText style={thirdTextAnimation}>
+                  React
+                </CouroselInputText>
+                <CouroselInputInner style={thirdInnerAnimation} />
+              </CouroselInput>
+              <CouroselInput onClick={handleForthItem}>
+                <CouroselInputText style={forthTextAnimation}>
+                  Backend
+                </CouroselInputText>
+                <CouroselInputInner style={forthInnerAnimation} />
+              </CouroselInput>
             </CouroselInputsRow>
             <CouroselTimerRow>
               <CouroselTimer

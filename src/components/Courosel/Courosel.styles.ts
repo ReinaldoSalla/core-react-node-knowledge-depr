@@ -98,7 +98,7 @@ const CouroselInput = styled.div`
   }
 `;
   
-const CouroselInnerInput = styled(animated.div)`
+const CouroselInputInner = styled(animated.div)`
   height: 100%;
 `;
 
@@ -133,7 +133,7 @@ export {
   CouroselInputsContainer,
   CouroselInput,
   CouroselInputText,
-  CouroselInnerInput,
+  CouroselInputInner,
   CouroselTimerRow,
   CouroselTimer
 };
