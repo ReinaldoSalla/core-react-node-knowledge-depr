@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { animated } from  'react-spring';
 import {
   CouroselContainerProps,
-  FirstCouroselContainerProps
+  CouroselInputsWrapperProps
 } from './Courosel.interfaces';
 
 const CouroselContainer = styled.div<CouroselContainerProps>`
@@ -29,42 +29,40 @@ const CouroselContentContainer = styled(animated.div)<CouroselContentContainerPr
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  padding-top: 80px;
+  padding-top: 60px;
   height: ${props => props.height};
   overflow: hidden;
 `;
 
-const FirstCouroselTitle = styled.div`
+const CouroselTitle = styled.div`
+  color: white;
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+`;
+
+
+const CouroselSubtitle = styled.div`
   color: white;
   font-size: 2.5rem;
   font-weight: 700;
   text-align: center;
+  margin: 0 2rem;
 `;
 
-
-const FirstCouroselSubtitle = styled.div`
-  color: white;
-  font-size: 2rem;
-  font-weight: 700;
-  text-align: center;
-`;
-
-const FirstCouroselContent = styled.div`
+const CouroselContent = styled.div`
+  padding: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: white;
-  font-size: 2rem;
+  font-size: 2.5rem;
   border: 1px solid white;
   width: 15rem;
   font-weight: 700;
   border-radius: 20px;
 `;
-
-interface CouroselInputsWrapperProps {
-  paddingTop: string;
-}
 
 const CouroselInputsWrapper = styled.div<CouroselInputsWrapperProps>`
   display: flex;
@@ -123,9 +121,9 @@ const CouroselTimer = styled(animated.div)`
 
 export {
   CouroselContainer,
-  FirstCouroselTitle,
-  FirstCouroselSubtitle,
-  FirstCouroselContent,
+  CouroselTitle,
+  CouroselSubtitle,
+  CouroselContent,
   CouroselContentContainer,
   CouroselContentWrapper,
   CouroselInputsWrapper,

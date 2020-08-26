@@ -6,9 +6,9 @@ import React, {
 } from 'react';
 import {
   CouroselContainer,
-  FirstCouroselTitle,
-  FirstCouroselSubtitle,
-  FirstCouroselContent,
+  CouroselTitle,
+  CouroselSubtitle,
+  CouroselContent,
   CouroselContentWrapper,
   CouroselContentContainer,
   CouroselInputsWrapper,
@@ -24,7 +24,7 @@ import { useTransition, useSpring } from 'react-spring';
 import useDocumentVisibility from '../../utils/useDocumentVisibility';
 import useHeight from '../../utils/useHeight';
 
-const DURATION: number = 8000;
+const duration: number = 8000;
 
 const customConfig = { 
   content: { mass: 5, tension: 50, friction: 26, clamp: true },
@@ -35,7 +35,7 @@ const titleGenerator = (name: string): string => (
   `${name} Guides`
 );
   
-const boxGenerator = (name: string): string => (
+const contentGenerator = (name: string): string => (
   `Check ${name} tutorials`
 );
     
@@ -43,26 +43,26 @@ const texts = [
   {
     title: titleGenerator('JavaScript'),
     subtitle: 'From data processing to asyncronous programming',
-    box: boxGenerator('JS')
+    content: contentGenerator('JS')
   },
   {
     title: titleGenerator('TypeScript'),
     subtitle: 'Covering types, interfaces, generics and decorators',
-    box: boxGenerator('TS')
+    content: contentGenerator('TS')
   },
   {
     title: titleGenerator('React'),
     subtitle: 'Concepts from the core library and from third party libraries',
-    box: boxGenerator('React')
+    content: contentGenerator('React')
   },
   {
-    title: titleGenerator('Backend'),
-    subtitle: 'GraphQL for specification, MongoDB for persistence and JWT for authentication',
-    box: boxGenerator('Backend')
+    title: titleGenerator('GraphQL'),
+    subtitle: 'Modern APIs with GraphQL, plus integration with databases and authentication systems',
+    content: contentGenerator('GraphQL')
   }
 ];
 
-const CouroselItem = ({ style, title, subtitle, box }) => {
+const CouroselItem = ({ style, title, subtitle, content }) => {
   const height = useHeight();
   return (
     <CouroselContentWrapper>
@@ -70,27 +70,27 @@ const CouroselItem = ({ style, title, subtitle, box }) => {
         style={style} 
         height={`${height-80-100}px`}
       >
-        <FirstCouroselTitle>
+        <CouroselTitle>
           {title}
-        </FirstCouroselTitle>
-        <FirstCouroselSubtitle>
+        </CouroselTitle>
+        <CouroselSubtitle>
           {subtitle}
-        </FirstCouroselSubtitle>
-        <FirstCouroselContent>
-          {box}
-        </FirstCouroselContent>
+        </CouroselSubtitle>
+        <CouroselContent>
+          {content}
+        </CouroselContent>
       </CouroselContentContainer>
     </CouroselContentWrapper>
   );
 };
 
-const couroselItems = texts.map(({ title, subtitle, box }) =>
+const couroselItems = texts.map(({ title, subtitle, content }) =>
   ({ style }) => (
     <CouroselItem 
       style={style} 
       title={title}
       subtitle={subtitle} 
-      box={box} 
+      content={content} 
     />
   )
 );
@@ -217,7 +217,7 @@ const App = () => {
     if (isDocumentVisible) {
       const intervalId = setInterval(() => {
         handleNextItem();
-      }, DURATION);
+      }, duration);
       return () => clearInterval(intervalId);
     }
   });
@@ -244,7 +244,7 @@ const App = () => {
   const forthInnerAnimation = useSpring(getInnerProps(state.index, 3));
 
   const { width, opacity }: any = useSpring({
-    config: { duration: DURATION + 100 },
+    config: { duration: duration + 100 },
     from: { width: 0, opacity: 0 },
     to: { width: 95, opacity: 1 },
     reset: true
@@ -280,7 +280,7 @@ const App = () => {
               </CouroselInput>
               <CouroselInput onClick={handleForthItem}>
                 <CouroselInputText style={forthTextAnimation}>
-                  Backend
+                  GraphQL
                 </CouroselInputText>
                 <CouroselInputInner style={forthInnerAnimation} />
               </CouroselInput>
