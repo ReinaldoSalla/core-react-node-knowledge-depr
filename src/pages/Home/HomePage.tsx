@@ -5,25 +5,11 @@ import Video from '../../components/Video';
 import {Route} from 'react-router-dom';
 
 const HomePage = () => (
-  <>
-    <Route path='/' exact>
-      <Video />
-      <Courosel />
-      <Categories />
-    </Route>
-    {/* <Route path={routes.dataStructures.path}>
-      <routes.dataStructures.page />
-    </Route>
-    <Route path={routes.functions.path}>
-      <routes.functions.page />
-    </Route>
-    <Route path={routes.conditionals.path}>
-      <routes.conditionals.page />
-    </Route> 
-    <Route path={routes.loops.path}>
-      <routes.loops.page />
-    </Route> */}
-  </>
+  <Route path='/' exact>
+    <Video />
+    <Courosel />
+    <Categories />
+  </Route>
 );
 
 export default HomePage;
