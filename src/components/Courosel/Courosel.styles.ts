@@ -72,7 +72,6 @@ const CouroselContent = styled.div`
 const CouroselInputsWrapper = styled.div<CouroselInputsWrapperProps>`
   display: flex;
   justify-content: center;
-  /* position: relative; */
   padding-top: ${props => props.paddingTop};
 `;
 

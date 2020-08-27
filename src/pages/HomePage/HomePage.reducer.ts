@@ -13,16 +13,16 @@ import {
   setJavaScriptOffsetTop
 } from './HomePage.actions';
 
-const HomePageReducer = (state, {type, payload} ) => {
-  switch(type) {
+const HomePageReducer = (state, action) => {
+  switch(action.type) {
     case SCROLL_TO_JAVASCRIPT:
       console.log('click');
-      return scrollToJavaScript(state, payload);
+      return scrollToJavaScript(state, action.payload);
     case SET_JAVASCRIPT_OFFSET_TOP:
-      return setJavaScriptOffsetTop(state, payload);
+      return setJavaScriptOffsetTop(state, action.payload);
     default:
       throw new Error(
-        `Action type ${type} not defined in HomePageReducer`
+        `Action type ${action.type} not defined in HomePageReducer`
       );
   }
 };

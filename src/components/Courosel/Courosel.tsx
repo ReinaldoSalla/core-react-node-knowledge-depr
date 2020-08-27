@@ -67,9 +67,6 @@ const CouroselItem = ({ style, title, subtitle, content, handleClick }) => {
   const height = useHeight();
 
   return (
-    // <CouroselContentWrapper>
-    //   <div style={{ color: 'white '}} onClick={() => alert('123')}>a</div>
-    // </CouroselContentWrapper>
     <CouroselContentWrapper>
       <CouroselContentContainer 
         style={style} 
@@ -102,20 +99,6 @@ const couroselItems = texts.map(({ title, subtitle, content }) => {
     )
   )
 });
-
-// const TestComponent = () => (
-//   <div style={{ color: 'white '}} onClick={() => alert('123')}>a</div>
-// )
-
-// const couroselItems = [
-//   // ({ style, handleJavaScriptClick }) => <div style={{ color: 'white' }} onClick={() => alert('123')}>A</div>,
-//   // ({ ...props }) => <TestComponent {...props} />,
-//   // ({ style, handleJavaScriptClick }) => <TestComponent />,
-//   ({ style, handleJavaScriptClick }) => <CouroselItem style={style} title='second title' subtitle='first subtitle' content='first content' handleClick={handleJavaScriptClick} />,
-//   ({ style, handleJavaScriptClick }) => <CouroselItem style={style} title='second title' subtitle='first subtitle' content='first content' handleClick={handleJavaScriptClick} />,
-//   ({ style, handleJavaScriptClick }) => <CouroselItem style={style} title='third title' subtitle='first subtitle' content='first content' handleClick={handleJavaScriptClick} />,
-//   ({ style, handleJavaScriptClick }) => <CouroselItem style={style} title='forth title' subtitle='first subtitle' content='first content' handleClick={handleJavaScriptClick} />,
-// ];
 
 const moveToNextItem = (state) => {
   let newIndex = state.index + 1;

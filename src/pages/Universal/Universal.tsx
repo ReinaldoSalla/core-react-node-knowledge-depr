@@ -17,10 +17,10 @@ const Universal = () => {
   const { pathname } = useLocation();
   return (
     <Fragment>
-      {/* {pathname === '/'
+      {pathname === '/'
         ? <Topbar isSidebarVisible={isSidebarVisible} toggleSidebar={toggleSidebar} />
         : <SimpleTopbar isSidebarVisible={isSidebarVisible} toggleSidebar={toggleSidebar} />
-      } */}
+      }
       <Sidebar isSidebarVisible={isSidebarVisible} />
       {routesConfig.map((route: any, index) => 
         <RouteParser key={index} {...route} />
