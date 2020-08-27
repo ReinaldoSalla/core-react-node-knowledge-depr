@@ -14,19 +14,18 @@ const HomePage = () => {
     graphqlOffsetTop: 0
   });
   
-  const handleJavaScriptClick = ( e) => {
-    console.log(e.target.getAttribute('name'));
+  const handleJavaScriptClick = (event) => {
+    console.log(event.target.getAttribute('name'));
     dispatch({ 
       type: CONSTANTS.SCROLL_TO_JAVASCRIPT
     });
   };
 
   const javascriptRef = useCallback(node => {
-    if (node) 
-      dispatch({ 
-        type: CONSTANTS.SET_JAVASCRIPT_OFFSET_TOP, 
-        payload: node.offsetTop - CONSTANTS.GENERAL_OFFSET
-      })
+    dispatch({ 
+      type: CONSTANTS.SET_JAVASCRIPT_OFFSET_TOP, 
+      payload: node
+    });
   }, []);
 
 
