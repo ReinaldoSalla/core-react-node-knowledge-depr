@@ -1,4 +1,4 @@
-import CONSTANTS from './HomePage.constants';
+import { ACTIONS } from './HomePage.constants';
 import {
   scrollToReference,
   setJavaScriptOffsetTop
@@ -6,9 +6,9 @@ import {
 
 const homePageReducer = (state, action) => {
   switch(action.type) {
-    case CONSTANTS.SCROLL_TO_REFERENCE:
+    case ACTIONS.SCROLL_TO_REFERENCE:
       return scrollToReference(state, action.payload);
-    case CONSTANTS.SET_JAVASCRIPT_OFFSET_TOP:
+    case ACTIONS.SET_JAVASCRIPT_OFFSET_TOP:
       return setJavaScriptOffsetTop(state, action.payload);
     default:
       throw new Error(

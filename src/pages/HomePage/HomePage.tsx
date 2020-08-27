@@ -4,7 +4,7 @@ import Categories from '../../components/Categories';
 import Video from '../../components/Video';
 import { Route } from 'react-router-dom';
 import homePageReducer from './HomePage.reducer';
-import CONSTANTS from './HomePage.constants';
+import { ACTIONS } from './HomePage.constants';
 
 const HomePage = () => {
   const [_, dispatch] = useReducer(homePageReducer, {
@@ -17,16 +17,23 @@ const HomePage = () => {
   const handleClick = (event) => {
     console.log(event.target.getAttribute('name'));
     dispatch({ 
-      type: CONSTANTS.SCROLL_TO_REFERENCE,
+      type: ACTIONS.SCROLL_TO_REFERENCE,
       payload: event
     });
   };
 
   const javascriptRef = useCallback(node => {
     dispatch({ 
-      type: CONSTANTS.SET_JAVASCRIPT_OFFSET_TOP, 
+      type: ACTIONS.SET_JAVASCRIPT_OFFSET_TOP, 
       payload: node
     });
+  }, []);
+
+  const typescriptRef = useCallback(node => {
+    dispatch({
+      type: ACTIONS.SET_TYPESCRIPT_OFFSET_TOP,
+      payload: node
+    })
   }, []);
 
 

@@ -1,4 +1,4 @@
-import CONSTANTS from './HomePage.constants';
+import { GENERAL_OFFSET } from './HomePage.constants';
 
 const scrollToReference = (state, payload) => {
   switch (payload.target.getAttribute('name')) {
@@ -14,7 +14,7 @@ const scrollToReference = (state, payload) => {
 const setJavaScriptOffsetTop = (state, payload) => {
   return {
     ...state,
-    javascriptOffsetTop: payload.offsetTop - CONSTANTS.GENERAL_OFFSET
+    javascriptOffsetTop: payload.offsetTop - GENERAL_OFFSET
   };
 };
 
