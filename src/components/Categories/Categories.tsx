@@ -49,7 +49,7 @@ const CategoriesItem = ({
   title,
   description,
   contents,
-  currentRef=null,
+  currentRef,
   lastItem=false
 }) => (
 	<CategoriesItemContainer ref={currentRef} lastItem={lastItem}>
@@ -72,7 +72,10 @@ const CategoriesItem = ({
 );
 
 const Categories = ({
-  javascriptRef
+  javaScriptRef,
+  typeScriptRef,
+  reactRef,
+  graphQLRef
 }) => {
   return (
     <Fragment>
@@ -82,19 +85,21 @@ const Categories = ({
           title={topics.javascript.title}
           description={topics.javascript.description}
           contents={topics.javascript.contents}
-          currentRef={javascriptRef}
+          currentRef={javaScriptRef}
         />
         <CategoriesItem  
           svg={ShieldsSvg}
           title={topics.typescript.title}
           description={topics.typescript.description}
           contents={topics.typescript.contents}
+          currentRef={typeScriptRef}
         />
         <CategoriesItem
           svg={ReactSvg}
           title={topics.react.title}
           description={topics.react.description}
           contents={topics.react.contents}
+          currentRef={reactRef}
 
         />
         <CategoriesItem 
@@ -102,6 +107,7 @@ const Categories = ({
           title={topics.backend.title}
           description={topics.backend.description}
           contents={topics.backend.contents}
+          currentRef={graphQLRef}
         />
       </CategoriesContainer>
     </Fragment>

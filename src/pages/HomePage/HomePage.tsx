@@ -15,33 +15,50 @@ const HomePage = () => {
   });
   
   const handleClick = (event) => {
-    console.log(event.target.getAttribute('name'));
     dispatch({ 
       type: ACTIONS.SCROLL_TO_REFERENCE,
       payload: event
     });
   };
 
-  const javascriptRef = useCallback(node => {
+  const javaScriptRef = useCallback(node => {
     dispatch({ 
       type: ACTIONS.SET_JAVASCRIPT_OFFSET_TOP, 
       payload: node
     });
   }, []);
 
-  const typescriptRef = useCallback(node => {
+  const typeScriptRef = useCallback(node => {
     dispatch({
       type: ACTIONS.SET_TYPESCRIPT_OFFSET_TOP,
       payload: node
     })
   }, []);
 
+  const reactRef = useCallback((node) => {
+    dispatch({
+      type: ACTIONS.SET_REACT_OFFSET_TOP,
+      payload: node
+    });
+  }, []);
+
+  const graphQLRef = useCallback((node) => {
+    dispatch({
+      type: ACTIONS.SET_GRAPHQL_OFFSET_TOP,
+      payload: node
+    });
+  }, []);
 
   return (
     <Route path='/' exact>
       <Video />
       <Courosel handleClick={handleClick}/>
-      <Categories javascriptRef={javascriptRef}/>
+      <Categories 
+        javaScriptRef={javaScriptRef}
+        typeScriptRef={typeScriptRef}
+        reactRef={reactRef}
+        graphQLRef={graphQLRef}
+      />
     </Route>
   )
 };
