@@ -3,21 +3,11 @@ import Courosel from '../../components/Courosel';
 import Categories from '../../components/Categories';
 import Video from '../../components/Video';
 import { Route } from 'react-router-dom';
-import HomePageReducer from './HomePage.reducer';
-import {
-  SCROLL_TO_JAVASCRIPT,
-  SCROLL_TO_TYPESCRIPT,
-  SCROLL_TO_REACT,
-  SCROLL_TO_GRAPHQL,
-  SET_JAVASCRIPT_OFFSET_TOP,
-  SET_TYPESCRIPT_OFFSET_TOP,
-  SET_REACT_OFFSET_TOP,
-  SET_GRAPHQL_OFFSET_TOP,
-  TOPBAR_HEIGHT
-} from './HomePage.constants';
+import homePageReducer from './HomePage.reducer';
+import CONSTANTS from './HomePage.constants';
 
 const HomePage = () => {
-  const [state, dispatch] = useReducer(HomePageReducer, {
+  const [state, dispatch] = useReducer(homePageReducer, {
     javascriptOffsetTop: 0,
     typescriptOffsetTop: 0,
     reactOffsetTop: 0,
@@ -26,16 +16,15 @@ const HomePage = () => {
   
   const handleJavaScriptClick = () => {
     dispatch({ 
-      type: SCROLL_TO_JAVASCRIPT,
-      payload: state.javascriptOffsetTop
+      type: CONSTANTS.SCROLL_TO_JAVASCRIPT
     });
   };
 
   const javascriptRef = useCallback(node => {
     if (node) 
       dispatch({ 
-        type: SET_JAVASCRIPT_OFFSET_TOP, 
-        payload: node.offsetTop + TOPBAR_HEIGHT
+        type: CONSTANTS.SET_JAVASCRIPT_OFFSET_TOP, 
+        payload: node.offsetTop - CONSTANTS.GENERAL_OFFSET
       })
   }, []);
 
@@ -46,7 +35,7 @@ const HomePage = () => {
       <Courosel 
         handleJavaScriptClick={handleJavaScriptClick}
       />
-      <Categories />
+      <Categories javascriptRef={javascriptRef}/>
     </Route>
   )
 };

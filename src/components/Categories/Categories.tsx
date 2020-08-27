@@ -49,9 +49,10 @@ const CategoriesItem = ({
   title,
   description,
   contents,
+  currentRef=null,
   lastItem=false
 }) => (
-	<CategoriesItemContainer lastItem={lastItem}>
+	<CategoriesItemContainer ref={currentRef} lastItem={lastItem}>
 		<CategoriesHeaderContainer>
       <Icon 
         svg={svg}
@@ -70,7 +71,9 @@ const CategoriesItem = ({
 	</CategoriesItemContainer>
 );
 
-const Categories = () => {
+const Categories = ({
+  javascriptRef
+}) => {
   return (
     <Fragment>
       <CategoriesContainer>
@@ -79,6 +82,7 @@ const Categories = () => {
           title={topics.javascript.title}
           description={topics.javascript.description}
           contents={topics.javascript.contents}
+          currentRef={javascriptRef}
         />
         <CategoriesItem  
           svg={ShieldsSvg}
@@ -91,6 +95,7 @@ const Categories = () => {
           title={topics.react.title}
           description={topics.react.description}
           contents={topics.react.contents}
+
         />
         <CategoriesItem 
           svg={ServerSvg}

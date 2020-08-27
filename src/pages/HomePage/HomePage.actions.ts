@@ -1,10 +1,11 @@
-const scrollToJavaScript = (state, payload) => {
-  console.log(`click ${'*'.repeat(100)}`);
-  window.scroll({ top: payload, behavior: 'smooth' });
+const scrollToJavaScript = (state) => {
+  console.log(state.javascriptOffsetTop);
+  window.scroll({ top: state.javascriptOffsetTop, behavior: 'smooth' });
   return { ...state };
 };
 
 const setJavaScriptOffsetTop = (state, payload) => {
+  console.log(payload);
   return {
     ...state,
     javascriptOffsetTop: payload
