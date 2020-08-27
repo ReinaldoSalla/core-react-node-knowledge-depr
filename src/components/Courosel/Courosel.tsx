@@ -84,16 +84,18 @@ const CouroselItem = ({ style, title, subtitle, content }) => {
   );
 };
 
-const couroselItems = texts.map(({ title, subtitle, content }) =>
-  ({ style }) => (
-    <CouroselItem 
-      style={style} 
-      title={title}
-      subtitle={subtitle} 
-      content={content} 
-    />
+const couroselItems = texts.map(({ title, subtitle, content }) => {
+  return (
+    ({ style, handleJavaScriptClick }) => (
+      <CouroselItem 
+        style={style} 
+        title={title}
+        subtitle={subtitle} 
+        content={content} 
+      />
+    )
   )
-);
+});
 
 const moveToNextItem = (state) => {
   let newIndex = state.index + 1;
@@ -185,7 +187,9 @@ const getInnerProps = (
   width: currentIndex === targetIndex ? '100%' : '0%',
 });
 
-const App = () => {
+const Courosel = ({
+  handleJavaScriptClick
+}) => {
   const [state, dispatch] = useReducer(reducer, { 
 		index: 0,
 		isTimerEnabled: true,
@@ -255,7 +259,13 @@ const App = () => {
       <CouroselContainer height={`${height}px`}>
         {transition.map(({ item, props, key }) => {
           const Page = couroselItems[item]
-          return <Page key={key} style={props} />
+          return (
+            <Page 
+              key={key} 
+              style={props} 
+              handleJavaScriptClick={handleJavaScriptClick}
+            />
+          );
         })}
         <CouroselInputsWrapper paddingTop={`${height-80-10}px`}>
           <CouroselInputsContainer>
@@ -304,4 +314,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Courosel;
