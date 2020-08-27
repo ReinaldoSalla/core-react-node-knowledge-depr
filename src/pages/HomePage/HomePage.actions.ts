@@ -1,8 +1,13 @@
 import CONSTANTS from './HomePage.constants';
 
-const scrollToJavaScript = (state) => {
-  console.log(state.javascriptOffsetTop);
-  window.scroll({ top: state.javascriptOffsetTop, behavior: 'smooth' });
+const scrollToReference = (state, payload) => {
+  switch (payload.target.getAttribute('name')) {
+    case 'javascript':
+      window.scroll({ top: state.javascriptOffsetTop, behavior: 'smooth' });
+      break;
+    default:
+      window.scroll({ top: 0, behavior: 'smooth' });
+  }
   return { ...state };
 };
 
@@ -14,7 +19,7 @@ const setJavaScriptOffsetTop = (state, payload) => {
 };
 
 export {
-  scrollToJavaScript,
+  scrollToReference,
   setJavaScriptOffsetTop
 };
 

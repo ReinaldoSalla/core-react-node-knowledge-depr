@@ -7,7 +7,7 @@ import homePageReducer from './HomePage.reducer';
 import CONSTANTS from './HomePage.constants';
 
 const HomePage = () => {
-  const [state, dispatch] = useReducer(homePageReducer, {
+  const [_, dispatch] = useReducer(homePageReducer, {
     javascriptOffsetTop: 0,
     typescriptOffsetTop: 0,
     reactOffsetTop: 0,
@@ -17,7 +17,8 @@ const HomePage = () => {
   const handleJavaScriptClick = (event) => {
     console.log(event.target.getAttribute('name'));
     dispatch({ 
-      type: CONSTANTS.SCROLL_TO_JAVASCRIPT
+      type: CONSTANTS.SCROLL_TO_REFERENCE,
+      payload: event
     });
   };
 
