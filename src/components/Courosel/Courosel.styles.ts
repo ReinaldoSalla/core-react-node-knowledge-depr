@@ -50,7 +50,11 @@ const CouroselSubtitle = styled.div`
   margin: 0 2rem;
 `;
 
-const CouroselContent = styled.div`
+interface CouroselContentProps {
+  name: string;
+}
+
+const CouroselContent = styled.div<CouroselContentProps>`
   padding: 8px;
   display: flex;
   align-items: center;

@@ -14,7 +14,8 @@ const HomePage = () => {
     graphqlOffsetTop: 0
   });
   
-  const handleJavaScriptClick = () => {
+  const handleJavaScriptClick = ( e) => {
+    console.log(e.target.getAttribute('name'));
     dispatch({ 
       type: CONSTANTS.SCROLL_TO_JAVASCRIPT
     });

@@ -42,30 +42,40 @@ const contentGenerator = (name: string): string => (
     
 const texts = [
   {
+    name: 'javascript',
     title: titleGenerator('JavaScript'),
     subtitle: 'From data processing to asyncronous programming',
     content: contentGenerator('JS')
   },
   {
+    name: 'typescript',
     title: titleGenerator('TypeScript'),
     subtitle: 'Covering types, interfaces, generics and decorators',
     content: contentGenerator('TS')
   },
   {
+    name: 'react',
     title: titleGenerator('React'),
     subtitle: 'Concepts from the core library and from third party libraries',
     content: contentGenerator('React')
   },
   {
+    name: 'graphql',
     title: titleGenerator('GraphQL'),
     subtitle: 'Modern APIs with GraphQL, plus integration with databases and authentication systems',
     content: contentGenerator('GraphQL')
   }
 ];
 
-const CouroselItem = ({ style, title, subtitle, content, handleClick }) => {
+const CouroselItem = ({ 
+  style, 
+  name, 
+  title, 
+  subtitle, 
+  content, 
+  handleClick 
+}) => {
   const height = useHeight();
-
   return (
     <CouroselContentWrapper>
       <CouroselContentContainer 
@@ -78,7 +88,7 @@ const CouroselItem = ({ style, title, subtitle, content, handleClick }) => {
         <CouroselSubtitle>
           {subtitle}
         </CouroselSubtitle>
-        <CouroselContent onClick={handleClick}>
+        <CouroselContent name={name} onClick={handleClick}>
           {content}
         </CouroselContent>
       </CouroselContentContainer>
@@ -86,11 +96,12 @@ const CouroselItem = ({ style, title, subtitle, content, handleClick }) => {
   );
 };
 
-const couroselItems = texts.map(({ title, subtitle, content }) => {
+const couroselItems = texts.map(({ name, title, subtitle, content }) => {
   return (
     ({ style, handleJavaScriptClick }) => (
       <CouroselItem 
         style={style} 
+        name={name}
         title={title}
         subtitle={subtitle} 
         content={content} 
