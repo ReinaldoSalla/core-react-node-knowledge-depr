@@ -1,5 +1,4 @@
 import { GENERAL_OFFSET } from './HomePage.constants';
-import { GiSattelite } from 'react-icons/gi';
 
 const scrollToReference = (state, payload) => {
   switch (payload.target.getAttribute('name')) {
@@ -16,7 +15,7 @@ const scrollToReference = (state, payload) => {
       window.scroll({ top: state.graphqlOffsetTop, behavior: 'smooth' });
       break;
     default:
-      window.scroll({ top: 0, behavior: 'smooth' });
+      throw new Error(`Name ${payload.target.getAttribute('name')} is undefined`);
   }
   return { ...state };
 };
