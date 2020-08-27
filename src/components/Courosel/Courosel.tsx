@@ -98,14 +98,14 @@ const CouroselItem = ({
 
 const couroselItems = texts.map(({ name, title, subtitle, content }) => {
   return (
-    ({ style, handleJavaScriptClick }) => (
+    ({ style, handleClick }) => (
       <CouroselItem 
         style={style} 
         name={name}
         title={title}
         subtitle={subtitle} 
         content={content} 
-        handleClick={handleJavaScriptClick}
+        handleClick={handleClick}
       />
     )
   )
@@ -202,7 +202,7 @@ const getInnerProps = (
 });
 
 const Courosel = ({
-  handleJavaScriptClick
+  handleClick
 }) => {
   const [state, dispatch] = useReducer(reducer, { 
 		index: 0,
@@ -277,7 +277,7 @@ const Courosel = ({
             <Page 
               key={key} 
               style={props} 
-              handleJavaScriptClick={handleJavaScriptClick}
+              handleClick={handleClick}
             />
           );
         })}

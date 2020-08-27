@@ -14,7 +14,7 @@ const HomePage = () => {
     graphqlOffsetTop: 0
   });
   
-  const handleJavaScriptClick = (event) => {
+  const handleClick = (event) => {
     console.log(event.target.getAttribute('name'));
     dispatch({ 
       type: CONSTANTS.SCROLL_TO_REFERENCE,
@@ -33,9 +33,7 @@ const HomePage = () => {
   return (
     <Route path='/' exact>
       <Video />
-      <Courosel 
-        handleJavaScriptClick={handleJavaScriptClick}
-      />
+      <Courosel handleClick={handleClick}/>
       <Categories javascriptRef={javascriptRef}/>
     </Route>
   )
