@@ -2,6 +2,7 @@ import React, {
   useCallback,
   useEffect,
   useReducer,
+  useState,
   Fragment
 } from 'react';
 import {
@@ -20,7 +21,7 @@ import {
   CouroselTimerRow,
   CouroselTimer
 } from './Courosel.styles';
-import { useTransition, useSpring } from 'react-spring';
+import { useTransition, useSpring, animated } from 'react-spring';
 import useDocumentVisibility from '../../utils/useDocumentVisibility';
 import useHeight from '../../utils/useHeight';
 
@@ -62,9 +63,13 @@ const texts = [
   }
 ];
 
-const CouroselItem = ({ style, title, subtitle, content }) => {
+const CouroselItem = ({ style, title, subtitle, content, handleClick }) => {
   const height = useHeight();
+
   return (
+    // <CouroselContentWrapper>
+    //   <div style={{ color: 'white '}} onClick={() => alert('123')}>a</div>
+    // </CouroselContentWrapper>
     <CouroselContentWrapper>
       <CouroselContentContainer 
         style={style} 
@@ -76,7 +81,7 @@ const CouroselItem = ({ style, title, subtitle, content }) => {
         <CouroselSubtitle>
           {subtitle}
         </CouroselSubtitle>
-        <CouroselContent>
+        <CouroselContent onClick={handleClick}>
           {content}
         </CouroselContent>
       </CouroselContentContainer>
@@ -92,10 +97,25 @@ const couroselItems = texts.map(({ title, subtitle, content }) => {
         title={title}
         subtitle={subtitle} 
         content={content} 
+        handleClick={handleJavaScriptClick}
       />
     )
   )
 });
+
+// const TestComponent = () => (
+//   <div style={{ color: 'white '}} onClick={() => alert('123')}>a</div>
+// )
+
+// const couroselItems = [
+//   // ({ style, handleJavaScriptClick }) => <div style={{ color: 'white' }} onClick={() => alert('123')}>A</div>,
+//   // ({ ...props }) => <TestComponent {...props} />,
+//   // ({ style, handleJavaScriptClick }) => <TestComponent />,
+//   ({ style, handleJavaScriptClick }) => <CouroselItem style={style} title='second title' subtitle='first subtitle' content='first content' handleClick={handleJavaScriptClick} />,
+//   ({ style, handleJavaScriptClick }) => <CouroselItem style={style} title='second title' subtitle='first subtitle' content='first content' handleClick={handleJavaScriptClick} />,
+//   ({ style, handleJavaScriptClick }) => <CouroselItem style={style} title='third title' subtitle='first subtitle' content='first content' handleClick={handleJavaScriptClick} />,
+//   ({ style, handleJavaScriptClick }) => <CouroselItem style={style} title='forth title' subtitle='first subtitle' content='first content' handleClick={handleJavaScriptClick} />,
+// ];
 
 const moveToNextItem = (state) => {
   let newIndex = state.index + 1;
@@ -256,9 +276,9 @@ const Courosel = ({
 
   return (
     <Fragment>
-      <CouroselContainer height={`${height}px`}>
+      <CouroselContainer height={`${height}px`} >
         {transition.map(({ item, props, key }) => {
-          const Page = couroselItems[item]
+          const Page = couroselItems[item];
           return (
             <Page 
               key={key} 

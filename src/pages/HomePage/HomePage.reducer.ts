@@ -16,6 +16,7 @@ import {
 const HomePageReducer = (state, {type, payload} ) => {
   switch(type) {
     case SCROLL_TO_JAVASCRIPT:
+      console.log('click');
       return scrollToJavaScript(state, payload);
     case SET_JAVASCRIPT_OFFSET_TOP:
       return setJavaScriptOffsetTop(state, payload);

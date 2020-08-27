@@ -62,12 +62,17 @@ const CouroselContent = styled.div`
   width: 15rem;
   font-weight: 700;
   border-radius: 20px;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+  }
 `;
 
 const CouroselInputsWrapper = styled.div<CouroselInputsWrapperProps>`
   display: flex;
   justify-content: center;
-  position: relative;
+  /* position: relative; */
   padding-top: ${props => props.paddingTop};
 `;
 
