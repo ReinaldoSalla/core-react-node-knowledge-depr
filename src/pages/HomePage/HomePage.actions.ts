@@ -3,16 +3,16 @@ import { GENERAL_OFFSET } from './HomePage.constants';
 const scrollToReference = (state, payload) => {
   switch (payload.target.getAttribute('name')) {
     case 'javascript':
-      window.scroll({ top: state.javascriptOffsetTop, behavior: 'smooth' });
+      window.scroll({ top: state.javascriptOffsetTop, behavior: 'auto' });
       break;
     case 'typescript':
-      window.scroll({ top: state.typescriptOffsetTop, behavior: 'smooth' });
+      window.scroll({ top: state.typescriptOffsetTop, behavior: 'auto' });
       break;
     case 'react':
-      window.scroll({ top: state.reactOffsetTop, behavior: 'smooth' });
+      window.scroll({ top: state.reactOffsetTop, behavior: 'auto' });
       break;
     case 'graphql':
-      window.scroll({ top: state.graphqlOffsetTop, behavior: 'smooth' });
+      window.scroll({ top: state.graphqlOffsetTop, behavior: 'auto' });
       break;
     default:
       throw new Error(`Name ${payload.target.getAttribute('name')} is undefined`);

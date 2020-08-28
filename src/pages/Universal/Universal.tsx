@@ -31,4 +31,3 @@ const Universal = () => {
 };
 
 export default Universal;
-
