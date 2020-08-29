@@ -73,21 +73,16 @@ const Topbar: FunctionComponent<TopbarProps> = ({
 	toggleSidebar,
 }): JSX.Element => {
 	const [isInTop, setIsInTop] = useState<boolean>(window.pageYOffset <= 50);
+  const { pathname } = useLocation();
 
 	const onScroll = () => {
 		setIsInTop(window.pageYOffset <= 50);
 	};
 
-	// scroll
 	useEffect(() => {
 		window.addEventListener('scroll', onScroll);
 		return () => window.addEventListener('scroll', onScroll);
 	});
-
-	// back button
-	useEffect(() => {
-		setIsInTop(window.pageYOffset <= 50);
-	}, []);
 
 	const animation = useSpring({
 		height: isInTop ? '0px' : '80px',
@@ -124,7 +119,7 @@ const Topbar: FunctionComponent<TopbarProps> = ({
 				</TopbarFillerWrapper>
 				<TopbarText> Profile </TopbarText>
 			</TopbarItemContainer>
-			<TopbarInnerWrapper style={animation} />
+			<TopbarInnerWrapper style={pathname === '/' ? animation : {height: '80px', background: 'black'}} />
 		</TopbarContainer>
 	);
 };
