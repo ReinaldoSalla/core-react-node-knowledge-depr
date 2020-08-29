@@ -4,10 +4,10 @@ import Universal from './pages/Universal';
 import { BrowserRouter } from 'react-router-dom';
 
 const App = () => (
-  <BrowserRouter>
-    <GlobalStyle />
-    <Universal />
-  </BrowserRouter>
+	<BrowserRouter>
+		<GlobalStyle />
+		<Universal />
+	</BrowserRouter>
 );
 
 export default App;

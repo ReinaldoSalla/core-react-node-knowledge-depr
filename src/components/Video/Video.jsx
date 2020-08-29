@@ -4,9 +4,9 @@ import video from '../../assets/videos/tech.1920x1080px.1000kbps.mp4';
 import VideoBackground from './Video.styles';
 
 const Video = () => (
-  <VideoBackground autoPlay muted loop poster='../../assets/videos/loading.png'>
-    <source src={video} type='video/mp4' />
-  </VideoBackground>
+	<VideoBackground autoPlay muted loop poster="../../assets/videos/loading.png">
+		<source src={video} type="video/mp4" />
+	</VideoBackground>
 );
 
 export default Video;

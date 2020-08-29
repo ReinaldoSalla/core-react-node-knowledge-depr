@@ -1,12 +1,9 @@
 interface CouroselContainerProps {
-  height: string;
+	height: string;
 }
 
 interface CouroselInputsWrapperProps {
-  paddingTop: string;
+	paddingTop: string;
 }
 
-export type {
-  CouroselContainerProps,
-  CouroselInputsWrapperProps
-};
+export type { CouroselContainerProps, CouroselInputsWrapperProps };

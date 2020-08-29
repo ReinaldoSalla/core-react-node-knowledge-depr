@@ -1,5 +1,5 @@
 interface SidebarContainerProps {
-  readonly height: number;
+	readonly height: number;
 }
 
 interface SidebarTitleContainerProps {
@@ -7,24 +7,23 @@ interface SidebarTitleContainerProps {
 }
 
 interface SidebarItemsProps {
-  title: string;
+	title: string;
 	items: Array<string>;
 	firstTitle?: boolean;
 }
 
 interface SidebarItemProps {
-  item: string;
+	item: string;
 }
 
 interface SidebarProps {
-  isSidebarVisible: boolean;
+	isSidebarVisible: boolean;
 }
-
 
 export type {
 	SidebarContainerProps,
-  SidebarTitleContainerProps,
-  SidebarItemsProps,
-  SidebarItemProps,
-  SidebarProps
-}
+	SidebarTitleContainerProps,
+	SidebarItemsProps,
+	SidebarItemProps,
+	SidebarProps,
+};

@@ -1,18 +1,15 @@
 interface SvgProps {
-  height: string;
-  width: string;
-  color: string;
+	height: string;
+	width: string;
+	color: string;
 }
 
 interface WrapperProps {
-  padding: string;
-  margin: string;
-  height: string;
-  width: string;
-  border: string;
+	padding: string;
+	margin: string;
+	height: string;
+	width: string;
+	border: string;
 }
 
-export type {
-  WrapperProps,
-  SvgProps
-};
+export type { WrapperProps, SvgProps };
