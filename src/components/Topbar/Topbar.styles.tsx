@@ -34,10 +34,9 @@ const TopbarItemContainer = styled.div`
 	/* transition: background 500ms; */
 	z-index: 2;
 
-	/* &:hover {
-		background: red;
+	&:hover {
 		cursor: pointer;
-	} */
+	}
 `;
 
 const TopbarLink = styled(Link)`
@@ -74,15 +73,9 @@ const TopbarFillerWrapper = styled.div`
 const TopbarItemFiller = styled(animated.div)`
   position: fixed;
   height: 80px;
-  width: 5%;
-  transition: width 500ms;
-  border: 1px solid blue;
+  width: 0%;
   background: red;
   z-index: 1;
-
-  &:hover {
-    width: 25%;
-  }
 `;
 
 export {

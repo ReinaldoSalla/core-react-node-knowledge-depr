@@ -39,7 +39,8 @@ const TopbarSidebar: FunctionComponent<TopbarProps> = ({
 					width="2rem"
 					height="2rem"
 					padding="0"
-					border="none"
+          border="none"
+          zIndex={2}
 				/>
 			</TopbarFillerWrapper>
 			<TopbarText> Contents </TopbarText>
@@ -63,7 +64,8 @@ const TopbarHome: FunctionComponent = () => {
 				width="2.5rem"
 				height="2.5rem"
 				padding="0"
-				border="none"
+        border="none"
+        zIndex={2}
 			/>
 			<TopbarText> JavaScript </TopbarText>
 		</TopbarLink>
@@ -74,7 +76,8 @@ const Topbar: FunctionComponent<TopbarProps> = ({
 	isSidebarVisible,
 	toggleSidebar,
 }): JSX.Element => {
-	const [isInTop, setIsInTop] = useState<boolean>(window.pageYOffset <= 50);
+  const [isInTop, setIsInTop] = useState<boolean>(window.pageYOffset <= 50);
+  const [isHovering, setIsHovering] = useState<boolean>(false);
   const { pathname } = useLocation();
 
 	const onScroll = () => {
@@ -88,26 +91,46 @@ const Topbar: FunctionComponent<TopbarProps> = ({
 
 	const animation = useSpring({
 		height: isInTop ? '0px' : '80px',
-	});
+  });
+  
+  // const hoverAnimation = useSpring({
+  //   width: isHovering ? '25%' : '0%'
+  // });
+
+  const hoverAnimation = useSpring({
+    from: {
+      width: '0%'
+    },
+    to: async (next) => {
+      await next({
+        width: isHovering ? '25%' : '0%'
+      });
+    }
+  });
 
 	return (
 		<TopbarContainer>
+
 			<TopbarSidebar
 				isSidebarVisible={isSidebarVisible}
 				toggleSidebar={toggleSidebar}
 			/>
 			<TopbarHome />
-			<TopbarItemContainer>
+
+			<TopbarItemContainer onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
 				<Icon
 					svg={SearchSvg}
 					color="white"
 					width="2.5rem"
 					height="2.5rem"
 					padding="0"
-					border="none"
+          border="none"
+          zIndex={2}
 				/>
 				<TopbarText> Search </TopbarText>
+        <TopbarItemFiller style={hoverAnimation}/>
 			</TopbarItemContainer>
+
 			<TopbarItemContainer>
 				<TopbarFillerWrapper>
 					<Icon
@@ -116,11 +139,13 @@ const Topbar: FunctionComponent<TopbarProps> = ({
 						width="2rem"
 						height="2rem"
 						padding="0"
-						border="none"
+            border="none"
+            zIndex={2}
 					/>
 				</TopbarFillerWrapper>
 				<TopbarText> Profile </TopbarText>
 			</TopbarItemContainer>
+
 			<TopbarInnerWrapper style={pathname === '/' ? animation : {height: '80px', background: 'black'}} />
 		</TopbarContainer>
 	);
