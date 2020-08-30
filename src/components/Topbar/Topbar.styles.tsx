@@ -3,9 +3,6 @@ import { animated } from 'react-spring';
 import { Link } from 'react-router-dom';
 
 const TopbarContainer = styled(animated.div)`
-	/* background: transparent; */
-	/* background: black; */
-	/* background: #280808; */
 	top: 0px;
 	height: 80px;
 	width: 100%;
@@ -31,7 +28,6 @@ const TopbarItemContainer = styled.div`
 	height: 80px;
 	width: 400px;
 	/* border-right: 1px solid white; */ /* if it's in the top position dont't render the right lines, only render if the user is not in the top*/
-	/* transition: background 500ms; */
 	z-index: 2;
 
 	&:hover {
@@ -47,13 +43,11 @@ const TopbarLink = styled(Link)`
 	height: 80px;
 	width: 400px;
 	/* border-right: 1px solid white; */ /* if it's in the top position dont't render the right lines, only render if the user is not in the top*/
-	/* transition: background 500ms; */
 	z-index: 2;
 
-	/* &:hover {
-		background: red;
+	&:hover {
 		cursor: pointer;
-	} */
+	}
 `;
 
 const TopbarText = styled.span`
@@ -74,7 +68,7 @@ const TopbarItemFiller = styled(animated.div)`
   position: fixed;
   height: 80px;
   width: 0%;
-  background: red;
+  background: #e01818;
   z-index: 1;
 `;
 
