@@ -64,7 +64,6 @@ const CouroselSubtitle = styled(animated.div)<CouroselTextProps>`
 `;
 
 const CouroselContent = styled(animated.div)<CouroselTextProps>`
-	padding: 8px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -81,11 +80,18 @@ const CouroselContent = styled(animated.div)<CouroselTextProps>`
 	}
 `;
 
+const CouroselContentText = styled(animated.div)`
+  padding: 8px;
+  text-align: center;
+  font-size: 2.5rem;
+  z-index: 2;
+`
+
 const CouroselContentFiller = styled(animated.div)`
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  background: red;
+  position: absolute;
+  height: 120px;
+  background: #e01818;
+  border-radius: 20px;
 `;
 
 const CouroselInputsWrapper = styled.div<CouroselInputsWrapperProps>`
@@ -148,6 +154,7 @@ export {
 	CouroselSubtitle,
   CouroselContent,
   CouroselContentFiller,
+  CouroselContentText,
 	CouroselContentContainer,
 	CouroselContentWrapper,
 	CouroselInputsWrapper,

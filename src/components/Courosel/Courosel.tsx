@@ -10,8 +10,9 @@ import {
 	CouroselTitle,
 	CouroselSubtitle,
   CouroselContent,
+  CouroselContentText,
   CouroselContentFiller,
-	CouroselContentWrapper,
+  CouroselContentWrapper,
 	CouroselContentContainer,
 	CouroselInputsWrapper,
 	CouroselInputsContainer,
@@ -88,6 +89,10 @@ const CouroselItem = ({
     textShadow: isHovering ? '1px 1px 2px white, 0 0 1em white, 0 0 0.2em white' : '0px 0px 0px white, 0 0 0em white, 0 0 0em white'
   });
 
+  const springInnerProps = useSpring({
+    width: isHovering ? '15rem' : '0rem'
+  });
+
 	return (
 		<CouroselContentWrapper>
 			<CouroselContentContainer style={style} height={`${height - 80 - 100}px`}>
@@ -114,9 +119,11 @@ const CouroselItem = ({
           onClick={handleClick}
           onMouseEnter={handleEnter}
           onMouseLeave={handleLeave}
-          style={springProps}
         >
-					{content}
+          <CouroselContentText style={springProps}>
+            {content}
+          </CouroselContentText>
+          <CouroselContentFiller style={springInnerProps}/>
 				</CouroselContent>
 			</CouroselContentContainer>
 		</CouroselContentWrapper>
