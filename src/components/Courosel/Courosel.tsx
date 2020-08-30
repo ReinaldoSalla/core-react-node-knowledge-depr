@@ -85,12 +85,7 @@ const CouroselItem = ({
   }, []);
 
   const springProps = useSpring({
-    color: isHovering ? '#e01818' : 'white'
-  });
-
-  const springBorderProps = useSpring({
-    color: isHovering ? '#e01818' : 'white',
-    border: isHovering ? '1px solid #e01818' : '1px solid white'
+    textShadow: isHovering ? '1px 1px 2px white, 0 0 1em white, 0 0 0.2em white' : '0px 0px 0px white, 0 0 0em white, 0 0 0em white'
   });
 
 	return (
@@ -119,7 +114,7 @@ const CouroselItem = ({
           onClick={handleClick}
           onMouseEnter={handleEnter}
           onMouseLeave={handleLeave}
-          style={springBorderProps}
+          style={springProps}
         >
 					{content}
 				</CouroselContent>

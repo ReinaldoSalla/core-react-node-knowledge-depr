@@ -41,6 +41,7 @@ interface CouroselTextProps {
 }
 
 const CouroselTitle = styled(animated.div)<CouroselTextProps>`
+  color: white;
 	font-size: 3rem;
 	font-weight: 700;
 	text-align: center;
