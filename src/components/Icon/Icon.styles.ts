@@ -12,12 +12,14 @@ const Wrapper = styled(animated.div)<WrapperProps>`
 	width: ${(props) => props.width};
 	border: ${(props) => props.border};
 	border-radius: 50%;
+  z-index: 2;
 `;
 
 const Svg = styled.div<SvgProps>`
 	height: ${(props) => props.height};
 	width: ${(props) => props.width};
 	color: ${(props) => props.color};
+  z-index: 2;
 `;
 
 export { Wrapper, Svg };

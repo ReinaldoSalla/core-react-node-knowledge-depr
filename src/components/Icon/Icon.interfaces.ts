@@ -9,7 +9,7 @@ interface WrapperProps {
 	margin: string;
 	height: string;
 	width: string;
-	border: string;
+  border: string;
 }
 
 export type { WrapperProps, SvgProps };

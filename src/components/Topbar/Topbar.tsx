@@ -5,7 +5,8 @@ import {
 	TopbarItemContainer,
 	TopbarLink,
 	TopbarText,
-	TopbarFillerWrapper,
+  TopbarFillerWrapper,
+  TopbarItemFiller
 } from './Topbar.styles';
 import { useSpring } from 'react-spring';
 import TopbarProps from './Topbar.interfaces';
@@ -42,6 +43,7 @@ const TopbarSidebar: FunctionComponent<TopbarProps> = ({
 				/>
 			</TopbarFillerWrapper>
 			<TopbarText> Contents </TopbarText>
+      <TopbarItemFiller />
 		</TopbarItemContainer>
 	);
 };
