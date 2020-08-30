@@ -36,26 +36,33 @@ const CouroselContentContainer = styled(animated.div)<
 	overflow: hidden;
 `;
 
-const CouroselTitle = styled.div`
-	color: white;
+interface CouroselTextProps {
+  name: string;
+}
+
+const CouroselTitle = styled(animated.div)<CouroselTextProps>`
 	font-size: 3rem;
 	font-weight: 700;
 	text-align: center;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
-const CouroselSubtitle = styled.div`
+const CouroselSubtitle = styled(animated.div)<CouroselTextProps>`
 	color: white;
 	font-size: 2.5rem;
 	font-weight: 700;
 	text-align: center;
 	margin: 0 2rem;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
-interface CouroselContentProps {
-	name: string;
-}
-
-const CouroselContent = styled.div<CouroselContentProps>`
+const CouroselContent = styled(animated.div)<CouroselTextProps>`
 	padding: 8px;
 	display: flex;
 	align-items: center;
@@ -70,8 +77,14 @@ const CouroselContent = styled.div<CouroselContentProps>`
 
 	&:hover {
 		cursor: pointer;
-		transform: scale(1.2);
 	}
+`;
+
+const CouroselContentFiller = styled(animated.div)`
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: red;
 `;
 
 const CouroselInputsWrapper = styled.div<CouroselInputsWrapperProps>`
@@ -132,7 +145,8 @@ export {
 	CouroselContainer,
 	CouroselTitle,
 	CouroselSubtitle,
-	CouroselContent,
+  CouroselContent,
+  CouroselContentFiller,
 	CouroselContentContainer,
 	CouroselContentWrapper,
 	CouroselInputsWrapper,

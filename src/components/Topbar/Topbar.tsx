@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback, FunctionComponent } from 'react';
+import React, { useEffect, useState, FunctionComponent } from 'react';
 import {
 	TopbarContainer,
 	TopbarInnerWrapper,

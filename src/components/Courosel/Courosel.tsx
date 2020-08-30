@@ -9,7 +9,8 @@ import {
 	CouroselContainer,
 	CouroselTitle,
 	CouroselSubtitle,
-	CouroselContent,
+  CouroselContent,
+  CouroselContentFiller,
 	CouroselContentWrapper,
 	CouroselContentContainer,
 	CouroselInputsWrapper,
@@ -25,7 +26,7 @@ import { useTransition, useSpring, animated } from 'react-spring';
 import useDocumentVisibility from '../../utils/useDocumentVisibility';
 import useHeight from '../../utils/useHeight';
 
-const duration: number = 8000;
+const duration: number = 1e10; // 8000
 
 const customConfig = {
 	content: { mass: 5, tension: 50, friction: 26, clamp: true },
@@ -72,13 +73,54 @@ const CouroselItem = ({
 	content,
 	handleClick,
 }) => {
-	const height = useHeight();
+  const height = useHeight();
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleEnter = useCallback(() => {
+    setIsHovering(true);
+  }, []);
+
+  const handleLeave = useCallback(() => {
+    setIsHovering(false);
+  }, []);
+
+  const springProps = useSpring({
+    color: isHovering ? '#e01818' : 'white'
+  });
+
+  const springBorderProps = useSpring({
+    color: isHovering ? '#e01818' : 'white',
+    border: isHovering ? '1px solid #e01818' : '1px solid white'
+  });
+
 	return (
 		<CouroselContentWrapper>
 			<CouroselContentContainer style={style} height={`${height - 80 - 100}px`}>
-				<CouroselTitle>{title}</CouroselTitle>
-				<CouroselSubtitle>{subtitle}</CouroselSubtitle>
-				<CouroselContent name={name} onClick={handleClick}>
+				<CouroselTitle
+          name={name}
+          onClick={handleClick}
+          onMouseEnter={handleEnter}
+          onMouseLeave={handleLeave}
+          style={springProps}
+        >
+          {title}
+        </CouroselTitle>
+				<CouroselSubtitle
+          name={name}
+          onClick={handleClick}
+          onMouseEnter={handleEnter}
+          onMouseLeave={handleLeave}
+          style={springProps}
+        >
+          {subtitle}
+        </CouroselSubtitle>
+        <CouroselContent 
+          name={name} 
+          onClick={handleClick}
+          onMouseEnter={handleEnter}
+          onMouseLeave={handleLeave}
+          style={springBorderProps}
+        >
 					{content}
 				</CouroselContent>
 			</CouroselContentContainer>
