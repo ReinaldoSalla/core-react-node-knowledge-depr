@@ -75,14 +75,6 @@ const CouroselItem = ({
 	content,
 	handleClick,
 }) => {
-  // useHeight hook could not be used in here, apparently because useTransition
-  // has some problems cleaning up asyncrounou calls
-  // https://github.com/react-spring/react-spring/issues/906
-  // the possible solutions are: 
-  // 1 - test react-spring v9 
-  // 2 - get the height straight into this component
-
-  // const [height, setHeight] = useState<number>(window.innerHeight);
   const [isHovering, setIsHovering] = useState(false);
 
   const handleEnter = useCallback(() => {
@@ -103,11 +95,6 @@ const CouroselItem = ({
     opacity: isHovering ? 0.8 : 0,
     width: isHovering ? '15rem' : '0rem'
   });
-
-  // useEffect(() => {
-  //   window.addEventListener('resize', () => setHeight(window.innerHeight));
-  //   return () => window.removeEventListener('resize', () => setHeight(window.innerHeight));
-  // });
 
 	return (
 		<CouroselContentWrapper>
