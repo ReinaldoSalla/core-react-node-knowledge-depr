@@ -63,17 +63,18 @@ const CouroselSubtitle = styled(animated.div)<CouroselTextProps>`
   }
 `;
 
+const couroselContentHeight = '170px';
+
 const CouroselContent = styled(animated.div)<CouroselTextProps>`
 	display: flex;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
+  align-items: center;
 	color: white;
 	font-size: 2.5rem;
 	border: 1px solid white;
 	width: 15rem;
 	font-weight: 700;
 	border-radius: 20px;
+  height: ${couroselContentHeight};
 
 	&:hover {
 		cursor: pointer;
@@ -85,13 +86,14 @@ const CouroselContentText = styled(animated.div)`
   text-align: center;
   font-size: 2.5rem;
   z-index: 2;
-`
+`;
 
 const CouroselContentFiller = styled(animated.div)`
   position: absolute;
-  height: 120px;
-  background: #e01818;
+  height: 100%;
+  background: #b0b0b0;
   border-radius: 20px;
+  height: ${couroselContentHeight};
 `;
 
 const CouroselInputsWrapper = styled.div<CouroselInputsWrapperProps>`
@@ -121,7 +123,7 @@ const CouroselInput = styled.div`
 
 	&:hover {
 		cursor: pointer;
-		transform: scale(1.2);
+		transform: scale(1.5);
 	}
 `;
 

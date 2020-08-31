@@ -23,7 +23,7 @@ import {
 	CouroselTimerRow,
 	CouroselTimer,
 } from './Courosel.styles';
-import { useTransition, useSpring, animated } from 'react-spring';
+import { useTransition, useSpring, config } from 'react-spring';
 import useDocumentVisibility from '../../utils/useDocumentVisibility';
 import useHeight from '../../utils/useHeight';
 
@@ -43,13 +43,13 @@ const texts = [
 		name: 'javascript',
 		title: titleGenerator('JavaScript'),
 		subtitle: 'From data processing to asyncronous programming',
-		content: contentGenerator('JS'),
+		content: contentGenerator('JavaScript'),
 	},
 	{
 		name: 'typescript',
 		title: titleGenerator('TypeScript'),
 		subtitle: 'Covering types, interfaces, generics and decorators',
-		content: contentGenerator('TS'),
+		content: contentGenerator('TypeScript'),
 	},
 	{
 		name: 'react',
@@ -86,10 +86,13 @@ const CouroselItem = ({
   }, []);
 
   const springProps = useSpring({
+    config: config.slow,
     textShadow: isHovering ? '1px 1px 2px white, 0 0 1em white, 0 0 0.2em white' : '0px 0px 0px white, 0 0 0em white, 0 0 0em white'
   });
 
   const springInnerProps = useSpring({
+    config: config.slow,
+    opacity: isHovering ? 0.8 : 0,
     width: isHovering ? '15rem' : '0rem'
   });
 
