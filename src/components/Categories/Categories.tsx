@@ -1,15 +1,11 @@
-import React, { Fragment } from 'react';
+import React, {  } from 'react';
 import {
-	CategoriesContainer,
 	CategoriesItemContainer,
 	CategoriesHeaderContainer,
 	CategoriesTitleText,
 	CategoriesDescriptionText,
-	CategoriesContentsContainer,
-	CategoriesContentLink,
-	CategoriesContentTitleText,
-	CategoriesContentDescriptionText,
-	CategoriesContentSnippet,
+  CategoriesContentsWrapper,
+  CategoriesContentWrapper
 } from './Categories.styles';
 import topics from '../../data/topics';
 import Icon from '../Icon';
@@ -18,24 +14,29 @@ import { ReactComponent as ShieldsSvg } from '../../assets/icons/shields.svg';
 import { ReactComponent as ReactSvg } from '../../assets/icons/react.svg';
 import { ReactComponent as ServerSvg } from '../../assets/icons/server.svg';
 
-const t = 'const f = async () => { return 0 }';
-
-const CategoriesContent = ({ content }) => (
-	<CategoriesContentLink to={content.path}>
-		<CategoriesContentTitleText>{content.title}</CategoriesContentTitleText>
-		<CategoriesContentDescriptionText>
-			{content.description}
-		</CategoriesContentDescriptionText>
-		<CategoriesContentSnippet>{t}</CategoriesContentSnippet>
-	</CategoriesContentLink>
+const CategoriesContent = ({ path, title, description }) => (
+	// <CategoriesContentLink to={path}>
+	// 	<CategoriesContentTitleText>{title}</CategoriesContentTitleText>
+	// 	<CategoriesContentDescriptionText>
+	// 		{description}
+	// 	</CategoriesContentDescriptionText>
+  // </CategoriesContentLink>
+  <CategoriesContentWrapper>
+    
+  </CategoriesContentWrapper>
 );
 
 const CategoriesContents = ({ contents }) => (
-	<CategoriesContentsContainer>
+	<CategoriesContentsWrapper>
 		{contents.map((content, index) => (
-			<CategoriesContent key={index} content={content} />
+      <CategoriesContent 
+        key={index} 
+        path={content.path}
+        title={content.path}
+        description={content.description}
+      />
 		))}
-	</CategoriesContentsContainer>
+	</CategoriesContentsWrapper>
 );
 
 const CategoriesItem = ({
@@ -50,7 +51,7 @@ const CategoriesItem = ({
 		<CategoriesHeaderContainer>
 			<Icon
 				svg={svg}
-				margin="1rem 0 0.5rem 0"
+				margin="1rem 0 0 0"
 				color="black"
 				border="1px solid black"
 			/>
@@ -63,38 +64,36 @@ const CategoriesItem = ({
 
 const Categories = ({ javaScriptRef, typeScriptRef, reactRef, graphQLRef }) => {
 	return (
-		<Fragment>
-			<CategoriesContainer>
-				<CategoriesItem
-					svg={JavaScriptSvg}
-					title={topics.javascript.title}
-					description={topics.javascript.description}
-					contents={topics.javascript.contents}
-					currentRef={javaScriptRef}
-				/>
-				<CategoriesItem
-					svg={ShieldsSvg}
-					title={topics.typescript.title}
-					description={topics.typescript.description}
-					contents={topics.typescript.contents}
-					currentRef={typeScriptRef}
-				/>
-				<CategoriesItem
-					svg={ReactSvg}
-					title={topics.react.title}
-					description={topics.react.description}
-					contents={topics.react.contents}
-					currentRef={reactRef}
-				/>
-				<CategoriesItem
-					svg={ServerSvg}
-					title={topics.backend.title}
-					description={topics.backend.description}
-					contents={topics.backend.contents}
-					currentRef={graphQLRef}
-				/>
-			</CategoriesContainer>
-		</Fragment>
+		<>
+      <CategoriesItem
+        svg={JavaScriptSvg}
+        title={topics.javascript.title}
+        description={topics.javascript.description}
+        contents={topics.javascript.contents}
+        currentRef={javaScriptRef}
+      />
+      <CategoriesItem
+        svg={ShieldsSvg}
+        title={topics.typescript.title}
+        description={topics.typescript.description}
+        contents={topics.typescript.contents}
+        currentRef={typeScriptRef}
+      />
+      <CategoriesItem
+        svg={ReactSvg}
+        title={topics.react.title}
+        description={topics.react.description}
+        contents={topics.react.contents}
+        currentRef={reactRef}
+      />
+      <CategoriesItem
+        svg={ServerSvg}
+        title={topics.backend.title}
+        description={topics.backend.description}
+        contents={topics.backend.contents}
+        currentRef={graphQLRef}
+      />
+		</>
 	);
 };
 
