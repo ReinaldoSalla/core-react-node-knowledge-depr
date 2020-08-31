@@ -67,14 +67,22 @@ const texts = [
 ];
 
 const CouroselItem = ({
-	style,
+  style,
+  height,
 	name,
 	title,
 	subtitle,
 	content,
 	handleClick,
 }) => {
-  const height = useHeight();
+  // useHeight hook could not be used in here, apparently because useTransition
+  // has some problems cleaning up asyncrounou calls
+  // https://github.com/react-spring/react-spring/issues/906
+  // the possible solutions are: 
+  // 1 - test react-spring v9 
+  // 2 - get the height straight into this component
+
+  // const [height, setHeight] = useState<number>(window.innerHeight);
   const [isHovering, setIsHovering] = useState(false);
 
   const handleEnter = useCallback(() => {
@@ -97,10 +105,9 @@ const CouroselItem = ({
   });
 
   // useEffect(() => {
-  //   return () => {
-  //     handleLeave();
-  //   }
-  // }, []);
+  //   window.addEventListener('resize', () => setHeight(window.innerHeight));
+  //   return () => window.removeEventListener('resize', () => setHeight(window.innerHeight));
+  // });
 
 	return (
 		<CouroselContentWrapper>
@@ -141,9 +148,10 @@ const CouroselItem = ({
 };
 
 const couroselItems = texts.map(({ name, title, subtitle, content }) => {
-	return ({ style, handleClick }) => (
+	return ({ style, height, handleClick }) => (
 		<CouroselItem
-			style={style}
+      style={style}
+      height={height}
 			name={name}
 			title={title}
 			subtitle={subtitle}
@@ -310,7 +318,14 @@ const Courosel = ({ handleClick }) => {
 			<CouroselContainer height={`${height}px`}>
 				{transition.map(({ item, props, key }) => {
 					const Page = couroselItems[item];
-					return <Page key={key} style={props} handleClick={handleClick} />;
+					return (
+            <Page 
+              key={key} 
+              style={props} 
+              height={height}
+              handleClick={handleClick} 
+            />
+          );
 				})}
 				<CouroselInputsWrapper paddingTop={`${height - 80 - 10}px`}>
 					<CouroselInputsContainer>
