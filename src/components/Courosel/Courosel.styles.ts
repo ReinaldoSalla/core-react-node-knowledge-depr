@@ -81,14 +81,14 @@ const CouroselContent = styled(animated.div)<CouroselTextProps>`
 	}
 `;
 
-const CouroselContentText = styled(animated.div)`
+const CouroselContentText = styled(animated.div)<CouroselTextProps>`
   padding: 8px;
   text-align: center;
   font-size: 2.5rem;
   z-index: 2;
 `;
 
-const CouroselContentFiller = styled(animated.div)`
+const CouroselContentFiller = styled(animated.div)<CouroselTextProps>`
   position: absolute;
   height: 100%;
   background: #b0b0b0;
@@ -123,7 +123,7 @@ const CouroselInput = styled.div`
 
 	&:hover {
 		cursor: pointer;
-		transform: scale(1.5);
+		transform: scale(1.2);
 	}
 `;
 

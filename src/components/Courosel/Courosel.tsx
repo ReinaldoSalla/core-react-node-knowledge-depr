@@ -23,11 +23,11 @@ import {
 	CouroselTimerRow,
 	CouroselTimer,
 } from './Courosel.styles';
-import { useTransition, useSpring, config } from 'react-spring';
+import { useTransition, useSpring } from 'react-spring';
 import useDocumentVisibility from '../../utils/useDocumentVisibility';
 import useHeight from '../../utils/useHeight';
 
-const duration: number = 1e10; // 8000
+const duration: number = 15e3;
 
 const customConfig = {
 	content: { mass: 5, tension: 50, friction: 26, clamp: true },
@@ -36,7 +36,7 @@ const customConfig = {
 
 const titleGenerator = (name: string): string => `${name} Guides`;
 
-const contentGenerator = (name: string): string => `Check ${name} tutorials`;
+const contentGenerator = (name: string): string => `Check ${name} Tutorials`;
 
 const texts = [
 	{
@@ -86,15 +86,21 @@ const CouroselItem = ({
   }, []);
 
   const springProps = useSpring({
-    config: config.slow,
-    textShadow: isHovering ? '1px 1px 2px white, 0 0 1em white, 0 0 0.2em white' : '0px 0px 0px white, 0 0 0em white, 0 0 0em white'
+    textShadow: isHovering 
+      ? '1px 1px 2px white, 0 0 1em white, 0 0 0.2em white' 
+      : '0px 0px 0px white, 0 0 0em white, 0 0 0em   white'
   });
 
   const springInnerProps = useSpring({
-    config: config.slow,
     opacity: isHovering ? 0.8 : 0,
     width: isHovering ? '15rem' : '0rem'
   });
+
+  // useEffect(() => {
+  //   return () => {
+  //     handleLeave();
+  //   }
+  // }, []);
 
 	return (
 		<CouroselContentWrapper>
@@ -122,11 +128,12 @@ const CouroselItem = ({
           onClick={handleClick}
           onMouseEnter={handleEnter}
           onMouseLeave={handleLeave}
+          style={springProps}
         >
-          <CouroselContentText style={springProps}>
+          <CouroselContentText name={name} >
             {content}
           </CouroselContentText>
-          <CouroselContentFiller style={springInnerProps}/>
+          <CouroselContentFiller name={name} style={springInnerProps} />
 				</CouroselContent>
 			</CouroselContentContainer>
 		</CouroselContentWrapper>
