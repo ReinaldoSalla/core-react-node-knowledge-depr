@@ -12,6 +12,7 @@ import {
   CategoriesCheckText
 } from './Categories.styles';
 import topics from '../../data/topics';
+import useResize from '../../utils/useResize';
 import Icon from '../Icon';
 import { ReactComponent as JavaScriptSvg } from '../../assets/icons/javascript.svg';
 import { ReactComponent as ShieldsSvg } from '../../assets/icons/shields.svg';
@@ -31,6 +32,7 @@ const CategoriesContent = ({ className, path, title, description }) => (
 );
 
 const CategoriesContents = ({ contents }) => {
+  const { width, height } = useResize();
   let normalizedContents = contents.map((content) => ({
     ...content,
     className: ''
@@ -40,8 +42,10 @@ const CategoriesContents = ({ contents }) => {
     normalizedContents = [...normalizedContents, dummyContent];
   } else if (normalizedContents.length % 3 === 1) {
     normalizedContents = [...normalizedContents, dummyContent, dummyContent];    
-  }
+  };
   return (
+    <>
+    <div>{width}x{height}</div>
     <CategoriesContentsWrapper>
       {normalizedContents.map((content, index) => (
         <CategoriesContent 
@@ -53,6 +57,7 @@ const CategoriesContents = ({ contents }) => {
         />
       ))}
     </CategoriesContentsWrapper>
+    </>
   );
 };
 
