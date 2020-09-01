@@ -62,6 +62,12 @@ const CategoriesContentWrapper = styled(Link)`
     cursor: pointer;
     transform: scale(1.1);
   }
+
+  &.disabled {
+    background: transparent;
+    box-shadow: none;
+    pointer-events: none;
+  }
 `;
 
 const CategoriesContentTitle = styled.span`

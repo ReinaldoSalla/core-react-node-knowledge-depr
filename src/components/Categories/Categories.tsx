@@ -20,34 +20,41 @@ import { ReactComponent as ServerSvg } from '../../assets/icons/server.svg';
 
 const check = 'Learn more ->';
 
-const CategoriesContent = ({ path, title, description }) => (
-  <CategoriesContentWrapper to={path}>
+const CategoriesContent = ({ className, path, title, description }) => (
+  <CategoriesContentWrapper className={className} to={path}>
     <CategoriesContentTitle>{title}</CategoriesContentTitle>
     <CategoriesContentDescription>{description}</CategoriesContentDescription>
     <CategoriesContentCheck>
-      <CategoriesCheckText>{check}</CategoriesCheckText>
-    </CategoriesContentCheck>
-    {/* <CategoriesContentLink to={path}>
-      <CategoriesContentTitleText>{title}</CategoriesContentTitleText>
-      <CategoriesContentDescriptionText>
-        {description}
-      </CategoriesContentDescriptionText>
-    </CategoriesContentLink> */}    
+      <CategoriesCheckText>{className !== 'disabled' ? check : ''}</CategoriesCheckText>
+    </CategoriesContentCheck>   
   </CategoriesContentWrapper>
 );
 
-const CategoriesContents = ({ contents }) => (
-	<CategoriesContentsWrapper>
-		{contents.map((content, index) => (
-      <CategoriesContent 
-        key={index} 
-        path={content.path}
-        title={content.title}
-        description={content.description}
-      />
-		))}
-	</CategoriesContentsWrapper>
-);
+const CategoriesContents = ({ contents }) => {
+  let normalizedContents = contents.map((content) => ({
+    ...content,
+    className: ''
+  }));
+  const dummyContent = { path: '', title: '', description: '', className: 'disabled'};
+  if (normalizedContents.length % 3 === 2) {
+    normalizedContents = [...normalizedContents, dummyContent];
+  } else if (normalizedContents.length % 3 === 1) {
+    normalizedContents = [...normalizedContents, dummyContent, dummyContent];    
+  }
+  return (
+    <CategoriesContentsWrapper>
+      {normalizedContents.map((content, index) => (
+        <CategoriesContent 
+          key={index} 
+          className={content.className}
+          path={content.path}
+          title={content.title}
+          description={content.description}
+        />
+      ))}
+    </CategoriesContentsWrapper>
+  );
+};
 
 const CategoriesItem = ({
 	svg,
