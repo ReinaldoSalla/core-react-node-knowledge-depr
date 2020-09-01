@@ -22,8 +22,8 @@ const CategoriesHeaderContainer = styled.div`
 `;
 
 const CategoriesTitleText = styled.span`
-	margin: 1rem 0 0 0;
-	font-size: 2em;
+	margin: 1rem 1rem 0 1rem;
+	font-size: 2.5em;
 	font-weight: 700;
 	text-align: center;
 	color: ${textColor};
@@ -31,9 +31,9 @@ const CategoriesTitleText = styled.span`
 `;
 
 const CategoriesDescriptionText = styled.span`
-	margin: 1rem 0 0 0rem;
-	font-size: 1.5em;
-	font-weight: 700;
+	margin: 1rem 1rem 0 1rem;
+	font-size: 2rem;
+	font-weight: 600;
 	text-align: center;
 	color: ${textColor};
   /* border: 1px solid black; */
@@ -46,21 +46,46 @@ const CategoriesContentsWrapper = styled.div`
   /* border: 1px solid black; */
 `;
 
-const CategoriesContentWrapper = styled.div`
-  margin: 0 3rem 3rem 3rem;
+const CategoriesContentWrapper = styled(Link)`
+  margin: 0 3rem 5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
   height: 350px;
-  width: 350px;
-  /* border: 1px solid black; */
-  box-shadow: 4px 4px 4px 4px rgba(0,0,0,0.1);
-  background: #f9f9f9;
-  transition: transform 500ms;
   flex: 300px;
+  box-shadow: 4px 4px 4px 4px rgba(0,0,0,0.1);
+  background: #fafbfc;
+  transition: transform 500ms;
 
   &:hover {
     cursor: pointer;
     transform: scale(1.1);
   }
+`;
 
+const CategoriesContentTitle = styled.span`
+  margin: 1rem;
+  text-align: center;
+  font-size: 1.75rem;
+`;
+
+const CategoriesContentDescription = styled.span`
+  margin: 1rem;
+  text-align: center;
+  font-size: 1.25rem;
+`;
+
+const CategoriesContentCheck = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const CategoriesCheckText = styled.span`
+  text-align: center;
+  text-align: center;
+  font-size: 1.25rem;
 `;
 
 export {
@@ -69,5 +94,9 @@ export {
 	CategoriesTitleText,
 	CategoriesDescriptionText,
   CategoriesContentsWrapper,
-  CategoriesContentWrapper
+  CategoriesContentWrapper,
+  CategoriesContentTitle,
+  CategoriesContentDescription,
+  CategoriesContentCheck,
+  CategoriesCheckText
 };

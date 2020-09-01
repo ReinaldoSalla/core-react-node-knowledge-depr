@@ -1,11 +1,15 @@
-import React, {  } from 'react';
+import React from 'react';
 import {
 	CategoriesItemContainer,
 	CategoriesHeaderContainer,
 	CategoriesTitleText,
 	CategoriesDescriptionText,
   CategoriesContentsWrapper,
-  CategoriesContentWrapper
+  CategoriesContentWrapper,
+  CategoriesContentTitle,
+  CategoriesContentDescription,
+  CategoriesContentCheck,
+  CategoriesCheckText
 } from './Categories.styles';
 import topics from '../../data/topics';
 import Icon from '../Icon';
@@ -14,15 +18,21 @@ import { ReactComponent as ShieldsSvg } from '../../assets/icons/shields.svg';
 import { ReactComponent as ReactSvg } from '../../assets/icons/react.svg';
 import { ReactComponent as ServerSvg } from '../../assets/icons/server.svg';
 
+const check = 'Learn more ->';
+
 const CategoriesContent = ({ path, title, description }) => (
-	// <CategoriesContentLink to={path}>
-	// 	<CategoriesContentTitleText>{title}</CategoriesContentTitleText>
-	// 	<CategoriesContentDescriptionText>
-	// 		{description}
-	// 	</CategoriesContentDescriptionText>
-  // </CategoriesContentLink>
-  <CategoriesContentWrapper>
-    
+  <CategoriesContentWrapper to={path}>
+    <CategoriesContentTitle>{title}</CategoriesContentTitle>
+    <CategoriesContentDescription>{description}</CategoriesContentDescription>
+    <CategoriesContentCheck>
+      <CategoriesCheckText>{check}</CategoriesCheckText>
+    </CategoriesContentCheck>
+    {/* <CategoriesContentLink to={path}>
+      <CategoriesContentTitleText>{title}</CategoriesContentTitleText>
+      <CategoriesContentDescriptionText>
+        {description}
+      </CategoriesContentDescriptionText>
+    </CategoriesContentLink> */}    
   </CategoriesContentWrapper>
 );
 
@@ -32,7 +42,7 @@ const CategoriesContents = ({ contents }) => (
       <CategoriesContent 
         key={index} 
         path={content.path}
-        title={content.path}
+        title={content.title}
         description={content.description}
       />
 		))}
