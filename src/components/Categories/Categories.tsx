@@ -38,14 +38,18 @@ const CategoriesContents = ({ contents }) => {
     className: ''
   }));
   const dummyContent = { path: '', title: '', description: '', className: 'disabled'};
-  if (normalizedContents.length % 3 === 2) {
-    normalizedContents = [...normalizedContents, dummyContent];
-  } else if (normalizedContents.length % 3 === 1) {
-    normalizedContents = [...normalizedContents, dummyContent, dummyContent];    
-  };
+  if (width >= 1200) {
+    if (normalizedContents.length % 3 === 2) {
+      normalizedContents = [...normalizedContents, dummyContent];
+    } else if (normalizedContents.length % 3 === 1) {
+      normalizedContents = [...normalizedContents, dummyContent, dummyContent];    
+    };
+  } else if (width < 1200 && width >= 800) {
+    if (normalizedContents.length % 2 !== 0) {
+      normalizedContents = [...normalizedContents, dummyContent];
+    }
+  }
   return (
-    <>
-    <div>{width}x{height}</div>
     <CategoriesContentsWrapper>
       {normalizedContents.map((content, index) => (
         <CategoriesContent 
@@ -57,7 +61,6 @@ const CategoriesContents = ({ contents }) => {
         />
       ))}
     </CategoriesContentsWrapper>
-    </>
   );
 };
 
