@@ -1,24 +1,12 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import img from '../../assets/imgs/boxes/final/box1.jpg';
 
 const textColor = 'black';
-
-interface CategoriesItemContainerProps {
-	lastItem?: boolean;
-}
-
-const CategoriesItemContainer = styled.div<CategoriesItemContainerProps>`
-	/* margin: ${(props) => props.lastItem ? '0 1.5em 1.5em 1.5em' : '0 1.5em 3em 1.5em'}; */
-  margin: 1rem 0 0 0;
-	/* border: 1px solid black; */
-`;
 
 const CategoriesHeaderContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
 `;
 
 const CategoriesTitleText = styled.span`
@@ -40,20 +28,23 @@ const CategoriesDescriptionText = styled.span`
 `;
 
 const CategoriesContentsWrapper = styled.div`
-  margin: 2em 0 0 0;
+  margin: 1rem 3rem 0 3rem;
   display: flex;
   flex-wrap: wrap;
-  /* border: 1px solid black; */
+
+  @media (max-width: 600px) {
+    margin: 1rem 1rem 0 1rem;
+  } 
 `;
 
 const CategoriesContentWrapper = styled(Link)`
-  margin: 0 3rem 5rem 3rem;
+  margin: 0 2rem 3rem 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
   height: 350px;
-  flex: 300px;
+  flex: 280px;
   box-shadow: 4px 4px 4px 4px rgba(0,0,0,0.1);
   background: #fafbfc;
   transition: transform 500ms;
@@ -63,7 +54,12 @@ const CategoriesContentWrapper = styled(Link)`
     transform: scale(1.1);
   }
 
+  &.last-row {
+    margin: 0 2rem 0 2rem;
+  }
+
   &.disabled {
+    margin: 0 2rem 0 2rem;
     background: transparent;
     box-shadow: none;
     pointer-events: none;
@@ -94,11 +90,9 @@ const CategoriesCheckText = styled.div`
   height: 22px;
   margin-right: 8px;
   transform: translateY(-3%);
-  /* transform: translateX(20%); */
 `;
 
 export {
-	CategoriesItemContainer,
 	CategoriesHeaderContainer,
 	CategoriesTitleText,
 	CategoriesDescriptionText,

@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-	CategoriesItemContainer,
 	CategoriesHeaderContainer,
 	CategoriesTitleText,
 	CategoriesDescriptionText,
@@ -44,15 +43,41 @@ const CategoriesContents = ({ contents }) => {
     className: ''
   }));
   const dummyContent = { path: '', title: '', description: '', className: 'disabled'};
-  if (width >= 1200) {
+  if (width >= 1135) {
+    // 3 columns
     if (normalizedContents.length % 3 === 2) {
       normalizedContents = [...normalizedContents, dummyContent];
     } else if (normalizedContents.length % 3 === 1) {
       normalizedContents = [...normalizedContents, dummyContent, dummyContent];    
     };
-  } else if (width < 1200 && width >= 800) {
+    for (let i = normalizedContents.length - 3; i < normalizedContents.length; i++) {
+      if (normalizedContents[i].className !== 'disabled') {
+        normalizedContents[i] = {
+          ...normalizedContents[i],
+          className: 'last-row'
+        };
+      }
+    }
+  } else if (width < 1135 && width >= 791) {
+    // 2 columns
     if (normalizedContents.length % 2 !== 0) {
       normalizedContents = [...normalizedContents, dummyContent];
+    }
+    for (let i = normalizedContents.length - 2; i < normalizedContents.length; i++) {
+      if (normalizedContents[i].className !== 'disabled') {
+        normalizedContents[i] = {
+          ...normalizedContents[i],
+          className: 'last-row'
+        };
+      }
+    }
+  } else {
+    // 1 column
+    if (normalizedContents[normalizedContents.length - 1].className !== 'disabled') {
+      normalizedContents[normalizedContents.length - 1] = {
+        ...normalizedContents[normalizedContents.length - 1],
+        className: 'last-row'
+      }
     }
   }
   return (
@@ -78,19 +103,19 @@ const CategoriesItem = ({
 	currentRef,
 	lastItem = false,
 }) => (
-	<CategoriesItemContainer ref={currentRef} lastItem={lastItem}>
-		<CategoriesHeaderContainer>
-			<Icon
-				svg={svg}
-				margin="1rem 0 0 0"
-				color="black"
-				border="1px solid black"
-			/>
-			<CategoriesTitleText>{title}</CategoriesTitleText>
-			<CategoriesDescriptionText>{description}</CategoriesDescriptionText>
-		</CategoriesHeaderContainer>
-		<CategoriesContents contents={contents} />
-	</CategoriesItemContainer>
+  <>
+    <CategoriesHeaderContainer ref={currentRef}>
+      <Icon
+        svg={svg}
+        margin="1rem 0 0 0"
+        color="black"
+        border="1px solid black"
+      />
+      <CategoriesTitleText>{title}</CategoriesTitleText>
+      <CategoriesDescriptionText>{description}</CategoriesDescriptionText>
+    </CategoriesHeaderContainer>
+    <CategoriesContents contents={contents} />
+  </>
 );
 
 const Categories = ({ javaScriptRef, typeScriptRef, reactRef, graphQLRef }) => {
