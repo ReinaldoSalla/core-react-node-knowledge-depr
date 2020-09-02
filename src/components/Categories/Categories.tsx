@@ -18,21 +18,27 @@ import { ReactComponent as JavaScriptSvg } from '../../assets/icons/javascript.s
 import { ReactComponent as ShieldsSvg } from '../../assets/icons/shields.svg';
 import { ReactComponent as ReactSvg } from '../../assets/icons/react.svg';
 import { ReactComponent as ServerSvg } from '../../assets/icons/server.svg';
+import { ReactComponent as RightArrowSvg } from '../../assets/icons/arrow.right.svg';
 
-const check = 'Learn more ->';
+const Checker = ({ title }) => (   
+  <CategoriesContentCheck>
+    <CategoriesCheckText>Check {title}</CategoriesCheckText>
+    <Icon svg={RightArrowSvg} padding='0' width='22px' height='22px' border='none'/>
+  </CategoriesContentCheck>
+);
 
 const CategoriesContent = ({ className, path, title, description }) => (
   <CategoriesContentWrapper className={className} to={path}>
     <CategoriesContentTitle>{title}</CategoriesContentTitle>
     <CategoriesContentDescription>{description}</CategoriesContentDescription>
-    <CategoriesContentCheck>
-      <CategoriesCheckText>{className !== 'disabled' ? check : ''}</CategoriesCheckText>
-    </CategoriesContentCheck>   
+    {className !== 'disabled' && (
+      <Checker title={title}/>
+    )}
   </CategoriesContentWrapper>
 );
 
 const CategoriesContents = ({ contents }) => {
-  const { width, height } = useResize();
+  const { width } = useResize();
   let normalizedContents = contents.map((content) => ({
     ...content,
     className: ''

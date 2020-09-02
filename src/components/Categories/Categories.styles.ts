@@ -23,7 +23,7 @@ const CategoriesHeaderContainer = styled.div`
 
 const CategoriesTitleText = styled.span`
 	margin: 1rem 1rem 0 1rem;
-	font-size: 2.5em;
+	font-size: 30px;
 	font-weight: 700;
 	text-align: center;
 	color: ${textColor};
@@ -32,7 +32,7 @@ const CategoriesTitleText = styled.span`
 
 const CategoriesDescriptionText = styled.span`
 	margin: 1rem 1rem 0 1rem;
-	font-size: 2rem;
+	font-size: 25px;
 	font-weight: 600;
 	text-align: center;
 	color: ${textColor};
@@ -73,25 +73,28 @@ const CategoriesContentWrapper = styled(Link)`
 const CategoriesContentTitle = styled.span`
   margin: 1rem;
   text-align: center;
-  font-size: 1.75rem;
+  font-size: 22px;
 `;
 
 const CategoriesContentDescription = styled.span`
   margin: 1rem;
   text-align: center;
-  font-size: 1.25rem;
+  font-size: 18px;
 `;
 
 const CategoriesContentCheck = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* border: 1px solid black; */
+  height: 50px;
 `;
 
-const CategoriesCheckText = styled.span`
+const CategoriesCheckText = styled.div`
   text-align: center;
-  text-align: center;
-  font-size: 1.25rem;
+  height: 22px;
+  margin-right: 8px;
+  transform: translateY(-3%);
+  /* transform: translateX(20%); */
 `;
 
 export {
