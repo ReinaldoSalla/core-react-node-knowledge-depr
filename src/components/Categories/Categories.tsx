@@ -61,34 +61,10 @@ const CategoriesContents = ({ contents, svg }) => {
     } else if (normalizedContents.length % 3 === 1) {
       normalizedContents = [...normalizedContents, dummyContent, dummyContent];    
     };
-    for (let i = normalizedContents.length - 3; i < normalizedContents.length; i++) {
-      if (normalizedContents[i].className !== 'disabled') {
-        normalizedContents[i] = {
-          ...normalizedContents[i],
-          className: 'last-row'
-        };
-      }
-    }
   } else if (width < 1127 && width >= 783) {
     // 2 columns
     if (normalizedContents.length % 2 !== 0) {
       normalizedContents = [...normalizedContents, dummyContent];
-    }
-    for (let i = normalizedContents.length - 2; i < normalizedContents.length; i++) {
-      if (normalizedContents[i].className !== 'disabled') {
-        normalizedContents[i] = {
-          ...normalizedContents[i],
-          className: 'last-row'
-        };
-      }
-    }
-  } else {
-    // 1 column
-    if (normalizedContents[normalizedContents.length - 1].className !== 'disabled') {
-      normalizedContents[normalizedContents.length - 1] = {
-        ...normalizedContents[normalizedContents.length - 1],
-        className: 'last-row'
-      }
     }
   }
   return (
@@ -116,7 +92,7 @@ const CategoriesItem = ({
 	lastItem = false,
 }) => (
   <>
-    <CategoriesTitleText ref={currentRef}>
+    <CategoriesTitleText className={title.toLowerCase()} ref={currentRef}>
       {title}
     </CategoriesTitleText>
     <CategoriesDescriptionText>{description}</CategoriesDescriptionText>

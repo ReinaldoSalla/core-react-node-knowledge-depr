@@ -104,7 +104,7 @@ const topics = {
 		],
 	},
 	backend: {
-		title: 'Backend',
+		title: 'GraphQL',
 		description: 'Extending applications with Node.js and GraphQL',
 		contents: [
 			{

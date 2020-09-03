@@ -2,10 +2,14 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const CategoriesTitleText = styled.div`
-	margin: 3rem 1rem 0 1rem;
+	margin: 0 1rem;
 	font-size: 36px;
 	font-weight: 700;
 	text-align: center;
+
+  &.javascript {
+    margin: 3rem 1rem 0 1rem; 
+  }
 `;
 
 const CategoriesDescriptionText = styled.div`
@@ -42,12 +46,7 @@ const CategoriesContentWrapper = styled(Link)`
     transform: scale(1.1);
   }
 
-  &.last-row {
-    margin: 0 2rem 0 2rem;
-  }
-
   &.disabled {
-    margin: 0 2rem 0 2rem;
     background: transparent;
     box-shadow: none;
     pointer-events: none;
