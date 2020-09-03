@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-const textColor = 'black';
+const backgroundColor = '#f2f2f2';
+const headerTextColor = 'black';
+const contentTextColor = 'black';
+const contentTitleTextColor = '#590b0b';
 
 const CategoriesHeaderContainer = styled.div`
 	display: flex;
@@ -14,7 +17,7 @@ const CategoriesTitleText = styled.span`
 	font-size: 30px;
 	font-weight: 700;
 	text-align: center;
-	color: ${textColor};
+	color: ${headerTextColor};
   /* border: 1px solid black; */
 `;
 
@@ -23,7 +26,7 @@ const CategoriesDescriptionText = styled.span`
 	font-size: 25px;
 	font-weight: 600;
 	text-align: center;
-	color: ${textColor};
+	color: ${headerTextColor};
   /* border: 1px solid black; */
 `;
 
@@ -46,7 +49,7 @@ const CategoriesContentWrapper = styled(Link)`
   height: 350px;
   flex: 280px;
   box-shadow: 4px 4px 4px 4px rgba(0,0,0,0.1);
-  background: #fafbfc;
+  background: ${backgroundColor};
   transition: transform 500ms;
 
   &:hover {
@@ -70,12 +73,16 @@ const CategoriesContentTitle = styled.span`
   margin: 1rem;
   text-align: center;
   font-size: 22px;
+  font-weight: 600;
+  color: #590b0b;
 `;
 
 const CategoriesContentDescription = styled.span`
   margin: 1rem;
   text-align: center;
   font-size: 18px;
+  font-weight: 500;
+  color: #590b0b;
 `;
 
 const CategoriesContentCheck = styled.div`
@@ -90,6 +97,8 @@ const CategoriesCheckText = styled.div`
   height: 22px;
   margin-right: 8px;
   transform: translateY(-3%);
+  color: #590b0b;
+  font-weight: 300;
 `;
 
 export {

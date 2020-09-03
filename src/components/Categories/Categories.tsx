@@ -22,7 +22,7 @@ import { ReactComponent as RightArrowSvg } from '../../assets/icons/arrow.right.
 const Checker = ({ title }) => (   
   <CategoriesContentCheck>
     <CategoriesCheckText>Check {title}</CategoriesCheckText>
-    <Icon svg={RightArrowSvg} padding='0' width='22px' height='22px' border='none'/>
+    <Icon svg={RightArrowSvg} color='#5e0e0eab' padding='0' width='22px' height='22px' border='none'/>
   </CategoriesContentCheck>
 );
 
