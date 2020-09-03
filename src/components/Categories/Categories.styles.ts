@@ -14,7 +14,7 @@ const CategoriesHeaderContainer = styled.div`
 
 const CategoriesTitleText = styled.span`
 	margin: 1rem 1rem 0 1rem;
-	font-size: 30px;
+	font-size: 36px;
 	font-weight: 700;
 	text-align: center;
 	color: ${headerTextColor};

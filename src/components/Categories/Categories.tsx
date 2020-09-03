@@ -26,17 +26,28 @@ const Checker = ({ title }) => (
   </CategoriesContentCheck>
 );
 
-const CategoriesContent = ({ className, path, title, description }) => (
+const CategoriesContent = ({ className, path, title, description, svg }) => (
   <CategoriesContentWrapper className={className} to={path}>
-    <CategoriesContentTitle>{title}</CategoriesContentTitle>
-    <CategoriesContentDescription>{description}</CategoriesContentDescription>
+
     {className !== 'disabled' && (
-      <Checker title={title}/>
+      <>
+        <Icon
+          svg={svg}
+          margin="1rem 0 0 0"
+          color="#2d0000;"
+          border="1px solid #2d0000;"
+          width='30px'
+          height='30px'
+        />
+        <CategoriesContentTitle>{title}</CategoriesContentTitle>
+        <CategoriesContentDescription>{description}</CategoriesContentDescription>
+        <Checker title={title}/>
+      </>
     )}
   </CategoriesContentWrapper>
 );
 
-const CategoriesContents = ({ contents }) => {
+const CategoriesContents = ({ contents, svg }) => {
   const { width } = useResize();
   let normalizedContents = contents.map((content) => ({
     ...content,
@@ -89,6 +100,7 @@ const CategoriesContents = ({ contents }) => {
           path={content.path}
           title={content.title}
           description={content.description}
+          svg={svg}
         />
       ))}
     </CategoriesContentsWrapper>
@@ -105,16 +117,10 @@ const CategoriesItem = ({
 }) => (
   <>
     <CategoriesHeaderContainer ref={currentRef}>
-      <Icon
-        svg={svg}
-        margin="1rem 0 0 0"
-        color="black"
-        border="1px solid black"
-      />
       <CategoriesTitleText>{title}</CategoriesTitleText>
       <CategoriesDescriptionText>{description}</CategoriesDescriptionText>
     </CategoriesHeaderContainer>
-    <CategoriesContents contents={contents} />
+    <CategoriesContents contents={contents} svg={svg} />
   </>
 );
 
