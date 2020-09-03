@@ -54,7 +54,7 @@ const CategoriesContents = ({ contents, svg }) => {
     className: ''
   }));
   const dummyContent = { path: '', title: '', description: '', className: 'disabled'};
-  if (width >= 1135) {
+  if (width >= 1127) {
     // 3 columns
     if (normalizedContents.length % 3 === 2) {
       normalizedContents = [...normalizedContents, dummyContent];
@@ -69,7 +69,7 @@ const CategoriesContents = ({ contents, svg }) => {
         };
       }
     }
-  } else if (width < 1135 && width >= 791) {
+  } else if (width < 1127 && width >= 783) {
     // 2 columns
     if (normalizedContents.length % 2 !== 0) {
       normalizedContents = [...normalizedContents, dummyContent];

@@ -7,7 +7,7 @@ const topics = {
 			{
 				title: 'Functions',
 				description:
-					'Learning how to use function declarations, function expressions and arrow functions',
+					'Using function declaration, function expression and the arrow function',
 				path: '/functions',
 			},
 			{

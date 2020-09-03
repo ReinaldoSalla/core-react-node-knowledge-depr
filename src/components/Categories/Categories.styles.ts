@@ -62,7 +62,7 @@ const CategoriesContentTitle = styled.span`
 `;
 
 const CategoriesDescriptionWrapper = styled.div`
-  height: 80px;
+  height: 60px;
 `
 
 const CategoriesContentDescription = styled.div`
