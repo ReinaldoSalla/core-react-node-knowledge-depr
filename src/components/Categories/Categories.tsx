@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-	CategoriesHeaderContainer,
 	CategoriesTitleText,
 	CategoriesDescriptionText,
   CategoriesContentsWrapper,
@@ -28,19 +27,17 @@ const Checker = ({ title }) => (
 
 const CategoriesContent = ({ className, path, title, description, svg }) => (
   <CategoriesContentWrapper className={className} to={path}>
-
     {className !== 'disabled' && (
       <>
         <Icon
           svg={svg}
-          margin="1rem 0 0 0"
           color="#2d0000;"
           border="1px solid #2d0000;"
           width='30px'
           height='30px'
         />
         <CategoriesContentTitle>{title}</CategoriesContentTitle>
-        <CategoriesContentDescription>{description}</CategoriesContentDescription>
+      <CategoriesContentDescription>{description}</CategoriesContentDescription>
         <Checker title={title}/>
       </>
     )}
@@ -116,10 +113,10 @@ const CategoriesItem = ({
 	lastItem = false,
 }) => (
   <>
-    <CategoriesHeaderContainer ref={currentRef}>
-      <CategoriesTitleText>{title}</CategoriesTitleText>
-      <CategoriesDescriptionText>{description}</CategoriesDescriptionText>
-    </CategoriesHeaderContainer>
+    <CategoriesTitleText ref={currentRef}>
+      {title}
+    </CategoriesTitleText>
+    <CategoriesDescriptionText>{description}</CategoriesDescriptionText>
     <CategoriesContents contents={contents} svg={svg} />
   </>
 );

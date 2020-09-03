@@ -1,37 +1,22 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-const backgroundColor = '#f2f2f2';
-const headerTextColor = 'black';
-const contentTextColor = 'black';
-const contentTitleTextColor = '#590b0b';
-
-const CategoriesHeaderContainer = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-`;
-
-const CategoriesTitleText = styled.span`
-	margin: 1rem 1rem 0 1rem;
+const CategoriesTitleText = styled.div`
+	margin: 3rem 1rem 0 1rem;
 	font-size: 36px;
 	font-weight: 700;
 	text-align: center;
-	color: ${headerTextColor};
-  /* border: 1px solid black; */
 `;
 
-const CategoriesDescriptionText = styled.span`
-	margin: 1rem 1rem 0 1rem;
+const CategoriesDescriptionText = styled.div`
+	margin: 2rem 1rem 0 1rem;
 	font-size: 25px;
 	font-weight: 600;
 	text-align: center;
-	color: ${headerTextColor};
-  /* border: 1px solid black; */
 `;
 
 const CategoriesContentsWrapper = styled.div`
-  margin: 1rem 3rem 0 3rem;
+  margin: 3rem 3rem 0 3rem;
   display: flex;
   flex-wrap: wrap;
 
@@ -49,7 +34,7 @@ const CategoriesContentWrapper = styled(Link)`
   height: 350px;
   flex: 280px;
   box-shadow: 4px 4px 4px 4px rgba(0,0,0,0.1);
-  background: ${backgroundColor};
+  background: #f2f2f2;
   transition: transform 500ms;
 
   &:hover {
@@ -70,7 +55,6 @@ const CategoriesContentWrapper = styled(Link)`
 `;
 
 const CategoriesContentTitle = styled.span`
-  margin: 1rem;
   text-align: center;
   font-size: 22px;
   font-weight: 600;
@@ -78,7 +62,7 @@ const CategoriesContentTitle = styled.span`
 `;
 
 const CategoriesContentDescription = styled.span`
-  margin: 1rem;
+  margin: 0 1rem;
   text-align: center;
   font-size: 18px;
   font-weight: 500;
@@ -89,7 +73,7 @@ const CategoriesContentCheck = styled.div`
   display: flex;
   align-items: center;
   /* border: 1px solid black; */
-  height: 50px;
+  /* height: 50px; */
 `;
 
 const CategoriesCheckText = styled.div`
@@ -102,7 +86,6 @@ const CategoriesCheckText = styled.div`
 `;
 
 export {
-	CategoriesHeaderContainer,
 	CategoriesTitleText,
 	CategoriesDescriptionText,
   CategoriesContentsWrapper,
