@@ -6,6 +6,7 @@ import {
   CategoriesContentWrapper,
   CategoriesContentTitle,
   CategoriesContentDescription,
+  CategoriesDescriptionWrapper,
   CategoriesContentCheck,
   CategoriesCheckText
 } from './Categories.styles';
@@ -37,7 +38,9 @@ const CategoriesContent = ({ className, path, title, description, svg }) => (
           height='30px'
         />
         <CategoriesContentTitle>{title}</CategoriesContentTitle>
-      <CategoriesContentDescription>{description}</CategoriesContentDescription>
+        <CategoriesDescriptionWrapper>
+          <CategoriesContentDescription>{description}</CategoriesContentDescription>
+        </CategoriesDescriptionWrapper>
         <Checker title={title}/>
       </>
     )}
@@ -117,6 +120,7 @@ const CategoriesItem = ({
       {title}
     </CategoriesTitleText>
     <CategoriesDescriptionText>{description}</CategoriesDescriptionText>
+
     <CategoriesContents contents={contents} svg={svg} />
   </>
 );

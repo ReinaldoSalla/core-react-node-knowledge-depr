@@ -61,7 +61,11 @@ const CategoriesContentTitle = styled.span`
   color: #590b0b;
 `;
 
-const CategoriesContentDescription = styled.span`
+const CategoriesDescriptionWrapper = styled.div`
+  height: 80px;
+`
+
+const CategoriesContentDescription = styled.div`
   margin: 0 1rem;
   text-align: center;
   font-size: 18px;
@@ -92,6 +96,7 @@ export {
   CategoriesContentWrapper,
   CategoriesContentTitle,
   CategoriesContentDescription,
+  CategoriesDescriptionWrapper,
   CategoriesContentCheck,
   CategoriesCheckText
 };
