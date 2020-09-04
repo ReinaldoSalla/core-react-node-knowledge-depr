@@ -1,5 +1,4 @@
 import React from 'react';
-import { useSpring, config } from 'react-spring';
 import {
 	CategoriesTitleText,
 	CategoriesDescriptionText,
@@ -13,7 +12,6 @@ import {
 } from './Categories.styles';
 import topics from '../../data/topics';
 import useResize from '../../utils/useResize';
-import useVisibility from '../../utils/useVisibility';
 import Icon from '../Icon';
 import { ReactComponent as JavaScriptSvg } from '../../assets/icons/javascript.svg';
 import { ReactComponent as ShieldsSvg } from '../../assets/icons/shields.svg';
@@ -29,26 +27,17 @@ const Checker = ({ title }) => (
 );
 
 const CategoriesContent = ({ className, path, title, description, svg }) => {
-  const [isVisible, ref] = useVisibility();
-  const animationProps = useSpring({
-    config: config.slow,
-    transform: isVisible ? 'translateX(0%)' : 'translateX(-100%)',
-    opacity: isVisible ? 1 : 0
-  });
   return (
-    <CategoriesContentWrapper ref={ref} className={className} to={path}>
+    <CategoriesContentWrapper className={className} to={path}>
       {className !== 'disabled' && (
         <>
-          <div>
-            <Icon
-              style={animationProps}
-              svg={svg}
-              color="#2d0000;"
-              border="1px solid #2d0000;"
-              width='30px'
-              height='30px'
-            />
-          </div>
+          <Icon
+            svg={svg}
+            color="#2d0000;"
+            border="1px solid #2d0000;"
+            width='30px'
+            height='30px'
+          />
           <CategoriesContentTitle>{title}</CategoriesContentTitle>
           <CategoriesDescriptionWrapper>
             <CategoriesContentDescription>{description}</CategoriesContentDescription>
