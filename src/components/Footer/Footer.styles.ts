@@ -6,6 +6,7 @@ interface FooterContainerProps {
 }
 
 const FooterContentContainer = styled.div<FooterContainerProps>`
+  margin-top: 2rem;
   height: ${(props) => props.height};
 	display: flex;
 	flex-direction: column;
