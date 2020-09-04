@@ -12,6 +12,7 @@ import {
 } from './Categories.styles';
 import topics from '../../data/topics';
 import useResize from '../../utils/useResize';
+import useVisibility from '../../utils/useVisibility';
 import Icon from '../Icon';
 import { ReactComponent as JavaScriptSvg } from '../../assets/icons/javascript.svg';
 import { ReactComponent as ShieldsSvg } from '../../assets/icons/shields.svg';
@@ -64,7 +65,7 @@ const CategoriesContents = ({ contents, svg }) => {
   } else if (width < 1127 && width >= 783) {
     // 2 columns
     if (normalizedContents.length % 2 !== 0) {
-      normalizedContents = [...normalizedContents, dummyContent];
+      normalizedContents = [...normalizedContents, dummyContent];      
     }
   }
   return (
@@ -102,8 +103,20 @@ const CategoriesItem = ({
 );
 
 const Categories = ({ javaScriptRef, typeScriptRef, reactRef, graphQLRef }) => {
+  const [isVisible, ref] = useVisibility();
+
 	return (
 		<>
+      <div 
+        style={{
+          height: '350px',
+          border: '1px solid black',
+          marginTop: '200px'
+        }}
+        ref={ref}
+      >
+        content
+      </div>
       <CategoriesItem
         svg={JavaScriptSvg}
         title={topics.javascript.title}
