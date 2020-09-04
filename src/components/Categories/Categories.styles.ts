@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { animated } from 'react-spring';
 
 const CategoriesTitleText = styled.div`
 	margin: 0 1rem;
@@ -29,7 +30,7 @@ const CategoriesContentsWrapper = styled.div`
   } 
 `;
 
-const CategoriesContentWrapper = styled(Link)`
+const CategoriesContentWrapper = styled(animated(Link))`
   margin: 0 2rem 3rem 2rem;
   display: flex;
   flex-direction: column;
@@ -39,11 +40,9 @@ const CategoriesContentWrapper = styled(Link)`
   flex: 280px;
   box-shadow: 4px 4px 4px 4px rgba(0,0,0,0.1);
   background: #f2f2f2;
-  transition: transform 500ms;
 
   &:hover {
     cursor: pointer;
-    transform: scale(1.1);
   }
 
   &.disabled {

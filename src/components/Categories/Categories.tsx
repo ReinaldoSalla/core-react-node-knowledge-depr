@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSpring, config } from 'react-spring';
 import {
 	CategoriesTitleText,
 	CategoriesDescriptionText,
@@ -27,26 +28,32 @@ const Checker = ({ title }) => (
   </CategoriesContentCheck>
 );
 
-const CategoriesContent = ({ className, path, title, description, svg }) => (
-  <CategoriesContentWrapper className={className} to={path}>
-    {className !== 'disabled' && (
-      <>
-        <Icon
-          svg={svg}
-          color="#2d0000;"
-          border="1px solid #2d0000;"
-          width='30px'
-          height='30px'
-        />
-        <CategoriesContentTitle>{title}</CategoriesContentTitle>
-        <CategoriesDescriptionWrapper>
-          <CategoriesContentDescription>{description}</CategoriesContentDescription>
-        </CategoriesDescriptionWrapper>
-        <Checker title={title}/>
-      </>
-    )}
-  </CategoriesContentWrapper>
-);
+const CategoriesContent = ({ className, path, title, description, svg }) => {
+  const [isVisible, ref] = useVisibility();
+  const animationProps = useSpring({
+    transform: isVisible ? 'scale(1)' : 'scale(0.8)'
+  });
+  return (
+    <CategoriesContentWrapper style={animationProps} ref={ref} className={className} to={path}>
+      {className !== 'disabled' && (
+        <>
+          <Icon
+            svg={svg}
+            color="#2d0000;"
+            border="1px solid #2d0000;"
+            width='30px'
+            height='30px'
+          />
+          <CategoriesContentTitle>{title}</CategoriesContentTitle>
+          <CategoriesDescriptionWrapper>
+            <CategoriesContentDescription>{description}</CategoriesContentDescription>
+          </CategoriesDescriptionWrapper>
+          <Checker title={title}/>
+        </>
+      )}
+    </CategoriesContentWrapper>
+  );
+};
 
 const CategoriesContents = ({ contents, svg }) => {
   const { width } = useResize();
@@ -103,20 +110,8 @@ const CategoriesItem = ({
 );
 
 const Categories = ({ javaScriptRef, typeScriptRef, reactRef, graphQLRef }) => {
-  const [isVisible, ref] = useVisibility();
-
 	return (
 		<>
-      <div 
-        style={{
-          height: '350px',
-          border: '1px solid black',
-          marginTop: '200px'
-        }}
-        ref={ref}
-      >
-        content
-      </div>
       <CategoriesItem
         svg={JavaScriptSvg}
         title={topics.javascript.title}

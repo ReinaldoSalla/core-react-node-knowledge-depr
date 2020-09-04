@@ -34,10 +34,6 @@ const useVisibility = (): [boolean, MutableRefObject<HTMLDivElement>] => {
     return () => window.removeEventListener('scroll', handleScroll)
   });
 
-  useEffect(() => {
-    document.title = isVisible ? 'visible' : 'hidden';
-  });
-
   return [isVisible, currentElement];
 }
 
