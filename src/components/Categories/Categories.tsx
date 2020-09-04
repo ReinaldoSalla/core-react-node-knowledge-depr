@@ -31,19 +31,24 @@ const Checker = ({ title }) => (
 const CategoriesContent = ({ className, path, title, description, svg }) => {
   const [isVisible, ref] = useVisibility();
   const animationProps = useSpring({
-    transform: isVisible ? 'scale(1)' : 'scale(0.8)'
+    config: config.slow,
+    transform: isVisible ? 'translateX(0%)' : 'translateX(-100%)',
+    opacity: isVisible ? 1 : 0
   });
   return (
-    <CategoriesContentWrapper style={animationProps} ref={ref} className={className} to={path}>
+    <CategoriesContentWrapper ref={ref} className={className} to={path}>
       {className !== 'disabled' && (
         <>
-          <Icon
-            svg={svg}
-            color="#2d0000;"
-            border="1px solid #2d0000;"
-            width='30px'
-            height='30px'
-          />
+          <div>
+            <Icon
+              style={animationProps}
+              svg={svg}
+              color="#2d0000;"
+              border="1px solid #2d0000;"
+              width='30px'
+              height='30px'
+            />
+          </div>
           <CategoriesContentTitle>{title}</CategoriesContentTitle>
           <CategoriesDescriptionWrapper>
             <CategoriesContentDescription>{description}</CategoriesContentDescription>

@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-const textColor = 'white';
+const textColor = 'black';
 
 const FooterLineContainer = styled.div`
-	margin: 0px 1.5em 0.5em 1.5em;
-	border-top: 1px solid white;
+	margin: 0 5rem;
+	border-top: 1px solid #7d7d7d;
 `;
 
 const FooterContentContainer = styled.div`
-	margin: 0 75px 20px 75px;
+	/* margin: 0 75px 20px 75px; */
 	display: flex;
 	flex-direction: column;
 	align-items: center;

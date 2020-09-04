@@ -40,9 +40,11 @@ const CategoriesContentWrapper = styled(animated(Link))`
   flex: 280px;
   box-shadow: 4px 4px 4px 4px rgba(0,0,0,0.1);
   background: #f2f2f2;
+  transition: transform 500ms;
 
   &:hover {
     cursor: pointer;
+    transform: scale(1.1);
   }
 
   &.disabled {
