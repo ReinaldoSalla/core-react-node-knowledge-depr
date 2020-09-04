@@ -14,7 +14,7 @@ const TopbarContainer = styled(animated.div)`
 `;
 
 const TopbarInnerWrapper = styled(animated.div)`
-	background: #280808;
+	background: black;
 	width: 100%;
 	position: fixed;
 	z-index: 1;

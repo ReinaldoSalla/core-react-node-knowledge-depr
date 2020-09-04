@@ -1,30 +1,28 @@
 import React, { Fragment } from 'react';
+import useResize from '../../utils/useResize';
 import {
-	FooterLineContainer,
 	FooterContentContainer,
 	FooterContentLink,
-	FooterYear,
 	FooterMsg,
 } from './Footer.styles';
 
-const getRandomMsg = () =>
-	Math.random() <= 0.5
-		? 'Always bet on JS'
-		: 'Everything that can be written in JavaScript, will be written in JavaScript';
-
-const Footer = () => (
-	<Fragment>
-		<FooterLineContainer />
-		<FooterContentContainer>
-			<FooterContentLink to="/legal"> Legal </FooterContentLink>
-			<FooterContentLink to="/philosophy"> Philosophy </FooterContentLink>
-			<FooterContentLink to="/contact"> Contact </FooterContentLink>
-			<FooterYear>
-				Copyright © {new Date().getFullYear()} abcde fghij
-			</FooterYear>
-			<FooterMsg>{getRandomMsg()}</FooterMsg>
-		</FooterContentContainer>
-	</Fragment>
-);
+const Footer = () => {
+  const { height } = useResize();
+  return (
+    <Fragment>
+      <FooterContentContainer height={`${height-80}px`}>
+        <FooterContentLink to="/contact"> Contact </FooterContentLink>
+        <FooterContentLink to="/philosophy"> Philosophy </FooterContentLink>
+        <FooterMsg>
+          Copyright © {new Date().getFullYear()} JavaScriptTemporal
+        </FooterMsg>
+        <FooterMsg>
+          All the code in this website is MIT licensed
+        </FooterMsg>
+        <FooterMsg className='js-msg'>Always bet on JS</FooterMsg>
+      </FooterContentContainer>
+    </Fragment>
+  );
+};
 
 export default Footer;

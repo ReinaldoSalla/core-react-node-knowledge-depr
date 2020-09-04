@@ -1,25 +1,22 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-const textColor = 'black';
+interface FooterContainerProps {
+  height: string;
+}
 
-const FooterLineContainer = styled.div`
-	margin: 0 5rem;
-	border-top: 1px solid #7d7d7d;
-`;
-
-const FooterContentContainer = styled.div`
-	/* margin: 0 75px 20px 75px; */
+const FooterContentContainer = styled.div<FooterContainerProps>`
+  height: ${(props) => props.height};
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: space-evenly;
+  background: black;
 `;
 
 const FooterContentLink = styled(Link)`
-	margin: 0.5em;
-	font-size: 20px;
-	color: ${textColor};
+	font-size: 32px;
+	color: white;
 
 	&:hover {
 		color: red;
@@ -27,21 +24,19 @@ const FooterContentLink = styled(Link)`
 	}
 `;
 
-const FooterYear = styled.span`
-	margin: 0.5em;
-	font-size: 20px;
-	text-align: center;
-	color: ${textColor};
-`;
+const FooterMsg = styled.span`
+  margin: 0 1rem;
+  text-align: center;
+  font-size: 32px;
+  color: white;
 
-const FooterMsg = styled(FooterYear)`
-	font-style: italic;
+  &.js-msg {
+    font-style: italic;
+  }
 `;
 
 export {
-	FooterLineContainer,
 	FooterContentContainer,
 	FooterContentLink,
-	FooterYear,
 	FooterMsg,
 };
