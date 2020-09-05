@@ -11,7 +11,7 @@ import {
   CategoriesCheckText
 } from './Categories.styles';
 import topics from '../../data/topics';
-import useResize from '../../utils/useResize';
+import useWidth from '../../utils/useWidth';
 import Icon from '../Icon';
 import { ReactComponent as JavaScriptSvg } from '../../assets/icons/javascript.svg';
 import { ReactComponent as ShieldsSvg } from '../../assets/icons/shields.svg';
@@ -50,7 +50,7 @@ const CategoriesContent = ({ className, path, title, description, svg }) => {
 };
 
 const CategoriesContents = ({ contents, svg }) => {
-  const { width } = useResize();
+  const width = useWidth();
   let normalizedContents = contents.map((content) => ({
     ...content,
     className: ''

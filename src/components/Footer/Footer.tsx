@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import useResize from '../../utils/useResize';
+import useHeight from '../../utils/useHeight';
 import {
 	FooterContentContainer,
 	FooterContentLink,
@@ -7,7 +7,7 @@ import {
 } from './Footer.styles';
 
 const Footer = () => {
-  const { height } = useResize();
+  const height = useHeight();
   return (
     <Fragment>
       <FooterContentContainer height={`${height-80}px`}>

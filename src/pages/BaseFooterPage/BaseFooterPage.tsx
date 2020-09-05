@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { Wrapper } from './BaseFooterPage.styles';
-import useResize from '../../utils/useResize';
+import useHeight from '../../utils/useHeight';
 
 const BaseFooterPage = () => {
-  const { height } = useResize();
+  const height = useHeight();
   useEffect(() => {
 		window.scrollTo(0, 0);
   });

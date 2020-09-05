@@ -1,7 +1,6 @@
 import { GENERAL_OFFSET } from './HomePage.constants';
 
 const scrollToReference = (state, payload) => {
-  console.log(payload.target.getAttribute('name'));
 	switch (payload.target.getAttribute('name')) {
 		case 'javascript':
 			window.scroll({ top: state.javascriptOffsetTop, behavior: 'auto' });

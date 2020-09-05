@@ -3,7 +3,6 @@ Universal component rendered throughout the whole app.
 */
 
 import React, { useState, Fragment } from 'react';
-import useResize from '../../utils/useResize';
 import RouteParser from '../../routes/RouteParser';
 import Topbar from '../../components/Topbar';
 import Sidebar from '../../components/Sidebar';
