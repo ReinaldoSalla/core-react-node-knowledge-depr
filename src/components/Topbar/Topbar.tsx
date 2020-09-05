@@ -196,7 +196,7 @@ const Topbar: FunctionComponent<TopbarProps> = ({
 			<TopbarHome />
       <TopbarSearch />
 			<TopbarProfile />
-			<TopbarInnerWrapper style={pathname === '/' ? animation : {height: '80px', background: 'black'}} />
+			<TopbarInnerWrapper style={pathname === '/' ? animation : {height: '80px'}} />
 		</TopbarContainer>
 	);
 };

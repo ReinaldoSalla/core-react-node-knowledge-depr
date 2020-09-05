@@ -12,7 +12,7 @@ const FooterContentContainer = styled.div<FooterContainerProps>`
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-evenly;
-  background: black;
+  background: #280808;
 `;
 
 const FooterContentLink = styled(Link)`
