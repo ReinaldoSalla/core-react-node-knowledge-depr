@@ -4,6 +4,7 @@ import {
 	CategoriesDescriptionText,
   CategoriesContentsWrapper,
   CategoriesContentWrapper,
+  CategoriesEmpty,
   CategoriesContentTitle,
   CategoriesContentDescription,
   CategoriesDescriptionWrapper,
@@ -11,7 +12,6 @@ import {
   CategoriesCheckText
 } from './Categories.styles';
 import topics from '../../data/topics';
-import useWidth from '../../utils/useWidth';
 import Icon from '../Icon';
 import { ReactComponent as JavaScriptSvg } from '../../assets/icons/javascript.svg';
 import { ReactComponent as ShieldsSvg } from '../../assets/icons/shields.svg';
@@ -50,28 +50,9 @@ const CategoriesContent = ({ className, path, title, description, svg }) => {
 };
 
 const CategoriesContents = ({ contents, svg }) => {
-  const width = useWidth();
-  let normalizedContents = contents.map((content) => ({
-    ...content,
-    className: ''
-  }));
-  const dummyContent = { path: '', title: '', description: '', className: 'disabled'};
-  if (width >= 1127) {
-    // 3 columns
-    if (normalizedContents.length % 3 === 2) {
-      normalizedContents = [...normalizedContents, dummyContent];
-    } else if (normalizedContents.length % 3 === 1) {
-      normalizedContents = [...normalizedContents, dummyContent, dummyContent];    
-    };
-  } else if (width < 1127 && width >= 783) {
-    // 2 columns
-    if (normalizedContents.length % 2 !== 0) {
-      normalizedContents = [...normalizedContents, dummyContent];      
-    }
-  }
   return (
     <CategoriesContentsWrapper>
-      {normalizedContents.map((content, index) => (
+      {contents.map((content, index) => (
         <CategoriesContent 
           key={index} 
           className={content.className}
@@ -81,6 +62,10 @@ const CategoriesContents = ({ contents, svg }) => {
           svg={svg}
         />
       ))}
+      <CategoriesEmpty />
+      <CategoriesEmpty />
+      <CategoriesEmpty />
+      <CategoriesEmpty />
     </CategoriesContentsWrapper>
   );
 };

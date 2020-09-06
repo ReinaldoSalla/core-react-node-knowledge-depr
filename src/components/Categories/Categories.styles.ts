@@ -22,21 +22,24 @@ const CategoriesDescriptionText = styled.div`
 const CategoriesContentsWrapper = styled.div`
   margin: 3rem 3rem 0 3rem;
   display: flex;
+  justify-content: space-evenly;
+  /* flex-wrap: wrap; */
   flex-wrap: wrap;
+  /* border: 1px solid black; */
 
-  @media (max-width: 600px) {
+  /* @media (max-width: 600px) {
     margin: 1rem 1rem 0 1rem;
-  } 
+  }  */
 `;
 
 const CategoriesContentWrapper = styled(Link)`
-  margin: 0 2rem 3rem 2rem;
+  margin: 0 1rem 3rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
   height: 350px;
-  flex: 280px;
+  width: 350px;
   box-shadow: 4px 4px 4px 4px rgba(0,0,0,0.1);
   background: #f2f2f2;
   transition: transform 500ms;
@@ -45,12 +48,14 @@ const CategoriesContentWrapper = styled(Link)`
     cursor: pointer;
     transform: scale(1.1);
   }
+`;
 
-  &.disabled {
-    background: transparent;
-    box-shadow: none;
-    pointer-events: none;
-  }
+const CategoriesEmpty = styled.div`
+  margin: 0 1rem;
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 0;
+  width: 350px;
 `;
 
 const CategoriesContentTitle = styled.span`
@@ -91,6 +96,7 @@ export {
 	CategoriesDescriptionText,
   CategoriesContentsWrapper,
   CategoriesContentWrapper,
+  CategoriesEmpty,
   CategoriesContentTitle,
   CategoriesContentDescription,
   CategoriesDescriptionWrapper,
