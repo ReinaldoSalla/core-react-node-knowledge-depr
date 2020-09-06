@@ -5,10 +5,10 @@ import Video from '../../components/Video';
 import { Route } from 'react-router-dom';
 import homePageReducer from './HomePage.reducer';
 import { ACTIONS } from './HomePage.constants';
-import useWidth from '../../utils/useWidth';
+import useResize from '../../utils/useResize';
 
 const HomePage = () => {
-	const width = useWidth();
+	const { width, height } = useResize();
 	const [_, dispatch] = useReducer(homePageReducer, {
 		javascriptOffsetTop: 0,
 		typescriptOffsetTop: 0,
@@ -30,7 +30,7 @@ const HomePage = () => {
 				payload: node,
 			});
 		},
-		[width]
+		[width, height]
 	);
 
 	const typeScriptRef = useCallback(
@@ -40,7 +40,7 @@ const HomePage = () => {
 				payload: node,
 			});
 		},
-		[width]
+		[width, height]
 	);
 
 	const reactRef = useCallback(
@@ -50,7 +50,7 @@ const HomePage = () => {
 				payload: node,
 			});
 		},
-		[width]
+		[width, height]
 	);
 
 	const graphQLRef = useCallback(
@@ -60,7 +60,7 @@ const HomePage = () => {
 				payload: node,
 			});
 		},
-		[width]
+		[width, height]
 	);
 
 	return (

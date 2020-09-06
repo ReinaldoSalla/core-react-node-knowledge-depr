@@ -11,15 +11,15 @@ import {
 } from './Sidebar.interfaces';
 import { useSpring } from 'react-spring';
 import { Scrollbars } from 'react-custom-scrollbars';
-import useHeight from '../../utils/useHeight';
+import useResize from '../../utils/useResize';
 import contents from '../../data/contents';
 
 const useSidebarHeight = (
 	sidebarOffset: number,
 	sidebarScrollbarOffset: number
 ): Array<string> => {
-	const height = useHeight();
-	const topbarHeight = 70;
+	const { height } = useResize();
+	const topbarHeight = 80;
 	return [
 		`${height - topbarHeight - sidebarOffset}px`,
 		`${height - topbarHeight - sidebarScrollbarOffset}px`,

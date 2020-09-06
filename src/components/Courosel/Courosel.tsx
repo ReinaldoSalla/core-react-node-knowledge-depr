@@ -25,7 +25,7 @@ import {
 } from './Courosel.styles';
 import { useTransition, useSpring } from 'react-spring';
 import useDocumentVisibility from '../../utils/useDocumentVisibility';
-import useHeight from '../../utils/useHeight';
+import useResize from '../../utils/useResize';
 
 const duration: number = 15e3;
 
@@ -236,7 +236,7 @@ const Courosel = ({ handleClick }) => {
 		isTimerEnabled: true,
 	});
 	const isDocumentVisible: boolean = useDocumentVisibility();
-	const height = useHeight();
+	const { height } = useResize();
 
 	const handleNextItem = useCallback(
 		() => dispatch({ type: 'MOVE_TO_NEXT_ITEM' }),
