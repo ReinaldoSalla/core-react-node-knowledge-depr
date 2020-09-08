@@ -84,7 +84,7 @@ const TopbarHome: FunctionComponent = () => {
 	};
 	return (
     <TopbarLink 
-      to="/" 
+      to='/'
       onClick={onClick}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
@@ -98,7 +98,7 @@ const TopbarHome: FunctionComponent = () => {
         border="none"
         zIndex={2}
 			/>
-			<TopbarText> JavaScript </TopbarText>
+			<TopbarText> Home </TopbarText>
       <TopbarItemFiller style={hoverAnimation} />
 		</TopbarLink>
 	);
@@ -174,11 +174,11 @@ const Topbar: FunctionComponent<TopbarProps> = ({
   const [isInTop, setIsInTop] = useState<boolean>(window.pageYOffset <= 50);
   const { pathname } = useLocation();
 
-	const onScroll = () => {
-		setIsInTop(window.pageYOffset <= 50);
-  };
-
+  
 	useEffect(() => {
+    const onScroll = () => {
+      setIsInTop(window.pageYOffset <= 50);
+    };
 		window.addEventListener('scroll', onScroll);
 		return () => window.addEventListener('scroll', onScroll);
 	});

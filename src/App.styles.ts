@@ -19,6 +19,22 @@ const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
     color: inherit;
+    margin: 0;
+    padding: 0;
+  }
+
+  button {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    background: none;
+    color: inherit;
+    border: none;
+  }
+
+  p {
+    /* margin: 0; */
+    /* padding: 0; */
   }
 
 `;

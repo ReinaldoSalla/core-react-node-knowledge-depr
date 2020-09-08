@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 import debounce from 'lodash.debounce';
 
 interface UseResize {
@@ -9,16 +9,15 @@ interface UseResize {
 const useResize = (): UseResize => {
   const [width, setWidth] = useState<number>(window.innerWidth);
   const [height, setHeight] = useState<number>(window.innerHeight);
-
-  const handleResize = debounce(() => {
-    setHeight(window.innerHeight);
-    setWidth(window.innerWidth);
-  }, 100);
-
+  
   useEffect(() => {
+    const handleResize = debounce(() => {
+      setHeight(window.innerHeight);
+      setWidth(window.innerWidth);
+    }, 100);
 		window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-	}, []);
+	}, [width, height]);
   return { width, height };
 };
 

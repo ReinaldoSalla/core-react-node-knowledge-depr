@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { animated } from 'react-spring';
 import { Link } from 'react-router-dom';
 
-const TopbarContainer = styled(animated.div)`
+const TopbarContainer = styled(animated.nav)`
 	top: 0px;
 	height: 80px;
 	width: 100%;
@@ -20,14 +20,14 @@ const TopbarInnerWrapper = styled(animated.div)`
 	z-index: 1;
 `;
 
-const TopbarItemContainer = styled.div`
+const TopbarItemCSS = css`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	height: 80px;
 	width: 400px;
-	/* border-right: 1px solid white; */ /* if it's in the top position dont't render the right lines, only render if the user is not in the top*/
+	/* border-right: 1px solid white; */ /* Border around the items */
 	z-index: 2;
 
 	&:hover {
@@ -35,25 +35,17 @@ const TopbarItemContainer = styled.div`
 	}
 `;
 
-const TopbarLink = styled(Link)`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	height: 80px;
-	width: 400px;
-	/* border-right: 1px solid white; */ /* if it's in the top position dont't render the right lines, only render if the user is not in the top*/
-	z-index: 2;
+const TopbarItemContainer = styled.button`${TopbarItemCSS}`;
 
-	&:hover {
-		cursor: pointer;
-	}
-`;
+const TopbarLink = styled(Link)`${TopbarItemCSS}`;
 
-const TopbarText = styled.span`
+const TopbarText = styled.h2`
 	font-size: 1.25rem;
 	color: white;
   z-index: 2;
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
 `;
 
 const TopbarFillerWrapper = styled.div`
