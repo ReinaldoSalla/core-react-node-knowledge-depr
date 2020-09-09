@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-const CategoriesTitleText = styled.div`
+const CategoriesTitleText = styled.h2`
 	margin: 0 1rem;
+  padding: 0;
 	font-size: 36px;
 	font-weight: 700;
 	text-align: center;
@@ -12,8 +13,9 @@ const CategoriesTitleText = styled.div`
   }
 `;
 
-const CategoriesDescriptionText = styled.div`
+const CategoriesDescriptionText = styled.h3`
 	margin: 2rem 1rem 0 1rem;
+  padding: 0;
 	font-size: 25px;
 	font-weight: 600;
 	text-align: center;
@@ -58,7 +60,9 @@ const CategoriesEmpty = styled.div`
   width: 350px;
 `;
 
-const CategoriesContentTitle = styled.span`
+const CategoriesContentTitle = styled.h4`
+  margin: 0;
+  padding: 0;
   text-align: center;
   font-size: 22px;
   font-weight: 600;
@@ -69,7 +73,7 @@ const CategoriesDescriptionWrapper = styled.div`
   height: 60px;
 `
 
-const CategoriesContentDescription = styled.div`
+const CategoriesContentDescription = styled.p`
   margin: 0 1rem;
   text-align: center;
   font-size: 18px;
@@ -82,7 +86,7 @@ const CategoriesContentCheck = styled.div`
   align-items: center;
 `;
 
-const CategoriesCheckText = styled.div`
+const CategoriesCheckText = styled.span`
   text-align: center;
   height: 22px;
   margin-right: 8px;
