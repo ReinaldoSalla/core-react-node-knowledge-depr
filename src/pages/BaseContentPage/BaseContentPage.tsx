@@ -7,14 +7,30 @@ const TextWrapper = styled(animated.div)`
 	padding-top: 80px;
 `;
 
-const Title = styled.h1`
-
+const ContentWrapper = styled.div`
+  display: flex;
 `
 
 const Paragraph = styled.p`
   margin: 25px 0;
   line-height: 1.7;
 `;
+
+const ListItem = styled.li`
+  margin: 0.5em 0;
+  /* text-decoration: underline; */
+`;
+
+const promisesContents = [
+  'Setup',
+  'Callback Hell',
+  'Building a Promise',
+  'Calling a Single Promise',
+  'Calling Promises in Sequence',
+  'Calling Promises in Parallel',
+  'Promise.allSettled',
+  'Promise.race'
+]
 
 const BaseContentPage = () => {
 	useEffect(() => {
@@ -33,46 +49,51 @@ const BaseContentPage = () => {
 	return (
 		<TextWrapper style={animation}>
 			<h1> Suspense </h1>
-			<Paragraph>
-				Concurrent Mode fixes this fundamental limitation by making rendering
-				interruptible. This means when the user presses another key, React
-				doesn’t need to block the browser from updating the text input. Instead,
-				it can let the browser paint an update to the input, and then continue
-				rendering the updated list in memory. When the rendering is finished,
-				React updates the DOM, and changes are reflected on the screen.
-			</Paragraph>
-			<Paragraph>
-				Concurrent Mode fixes this fundamental limitation by making rendering
-				interruptible. This means when the user presses another key, React
-				doesn’t need to block the browser from updating the text input. Instead,
-				it can let the browser paint an update to the input, and then continue
-				rendering the updated list in memory. When the rendering is finished,
-				React updates the DOM, and changes are reflected on the screen.
-			</Paragraph>
-			<Paragraph>
-				Concurrent Mode fixes this fundamental limitation by making rendering
-				interruptible. This means when the user presses another key, React
-				doesn’t need to block the browser from updating the text input. Instead,
-				it can let the browser paint an update to the input, and then continue
-				rendering the updated list in memory. When the rendering is finished,
-				React updates the DOM, and changes are reflected on the screen.
-			</Paragraph>
-			<Paragraph>
-				Concurrent Mode fixes this fundamental limitation by making rendering
-				interruptible. This means when the user presses another key, React
-				doesn’t need to block the browser from updating the text input. Instead,
-				it can let the browser paint an update to the input, and then continue
-				rendering the updated list in memory. When the rendering is finished,
-				React updates the DOM, and changes are reflected on the screen.
-			</Paragraph>
-			<Paragraph>
-				Concurrent Mode fixes this fundamental limitation by making rendering
-				interruptible. This means when the user presses another key, React
-				doesn’t need to block the browser from updating the text input. Instead,
-				it can let the browser paint an update to the input, and then continue
-				rendering the updated list in memory. When the rendering is finished,
-				React updates the DOM, and changes are reflected on the screen.
-			</Paragraph>
+      <ol>
+          {promisesContents.map((item, index) => (
+            <ListItem key={index}>{index + 1}. {item}</ListItem>
+          ))}
+        </ol>
+          <Paragraph>
+            Concurrent Mode fixes this fundamental limitation by making rendering
+            interruptible. This means when the user presses another key, React
+            doesn’t need to block the browser from updating the text input. Instead,
+            it can let the browser paint an update to the input, and then continue
+            rendering the updated list in memory. When the rendering is finished,
+            React updates the DOM, and changes are reflected on the screen.
+          </Paragraph>
+          <Paragraph>
+            Concurrent Mode fixes this fundamental limitation by making rendering
+            interruptible. This means when the user presses another key, React
+            doesn’t need to block the browser from updating the text input. Instead,
+            it can let the browser paint an update to the input, and then continue
+            rendering the updated list in memory. When the rendering is finished,
+            React updates the DOM, and changes are reflected on the screen.
+          </Paragraph>
+          <Paragraph>
+            Concurrent Mode fixes this fundamental limitation by making rendering
+            interruptible. This means when the user presses another key, React
+            doesn’t need to block the browser from updating the text input. Instead,
+            it can let the browser paint an update to the input, and then continue
+            rendering the updated list in memory. When the rendering is finished,
+            React updates the DOM, and changes are reflected on the screen.
+          </Paragraph>
+          <Paragraph>
+            Concurrent Mode fixes this fundamental limitation by making rendering
+            interruptible. This means when the user presses another key, React
+            doesn’t need to block the browser from updating the text input. Instead,
+            it can let the browser paint an update to the input, and then continue
+            rendering the updated list in memory. When the rendering is finished,
+            React updates the DOM, and changes are reflected on the screen.
+          </Paragraph>
+          <Paragraph>
+            Concurrent Mode fixes this fundamental limitation by making rendering
+            interruptible. This means when the user presses another key, React
+            doesn’t need to block the browser from updating the text input. Instead,
+            it can let the browser paint an update to the input, and then continue
+            rendering the updated list in memory. When the rendering is finished,
+            React updates the DOM, and changes are reflected on the screen.
+          </Paragraph>
 		</TextWrapper>
 	);
 };

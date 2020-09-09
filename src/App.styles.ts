@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
   }
 
-  ul {
+  ul, ol {
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -36,7 +36,6 @@ const GlobalStyle = createGlobalStyle`
     /* margin: 0; */
     /* padding: 0; */
   }
-
 `;
 
 export default GlobalStyle;
