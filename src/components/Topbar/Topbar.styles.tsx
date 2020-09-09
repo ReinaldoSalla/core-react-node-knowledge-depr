@@ -39,7 +39,7 @@ const TopbarItemContainer = styled.button`${TopbarItemCSS}`;
 
 const TopbarLink = styled(Link)`${TopbarItemCSS}`;
 
-const TopbarText = styled.h2`
+const TopbarText = styled.span`
 	font-size: 1.25rem;
 	color: white;
   z-index: 2;
