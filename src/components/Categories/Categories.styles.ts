@@ -19,7 +19,7 @@ const CategoriesDescriptionText = styled.div`
 	text-align: center;
 `;
 
-const CategoriesContentsWrapper = styled.div`
+const CategoriesContentsWrapper = styled.section`
   margin: 3rem 3rem 0 3rem;
   display: flex;
   justify-content: space-evenly;

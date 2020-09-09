@@ -5,7 +5,7 @@ import {
 	CouroselInputsWrapperProps,
 } from './Courosel.interfaces';
 
-const CouroselContainer = styled.div<CouroselContainerProps>`
+const CouroselContainer = styled.header<CouroselContainerProps>`
 	height: ${(props) => props.height};
 	width: 100%;
 	background-size: 100% 100%;
@@ -24,9 +24,7 @@ interface CouroselContentContainerProps {
 	height: string;
 }
 
-const CouroselContentContainer = styled(animated.div)<
-	CouroselContentContainerProps
->`
+const CouroselContentContainer = styled(animated.section)<CouroselContentContainerProps>`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -40,7 +38,9 @@ interface CouroselTextProps {
   name: string;
 }
 
-const CouroselTitle = styled(animated.div)<CouroselTextProps>`
+const CouroselTitle = styled(animated.h1)<CouroselTextProps>`
+  margin: 0;
+  padding: 0;
   color: white;
 	font-size: 3rem;
 	font-weight: 700;
@@ -51,12 +51,13 @@ const CouroselTitle = styled(animated.div)<CouroselTextProps>`
   }
 `;
 
-const CouroselSubtitle = styled(animated.div)<CouroselTextProps>`
+const CouroselSubtitle = styled(animated.h2)<CouroselTextProps>`
+	margin: 0 2rem;
+  padding: 0;
 	color: white;
 	font-size: 2.5rem;
 	font-weight: 700;
 	text-align: center;
-	margin: 0 2rem;
 
   &:hover {
     cursor: pointer;
