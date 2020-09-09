@@ -2,13 +2,13 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { useSpring, animated } from 'react-spring';
 
-const TextWrapper = styled(animated.div)`
+const Wrapper = styled(animated.div)`
 	margin: 0 20px;
 	padding-top: 80px;
 `;
 
 const ContentWrapper = styled.div`
-  display: flex;
+  /* display: flex; */
 `
 
 const Paragraph = styled.p`
@@ -16,8 +16,15 @@ const Paragraph = styled.p`
   line-height: 1.7;
 `;
 
+const List = styled.ol`
+  /* display: flex; */
+  /* margin: 0 0 0 1rem; */
+`;
+
 const ListItem = styled.li`
-  margin: 0.5em 0;
+  margin: 1em 0.8rem 0 0;
+  /* font-size: 14px; */
+  /* text-align: center; */
   /* text-decoration: underline; */
 `;
 
@@ -30,7 +37,7 @@ const promisesContents = [
   'Calling Promises in Parallel',
   'Promise.allSettled',
   'Promise.race'
-]
+];
 
 const BaseContentPage = () => {
 	useEffect(() => {
@@ -47,13 +54,15 @@ const BaseContentPage = () => {
 		},
 	});
 	return (
-		<TextWrapper style={animation}>
+		<Wrapper style={animation}>
 			<h1> Suspense </h1>
-      <ol>
+      <ContentWrapper>
+      <List>
           {promisesContents.map((item, index) => (
             <ListItem key={index}>{index + 1}. {item}</ListItem>
           ))}
-        </ol>
+        </List>
+        <div>
           <Paragraph>
             Concurrent Mode fixes this fundamental limitation by making rendering
             interruptible. This means when the user presses another key, React
@@ -94,7 +103,18 @@ const BaseContentPage = () => {
             rendering the updated list in memory. When the rendering is finished,
             React updates the DOM, and changes are reflected on the screen.
           </Paragraph>
-		</TextWrapper>
+          <Paragraph>
+            Concurrent Mode fixes this fundamental limitation by making rendering
+            interruptible. This means when the user presses another key, React
+            doesn’t need to block the browser from updating the text input. Instead,
+            it can let the browser paint an update to the input, and then continue
+            rendering the updated list in memory. When the rendering is finished,
+            React updates the DOM, and changes are reflected on the screen.
+          </Paragraph>
+        </div>
+
+      </ContentWrapper>
+		</Wrapper>
 	);
 };
 
