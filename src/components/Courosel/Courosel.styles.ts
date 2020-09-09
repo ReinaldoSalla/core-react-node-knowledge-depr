@@ -5,7 +5,7 @@ import {
 	CouroselInputsWrapperProps,
 } from './Courosel.interfaces';
 
-const CouroselContainer = styled.header<CouroselContainerProps>`
+const CouroselContainer = styled.div<CouroselContainerProps>`
 	height: ${(props) => props.height};
 	width: 100%;
 	background-size: 100% 100%;
@@ -83,7 +83,8 @@ const CouroselContent = styled(animated.div)<CouroselTextProps>`
 `;
 
 const CouroselContentText = styled(animated.div)<CouroselTextProps>`
-  padding: 8px;
+  padding: 0 8px 6px 8px;
+  vertical-align: middle;
   text-align: center;
   font-size: 2.5rem;
   z-index: 2;

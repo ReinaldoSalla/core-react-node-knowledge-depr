@@ -18,10 +18,12 @@ const Universal = () => {
         isSidebarVisible={isSidebarVisible} 
         toggleSidebar={toggleSidebar} 
       />
-			<Sidebar isSidebarVisible={isSidebarVisible} />
-			{routesConfig.map((route: any, index) => (
-				<RouteParser key={index} {...route} />
-			))}
+      <main>
+        <Sidebar isSidebarVisible={isSidebarVisible} />
+        {routesConfig.map((route: any, index) => (
+          <RouteParser key={index} {...route} />
+        ))}        
+      </main>
 			<Footer />
 		</Fragment>
 	);

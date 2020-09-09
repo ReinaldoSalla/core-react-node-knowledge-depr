@@ -188,16 +188,18 @@ const Topbar: FunctionComponent<TopbarProps> = ({
   });
   
 	return (
-		<TopbarContainer>
-			<TopbarSidebar
-				isSidebarVisible={isSidebarVisible}
-        toggleSidebar={toggleSidebar}
-			/>
-			<TopbarHome />
-      <TopbarSearch />
-			<TopbarProfile />
-			<TopbarInnerWrapper style={pathname === '/' ? animation : {height: '80px'}} />
-		</TopbarContainer>
+    <header>
+      <TopbarContainer>
+        <TopbarSidebar
+          isSidebarVisible={isSidebarVisible}
+          toggleSidebar={toggleSidebar}
+        />
+        <TopbarHome />
+        <TopbarSearch />
+        <TopbarProfile />
+        <TopbarInnerWrapper style={pathname === '/' ? animation : {height: '80px'}} />
+      </TopbarContainer>
+    </header>
 	);
 };
 

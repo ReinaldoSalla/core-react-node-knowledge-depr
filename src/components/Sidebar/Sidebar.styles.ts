@@ -5,19 +5,7 @@ import {
 	SidebarTitleContainerProps,
 } from './Sidebar.interfaces';
 
-const SidebarTextContainer = styled.div`
-	color: white;
-	font-size: 1.1em;
-	padding: 0.2em 0 0.2em 0;
-`;
-
-const SidebarTitleContainer = styled.div<SidebarTitleContainerProps>`
-	color: aqua;
-	font-size: 1.3em;
-	padding: ${(props) => (props.firstTitle ? '0 0 0.1em 0' : '1em 0 0.1em 0')};
-`;
-
-const SidebarContainer = styled.div<SidebarContainerProps>`
+const SidebarContainer = styled.aside<SidebarContainerProps>`
 	background: #2d2a2a;
 	width: 200px;
 	height: ${(props) => props.height};
@@ -30,6 +18,18 @@ const SidebarContainer = styled.div<SidebarContainerProps>`
 `;
 
 const AnimatedSidebarContainer = animated(SidebarContainer);
+
+const SidebarTextContainer = styled.div`
+	color: white;
+	font-size: 1.1em;
+	padding: 0.2em 0 0.2em 0;
+`;
+
+const SidebarTitleContainer = styled.div<SidebarTitleContainerProps>`
+	color: aqua;
+	font-size: 1.3em;
+	padding: ${(props) => (props.firstTitle ? '0 0 0.1em 0' : '1em 0 0.1em 0')};
+`;
 
 export {
 	SidebarTextContainer,

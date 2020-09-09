@@ -9,7 +9,7 @@ import {
 const Footer = () => {
   const { height } = useResize();
   return (
-    <Fragment>
+    <footer>
       <FooterContentContainer height={`${height-80}px`}>
         <FooterContentLink to="/contact"> Contact </FooterContentLink>
         <FooterContentLink to="/philosophy"> Philosophy </FooterContentLink>
@@ -21,7 +21,7 @@ const Footer = () => {
         </FooterMsg>
         <FooterMsg className='js-msg'>Always bet on JS</FooterMsg>
       </FooterContentContainer>
-    </Fragment>
+    </footer>
   );
 };
 
