@@ -43,7 +43,7 @@ const BaseContentPage = () => {
 	});
 	return (
 		<Wrapper style={animation}>
-			<h1> Suspense </h1>
+			<h1> React - Rendering </h1>
         <h2>1. Setup</h2>
         <Paragraph>
           Note: if you already have a method for executing react programs, you may skip the setup
