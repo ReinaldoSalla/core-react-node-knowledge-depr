@@ -3,7 +3,7 @@ import { animated } from 'react-spring';
 import {
 	CouroselContainerProps,
 	CouroselInputsWrapperProps,
-} from './Courosel.interfaces';
+} from './Courosel.types';
 
 const CouroselContainer = styled.div<CouroselContainerProps>`
 	height: ${(props) => props.height};

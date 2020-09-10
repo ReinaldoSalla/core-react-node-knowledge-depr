@@ -5,6 +5,7 @@ import React, {
 	useState,
 	Fragment,
 } from 'react';
+import { useTransition, useSpring } from 'react-spring';
 import {
 	CouroselContainer,
 	CouroselTitle,
@@ -23,9 +24,10 @@ import {
 	CouroselTimerRow,
 	CouroselTimer,
 } from './Courosel.styles';
-import { useTransition, useSpring } from 'react-spring';
+import couroselReducer from './Courosel.reducer';
 import useDocumentVisibility from '../../utils/useDocumentVisibility';
 import useResize from '../../utils/useResize';
+import { CouroselState, CouroselAction } from './Courosel.types';
 
 const duration: number = 15e3;
 
@@ -148,60 +150,6 @@ const couroselItems = texts.map(({ name, title, subtitle, content }) => {
 	);
 });
 
-const moveToNextItem = (state) => {
-	let newIndex = state.index + 1;
-	if (newIndex === couroselItems.length) newIndex = 0;
-	return {
-		index: newIndex,
-		isTimerEnabled: true,
-	};
-};
-
-const moveToFirstItem = () => {
-	return {
-		index: 0,
-		isTimerEnabled: false,
-	};
-};
-
-const moveToSecondItem = () => {
-	return {
-		index: 1,
-		isTimerEnabled: false,
-	};
-};
-
-const moveToThirdItem = () => {
-	return {
-		index: 2,
-		isTimerEnabled: false,
-	};
-};
-
-const moveToForthItem = () => {
-	return {
-		index: 3,
-		isTimerEnabled: false,
-	};
-};
-
-const reducer = (state, action) => {
-	switch (action.type) {
-		case 'MOVE_TO_NEXT_ITEM':
-			return moveToNextItem(state);
-		case 'MOVE_TO_FIRST_ITEM':
-			return moveToFirstItem();
-		case 'MOVE_TO_SECOND_ITEM':
-			return moveToSecondItem();
-		case 'MOVE_TO_THIRD_ITEM':
-			return moveToThirdItem();
-		case 'MOVE_TO_FORTH_ITEM':
-			return moveToForthItem();
-		default:
-			throw new ReferenceError(`Action type ${action.type} is not declared`);
-	}
-};
-
 const transitionProps: any = {
 	config: customConfig.content,
 	trail: 1000,
@@ -231,39 +179,24 @@ const getInnerProps = (currentIndex: number, targetIndex: number): any => ({
 });
 
 const Courosel = ({ handleClick }) => {
-	const [state, dispatch] = useReducer(reducer, {
+	const [state, dispatch] = useReducer(couroselReducer, {
 		index: 0,
 		isTimerEnabled: true,
 	});
 	const isDocumentVisible: boolean = useDocumentVisibility();
 	const { height } = useResize();
 
-	const handleNextItem = useCallback(
-		() => dispatch({ type: 'MOVE_TO_NEXT_ITEM' }),
-		[]
-	);
+	const handleFirstItem = () => dispatch({ type: 'MOVE_TO_FIRST_ITEM' })
 
-	const handleFirstItem = useCallback(
-		() => dispatch({ type: 'MOVE_TO_FIRST_ITEM' }),
-		[]
-	);
+	const handleSecondItem = () => dispatch({ type: 'MOVE_TO_SECOND_ITEM' })
 
-	const handleSecondItem = useCallback(
-		() => dispatch({ type: 'MOVE_TO_SECOND_ITEM' }),
-		[]
-	);
+	const handleThirdItem = () => dispatch({ type: 'MOVE_TO_THIRD_ITEM' })
 
-	const handleThirdItem = useCallback(
-		() => dispatch({ type: 'MOVE_TO_THIRD_ITEM' }),
-		[]
-	);
-
-	const handleForthItem = useCallback(
-		() => dispatch({ type: 'MOVE_TO_FORTH_ITEM' }),
-		[]
-	);
+	const handleForthItem = () => dispatch({ type: 'MOVE_TO_FORTH_ITEM' })
 
 	useEffect(() => {
+    const handleNextItem = 	() => dispatch({ type: 'MOVE_TO_NEXT_ITEM' })
+
 		if (isDocumentVisible) {
 			const intervalId = setInterval(() => {
 				handleNextItem();

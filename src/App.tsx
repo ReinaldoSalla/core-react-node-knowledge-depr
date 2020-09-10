@@ -7,11 +7,51 @@ const App = () => (
 	<BrowserRouter>
 		<GlobalStyle />
 		<Universal />  
-    {/* <h1>heading level 1</h1>
-    <h2>heading level 2</h2>
-    <h3>heading level 3</h3>
-    <h4>heading level 4</h4> */}
 	</BrowserRouter>
 );
 
 export default App;
+
+// import * as React from 'react';
+
+// interface State {
+//   count: number;
+// }
+
+// type Action  =
+//   | { type: 'reset' }
+//   | { type: 'increment' }
+//   | { type: 'decrement' };
+
+// const initialState: State = {
+//   count: 0,
+// };
+
+// function reducer(state: State, action: Action): State {
+//   switch (action.type) {
+//     case 'reset':
+//       return initialState;
+//     case 'increment':
+//       return { count: state.count + 1 };
+//     case 'decrement':
+//       return { count: state.count - 1 };
+//     default:
+//       return state;
+//   }
+// }
+
+// function Counter() {
+//   const [state, dispatch] = React.useReducer(reducer, {
+//     count: 0,
+//   });
+//   return (
+//     <>
+//       Count: {state.count}
+//       <button onClick={() => dispatch({ type: 'reset' })}>Reset</button>
+//       <button onClick={() => dispatch({ type: 'increment' })}>+</button>
+//       <button onClick={() => dispatch({ type: 'decrement' })}>-</button>
+//     </>
+//   );
+// }
+
+// export default Counter;
