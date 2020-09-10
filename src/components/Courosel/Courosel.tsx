@@ -27,9 +27,9 @@ import {
 import couroselReducer from './Courosel.reducer';
 import useDocumentVisibility from '../../utils/useDocumentVisibility';
 import useResize from '../../utils/useResize';
-import { CouroselState, CouroselAction } from './Courosel.types';
+import { ACTION_TYPES } from './Courosel.constants';
 
-const duration: number = 15e3;
+const duration = 15e3;
 
 const customConfig = {
 	content: { mass: 5, tension: 50, friction: 26, clamp: true },
@@ -186,16 +186,24 @@ const Courosel = ({ handleClick }) => {
 	const isDocumentVisible: boolean = useDocumentVisibility();
 	const { height } = useResize();
 
-	const handleFirstItem = () => dispatch({ type: 'MOVE_TO_FIRST_ITEM' })
+	const handleFirstItem = () => (
+    dispatch({ type: ACTION_TYPES.MOVE_TO_FIRST_ITEM })
+  );
 
-	const handleSecondItem = () => dispatch({ type: 'MOVE_TO_SECOND_ITEM' })
+	const handleSecondItem = () => (
+    dispatch({ type: ACTION_TYPES.MOVE_TO_SECOND_ITEM })
+  );
 
-	const handleThirdItem = () => dispatch({ type: 'MOVE_TO_THIRD_ITEM' })
+	const handleThirdItem = () => (
+    dispatch({ type: ACTION_TYPES.MOVE_TO_THIRD_ITEM })
+  );
 
-	const handleForthItem = () => dispatch({ type: 'MOVE_TO_FORTH_ITEM' })
+	const handleForthItem = () => (
+    dispatch({ type: ACTION_TYPES.MOVE_TO_FORTH_ITEM })
+  );
 
 	useEffect(() => {
-    const handleNextItem = 	() => dispatch({ type: 'MOVE_TO_NEXT_ITEM' })
+    const handleNextItem = 	() => dispatch({ type: ACTION_TYPES.MOVE_TO_NEXT_ITEM });
 
 		if (isDocumentVisible) {
 			const intervalId = setInterval(() => {
