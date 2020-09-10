@@ -1,5 +1,4 @@
 import React, {
-	useCallback,
 	useEffect,
 	useReducer,
 	useState,
@@ -25,11 +24,9 @@ import {
 	CouroselTimer,
 } from './Courosel.styles';
 import couroselReducer from './Courosel.reducer';
+import { ACTION_TYPES } from './Courosel.constants';
 import useDocumentVisibility from '../../utils/useDocumentVisibility';
 import useResize from '../../utils/useResize';
-import { ACTION_TYPES } from './Courosel.constants';
-
-const duration = 15e3;
 
 const customConfig = {
 	content: { mass: 5, tension: 50, friction: 26, clamp: true },
@@ -79,13 +76,13 @@ const CouroselItem = ({
 }) => {
   const [isHovering, setIsHovering] = useState(false);
 
-  const handleEnter = useCallback(() => {
+  const handleEnter = () => {
     setIsHovering(true);
-  }, []);
+  };
 
-  const handleLeave = useCallback(() => {
+  const handleLeave = () => {
     setIsHovering(false);
-  }, []);
+  };
 
   const springProps = useSpring({
     textShadow: isHovering 
@@ -208,7 +205,7 @@ const Courosel = ({ handleClick }) => {
 		if (isDocumentVisible) {
 			const intervalId = setInterval(() => {
 				handleNextItem();
-			}, duration);
+			}, ACTION_TYPES.DURATION);
 			return () => clearInterval(intervalId);
 		}
 	});
@@ -235,7 +232,7 @@ const Courosel = ({ handleClick }) => {
 	const forthInnerAnimation = useSpring(getInnerProps(state.index, 3));
 
 	const { width, opacity }: any = useSpring({
-		config: { duration: duration + 100 },
+		config: { duration: ACTION_TYPES.DURATION + 100 },
 		from: { width: 0, opacity: 0 },
 		to: { width: 95, opacity: 1 },
 		reset: true,
