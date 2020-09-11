@@ -1,5 +1,3 @@
-
-
 const moveToNextItem = (state) => {
 	let newIndex = state.index + 1;
 	if (newIndex === 4) newIndex = 0; // couroselItems.length
@@ -10,29 +8,29 @@ const moveToNextItem = (state) => {
 };
 
 const moveToFirstItem = () => ({
-  index: 0,
-  isTimerEnabled: false,
-})
+	index: 0,
+	isTimerEnabled: false,
+});
 
 const moveToSecondItem = () => ({
-  index: 1,
-  isTimerEnabled: false,
-})
+	index: 1,
+	isTimerEnabled: false,
+});
 
 const moveToThirdItem = () => ({
-  index: 2,
-  isTimerEnabled: false,
-})
+	index: 2,
+	isTimerEnabled: false,
+});
 
 const moveToForthItem = () => ({
-  index: 3,
-  isTimerEnabled: false,
-})
+	index: 3,
+	isTimerEnabled: false,
+});
 
 export {
-  moveToNextItem,
-  moveToFirstItem,
-  moveToSecondItem,
-  moveToThirdItem,
-  moveToForthItem
-}
+	moveToNextItem,
+	moveToFirstItem,
+	moveToSecondItem,
+	moveToThirdItem,
+	moveToForthItem,
+};

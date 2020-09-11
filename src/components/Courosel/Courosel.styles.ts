@@ -24,7 +24,9 @@ interface CouroselContentContainerProps {
 	height: string;
 }
 
-const CouroselContentContainer = styled(animated.section)<CouroselContentContainerProps>`
+const CouroselContentContainer = styled(animated.section)<
+	CouroselContentContainerProps
+>`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -35,47 +37,47 @@ const CouroselContentContainer = styled(animated.section)<CouroselContentContain
 `;
 
 interface CouroselTextProps {
-  name: string;
+	name: string;
 }
 
 const CouroselTitle = styled(animated.h1)<CouroselTextProps>`
-  margin: 0;
-  padding: 0;
-  color: white;
+	margin: 0;
+	padding: 0;
+	color: white;
 	font-size: 3rem;
 	font-weight: 700;
 	text-align: center;
 
-  &:hover {
-    cursor: pointer;
-  }
+	&:hover {
+		cursor: pointer;
+	}
 `;
 
 const CouroselSubtitle = styled(animated.h2)<CouroselTextProps>`
 	margin: 0 2rem;
-  padding: 0;
+	padding: 0;
 	color: white;
 	font-size: 2.5rem;
 	font-weight: 700;
 	text-align: center;
 
-  &:hover {
-    cursor: pointer;
-  }
+	&:hover {
+		cursor: pointer;
+	}
 `;
 
 const couroselContentHeight = '170px';
 
 const CouroselContent = styled(animated.div)<CouroselTextProps>`
 	display: flex;
-  align-items: center;
+	align-items: center;
 	color: white;
 	font-size: 2.5rem;
 	border: 1px solid white;
 	width: 15rem;
 	font-weight: 700;
 	border-radius: 20px;
-  height: ${couroselContentHeight};
+	height: ${couroselContentHeight};
 
 	&:hover {
 		cursor: pointer;
@@ -83,19 +85,19 @@ const CouroselContent = styled(animated.div)<CouroselTextProps>`
 `;
 
 const CouroselContentText = styled(animated.div)<CouroselTextProps>`
-  padding: 0 8px 6px 8px;
-  vertical-align: middle;
-  text-align: center;
-  font-size: 2.5rem;
-  z-index: 2;
+	padding: 0 8px 6px 8px;
+	vertical-align: middle;
+	text-align: center;
+	font-size: 2.5rem;
+	z-index: 2;
 `;
 
 const CouroselContentFiller = styled(animated.div)<CouroselTextProps>`
-  position: absolute;
-  height: 100%;
-  background: #b0b0b0;
-  border-radius: 20px;
-  height: ${couroselContentHeight};
+	position: absolute;
+	height: 100%;
+	background: #b0b0b0;
+	border-radius: 20px;
+	height: ${couroselContentHeight};
 `;
 
 const CouroselInputsWrapper = styled.div<CouroselInputsWrapperProps>`
@@ -156,9 +158,9 @@ export {
 	CouroselContainer,
 	CouroselTitle,
 	CouroselSubtitle,
-  CouroselContent,
-  CouroselContentFiller,
-  CouroselContentText,
+	CouroselContent,
+	CouroselContentFiller,
+	CouroselContentText,
 	CouroselContentContainer,
 	CouroselContentWrapper,
 	CouroselInputsWrapper,

@@ -9,8 +9,8 @@ const Icon = ({
 	padding = '0.625rem',
 	margin = '0',
 	border = '1px solid black',
-  color = 'black',
-  zIndex = 1
+	color = 'black',
+	zIndex = 1,
 }) => {
 	return (
 		<Wrapper
@@ -19,8 +19,8 @@ const Icon = ({
 			height={height}
 			padding={padding}
 			margin={margin}
-      border={border}
-      zIndex={zIndex}
+			border={border}
+			zIndex={zIndex}
 		>
 			<Svg as={svg} width={width} height={height} color={color} />
 		</Wrapper>

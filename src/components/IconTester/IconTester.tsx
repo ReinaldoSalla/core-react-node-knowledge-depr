@@ -5,8 +5,8 @@ Conclusions
 */
 
 import React, { Fragment } from 'react';
-import { ReactComponent as SidebarTmpSvg } from '../../assets/icons/sidebar.svg';
 import styled from 'styled-components';
+import { ReactComponent as SidebarTmpSvg } from '../../assets/icons/sidebar.svg';
 
 interface WrapperProps {
 	height: string;
@@ -50,22 +50,22 @@ const IconTester = ({
 };
 
 const App = () => (
-	<Fragment>
+	<>
 		<IconTester
-			border={true}
+			border
 			wrapperHeight="3rem"
 			wrapperWidth="3rem"
 			svgHeight="3rem"
 			svgWidth="3rem"
 		/>
 		<IconTester
-			border={true}
+			border
 			wrapperHeight="3rem"
 			wrapperWidth="3rem"
 			svgHeight="2rem"
 			svgWidth="2rem"
 		/>
-	</Fragment>
+	</>
 );
 
 export default App;

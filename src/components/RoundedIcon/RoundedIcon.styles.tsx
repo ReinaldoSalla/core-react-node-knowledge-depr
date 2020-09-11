@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import { IoLogoJavascript } from 'react-icons/io';
-import { GiShieldEchoes } from 'react-icons/gi';
+import { GiShieldEchoes, GiSmartphone } from 'react-icons/gi';
 import { FaReact, FaRobot } from 'react-icons/fa';
 import { BsServer, BsLayoutTextSidebar } from 'react-icons/bs';
-import { GiSmartphone } from 'react-icons/gi';
-import { CustomIconProps, IconContainerProps } from './RoundedIcon.interfaces';
+
 import { animated } from 'react-spring';
+import { CustomIconProps, IconContainerProps } from './RoundedIcon.interfaces';
 
 const IconContainer = styled.div<IconContainerProps>`
 	display: flex;

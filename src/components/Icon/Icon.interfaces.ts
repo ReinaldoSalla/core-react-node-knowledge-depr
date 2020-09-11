@@ -1,10 +1,10 @@
 interface WrapperProps {
-  padding: string;
-  margin: string;
-  height: string;
-  width: string;
-  border: string;
-  zIndex: number;
+	padding: string;
+	margin: string;
+	height: string;
+	width: string;
+	border: string;
+	zIndex: number;
 }
 
 interface SvgProps {

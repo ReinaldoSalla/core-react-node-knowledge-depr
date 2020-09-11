@@ -10,22 +10,22 @@ import Footer from '../../components/Footer';
 import routesConfig from '../../routes/routes-config';
 
 const Universal = () => {
-  const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>(false);
+	const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>(false);
 	const toggleSidebar = () => setIsSidebarVisible(!isSidebarVisible);
 	return (
-		<Fragment>
-      <Topbar 
-        isSidebarVisible={isSidebarVisible} 
-        toggleSidebar={toggleSidebar} 
-      />
-      <main>
-        <Sidebar isSidebarVisible={isSidebarVisible} />
-        {routesConfig.map((route: any, index) => (
-          <RouteParser key={index} {...route} />
-        ))}        
-      </main>
+		<>
+			<Topbar
+				isSidebarVisible={isSidebarVisible}
+				toggleSidebar={toggleSidebar}
+			/>
+			<main>
+				<Sidebar isSidebarVisible={isSidebarVisible} />
+				{routesConfig.map((route: any, index) => (
+					<RouteParser key={index} {...route} />
+				))}
+			</main>
 			<Footer />
-		</Fragment>
+		</>
 	);
 };
 

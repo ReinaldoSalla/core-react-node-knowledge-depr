@@ -35,17 +35,21 @@ const TopbarItemCSS = css`
 	}
 `;
 
-const TopbarItemContainer = styled.button`${TopbarItemCSS}`;
+const TopbarItemContainer = styled.button`
+	${TopbarItemCSS}
+`;
 
-const TopbarLink = styled(Link)`${TopbarItemCSS}`;
+const TopbarLink = styled(Link)`
+	${TopbarItemCSS}
+`;
 
 const TopbarText = styled.span`
 	font-size: 1.25rem;
 	color: white;
-  z-index: 2;
-  margin: 0;
-  padding: 0;
-  font-weight: 500;
+	z-index: 2;
+	margin: 0;
+	padding: 0;
+	font-weight: 500;
 `;
 
 const TopbarFillerWrapper = styled.div`
@@ -57,11 +61,11 @@ const TopbarFillerWrapper = styled.div`
 `;
 
 const TopbarItemFiller = styled(animated.div)`
-  position: fixed;
-  height: 80px;
-  width: 0%;
-  background: #e01818;
-  z-index: 1;
+	position: fixed;
+	height: 80px;
+	width: 0%;
+	background: #e01818;
+	z-index: 1;
 `;
 
 export {
@@ -70,6 +74,6 @@ export {
 	TopbarItemContainer,
 	TopbarLink,
 	TopbarText,
-  TopbarFillerWrapper,
-  TopbarItemFiller
+	TopbarFillerWrapper,
+	TopbarItemFiller,
 };

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { WrapperProps, SvgProps } from './Icon.interfaces';
 import { animated } from 'react-spring';
+import { WrapperProps, SvgProps } from './Icon.interfaces';
 
 const Wrapper = styled(animated.div)<WrapperProps>`
 	display: flex;
@@ -11,7 +11,7 @@ const Wrapper = styled(animated.div)<WrapperProps>`
 	height: ${(props) => props.height};
 	width: ${(props) => props.width};
 	border: ${(props) => props.border};
-  z-index: ${props => props.zIndex};
+	z-index: ${(props) => props.zIndex};
 	border-radius: 50%;
 `;
 

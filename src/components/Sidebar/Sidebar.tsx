@@ -1,4 +1,6 @@
 import React, { Fragment, FunctionComponent, useState } from 'react';
+import { useSpring } from 'react-spring';
+import { Scrollbars } from 'react-custom-scrollbars';
 import {
 	SidebarTextContainer,
 	SidebarTitleContainer,
@@ -9,8 +11,6 @@ import {
 	SidebarItemProps,
 	SidebarProps,
 } from './Sidebar.interfaces';
-import { useSpring } from 'react-spring';
-import { Scrollbars } from 'react-custom-scrollbars';
 import useResize from '../../utils/useResize';
 import contents from '../../data/contents';
 
@@ -35,7 +35,7 @@ const SidebarItems: FunctionComponent<SidebarItemsProps> = ({
 	items,
 	firstTitle,
 }): JSX.Element => (
-	<Fragment>
+	<>
 		{firstTitle ? (
 			<SidebarTitleContainer firstTitle>{title}</SidebarTitleContainer>
 		) : (
@@ -44,7 +44,7 @@ const SidebarItems: FunctionComponent<SidebarItemsProps> = ({
 		{items.map((item, index) => (
 			<SidebarItem key={index} item={item} />
 		))}
-	</Fragment>
+	</>
 );
 
 const Sidebar: FunctionComponent<SidebarProps> = ({ isSidebarVisible }) => {
@@ -87,7 +87,7 @@ const Sidebar: FunctionComponent<SidebarProps> = ({ isSidebarVisible }) => {
 				onMouseLeave={handleMouseLeave}
 			>
 				<SidebarItems
-					firstTitle={true}
+					firstTitle
 					title={contents.javascript.title}
 					items={contents.javascript.items}
 				/>

@@ -3,7 +3,6 @@ const topics = {
 		title: 'JavaScript',
 		description: 'Curated tutorials, emphasizing on ES6+ features',
 		contents: [
-
 			{
 				title: 'Functions',
 				description:

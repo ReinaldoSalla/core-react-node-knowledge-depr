@@ -30,11 +30,11 @@ const routesConfig = [
 	{
 		path: '/reduce',
 		component: BaseContentPage,
-  },
-  {
-    path: '/rendering',
-    component: BaseContentPage
-  },
+	},
+	{
+		path: '/rendering',
+		component: BaseContentPage,
+	},
 	{
 		path: '/legal',
 		component: BaseFooterPage,

@@ -12,13 +12,13 @@ declare const document: Document;
 const getValidBrowser = (): [string, boolean] => {
 	if (typeof document.hidden === 'boolean')
 		return ['visibilitychange', document.hidden];
-	else if (typeof document.webkitHidden === 'boolean')
+	if (typeof document.webkitHidden === 'boolean')
 		return ['webkitvisibilitychange', document.webkitHidden];
-	else if (typeof document.mozHidden === 'boolean')
+	if (typeof document.mozHidden === 'boolean')
 		return ['mozvisibilitychange', document.mozHidden];
-	else if (typeof document.msHidden === 'boolean')
+	if (typeof document.msHidden === 'boolean')
 		return ['msvisibilitychange', document.msHidden];
-	else return ['visibilitychange', false];
+	return ['visibilitychange', false];
 };
 
 const useDocumentVisibility = () => {
@@ -27,13 +27,12 @@ const useDocumentVisibility = () => {
 		window.addEventListener(getValidBrowser()[0], () =>
 			setIsVisible(!getValidBrowser()[1])
 		);
-		return () => (
+		return () =>
 			window.removeEventListener(getValidBrowser()[0], () =>
 				setIsVisible(!getValidBrowser()[1])
-      )
-    );
+			);
 	}, []);
-  return isVisible;
+	return isVisible;
 };
 
 export default useDocumentVisibility;

@@ -1,8 +1,8 @@
 import React, { useReducer, useCallback, useEffect } from 'react';
+import { Route } from 'react-router-dom';
 import Courosel from '../../components/Courosel';
 import Categories from '../../components/Categories';
 import Video from '../../components/Video';
-import { Route } from 'react-router-dom';
 import homePageReducer from './HomePage.reducer';
 import { ACTIONS } from './HomePage.constants';
 import useResize from '../../utils/useResize';

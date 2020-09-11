@@ -41,7 +41,7 @@ const contents: Contents = {
 			'Animation',
 			'Graphics',
 			'Videos',
-			//timers
+			// timers
 		],
 	},
 	backend: {

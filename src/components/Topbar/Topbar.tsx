@@ -1,16 +1,16 @@
 import React, { useEffect, useState, FunctionComponent } from 'react';
+import { useSpring } from 'react-spring';
+import { useLocation } from 'react-router-dom';
 import {
 	TopbarContainer,
 	TopbarInnerWrapper,
 	TopbarItemContainer,
 	TopbarLink,
 	TopbarText,
-  TopbarFillerWrapper,
-  TopbarItemFiller
+	TopbarFillerWrapper,
+	TopbarItemFiller,
 } from './Topbar.styles';
-import { useSpring } from 'react-spring';
 import { TopbarProps, TopbarSidebarProps } from './Topbar.interfaces';
-import { useLocation } from 'react-router-dom';
 import { ReactComponent as SidebarSvg } from '../../assets/icons/sidebar.svg';
 import { ReactComponent as JavaScriptSvg } from '../../assets/icons/javascript.svg';
 import { ReactComponent as SearchSvg } from '../../assets/icons/search.svg';
@@ -19,9 +19,9 @@ import Icon from '../Icon';
 
 const TopbarSidebar: FunctionComponent<TopbarSidebarProps> = ({
 	isSidebarVisible,
-  toggleSidebar,
+	toggleSidebar,
 }): JSX.Element => {
-  const [isHovering, setIsHovering] = useState<boolean>(false);
+	const [isHovering, setIsHovering] = useState<boolean>(false);
 	const iconAnimation = useSpring({
 		from: { transform: 'rotate(0deg)' },
 		to: async (next) => {
@@ -29,23 +29,23 @@ const TopbarSidebar: FunctionComponent<TopbarSidebarProps> = ({
 				transform: isSidebarVisible ? 'rotate(180deg)' : 'rotate(0deg)',
 			});
 		},
-  });
-  const hoverAnimation = useSpring({
-    from: {
-      width: '0%'
-    },
-    to: async (next) => {
-      await next({
-        width: isHovering ? '25%' : '0%'
-      });
-    }
-  });
+	});
+	const hoverAnimation = useSpring({
+		from: {
+			width: '0%',
+		},
+		to: async (next) => {
+			await next({
+				width: isHovering ? '25%' : '0%',
+			});
+		},
+	});
 	return (
-    <TopbarItemContainer 
-      onClick={toggleSidebar}
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
-    >
+		<TopbarItemContainer
+			onClick={toggleSidebar}
+			onMouseEnter={() => setIsHovering(true)}
+			onMouseLeave={() => setIsHovering(false)}
+		>
 			<TopbarFillerWrapper>
 				<Icon
 					style={iconAnimation}
@@ -54,28 +54,28 @@ const TopbarSidebar: FunctionComponent<TopbarSidebarProps> = ({
 					width="2rem"
 					height="2rem"
 					padding="0"
-          border="none"
-          zIndex={2}
+					border="none"
+					zIndex={2}
 				/>
 			</TopbarFillerWrapper>
 			<TopbarText> Contents </TopbarText>
-      <TopbarItemFiller style={hoverAnimation}/>
+			<TopbarItemFiller style={hoverAnimation} />
 		</TopbarItemContainer>
 	);
 };
 
 const TopbarHome: FunctionComponent = () => {
-  const [isHovering, setIsHovering] = useState<boolean>(false);
-  const hoverAnimation = useSpring({
-    from: {
-      width: '0%'
-    },
-    to: async (next) => {
-      await next({
-        width: isHovering ? '25%' : '0%'
-      });
-    }
-  });
+	const [isHovering, setIsHovering] = useState<boolean>(false);
+	const hoverAnimation = useSpring({
+		from: {
+			width: '0%',
+		},
+		to: async (next) => {
+			await next({
+				width: isHovering ? '25%' : '0%',
+			});
+		},
+	});
 	const { pathname } = useLocation();
 	const onClick = () => {
 		pathname === '/'
@@ -83,123 +83,127 @@ const TopbarHome: FunctionComponent = () => {
 			: window.scrollTo(0, 0);
 	};
 	return (
-    <TopbarLink 
-      to='/'
-      onClick={onClick}
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
-    >
+		<TopbarLink
+			to="/"
+			onClick={onClick}
+			onMouseEnter={() => setIsHovering(true)}
+			onMouseLeave={() => setIsHovering(false)}
+		>
 			<Icon
 				svg={JavaScriptSvg}
 				color="white"
 				width="2.5rem"
 				height="2.5rem"
 				padding="0"
-        border="none"
-        zIndex={2}
+				border="none"
+				zIndex={2}
 			/>
 			<TopbarText> Home </TopbarText>
-      <TopbarItemFiller style={hoverAnimation} />
+			<TopbarItemFiller style={hoverAnimation} />
 		</TopbarLink>
 	);
 };
 
 const TopbarSearch = () => {
-  const [isHovering, setIsHovering] = useState<boolean>(false);
-  const hoverAnimation = useSpring({
-    from: {
-      width: '0%'
-    },
-    to: async (next) => {
-      await next({
-        width: isHovering ? '25%' : '0%'
-      });
-    }
-  });  
-  return (
-    <TopbarItemContainer onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
-      <Icon
-        svg={SearchSvg}
-        color="white"
-        width="2.5rem"
-        height="2.5rem"
-        padding="0"
-        border="none"
-        zIndex={2}
-      />
-      <TopbarText> Search </TopbarText>
-      <TopbarItemFiller style={hoverAnimation}/>
-    </TopbarItemContainer>
-  );
+	const [isHovering, setIsHovering] = useState<boolean>(false);
+	const hoverAnimation = useSpring({
+		from: {
+			width: '0%',
+		},
+		to: async (next) => {
+			await next({
+				width: isHovering ? '25%' : '0%',
+			});
+		},
+	});
+	return (
+		<TopbarItemContainer
+			onMouseEnter={() => setIsHovering(true)}
+			onMouseLeave={() => setIsHovering(false)}
+		>
+			<Icon
+				svg={SearchSvg}
+				color="white"
+				width="2.5rem"
+				height="2.5rem"
+				padding="0"
+				border="none"
+				zIndex={2}
+			/>
+			<TopbarText> Search </TopbarText>
+			<TopbarItemFiller style={hoverAnimation} />
+		</TopbarItemContainer>
+	);
 };
 
 const TopbarProfile = () => {
-  const [isHovering, setIsHovering] = useState<boolean>(false);
-  const hoverAnimation = useSpring({
-    from: {
-      width: '0%'
-    },
-    to: async (next) => {
-      await next({
-        width: isHovering ? '25%' : '0%'
-      });
-    }
-  });  
-  return (
-    <TopbarItemContainer
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
-    >
-      <TopbarFillerWrapper>
-        <Icon
-          svg={ProfileSvg}
-          color="white"
-          width="2rem"
-          height="2rem"
-          padding="0"
-          border="none"
-          zIndex={2}
-        />
-      </TopbarFillerWrapper>
-      <TopbarText> Profile </TopbarText>
-      <TopbarItemFiller style={hoverAnimation}/>
-    </TopbarItemContainer>
-  )
-}
+	const [isHovering, setIsHovering] = useState<boolean>(false);
+	const hoverAnimation = useSpring({
+		from: {
+			width: '0%',
+		},
+		to: async (next) => {
+			await next({
+				width: isHovering ? '25%' : '0%',
+			});
+		},
+	});
+	return (
+		<TopbarItemContainer
+			onMouseEnter={() => setIsHovering(true)}
+			onMouseLeave={() => setIsHovering(false)}
+		>
+			<TopbarFillerWrapper>
+				<Icon
+					svg={ProfileSvg}
+					color="white"
+					width="2rem"
+					height="2rem"
+					padding="0"
+					border="none"
+					zIndex={2}
+				/>
+			</TopbarFillerWrapper>
+			<TopbarText> Profile </TopbarText>
+			<TopbarItemFiller style={hoverAnimation} />
+		</TopbarItemContainer>
+	);
+};
 
 const Topbar: FunctionComponent<TopbarProps> = ({
 	isSidebarVisible,
 	toggleSidebar,
 }): JSX.Element => {
-  const [isInTop, setIsInTop] = useState<boolean>(window.pageYOffset <= 50);
-  const { pathname } = useLocation();
+	const [isInTop, setIsInTop] = useState<boolean>(window.pageYOffset <= 50);
+	const { pathname } = useLocation();
 
-  
 	useEffect(() => {
-    const onScroll = () => {
-      setIsInTop(window.pageYOffset <= 50);
-    };
+		const onScroll = () => {
+			setIsInTop(window.pageYOffset <= 50);
+		};
 		window.addEventListener('scroll', onScroll);
 		return () => window.addEventListener('scroll', onScroll);
 	});
 
 	const animation = useSpring({
 		height: isInTop ? '0px' : '80px',
-  });
-  
+	});
+
 	return (
-    <header>
-      <TopbarContainer>
-        <TopbarSidebar
-          isSidebarVisible={isSidebarVisible}
-          toggleSidebar={toggleSidebar}
-        />
-        <TopbarHome />
-        <TopbarSearch />
-        <TopbarProfile />
-        <TopbarInnerWrapper style={pathname === '/' ? animation : {height: '80px'}} />
-      </TopbarContainer>
-    </header>
+		<header>
+			<TopbarContainer>
+				<TopbarSidebar
+					isSidebarVisible={isSidebarVisible}
+					toggleSidebar={toggleSidebar}
+				/>
+				<TopbarHome />
+				<TopbarSearch />
+				<TopbarProfile />
+				<TopbarInnerWrapper
+					style={pathname === '/' ? animation : { height: '80px' }}
+				/>
+			</TopbarContainer>
+		</header>
 	);
 };
 

@@ -49,11 +49,7 @@ const processNonPrimitive = (
 	console.log(varValue);
 };
 
-const inspect = (
-	obj: object,
-	convertDot: boolean = true,
-	convertIndex: boolean = true
-): void => {
+const inspect = (obj: object, convertDot = true, convertIndex = true): void => {
 	console.log('\n'.repeat(5));
 	Object.entries(obj).forEach(([varName, varValue]) => {
 		if (varName.includes('Dot') && convertDot)
@@ -73,8 +69,8 @@ const inspect = (
 
 const addZeros = (number: number): string => {
 	if (number < 10) return `00${number}`;
-	else if (number < 100) return `0${number}`;
-	else return `${number}`;
+	if (number < 100) return `0${number}`;
+	return `${number}`;
 };
 
 const inspectError = (err: ArbitraryObject): void => {
@@ -93,7 +89,7 @@ const inspectError = (err: ArbitraryObject): void => {
 
 const inspectBreakpoint = (reference: string | null = null): void => {
 	console.log('\n'.repeat(5));
-	console.log(`reached ${reference ? reference : ''}`);
+	console.log(`reached ${reference || ''}`);
 	console.log('\n'.repeat(5));
 };
 

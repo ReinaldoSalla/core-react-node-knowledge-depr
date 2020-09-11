@@ -1,18 +1,13 @@
-import React, {
-	useEffect,
-	useReducer,
-	useState,
-	Fragment,
-} from 'react';
+import React, { useEffect, useReducer, useState, Fragment } from 'react';
 import { useTransition, useSpring } from 'react-spring';
 import {
 	CouroselContainer,
 	CouroselTitle,
 	CouroselSubtitle,
-  CouroselContent,
-  CouroselContentText,
-  CouroselContentFiller,
-  CouroselContentWrapper,
+	CouroselContent,
+	CouroselContentText,
+	CouroselContentFiller,
+	CouroselContentWrapper,
 	CouroselContentContainer,
 	CouroselInputsWrapper,
 	CouroselInputsContainer,
@@ -66,67 +61,65 @@ const texts = [
 ];
 
 const CouroselItem = ({
-  style,
-  height,
+	style,
+	height,
 	name,
 	title,
 	subtitle,
 	content,
 	handleClick,
 }) => {
-  const [isHovering, setIsHovering] = useState(false);
+	const [isHovering, setIsHovering] = useState(false);
 
-  const handleEnter = () => {
-    setIsHovering(true);
-  };
+	const handleEnter = () => {
+		setIsHovering(true);
+	};
 
-  const handleLeave = () => {
-    setIsHovering(false);
-  };
+	const handleLeave = () => {
+		setIsHovering(false);
+	};
 
-  const springProps = useSpring({
-    textShadow: isHovering 
-      ? '1px 1px 2px white, 0 0 1em white, 0 0 0.2em white' 
-      : '0px 0px 0px white, 0 0 0em white, 0 0 0em   white'
-  });
+	const springProps = useSpring({
+		textShadow: isHovering
+			? '1px 1px 2px white, 0 0 1em white, 0 0 0.2em white'
+			: '0px 0px 0px white, 0 0 0em white, 0 0 0em   white',
+	});
 
-  const springInnerProps = useSpring({
-    opacity: isHovering ? 0.8 : 0,
-    width: isHovering ? '15rem' : '0rem'
-  });
+	const springInnerProps = useSpring({
+		opacity: isHovering ? 0.8 : 0,
+		width: isHovering ? '15rem' : '0rem',
+	});
 
 	return (
 		<CouroselContentWrapper>
 			<CouroselContentContainer style={style} height={`${height - 80 - 100}px`}>
 				<CouroselTitle
-          name={name}
-          onClick={handleClick}
-          onMouseEnter={handleEnter}
-          onMouseLeave={handleLeave}
-          style={springProps}
-        >
-          {title}
-        </CouroselTitle>
+					name={name}
+					onClick={handleClick}
+					onMouseEnter={handleEnter}
+					onMouseLeave={handleLeave}
+					style={springProps}
+				>
+					{title}
+				</CouroselTitle>
 				<CouroselSubtitle
-          name={name}
-          onClick={handleClick}
-          onMouseEnter={handleEnter}
-          onMouseLeave={handleLeave}
-          style={springProps}
-        >
-          {subtitle}
-        </CouroselSubtitle>
-        <CouroselContent 
-          name={name} 
-          onClick={handleClick}
-          onMouseEnter={handleEnter}
-          onMouseLeave={handleLeave}
-          style={springProps}
-        >
-          <CouroselContentText name={name} >
-            {content}
-          </CouroselContentText>
-          <CouroselContentFiller name={name} style={springInnerProps} />
+					name={name}
+					onClick={handleClick}
+					onMouseEnter={handleEnter}
+					onMouseLeave={handleLeave}
+					style={springProps}
+				>
+					{subtitle}
+				</CouroselSubtitle>
+				<CouroselContent
+					name={name}
+					onClick={handleClick}
+					onMouseEnter={handleEnter}
+					onMouseLeave={handleLeave}
+					style={springProps}
+				>
+					<CouroselContentText name={name}>{content}</CouroselContentText>
+					<CouroselContentFiller name={name} style={springInnerProps} />
 				</CouroselContent>
 			</CouroselContentContainer>
 		</CouroselContentWrapper>
@@ -136,8 +129,8 @@ const CouroselItem = ({
 const couroselItems = texts.map(({ name, title, subtitle, content }) => {
 	return ({ style, height, handleClick }) => (
 		<CouroselItem
-      style={style}
-      height={height}
+			style={style}
+			height={height}
 			name={name}
 			title={title}
 			subtitle={subtitle}
@@ -183,24 +176,21 @@ const Courosel = ({ handleClick }) => {
 	const isDocumentVisible: boolean = useDocumentVisibility();
 	const { height } = useResize();
 
-	const handleFirstItem = () => (
-    dispatch({ type: ACTION_TYPES.MOVE_TO_FIRST_ITEM })
-  );
+	const handleFirstItem = () =>
+		dispatch({ type: ACTION_TYPES.MOVE_TO_FIRST_ITEM });
 
-	const handleSecondItem = () => (
-    dispatch({ type: ACTION_TYPES.MOVE_TO_SECOND_ITEM })
-  );
+	const handleSecondItem = () =>
+		dispatch({ type: ACTION_TYPES.MOVE_TO_SECOND_ITEM });
 
-	const handleThirdItem = () => (
-    dispatch({ type: ACTION_TYPES.MOVE_TO_THIRD_ITEM })
-  );
+	const handleThirdItem = () =>
+		dispatch({ type: ACTION_TYPES.MOVE_TO_THIRD_ITEM });
 
-	const handleForthItem = () => (
-    dispatch({ type: ACTION_TYPES.MOVE_TO_FORTH_ITEM })
-  );
+	const handleForthItem = () =>
+		dispatch({ type: ACTION_TYPES.MOVE_TO_FORTH_ITEM });
 
 	useEffect(() => {
-    const handleNextItem = 	() => dispatch({ type: ACTION_TYPES.MOVE_TO_NEXT_ITEM });
+		const handleNextItem = () =>
+			dispatch({ type: ACTION_TYPES.MOVE_TO_NEXT_ITEM });
 
 		if (isDocumentVisible) {
 			const intervalId = setInterval(() => {
@@ -239,18 +229,18 @@ const Courosel = ({ handleClick }) => {
 	});
 
 	return (
-		<Fragment>
+		<>
 			<CouroselContainer height={`${height}px`}>
 				{transition.map(({ item, props, key }) => {
 					const Page = couroselItems[item];
 					return (
-            <Page 
-              key={key} 
-              style={props} 
-              height={height}
-              handleClick={handleClick} 
-            />
-          );
+						<Page
+							key={key}
+							style={props}
+							height={height}
+							handleClick={handleClick}
+						/>
+					);
 				})}
 				<CouroselInputsWrapper paddingTop={`${height - 80 - 10}px`}>
 					<CouroselInputsContainer>
@@ -295,7 +285,7 @@ const Courosel = ({ handleClick }) => {
 					</CouroselInputsContainer>
 				</CouroselInputsWrapper>
 			</CouroselContainer>
-		</Fragment>
+		</>
 	);
 };
 
