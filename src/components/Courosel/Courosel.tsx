@@ -42,20 +42,20 @@ const texts = [
 	{
 		name: 'typescript',
 		title: titleGenerator('TypeScript'),
-		subtitle: 'Covering types, interfaces, generics and decorators',
+		subtitle: 'Types, interfaces, generics and decorators',
 		content: contentGenerator('TypeScript'),
 	},
 	{
 		name: 'react',
 		title: titleGenerator('React'),
-		subtitle: 'Concepts from the core library and from third party libraries',
+		subtitle: 'Covering the core library and third party modules',
 		content: contentGenerator('React'),
 	},
 	{
 		name: 'graphql',
 		title: titleGenerator('GraphQL'),
 		subtitle:
-			'Modern APIs with GraphQL, plus integration with databases and authentication systems',
+			'Modern APIs with GraphQL',
 		content: contentGenerator('GraphQL'),
 	},
 ];

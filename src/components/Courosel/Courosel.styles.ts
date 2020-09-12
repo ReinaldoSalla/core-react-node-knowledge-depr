@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { animated } from 'react-spring';
 import {
 	CouroselContainerProps,
@@ -48,6 +48,10 @@ const CouroselTitle = styled(animated.h1)<CouroselTextProps>`
 	font-weight: 700;
 	text-align: center;
 
+  ${(props) => props.theme.breakpoints.small} {
+    font-size: 2.5rem;
+  }
+
 	&:hover {
 		cursor: pointer;
 	}
@@ -61,12 +65,18 @@ const CouroselSubtitle = styled(animated.h2)<CouroselTextProps>`
 	font-weight: 700;
 	text-align: center;
 
+  ${(props) => props.theme.breakpoints.small} {
+    font-size: 2rem;
+  }
+
 	&:hover {
 		cursor: pointer;
 	}
 `;
 
-const couroselContentHeight = '170px';
+const couroselContentHeight = css`
+  height: 170px;
+`
 
 const CouroselContent = styled(animated.div)<CouroselTextProps>`
 	display: flex;
@@ -77,7 +87,7 @@ const CouroselContent = styled(animated.div)<CouroselTextProps>`
 	width: 15rem;
 	font-weight: 700;
 	border-radius: 20px;
-	height: ${couroselContentHeight};
+  ${couroselContentHeight}
 
 	&:hover {
 		cursor: pointer;
@@ -85,11 +95,16 @@ const CouroselContent = styled(animated.div)<CouroselTextProps>`
 `;
 
 const CouroselContentText = styled(animated.div)<CouroselTextProps>`
-	padding: 0 8px 6px 8px;
+	/* padding: 0 8px 6px 8px; */
+  margin: 0 8px 6px 8px;
 	vertical-align: middle;
 	text-align: center;
 	font-size: 2.5rem;
 	z-index: 2;
+
+  ${(props) => props.theme.breakpoints.small} {
+    font-size: 2rem;
+  }
 `;
 
 const CouroselContentFiller = styled(animated.div)<CouroselTextProps>`
@@ -97,7 +112,7 @@ const CouroselContentFiller = styled(animated.div)<CouroselTextProps>`
 	height: 100%;
 	background: #b0b0b0;
 	border-radius: 20px;
-	height: ${couroselContentHeight};
+	${couroselContentHeight}
 `;
 
 const CouroselInputsWrapper = styled.div<CouroselInputsWrapperProps>`

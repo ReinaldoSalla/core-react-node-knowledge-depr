@@ -20,7 +20,7 @@ const TopbarInnerWrapper = styled(animated.div)`
 	z-index: 1;
 `;
 
-const TopbarItemCSS = css`
+const topbarItem = css`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -36,11 +36,11 @@ const TopbarItemCSS = css`
 `;
 
 const TopbarItemContainer = styled.button`
-	${TopbarItemCSS}
+	${topbarItem}
 `;
 
 const TopbarLink = styled(Link)`
-	${TopbarItemCSS}
+	${topbarItem}
 `;
 
 const TopbarText = styled.span`
