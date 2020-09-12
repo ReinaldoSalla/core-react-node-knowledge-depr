@@ -74,20 +74,16 @@ const CouroselSubtitle = styled(animated.h2)<CouroselTextProps>`
 	}
 `;
 
-const couroselContentHeight = css`
-  height: 170px;
-`;
-
 const CouroselContent = styled(animated.div)<CouroselTextProps>`
+	width: 190px;
+  height: 170px;
 	display: flex;
 	align-items: center;
 	color: white;
 	font-size: 2.5rem;
 	border: 1px solid white;
-	width: 190px;
 	font-weight: 700;
 	border-radius: 20px;
-  height: 170px;
 
 	&:hover {
 		cursor: pointer;
@@ -107,16 +103,19 @@ const CouroselContentText = styled(animated.div)<CouroselTextProps>`
 
   ${(props) => props.theme.breakpoints.small} {
     font-size: 1.5rem;
-    margin: 0 32px 6px 32px;
+    /* margin: 0 32px 6px 32px; */
   }
 `;
 
 const CouroselContentFiller = styled(animated.div)<CouroselTextProps>`
 	position: absolute;
-	height: 100%;
 	background: #b0b0b0;
 	border-radius: 20px;
-	${couroselContentHeight}
+  height: 170px;
+
+  ${(props) => props.theme.breakpoints.small} {
+    height: 120px;
+  }  
 `;
 
 const CouroselInputsWrapper = styled.div<CouroselInputsWrapperProps>`

@@ -87,7 +87,7 @@ const CouroselItem = ({
 
 	const springInnerProps = useSpring({
 		opacity: isHovering ? 0.8 : 0,
-		width: isHovering ? '15rem' : '0rem',
+		width: isHovering ? '190px' : '0px',
 	});
 
 	return (
