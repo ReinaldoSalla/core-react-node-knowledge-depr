@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import debounce from 'lodash.debounce';
+import throttle from 'lodash.throttle';
 
 interface UseResize {
 	width: number;
@@ -11,13 +11,13 @@ const useResize = (): UseResize => {
 	const [height, setHeight] = useState<number>(window.innerHeight);
 
 	useEffect(() => {
-		const handleResize = debounce(() => {
+		const handleResize = throttle(() => {
 			setHeight(window.innerHeight);
 			setWidth(window.innerWidth);
 		}, 100);
 		window.addEventListener('resize', handleResize);
 		return () => window.removeEventListener('resize', handleResize);
-	}, [width, height]);
+	}, [height]);
   return { width, height };
 };
 
