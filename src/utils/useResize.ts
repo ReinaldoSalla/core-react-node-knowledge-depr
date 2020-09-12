@@ -18,7 +18,7 @@ const useResize = (): UseResize => {
 		window.addEventListener('resize', handleResize);
 		return () => window.removeEventListener('resize', handleResize);
 	}, [width, height]);
-	return { width, height };
+  return { width, height };
 };
 
 export default useResize;

@@ -31,11 +31,20 @@ const GlobalStyle = createGlobalStyle`
     color: inherit;
     border: none;
   }
-
-  p {
-    /* margin: 0; */
-    /* padding: 0; */
-  }
 `;
 
-export default GlobalStyle;
+const generateMedia = (number: number): string => (
+  `@media only screen and (max-width: ${number}px)`
+);
+
+const globalTheme = {
+  breakpoints: {
+    small: generateMedia(576),
+    medium: generateMedia(768),
+    large: generateMedia(1024),
+    extraLarge: generateMedia(1200)
+  }
+};
+
+
+export { GlobalStyle, globalTheme };
