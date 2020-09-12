@@ -36,7 +36,7 @@ const texts = [
 	{
 		name: 'javascript',
 		title: titleGenerator('JavaScript'),
-		subtitle: 'From data processing to asyncronous programming',
+		subtitle: 'Data processing and asyncronous programming',
 		content: contentGenerator('JavaScript'),
 	},
 	{

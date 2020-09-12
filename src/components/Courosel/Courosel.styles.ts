@@ -41,7 +41,7 @@ interface CouroselTextProps {
 }
 
 const CouroselTitle = styled(animated.h1)<CouroselTextProps>`
-	margin: 0;
+	margin: 0 1rem;
 	padding: 0;
 	color: white;
 	font-size: 3rem;
@@ -76,7 +76,7 @@ const CouroselSubtitle = styled(animated.h2)<CouroselTextProps>`
 
 const couroselContentHeight = css`
   height: 170px;
-`
+`;
 
 const CouroselContent = styled(animated.div)<CouroselTextProps>`
 	display: flex;
@@ -84,26 +84,30 @@ const CouroselContent = styled(animated.div)<CouroselTextProps>`
 	color: white;
 	font-size: 2.5rem;
 	border: 1px solid white;
-	width: 15rem;
+	width: 190px;
 	font-weight: 700;
 	border-radius: 20px;
-  ${couroselContentHeight}
+  height: 170px;
 
 	&:hover {
 		cursor: pointer;
 	}
+
+  ${(props) => props.theme.breakpoints.small} {
+    height: 120px;
+  }
 `;
 
 const CouroselContentText = styled(animated.div)<CouroselTextProps>`
-	/* padding: 0 8px 6px 8px; */
   margin: 0 8px 6px 8px;
 	vertical-align: middle;
 	text-align: center;
-	font-size: 2.5rem;
+	font-size: 2rem;
 	z-index: 2;
 
   ${(props) => props.theme.breakpoints.small} {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    margin: 0 32px 6px 32px;
   }
 `;
 
