@@ -90,6 +90,7 @@ const CouroselContent = styled(animated.div)<CouroselTextProps>`
 	}
 
   ${(props) => props.theme.breakpoints.small} {
+    width: 140px;
     height: 120px;
   }
 `;
@@ -114,8 +115,20 @@ const CouroselContentFiller = styled(animated.div)<CouroselTextProps>`
   height: 170px;
 
   ${(props) => props.theme.breakpoints.small} {
-    height: 120px;
+    display: none;
   }  
+`;
+
+const CouroselContentFillerSmall = styled(animated.div)<CouroselTextProps>`
+  display: none;
+  position: absolute;
+  background: #b0b0b0;
+  border-radius: 20px;
+  height: 120px;
+
+  ${(props) => props.theme.breakpoints.small} {
+    display: block;
+  }
 `;
 
 const CouroselInputsWrapper = styled.div<CouroselInputsWrapperProps>`
@@ -177,7 +190,8 @@ export {
 	CouroselTitle,
 	CouroselSubtitle,
 	CouroselContent,
-	CouroselContentFiller,
+  CouroselContentFiller,
+  CouroselContentFillerSmall,
 	CouroselContentText,
 	CouroselContentContainer,
 	CouroselContentWrapper,

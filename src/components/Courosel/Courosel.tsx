@@ -6,7 +6,8 @@ import {
 	CouroselSubtitle,
 	CouroselContent,
 	CouroselContentText,
-	CouroselContentFiller,
+  CouroselContentFiller,
+  CouroselContentFillerSmall,
 	CouroselContentWrapper,
 	CouroselContentContainer,
 	CouroselInputsWrapper,
@@ -88,7 +89,12 @@ const CouroselItem = ({
 	const springInnerProps = useSpring({
 		opacity: isHovering ? 0.8 : 0,
 		width: isHovering ? '190px' : '0px',
-	});
+  });
+  
+  const springSmallProps = useSpring({
+    opacity: isHovering ? 0.8 : 0,
+    width: isHovering ? '140px' : '0px'
+  });
 
 	return (
 		<CouroselContentWrapper>
@@ -120,6 +126,7 @@ const CouroselItem = ({
 				>
 					<CouroselContentText name={name}>{content}</CouroselContentText>
 					<CouroselContentFiller name={name} style={springInnerProps} />
+          <CouroselContentFillerSmall name={name} style={springSmallProps} />
 				</CouroselContent>
 			</CouroselContentContainer>
 		</CouroselContentWrapper>
