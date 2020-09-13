@@ -25,13 +25,12 @@ const CategoriesContentsWrapper = styled.section`
 	margin: 3rem 3rem 0 3rem;
 	display: flex;
 	justify-content: space-evenly;
-	/* flex-wrap: wrap; */
-	flex-wrap: wrap;
-	/* border: 1px solid black; */
+  flex-wrap: wrap;
+  
+  ${(props) => props.theme.breakpoints.small} {
+    margin: 3rem 2rem 0 2rem;
+  }
 
-	/* @media (max-width: 600px) {
-    margin: 1rem 1rem 0 1rem;
-  }  */
 `;
 
 const CategoriesContentWrapper = styled(Link)`
@@ -40,7 +39,7 @@ const CategoriesContentWrapper = styled(Link)`
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-evenly;
-	height: 350px;
+	min-height: 350px;
 	width: 350px;
 	box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.1);
 	background: #f2f2f2;
@@ -49,7 +48,7 @@ const CategoriesContentWrapper = styled(Link)`
 	&:hover {
 		cursor: pointer;
 		transform: scale(1.1);
-	}
+  }
 `;
 
 const CategoriesEmpty = styled.div`
@@ -70,7 +69,11 @@ const CategoriesContentTitle = styled.h4`
 `;
 
 const CategoriesDescriptionWrapper = styled.div`
-	height: 60px;
+  min-height: 60px;
+
+  ${(props) => props.theme.breakpoints.extraSmall} {
+    margin-bottom: 20px;
+  }
 `;
 
 const CategoriesContentDescription = styled.p`

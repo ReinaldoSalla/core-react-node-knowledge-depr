@@ -6,7 +6,7 @@ const topics = {
 			{
 				title: 'Functions',
 				description:
-					'Using function declaration, function expression and the arrow function',
+					'Encapsulating code with function declaration and function expression',
 				path: '/functions',
 			},
 			{
