@@ -150,16 +150,22 @@ const CouroselInputsRow = styled.div`
 `;
 
 const CouroselInput = styled.div`
+  margin: 0 5px;
 	height: 30px;
 	min-width: 100px;
+	transition: transform 500ms;
 	border-radius: 5px;
 	border: 2px solid white;
-	transition: transform 500ms;
 
 	&:hover {
 		cursor: pointer;
 		transform: scale(1.2);
 	}
+
+  ${(props) => props.theme.breakpoints.small} {
+    height: 22px;
+    min-width: 70px;
+  }
 `;
 
 const CouroselInputInner = styled(animated.div)`
@@ -171,6 +177,11 @@ const CouroselInputText = styled(animated.span)`
 	font-size: 20px;
 	width: 100px;
 	text-align: center;
+
+  ${(props) => props.theme.breakpoints.small} {
+    width: 70px;
+    font-size: 14px;
+  }
 `;
 
 const CouroselTimerRow = styled.div`
