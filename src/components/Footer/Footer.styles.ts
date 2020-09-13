@@ -12,7 +12,7 @@ const FooterContentContainer = styled.div<FooterContainerProps>`
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-evenly;
-	background: #280808;
+  background: #280808;
 `;
 
 const FooterContentLink = styled(Link)`
@@ -22,7 +22,11 @@ const FooterContentLink = styled(Link)`
 	&:hover {
 		color: red;
 		cursor: pointer;
-	}
+  }
+  
+  ${(props) => props.theme.breakpoints.small} {
+    font-size: 24px;
+  }
 `;
 
 const FooterMsg = styled.span`
@@ -33,7 +37,11 @@ const FooterMsg = styled.span`
 
 	&.js-msg {
 		font-style: italic;
-	}
+  }
+  
+  ${(props) => props.theme.breakpoints.small} {
+    font-size: 24px;
+  }
 `;
 
 export { FooterContentContainer, FooterContentLink, FooterMsg };
