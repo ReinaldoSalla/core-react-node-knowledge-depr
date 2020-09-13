@@ -44,12 +44,16 @@ const TopbarLink = styled(Link)`
 `;
 
 const TopbarText = styled.span`
-	font-size: 1.25rem;
+	font-size: 20px;
 	color: white;
 	z-index: 2;
 	margin: 0;
 	padding: 0;
 	font-weight: 500;
+
+  ${(props) => props.theme.breakpoints.small} {
+    font-size: 16px;
+  }
 `;
 
 const TopbarFillerWrapper = styled.div`
