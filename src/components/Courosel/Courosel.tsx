@@ -17,7 +17,8 @@ import {
 	CouroselInputText,
 	CouroselInputInner,
 	CouroselTimerRow,
-	CouroselTimer,
+  CouroselTimer,
+  CouroselTimerMobile
 } from './Courosel.styles';
 import couroselReducer from './Courosel.reducer';
 import { ACTION_TYPES } from './Courosel.constants';
@@ -233,6 +234,13 @@ const Courosel = ({ handleClick }) => {
 		from: { width: 0, opacity: 0 },
 		to: { width: 95, opacity: 1 },
 		reset: true,
+  });
+  
+	const { widthMobile, opacityMobile }: any = useSpring({
+		config: { duration: ACTION_TYPES.DURATION + 100 },
+		from: { widthMobile: 0, opacityMobile: 0 },
+		to: { widthMobile: 90, opacityMobile: 1 },
+		reset: true,
 	});
 
 	return (
@@ -284,6 +292,16 @@ const Courosel = ({ handleClick }) => {
 										width < 16 ? 0 : `${width}%`
 									),
 									opacity: opacity.interpolate((opacity) =>
+										opacity < 0.16 ? 0 : opacity - 0.16
+									),
+								}}
+							/>
+							<CouroselTimerMobile
+								style={{
+									width: widthMobile.interpolate((width) =>
+										width < 16 ? 0 : `${width}%`
+									),
+									opacity: opacityMobile.interpolate((opacity) =>
 										opacity < 0.16 ? 0 : opacity - 0.16
 									),
 								}}

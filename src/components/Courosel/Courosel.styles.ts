@@ -138,10 +138,15 @@ const CouroselInputsWrapper = styled.div<CouroselInputsWrapperProps>`
 `;
 
 const CouroselInputsContainer = styled.div`
-	margin: 0 2rem;
+	margin: 0 32px;
 	width: 1200px;
 	display: flex;
 	flex-direction: column;
+  /* border: 1px solid red; */
+
+  ${(props) => props.theme.breakpoints.small} {
+    margin: 0 8px;
+  }
 `;
 
 const CouroselInputsRow = styled.div`
@@ -150,7 +155,7 @@ const CouroselInputsRow = styled.div`
 `;
 
 const CouroselInput = styled.div`
-  margin: 0 5px;
+  margin: 0 8px;
 	height: 30px;
 	min-width: 100px;
 	transition: transform 500ms;
@@ -193,7 +198,20 @@ const CouroselTimerRow = styled.div`
 const CouroselTimer = styled(animated.div)`
 	padding: 14px;
 	border-bottom: 3px solid white;
-	width: auto;
+
+  ${(props) => props.theme.breakpoints.small} {
+    display: none;
+  }
+`;
+
+const CouroselTimerMobile = styled(animated.div)`
+  display: none;
+	padding: 14px;
+	border-bottom: 3px solid white;
+
+  ${(props) => props.theme.breakpoints.small} {
+    display: block;
+  }
 `;
 
 export {
@@ -213,5 +231,6 @@ export {
 	CouroselInputText,
 	CouroselInputInner,
 	CouroselTimerRow,
-	CouroselTimer,
+  CouroselTimer,
+  CouroselTimerMobile
 };
