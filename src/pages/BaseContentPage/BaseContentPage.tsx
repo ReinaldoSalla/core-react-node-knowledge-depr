@@ -44,7 +44,7 @@ const BaseContentPage = () => {
 	return (
 		<Wrapper style={animation}>
 			<h1> React - Rendering </h1>
-			<h2>1. Setup</h2>
+			<h2>Setup</h2>
 			<Paragraph>
 				Note: if you already have a method for executing react programs, you may
 				skip the setup Concurrent Mode fixes this fundamental limitation by
@@ -55,7 +55,7 @@ const BaseContentPage = () => {
 				is finished, React updates the DOM, and changes are reflected on the
 				screen.
 			</Paragraph>
-			<h2>2. Calling promises in parallel</h2>
+			<h2>1. Calling promises in parallel</h2>
 			<Paragraph>
 				Concurrent Mode fixes this fundamental limitation by making rendering
 				interruptible. This means when the user presses another key, React

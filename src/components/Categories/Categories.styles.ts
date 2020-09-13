@@ -39,7 +39,7 @@ const CategoriesContentWrapper = styled(Link)`
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-evenly;
-	min-height: 350px;
+  height: 350px;
 	width: 350px;
 	box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.1);
 	background: #f2f2f2;
